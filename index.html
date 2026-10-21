@@ -4,798 +4,1103 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Elektron Laboratuvarı</title>
-
+<meta name="theme-color" content="#081525">
+<meta name="description" content="KimyaVerse: Elektron dizilimi, Lewis yapısı, değerlik elektronları ve asit-baz deneyleri.">
+<title>KimyaVerse | İnteraktif Kimya Laboratuvarı</title>
 <style>
-* {
-    box-sizing: border-box;
+:root{
+ --bg:#071322;--panel:#11263d;--panel2:#193852;
+ --line:#345674;--text:#eff8ff;--muted:#aec9dc;
+ --cyan:#6bd8ff;--green:#62e3b3;--red:#ff6c86;
+ --gold:#ffd46c;--purple:#bba1ff;
 }
-
-body {
-    margin: 0;
-    padding: 25px 15px;
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
-    color: white;
-    background: linear-gradient(160deg, #16466c, #091827);
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;color:var(--text);
+ font-family:Arial,Helvetica,sans-serif;
+ background:radial-gradient(circle at 15% 0%,#174669,transparent 40%),
+ radial-gradient(circle at 85% 85%,#22264d,transparent 45%),var(--bg);
 }
-
-main {
-    max-width: 950px;
-    margin: auto;
+button,input,select{font:inherit}
+button{
+ border:0;border-radius:12px;padding:12px 15px;
+ font-weight:800;background:var(--cyan);color:#092037;
+ cursor:pointer;transition:transform .15s,filter .15s;
+ touch-action:manipulation;
 }
-
-header {
-    text-align: center;
-    margin: 20px 0 30px;
+button:hover:not(:disabled){transform:translateY(-2px);filter:brightness(1.1)}
+button:disabled{opacity:.55;cursor:default}
+button:focus-visible{outline:3px solid white;outline-offset:2px}
+.ghost{background:#294b68;color:white;border:1px solid #466c88}
+.gold{background:var(--gold);color:#302307}
+.danger{background:#773347;color:white}
+.active{outline:3px solid white}
+.hidden{display:none!important}
+main{max-width:1220px;margin:auto;padding:16px 14px 55px}
+header{text-align:center;padding:15px 0 25px}
+.logo{font-size:clamp(27px,5vw,44px);font-weight:900;color:var(--cyan);
+ text-shadow:0 0 25px #6bd8ff44}
+.subtitle{color:var(--muted);margin-top:9px}
+.panel{
+ background:#10243bec;border:1px solid var(--line);
+ border-radius:22px;padding:22px;box-shadow:0 12px 35px #0003;
 }
-
-h1 {
-    color: #77d2ff;
-    font-size: 36px;
+h1,h2,h3{margin-top:0}
+h2{font-size:25px}
+h3{color:var(--cyan)}
+p{line-height:1.55;color:var(--muted)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.space{justify-content:space-between}
+.center{text-align:center}
+.grid2{display:grid;grid-template-columns:1.3fr 1fr;gap:17px}
+.card{
+ background:#17324d;border:1px solid #355977;
+ border-radius:17px;padding:17px;margin-bottom:15px;
 }
-
-h2 {
-    margin-top: 0;
+.card h3{font-size:18px;margin-bottom:12px}
+.badge{
+ display:inline-block;padding:6px 10px;border-radius:20px;
+ background:#264e68;color:var(--cyan);font-size:12px;font-weight:bold;
 }
-
-p {
-    color: #c3dced;
-    line-height: 1.5;
+.stats{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.stat{
+ background:#1d3c58;border:1px solid #3a607f;
+ border-radius:12px;padding:10px 13px;min-width:92px;
 }
-
-.panel {
-    background: #142f4b;
-    border: 1px solid #315778;
-    border-radius: 20px;
-    padding: 24px;
+.stat small{display:block;color:var(--muted);margin-bottom:5px}
+.stat strong{font-size:22px}
+#globalScore{color:var(--gold)}
+.progress{height:12px;border-radius:20px;background:#29465f;overflow:hidden;margin:14px 0}
+.bar{height:100%;width:0;background:linear-gradient(90deg,#57bfff,#62e3b3);transition:width .25s}
+.feedback{
+ padding:14px;border:1px solid #527b9a;background:#20435f;
+ border-radius:12px;min-height:58px;line-height:1.5;margin-top:14px;
 }
-
-.center {
-    text-align: center;
+.feedback.good{background:#174c43;border-color:var(--green)}
+.feedback.bad{background:#612b3c;border-color:var(--red)}
+.robotLine{display:flex;align-items:flex-start;gap:12px}
+.robotFace{
+ width:55px;height:55px;border:2px solid var(--cyan);
+ border-radius:16px;background:#295b81;display:grid;place-items:center;
+ font-size:31px;flex:none;
 }
-
-.hidden {
-    display: none !important;
+.robotBubble{background:#244760;padding:13px;border-radius:12px;flex:1;line-height:1.5}
+.stars{font-size:31px;color:var(--gold);letter-spacing:5px}
+.nav{display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin-bottom:18px}
+.nav button{background:#1d405c;color:white;border:1px solid #3a6888}
+.nav button.selected{background:var(--cyan);color:#092037}
+.homeHero{text-align:center;padding:28px 10px}
+.homeAtom{font-size:80px;animation:float 4s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-12px)}}
+.modules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.module{
+ text-align:left;min-height:155px;background:#1a3b58;color:white;
+ border:1px solid #3b6888;padding:19px;
 }
-
-button {
-    background: #66caff;
-    color: #09223b;
-    border: none;
-    border-radius: 12px;
-    padding: 13px 18px;
-    margin: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    touch-action: manipulation;
+.module .emoji{font-size:39px;display:block;margin-bottom:12px}
+.module strong{display:block;font-size:20px;color:var(--cyan);margin-bottom:7px}
+.module span:last-child{color:var(--muted);font-size:13px;font-weight:normal;line-height:1.5}
+.periodic{
+ display:grid;grid-template-columns:repeat(18,minmax(0,1fr));
+ gap:4px;overflow-x:auto;padding:10px 0;
 }
-
-button:hover {
-    filter: brightness(1.12);
+.element{
+ grid-column:var(--c);grid-row:var(--r);padding:5px 2px;
+ min-width:0;min-height:67px;color:white;border-radius:8px;
+ border:1px solid #ffffff44;
 }
-
-.ghost {
-    background: #244c6c;
-    color: white;
+.element .num{display:block;font-size:10px}
+.element .sym{display:block;font-size:22px}
+.element .ename{display:block;font-size:9px;overflow:hidden;text-overflow:ellipsis}
+.nonmetal{background:#28796e}.noble{background:#286f9d}
+.alkali{background:#914b57}.earth{background:#936a3b}
+.metalloid{background:#657c35}.halogen{background:#6c4c9c}
+.metal{background:#477399}
+.orbital{
+ display:flex;gap:12px;align-items:center;padding:11px;
+ background:#1e405d;border-radius:13px;margin:9px 0;
 }
-
-.elements {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 12px;
-    margin-top: 20px;
+.orbitalLabel{font-size:21px;font-weight:900;color:var(--cyan);min-width:42px}
+.boxes{display:flex;gap:8px}
+.slot{
+ width:57px;height:60px;padding:2px;font-size:25px;
+ background:#28506c;color:white;border:2px solid #5083a2;
+ border-bottom:4px solid var(--cyan);border-radius:7px;
 }
-
-.element {
-    background: #204b70;
-    color: white;
-    min-height: 110px;
+.slot.correct{background:#1b7058;border-color:var(--green)}
+.slot.wrong{
+ background:#aa2d46;border-color:#ff9aaa;
+ box-shadow:0 0 18px #ff475788;animation:shake .35s;
 }
-
-.element strong {
-    display: block;
-    color: #83d9ff;
-    font-size: 30px;
-    margin: 5px;
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.atomArea{height:290px;display:grid;place-items:center}
+.atom{width:270px;height:270px;position:relative}
+.shell{
+ position:absolute;top:50%;left:50%;
+ transform:translate(-50%,-50%);border:1.5px solid #6ad0ff77;border-radius:50%;
 }
-
-.small {
-    color: #a9cce4;
-    font-size: 13px;
+.electron{
+ position:absolute;width:12px;height:12px;border-radius:50%;
+ background:#86eaff;box-shadow:0 0 10px #6bd8ff;
+ transform:translate(-50%,-50%);
 }
-
-.toolbar {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 20px 0;
+.nucleus{
+ position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+ width:68px;height:68px;border-radius:50%;
+ display:grid;place-items:center;font-weight:900;font-size:23px;
+ background:radial-gradient(circle at 30% 30%,#ff9d89,#dc4b78,#81409b);
+ box-shadow:0 0 22px #ff628988;z-index:2;
 }
-
-.orbital {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    background: #1b405e;
-    padding: 15px;
-    border-radius: 14px;
-    margin: 12px 0;
+.achievements{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.achievement{
+ background:#28435b;border:1px solid #47617a;border-radius:12px;
+ text-align:center;padding:12px 5px;opacity:.4;
 }
-
-.orbital-label {
-    color: #8cddff;
-    font-size: 22px;
-    font-weight: bold;
-    width: 45px;
+.achievement.unlocked{opacity:1;background:#51472e;border-color:var(--gold)}
+.achievement span{display:block;font-size:26px;margin-bottom:5px}
+.achievement small{font-size:11px}
+.lewisArea{
+ display:flex;justify-content:center;align-items:center;
+ min-height:300px;position:relative;
 }
-
-.boxes {
-    display: flex;
-    gap: 9px;
+.lewisBoard{width:260px;height:260px;position:relative}
+.lewisSymbol{
+ position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+ font-size:65px;font-weight:900;color:var(--cyan);
 }
-
-.slot {
-    width: 65px;
-    height: 65px;
-    background: #254e6b;
-    color: white;
-    border-bottom: 4px solid #69cfff;
-    font-size: 25px;
-    padding: 5px;
-    margin: 0;
-    transition: background 0.15s;
+.lewisSpot{
+ position:absolute;width:58px;height:58px;
+ background:#234b69;border:2px dashed #6f9cba;border-radius:12px;
+ color:white;font-size:24px;display:grid;place-items:center;
 }
-
-.slot.correct {
-    background: #216f5b;
-    border: 2px solid #67e6b1;
+.lewisSpot.top{left:101px;top:0}
+.lewisSpot.right{right:0;top:101px}
+.lewisSpot.bottom{left:101px;bottom:0}
+.lewisSpot.left{left:0;top:101px}
+.lewisSpot.correct{border-color:var(--green);background:#17654e}
+.lewisSpot.wrong{border-color:var(--red);background:#922d46}
+.answerChoices{display:flex;gap:10px;flex-wrap:wrap}
+.answerChoices button{min-width:55px}
+.beakerArea{display:grid;grid-template-columns:1fr 1fr;gap:15px;align-items:center}
+.labDrawing{position:relative;width:100%;max-width:350px;margin:auto}
+.labDrawing svg{width:100%;height:auto;display:block}
+.labLiquids{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.liquidBtn{
+ background:#234966;color:white;border:1px solid #416c89;
+ min-height:70px;text-align:left;font-size:13px;
 }
-
-.slot.wrong {
-    background: #a52c3a;
-    border: 3px solid #ff8893;
-    box-shadow: 0 0 16px #ff475777;
+.liquidBtn .drop{display:block;font-size:24px;margin-bottom:5px}
+.phScale{margin:20px 0}
+.phLabels{display:flex;justify-content:space-between;font-weight:bold;font-size:13px}
+.phTrack{
+ height:16px;border-radius:20px;margin:10px 0;
+ background:linear-gradient(90deg,#e24a58,#f1a94c,#e6d965,#59c88e,#5daddc,#8067cc);
+ position:relative;
 }
-
-.spin.active {
-    background: white;
-    color: #123451;
-    outline: 3px solid #6ed3ff;
+.phPointer{position:relative;height:23px}
+.phArrow{position:absolute;top:0;transform:translateX(-50%);color:white;font-size:23px}
+.phValue{font-size:25px;font-weight:900;text-align:center}
+.controls{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0}
+.notice{
+ padding:11px;border-left:3px solid var(--gold);
+ background:#3d3a30;border-radius:8px;color:#f5e5b9;font-size:13px;
+ line-height:1.5;
 }
-
-.feedback {
-    padding: 16px;
-    border-radius: 12px;
-    background: #204563;
-    margin: 20px 0;
-    min-height: 65px;
+.celebration{
+ position:fixed;inset:0;z-index:100;
+ display:grid;place-items:center;background:#04101ee8;padding:15px;
 }
-
-.good {
-    border: 1px solid #4fba9b;
+.celebrationBox{
+ background:linear-gradient(145deg,#1b4160,#11243b);
+ border:2px solid var(--gold);border-radius:25px;
+ padding:30px;text-align:center;width:min(440px,100%);
+ box-shadow:0 0 60px #ffd66b33;animation:pop .4s;
 }
-
-.bad {
-    border: 1px solid #ff9a8b;
+@keyframes pop{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}
+.confetti{
+ position:fixed;top:-30px;z-index:101;width:9px;height:17px;
+ pointer-events:none;animation:fall linear forwards;
 }
-
-.info {
-    border: 1px solid #6089b0;
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+footer{text-align:center;color:#91aec2;padding:25px;font-size:13px}
+details{color:var(--muted);line-height:1.6;margin-top:14px}
+summary{cursor:pointer;color:var(--cyan);font-weight:bold}
+@media(max-width:850px){
+ .grid2,.beakerArea{grid-template-columns:1fr}
+ .periodic{grid-template-columns:repeat(18,minmax(43px,1fr))}
 }
-
-.progress {
-    height: 12px;
-    background: #24435c;
-    border-radius: 20px;
-    overflow: hidden;
-    margin: 15px 0;
+@media(max-width:550px){
+ .panel{padding:14px}.modules{grid-template-columns:1fr}
+ .slot{width:48px;height:55px;font-size:21px}
+ .orbital{gap:7px;padding:8px}
+ .labLiquids{grid-template-columns:1fr 1fr}
+ .logo{font-size:28px}
 }
-
-.bar {
-    height: 100%;
-    background: #66caff;
-    width: 0%;
-    transition: width 0.2s;
-}
-
-.rules {
-    margin-top: 25px;
-    color: #c4ddeb;
-    line-height: 1.6;
-}
-
-footer {
-    text-align: center;
-    padding: 25px;
-    color: #a9cce4;
-}
-
-@media (max-width: 520px) {
-    .panel {
-        padding: 15px;
-    }
-
-    .slot {
-        width: 52px;
-        height: 60px;
-        font-size: 21px;
-    }
-
-    h1 {
-        font-size: 27px;
-    }
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
 }
 </style>
 </head>
-
 <body>
 <main>
-
 <header>
-    <h1>⚛ ELEKTRON LABORATUVARI</h1>
-    <p>Aufbau • Pauli • Hund</p>
+ <div class="logo">⚗️ KİMYAVERSE</div>
+ <div class="subtitle">İnteraktif Kimya Laboratuvarı • Keşfet, Dene, Öğren!</div>
 </header>
 
-<section id="home" class="panel center">
-    <h2>Elektronları doğru yerleştirebilir misin?</h2>
-    <p>
-        Element seç, elektronları orbitallere yerleştir.
-        Yanlışlarını düzelt ve seviyeleri tamamla!
-    </p>
-    <button id="start">OYUNA BAŞLA</button>
+<nav id="navigation" class="nav hidden">
+ <button data-page="home">🏠 Ana sayfa</button>
+ <button data-page="electron">⚛️ Elektron</button>
+ <button data-page="lewis">🔵 Lewis</button>
+ <button data-page="valence">🧬 Değerlik</button>
+ <button data-page="acid">🧪 Asit–Baz</button>
+</nav>
+
+<div class="stats">
+ <div class="stat"><small>🏆 TOPLAM PUAN</small><strong id="globalScore">0</strong></div>
+ <div class="stat"><small>🔥 KOMBO</small><strong id="globalStreak">0</strong></div>
+ <div class="stat"><small>❌ HATA</small><strong id="globalErrors">0</strong></div>
+</div>
+
+<!-- ANA SAYFA -->
+<section id="home" class="panel">
+ <div class="homeHero">
+  <div class="homeAtom">⚛️</div>
+  <h1>KimyaVerse'e Hoş Geldin!</h1>
+  <p>Kimya artık sadece ezber değil. Deney yap, atomları keşfet ve görevleri tamamla!</p>
+ </div>
+ <div class="modules">
+  <button class="module" data-page="electron">
+   <span class="emoji">⚛️</span><strong>Elektron Dizilimi</strong>
+   <span>Orbitalleri doldur. Aufbau, Pauli ve Hund kurallarını öğren.</span>
+  </button>
+  <button class="module" data-page="lewis">
+   <span class="emoji">🔵</span><strong>Lewis Nokta Yapısı</strong>
+   <span>Elementlerin değerlik elektronlarını noktalara dönüştür.</span>
+  </button>
+  <button class="module" data-page="valence">
+   <span class="emoji">🧬</span><strong>Değerlik Oyunu</strong>
+   <span>Son katman elektronlarını, grup ve periyotları keşfet.</span>
+  </button>
+  <button class="module" data-page="acid">
+   <span class="emoji">🧪</span><strong>Asit–Baz Laboratuvarı</strong>
+   <span>Sıvı ekle, ölçüm cihazını indir, suyla seyrelt ve boşalt.</span>
+  </button>
+ </div>
 </section>
 
-<section id="choose" class="panel hidden">
-    <h2>ELEMENTİNİ SEÇ</h2>
-    <button id="backHome" class="ghost">Ana sayfa</button>
-    <p>İlk 20 elementten birini seç!</p>
-    <div id="elements" class="elements"></div>
-</section>
-
-<section id="game" class="panel hidden">
-
-    <p id="level"></p>
-    <h2 id="elementName"></h2>
-
-    <p id="count"></p>
-    <p id="score"></p>
-
-    <div class="progress">
-        <div id="bar" class="bar"></div>
+<!-- ELEKTRON OYUNU -->
+<section id="electron" class="panel hidden">
+ <div class="row space">
+  <h2>⚛️ Elektron Dizilimi</h2>
+  <button id="electronChoose" class="ghost">Element seç</button>
+ </div>
+ <div id="electronSelection">
+  <p>Periyodik tablodan bir element seç!</p>
+  <div id="electronPeriodic" class="periodic"></div>
+ </div>
+ <div id="electronGame" class="hidden">
+  <div class="row space">
+   <div>
+    <span id="electronLevel" class="badge"></span>
+    <h2 id="electronName" style="margin:10px 0"></h2>
+   </div>
+   <div class="stars" id="electronStars">☆☆☆</div>
+  </div>
+  <div class="progress"><div id="electronBar" class="bar"></div></div>
+  <p id="electronCount"></p>
+  <div class="grid2">
+   <div>
+    <div class="card">
+     <h3>⚡ Orbital Yerleştirme Alanı</h3>
+     <p>Spin seç, kutuya tıkla. Yanlış elektron kırmızı yanar; geri alıp tekrar dene.</p>
+     <div class="controls">
+      <button id="spinUp">↑ Yukarı</button>
+      <button id="spinDown" class="ghost">↓ Aşağı</button>
+      <button id="electronUndo" class="ghost">↶ Geri al</button>
+      <button id="electronReset" class="danger">⟳ Sıfırla</button>
+      <button id="electronHint" class="gold">💡 İpucu</button>
+     </div>
+     <div id="orbitals"></div>
+     <div id="electronFeedback" class="feedback" role="status" aria-live="polite"></div>
     </div>
-
-    <p>
-        Elektronun yönünü seç ve kutuya bas.
-        Yanlış yerleştirirsen kutu kırmızı olur.
-    </p>
-
-    <div class="toolbar">
-        <button id="up" class="spin active">↑ Yukarı spin</button>
-        <button id="down" class="spin ghost">↓ Aşağı spin</button>
-        <button id="undo" class="ghost">↶ Geri al</button>
-        <button id="reset" class="ghost">⟳ Sıfırla</button>
-    </div>
-
-    <div id="orbitals"></div>
-
-    <div id="feedback" class="feedback info" role="status">
-        İlk elektronu 1s orbitaline yerleştir.
-    </div>
-
-    <button id="next" class="hidden">
-        Sonraki element →
-    </button>
-
-    <button id="backChoose" class="ghost">
-        Element seçimine dön
-    </button>
-
-    <details class="rules">
-        <summary>Kuralları hatırlat</summary>
-
-        <p>
-            <b>Aufbau:</b>
-            Elektronlar düşük enerjili orbitallerden
-            başlayarak yerleşir.
-        </p>
-
-        <p>
-            <b>Pauli:</b>
-            Bir orbitalde en fazla iki elektron
-            bulunur ve spinleri zıttır.
-        </p>
-
-        <p>
-            <b>Hund:</b>
-            Eş enerjili orbitallere önce paralel
-            spinli birer elektron yerleşir.
-            Daha sonra elektronlar eşleştirilir.
-        </p>
+    <details class="card">
+     <summary>📚 Aufbau, Pauli ve Hund kuralları</summary>
+     <p><b>Aufbau:</b> Elektronlar önce düşük enerjili orbitallere yerleşir.</p>
+     <p><b>Pauli:</b> Bir orbitalde en fazla iki elektron bulunur ve spinleri zıttır.</p>
+     <p><b>Hund:</b> Eş enerjili orbitallere önce paralel spinli birer elektron yerleşir.</p>
     </details>
-
+   </div>
+   <div>
+    <div class="card">
+     <h3>⚛️ Canlı Atom Modeli</h3>
+     <div class="atomArea"><div id="atom" class="atom"></div></div>
+     <p id="atomCaption" class="center"></p>
+     <p class="center" style="font-size:12px">Bohr katmanlarının basitleştirilmiş gösterimi</p>
+    </div>
+    <div class="card">
+     <h3>🤖 LAB-BOT</h3>
+     <div class="robotLine"><div class="robotFace">🤖</div><div id="electronRobot" class="robotBubble"></div></div>
+    </div>
+    <div class="card">
+     <h3>🏅 Başarılar</h3>
+     <div class="achievements">
+      <div id="badgeFirst" class="achievement"><span>🔬</span><small>İlk elektron</small></div>
+      <div id="badgeCombo" class="achievement"><span>🔥</span><small>3'lü kombo</small></div>
+      <div id="badgePerfect" class="achievement"><span>🏆</span><small>Hatasız seviye</small></div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <button id="electronNext" class="hidden">Sonraki element →</button>
+ </div>
 </section>
 
-<footer>
-    Elektron Laboratuvarı • Kimya Oyunu
-</footer>
+<!-- LEWIS -->
+<section id="lewis" class="panel hidden">
+ <h2>🔵 Lewis Nokta Yapısı</h2>
+ <p>Element seç ve değerlik elektronlarını sembolün çevresine yerleştir. Önce dört yöne birer nokta, sonra eşleştirme yap.</p>
+ <div class="row">
+  <label for="lewisElement">Element:</label>
+  <select id="lewisElement"></select>
+  <button id="lewisReset" class="ghost">⟳ Sıfırla</button>
+  <button id="lewisHint" class="gold">💡 İpucu</button>
+ </div>
+ <div class="grid2" style="margin-top:18px">
+  <div class="card">
+   <h3>Lewis Çizim Alanı</h3>
+   <p id="lewisCount"></p>
+   <div class="lewisArea">
+    <div class="lewisBoard">
+     <div id="lewisSymbol" class="lewisSymbol">C</div>
+     <button class="lewisSpot top" data-side="0"></button>
+     <button class="lewisSpot right" data-side="1"></button>
+     <button class="lewisSpot bottom" data-side="2"></button>
+     <button class="lewisSpot left" data-side="3"></button>
+    </div>
+   </div>
+   <div id="lewisFeedback" class="feedback" role="status"></div>
+  </div>
+  <div class="card">
+   <h3>🤖 LAB-BOT</h3>
+   <div class="robotLine"><div class="robotFace">🤖</div><div id="lewisRobot" class="robotBubble">Bir element seç ve noktaları yerleştir!</div></div>
+   <p style="margin-top:20px">Bu bölüm tek atomların Lewis sembollerini öğretir. Moleküllerin bağ yapıları daha sonra eklenebilir.</p>
+  </div>
+ </div>
+</section>
 
+<!-- DEĞERLİK -->
+<section id="valence" class="panel hidden">
+ <h2>🧬 Değerlik Elektronları Oyunu</h2>
+ <p>Elementin son katmanındaki elektron sayısını bul!</p>
+ <div class="grid2">
+  <div class="card center">
+   <span class="badge" id="valenceLevel"></span>
+   <div style="font-size:90px;color:var(--cyan);font-weight:900" id="valenceSymbol">Na</div>
+   <h2 id="valenceName"></h2>
+   <p id="valenceQuestion"></p>
+   <div id="valenceChoices" class="answerChoices" style="justify-content:center"></div>
+   <div id="valenceFeedback" class="feedback"></div>
+   <button id="valenceNext" class="hidden" style="margin-top:15px">Sonraki soru →</button>
+  </div>
+  <div class="card">
+   <h3>🤖 LAB-BOT</h3>
+   <div class="robotLine"><div class="robotFace">🤖</div><div id="valenceRobot" class="robotBubble">Son katmandaki elektronları say!</div></div>
+   <details>
+    <summary>Grup ve periyot nasıl bulunur?</summary>
+    <p>İlk 20 elementin ana grup düzeninde, periyot dolu katman sayısıyla ilişkilidir. Değerlik elektronları ise genellikle en dış katmandaki elektronlardır. Helyumun değerlik elektron sayısı 2'dir.</p>
+   </details>
+  </div>
+ </div>
+</section>
+
+<!-- ASİT BAZ -->
+<section id="acid" class="panel hidden">
+ <h2>🧪 Asit–Baz Laboratuvarı</h2>
+ <p>Çizdiğin deney düzeneğinin dijital hâli! Sıvı ekle, ölçüm cihazını aşağı indir, göstergeyi oku, suyla seyrelt veya musluğu açıp boşalt.</p>
+ <div class="notice">
+  ⚠️ Bu bir eğitim simülasyonudur. Gerçek kimyasalları özellikle temizlik ürünlerini birbirleriyle karıştırma. Oyundaki pH değerleri seçilen maddelerin örnek çözeltilerine aittir; karışım hesapları gerçek laboratuvar ölçümü değildir.
+ </div>
+ <div class="grid2" style="margin-top:18px">
+  <div>
+   <div class="card">
+    <h3>⚗️ Deney Düzeneği</h3>
+    <div class="labDrawing">
+     <svg id="labSvg" viewBox="0 0 350 330" aria-label="Sıvı kabı, ölçüm cihazı ve boşaltma musluğu">
+      <defs>
+       <clipPath id="beakerClip">
+        <path d="M88 78 L88 255 Q88 274 108 274 L238 274 Q258 274 258 255 L258 78 Z"/>
+       </clipPath>
+      </defs>
+      <rect x="118" y="15" width="112" height="47" rx="10" fill="#2b5474" stroke="#8cdbff" stroke-width="2"/>
+      <text x="174" y="34" text-anchor="middle" fill="white" font-size="12">pH ÖLÇER</text>
+      <text id="meterDisplay" x="174" y="52" text-anchor="middle" fill="#8ef0bc" font-size="16" font-weight="bold">--</text>
+      <line id="probeWire" x1="174" y1="62" x2="174" y2="92" stroke="#a9c5d8" stroke-width="4"/>
+      <rect id="probe" x="166" y="91" width="16" height="57" rx="5" fill="#d5e4ed" stroke="#7fa9bf" stroke-width="2"/>
+      <g clip-path="url(#beakerClip)">
+       <rect id="liquidFill" x="88" y="274" width="170" height="0" fill="#78d3f8" opacity=".78"/>
+      </g>
+      <path d="M88 76 V255 Q88 274 108 274 H238 Q258 274 258 255 V76" fill="none" stroke="#b6dff4" stroke-width="5" stroke-linecap="round"/>
+      <path d="M76 76 H270" stroke="#b6dff4" stroke-width="5" stroke-linecap="round"/>
+      <path d="M258 239 H302 V254" fill="none" stroke="#b6dff4" stroke-width="12" stroke-linejoin="round"/>
+      <rect x="292" y="221" width="19" height="14" rx="3" fill="#a8d7ef"/>
+      <line x1="301" y1="213" x2="301" y2="241" stroke="#d7ecfa" stroke-width="5"/>
+      <line x1="289" y1="213" x2="313" y2="213" stroke="#d7ecfa" stroke-width="5"/>
+      <path id="drainDrop" d="M301 261 Q288 281 301 290 Q314 281 301 261" fill="#72d0f5" opacity="0"/>
+      <text x="174" y="307" text-anchor="middle" fill="#b6d3e6" font-size="13" id="beakerLabel">Kap boş</text>
+     </svg>
+    </div>
+    <div class="controls">
+     <button id="probeButton">⬇️ Ölçüm cihazını indir</button>
+     <button id="waterButton" class="ghost">💧 Su ekle</button>
+     <button id="drainButton" class="danger">🚰 Musluğu aç</button>
+    </div>
+    <p id="probeDepth">Cihaz yukarıda</p>
+   </div>
+   <div class="card">
+    <h3>📊 Asit – Nötr – Baz Göstergesi</h3>
+    <div class="phScale">
+     <div class="phLabels"><span>ASİT</span><span>NÖTR</span><span>BAZ</span></div>
+     <div class="phTrack"></div>
+     <div class="phPointer"><span id="phArrow" class="phArrow" style="left:50%">▼</span></div>
+     <div id="phValue" class="phValue">Ölçüm bekleniyor</div>
+    </div>
+    <div id="acidFeedback" class="feedback" role="status"></div>
+   </div>
+  </div>
+  <div>
+   <div class="card">
+    <h3>🧴 Sıvı Seçimi</h3>
+    <p>Bir maddeye basınca kaba bir ölçü eklenir.</p>
+    <div id="liquidChoices" class="labLiquids"></div>
+   </div>
+   <div class="card">
+    <h3>🤖 LAB-BOT</h3>
+    <div class="robotLine"><div class="robotFace">🤖</div><div id="acidRobot" class="robotBubble">Önce bir sıvı seç!</div></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<footer>KimyaVerse • İnteraktif Kimya Laboratuvarı</footer>
 </main>
 
+<div id="celebration" class="celebration hidden">
+ <div class="celebrationBox">
+  <div style="font-size:65px">🏆</div>
+  <h2 id="winTitle">TEBRİKLER!</h2>
+  <div id="winStars" class="stars">★★★</div>
+  <p id="winText"></p>
+  <button id="winClose">Devam et ✨</button>
+ </div>
+</div>
+
 <script>
-
-// ELEMENTLER
-
-const elements = [
-    {symbol:"H", name:"Hidrojen", z:1},
-    {symbol:"He", name:"Helyum", z:2},
-    {symbol:"Li", name:"Lityum", z:3},
-    {symbol:"Be", name:"Berilyum", z:4},
-    {symbol:"B", name:"Bor", z:5},
-    {symbol:"C", name:"Karbon", z:6},
-    {symbol:"N", name:"Azot", z:7},
-    {symbol:"O", name:"Oksijen", z:8},
-    {symbol:"F", name:"Flor", z:9},
-    {symbol:"Ne", name:"Neon", z:10},
-    {symbol:"Na", name:"Sodyum", z:11},
-    {symbol:"Mg", name:"Magnezyum", z:12},
-    {symbol:"Al", name:"Alüminyum", z:13},
-    {symbol:"Si", name:"Silisyum", z:14},
-    {symbol:"P", name:"Fosfor", z:15},
-    {symbol:"S", name:"Kükürt", z:16},
-    {symbol:"Cl", name:"Klor", z:17},
-    {symbol:"Ar", name:"Argon", z:18},
-    {symbol:"K", name:"Potasyum", z:19},
-    {symbol:"Ca", name:"Kalsiyum", z:20}
-];
-
-// ORBİTALLER
-
-const subshells = [
-    {name:"1s", n:1},
-    {name:"2s", n:1},
-    {name:"2p", n:3},
-    {name:"3s", n:1},
-    {name:"3p", n:3},
-    {name:"4s", n:1}
-];
+"use strict";
 
 const $ = id => document.getElementById(id);
 
-let selected = null;
-let spin = "↑";
-let slots = [];
-let history = [];
-let points = 0;
-let completed = false;
-let mistake = null;
-let lastCorrect = null;
+const elements=[
+ {s:"H",n:"Hidrojen",z:1,r:1,c:1,t:"nonmetal",v:1},
+ {s:"He",n:"Helyum",z:2,r:1,c:18,t:"noble",v:2},
+ {s:"Li",n:"Lityum",z:3,r:2,c:1,t:"alkali",v:1},
+ {s:"Be",n:"Berilyum",z:4,r:2,c:2,t:"earth",v:2},
+ {s:"B",n:"Bor",z:5,r:2,c:13,t:"metalloid",v:3},
+ {s:"C",n:"Karbon",z:6,r:2,c:14,t:"nonmetal",v:4},
+ {s:"N",n:"Azot",z:7,r:2,c:15,t:"nonmetal",v:5},
+ {s:"O",n:"Oksijen",z:8,r:2,c:16,t:"nonmetal",v:6},
+ {s:"F",n:"Flor",z:9,r:2,c:17,t:"halogen",v:7},
+ {s:"Ne",n:"Neon",z:10,r:2,c:18,t:"noble",v:8},
+ {s:"Na",n:"Sodyum",z:11,r:3,c:1,t:"alkali",v:1},
+ {s:"Mg",n:"Magnezyum",z:12,r:3,c:2,t:"earth",v:2},
+ {s:"Al",n:"Alüminyum",z:13,r:3,c:13,t:"metal",v:3},
+ {s:"Si",n:"Silisyum",z:14,r:3,c:14,t:"metalloid",v:4},
+ {s:"P",n:"Fosfor",z:15,r:3,c:15,t:"nonmetal",v:5},
+ {s:"S",n:"Kükürt",z:16,r:3,c:16,t:"nonmetal",v:6},
+ {s:"Cl",n:"Klor",z:17,r:3,c:17,t:"halogen",v:7},
+ {s:"Ar",n:"Argon",z:18,r:3,c:18,t:"noble",v:8},
+ {s:"K",n:"Potasyum",z:19,r:4,c:1,t:"alkali",v:1},
+ {s:"Ca",n:"Kalsiyum",z:20,r:4,c:2,t:"earth",v:2}
+];
 
-// EKRANLAR
+const subshells=[
+ {name:"1s",boxes:1,shell:1},
+ {name:"2s",boxes:1,shell:2},
+ {name:"2p",boxes:3,shell:2},
+ {name:"3s",boxes:1,shell:3},
+ {name:"3p",boxes:3,shell:3},
+ {name:"4s",boxes:1,shell:4}
+];
 
-function screen(id) {
-    ["home", "choose", "game"].forEach(key => {
-        $(key).classList.toggle("hidden", key !== id);
-    });
+let score=0,streak=0,errors=0;
+let soundEnabled=true,audioContext=null;
+let achievements={first:false,combo:false,perfect:false};
+let currentPage="home";
+
+function changeScore(value){
+ score+=value;
+ $("globalScore").textContent=score;
 }
-
-function message(text, type = "info") {
-    $("feedback").textContent = text;
-    $("feedback").className = "feedback " + type;
+function correct(points=10){
+ changeScore(points);
+ streak++;
+ $("globalStreak").textContent=streak;
+ if(streak%3===0){
+  changeScore(5);
+  achievements.combo=true;
+  playSound("combo");
+  return 5;
+ }
+ playSound("correct");
+ return 0;
 }
-
-// ELEMENT SEÇİMİ
-
-function choose() {
-    screen("choose");
-    $("elements").replaceChildren();
-
-    elements.forEach((el, i) => {
-        const button = document.createElement("button");
-        button.className = "element";
-
-        const number = document.createElement("span");
-        number.className = "small";
-        number.textContent = "Atom no: " + el.z;
-
-        const symbol = document.createElement("strong");
-        symbol.textContent = el.symbol;
-
-        const name = document.createElement("span");
-        name.textContent = el.name;
-
-        button.append(number, symbol, name);
-
-        button.addEventListener("click", () => load(i));
-        $("elements").append(button);
-    });
+function wrong(){
+ changeScore(-5);
+ errors++;
+ streak=0;
+ $("globalStreak").textContent=0;
+ $("globalErrors").textContent=errors;
+ playSound("wrong");
 }
-
-// SEVİYE BAŞLATMA
-
-function load(i) {
-    selected = i;
-    spin = "↑";
-    history = [];
-    completed = false;
-    mistake = null;
-    lastCorrect = null;
-
-    slots = subshells.map(sub =>
-        Array.from({length:sub.n}, () => [])
-    );
-
-    $("level").textContent =
-        "SEVİYE " + (i + 1) + " / " + elements.length;
-
-    $("elementName").textContent =
-        elements[i].name + " (" + elements[i].symbol + ")";
-
-    $("next").classList.add("hidden");
-
-    message("İlk elektronu 1s orbitaline yerleştir.");
-
-    screen("game");
-    render();
+function showPage(page){
+ currentPage=page;
+ ["home","electron","lewis","valence","acid"].forEach(id=>{
+  $(id).classList.toggle("hidden",id!==page);
+ });
+ $("navigation").classList.toggle("hidden",page==="home");
+ document.querySelectorAll("#navigation button").forEach(btn=>{
+  btn.classList.toggle("selected",btn.dataset.page===page);
+ });
+ window.scrollTo({top:0,behavior:"smooth"});
 }
-
-// ELEKTRON SAYISI
-
-function count() {
-    return slots.flat().reduce(
-        (sum, box) => sum + box.length,
-        0
-    );
-}
-
-// KİMYA KURALLARI
-
-function validate(s, b, arrow) {
-    const current = slots[s][b];
-    const group = slots[s];
-
-    if (count() >= elements[selected].z) {
-        return "Bu elementin bütün elektronları yerleştirildi!";
-    }
-
-    // PAULI
-
-    if (current.length >= 2) {
-        return "Pauli: Bu orbitalde zaten iki elektron var!";
-    }
-
-    if (current.includes(arrow)) {
-        return "Pauli: Aynı orbitaldeki elektronların spinleri zıt olmalı!";
-    }
-
-    // AUFBAU
-
-    for (let k = 0; k < s; k++) {
-        if (slots[k].some(box => box.length < 2)) {
-            return "Aufbau: Önce " +
-                subshells[k].name +
-                " orbitalini doldurmalısın!";
-        }
-    }
-
-    // HUND
-
-    if (group.length > 1) {
-        const firstEmpty = group.findIndex(
-            box => box.length === 0
-        );
-
-        if (firstEmpty !== -1) {
-
-            if (current.length > 0) {
-                return "Hund: Önce üç kutuya da birer elektron koy!";
-            }
-
-            if (b !== firstEmpty) {
-                return "Hund: Önce soldaki boş kutuya elektron koy!";
-            }
-
-            if (b > 0 && arrow !== group[0][0]) {
-                return "Hund: Tek elektronların spinleri aynı olmalı!";
-            }
-
-        } else {
-
-            const firstSingle = group.findIndex(
-                box => box.length === 1
-            );
-
-            if (b !== firstSingle) {
-                return "Hund: Önce soldaki tek elektronu eşleştir!";
-            }
-
-            if (arrow === current[0]) {
-                return "Pauli: Eşleşen elektronun spini zıt olmalı!";
-            }
-        }
-    }
-
-    return null;
-}
-
-// ELEKTRON YERLEŞTİRME
-
-function place(s, b) {
-
-    if (completed) return;
-
-    // YANLIŞ HAMLE VARSA ÖNCE GERİ ALINMALI
-
-    if (mistake !== null) {
-        message(
-            "Önce kırmızı elektronu Geri al butonuyla kaldır!",
-            "bad"
-        );
-        return;
-    }
-
-    // FİZİKSEL OLARAK İKİDEN FAZLA
-    // ELEKTRON GÖSTERMEYELİM
-
-    if (slots[s][b].length >= 2) {
-        mistake = {
-            s,
-            b,
-            added: false
-        };
-
-        lastCorrect = null;
-
-        message(
-            "Pauli: Bir orbitalde en fazla iki elektron olabilir! Geri al.",
-            "bad"
-        );
-
-        render();
-        return;
-    }
-
-    const error = validate(s, b, spin);
-
-    // YANLIŞ ELEKTRON DA KUTUYA EKLENİR
-
-    slots[s][b].push(spin);
-
-    if (error) {
-
-        mistake = {
-            s,
-            b,
-            added: true
-        };
-
-        lastCorrect = null;
-
-        message(
-            "YANLIŞ! " + error + " Geri al ve yeniden dene.",
-            "bad"
-        );
-
-        render();
-        return;
-    }
-
-    // DOĞRU HAMLE
-
-    history.push({s, b});
-
-    points += 10;
-
-    lastCorrect = {s, b};
-
-    if (count() === elements[selected].z) {
-
-        completed = true;
-        points += 50;
-
-        message(
-            "TEBRİKLER! " +
-            elements[selected].name +
-            " tamamlandı! +50 bonus puan!",
-            "good"
-        );
-
-        if (selected < elements.length - 1) {
-            $("next").classList.remove("hidden");
-        }
-
-    } else {
-
-        message("Doğru hamle! +10 puan", "good");
-    }
-
-    render();
-}
-
-// EKRANI YENİLEME
-
-function render() {
-
-    const total = count();
-
-    $("count").textContent =
-        total + " / " +
-        elements[selected].z + " elektron";
-
-    $("score").textContent =
-        "Puan: " + points;
-
-    $("bar").style.width =
-        Math.min(
-            100,
-            total / elements[selected].z * 100
-        ) + "%";
-
-    $("up").classList.toggle(
-        "active",
-        spin === "↑"
-    );
-
-    $("down").classList.toggle(
-        "active",
-        spin === "↓"
-    );
-
-    $("orbitals").replaceChildren();
-
-    subshells.forEach((sub, s) => {
-
-        const row = document.createElement("div");
-        row.className = "orbital";
-
-        const label = document.createElement("span");
-        label.className = "orbital-label";
-        label.textContent = sub.name;
-
-        const boxes = document.createElement("div");
-        boxes.className = "boxes";
-
-        slots[s].forEach((electrons, b) => {
-
-            const btn = document.createElement("button");
-            btn.className = "slot";
-
-            btn.textContent = electrons.join("");
-
-            if (
-                mistake !== null &&
-                mistake.s === s &&
-                mistake.b === b
-            ) {
-                btn.classList.add("wrong");
-            }
-
-            if (
-                mistake === null &&
-                lastCorrect !== null &&
-                lastCorrect.s === s &&
-                lastCorrect.b === b
-            ) {
-                btn.classList.add("correct");
-            }
-
-            btn.disabled = completed;
-
-            btn.addEventListener(
-                "click",
-                () => place(s, b)
-            );
-
-            boxes.append(btn);
-        });
-
-        row.append(label, boxes);
-        $("orbitals").append(row);
-    });
-}
-
-// BUTONLAR
-
-$("start").addEventListener("click", choose);
-
-$("backHome").addEventListener(
-    "click",
-    () => screen("home")
-);
-
-$("backChoose").addEventListener(
-    "click",
-    choose
-);
-
-$("up").addEventListener("click", () => {
-    spin = "↑";
-    render();
+document.querySelectorAll("[data-page]").forEach(btn=>{
+ btn.addEventListener("click",()=>showPage(btn.dataset.page));
 });
 
-$("down").addEventListener("click", () => {
-    spin = "↓";
-    render();
-});
+function playSound(type){
+ if(!soundEnabled)return;
+ try{
+  const AC=window.AudioContext||window.webkitAudioContext;
+  if(!AC)return;
+  if(!audioContext)audioContext=new AC();
+  if(audioContext.state==="suspended")audioContext.resume();
+  const now=audioContext.currentTime;
+  function tone(freq,offset,duration,wave="sine"){
+   const o=audioContext.createOscillator();
+   const g=audioContext.createGain();
+   o.type=wave;o.frequency.value=freq;
+   g.gain.setValueAtTime(.0001,now+offset);
+   g.gain.exponentialRampToValueAtTime(.1,now+offset+.01);
+   g.gain.exponentialRampToValueAtTime(.0001,now+offset+duration);
+   o.connect(g);g.connect(audioContext.destination);
+   o.start(now+offset);o.stop(now+offset+duration+.02);
+  }
+  if(type==="correct"){tone(520,0,.12);tone(780,.1,.16)}
+  if(type==="wrong"){tone(230,0,.15,"sawtooth");tone(160,.12,.2,"sawtooth")}
+  if(type==="combo"){tone(660,0,.12);tone(990,.1,.2)}
+  if(type==="win"){tone(440,0,.15);tone(550,.14,.15);tone(660,.28,.15);tone(880,.42,.3)}
+ }catch(e){}
+}
+function celebrate(title,text,stars=3){
+ $("winTitle").textContent=title;
+ $("winText").textContent=text;
+ $("winStars").textContent="★".repeat(stars)+"☆".repeat(3-stars);
+ $("celebration").classList.remove("hidden");
+ playSound("win");
+ const colors=["#65d4ff","#ffd66b","#ff657d","#54e0ae","#bba1ff"];
+ for(let i=0;i<50;i++){
+  const part=document.createElement("div");
+  part.className="confetti";
+  part.style.left=Math.random()*100+"vw";
+  part.style.background=colors[Math.floor(Math.random()*colors.length)];
+  part.style.animationDuration=2+Math.random()*2+"s";
+  part.style.animationDelay=Math.random()*.6+"s";
+  document.body.append(part);
+  part.addEventListener("animationend",()=>part.remove());
+ }
+}
+$("winClose").onclick=()=>$("celebration").classList.add("hidden");
 
-// GERİ AL
+// PERİYODİK TABLO
+function buildPeriodic(container,callback){
+ $(container).replaceChildren();
+ elements.forEach((el,i)=>{
+  const btn=document.createElement("button");
+  btn.className="element "+el.t;
+  btn.style.setProperty("--r",el.r);
+  btn.style.setProperty("--c",el.c);
+  const num=document.createElement("span");num.className="num";num.textContent=el.z;
+  const sym=document.createElement("strong");sym.className="sym";sym.textContent=el.s;
+  const name=document.createElement("span");name.className="ename";name.textContent=el.n;
+  btn.append(num,sym,name);
+  btn.title=el.n;
+  btn.onclick=()=>callback(i);
+  $(container).append(btn);
+ });
+}
 
-$("undo").addEventListener("click", () => {
+// ELEKTRON DİZİLİMİ
+let eSelected=null,eSlots=[],eHistory=[],eSpin="↑";
+let eMistake=null,eCompleted=false,eErrors=0,eStreak=0,eLast=null;
+let eEarned=0;
 
-    // ÖNCE YANLIŞ HAMLEYİ GERİ AL
-
-    if (mistake !== null) {
-
-        if (mistake.added) {
-            slots[mistake.s][mistake.b].pop();
-        }
-
-        mistake = null;
-        lastCorrect = null;
-
-        message(
-            "Yanlış elektron kaldırıldı. Yeniden deneyebilirsin!"
-        );
-
-        render();
-        return;
+function eCount(){
+ return eSlots.flat().reduce((sum,box)=>sum+box.length,0);
+}
+function eMessage(text,type="info"){
+ $("electronFeedback").textContent=text;
+ $("electronFeedback").className="feedback "+type;
+}
+function eRobot(text){$("electronRobot").textContent=text}
+function eLoad(i){
+ eSelected=i;
+ eSlots=subshells.map(sub=>Array.from({length:sub.boxes},()=>[]));
+ eHistory=[];eSpin="↑";eMistake=null;eCompleted=false;
+ eErrors=0;eStreak=0;eLast=null;eEarned=0;
+ $("electronSelection").classList.add("hidden");
+ $("electronGame").classList.remove("hidden");
+ $("electronLevel").textContent="SEVİYE "+(i+1)+" / 20";
+ $("electronName").textContent=elements[i].n+" ("+elements[i].s+")";
+ $("electronStars").textContent="☆☆☆";
+ $("electronNext").classList.add("hidden");
+ eMessage("İlk elektronu 1s orbitaline yerleştir.");
+ eRobot("Merhaba! Ben LAB-BOT. Önce 1s orbitalinden başla!");
+ eRender();
+}
+function eValidate(s,b,arrow){
+ const box=eSlots[s][b],group=eSlots[s];
+ if(box.length>=2)return "Pauli: Bir orbitalde en fazla iki elektron olabilir.";
+ if(box.includes(arrow))return "Pauli: Aynı orbitaldeki elektronların spinleri zıt olmalı.";
+ for(let k=0;k<s;k++){
+  if(eSlots[k].some(item=>item.length<2))
+   return "Aufbau: Önce "+subshells[k].name+" orbitalini doldur.";
+ }
+ if(group.length>1){
+  const empty=group.findIndex(item=>item.length===0);
+  if(empty!==-1){
+   if(box.length>0)return "Hund: Önce üç kutuya birer elektron koy.";
+   if(b!==empty)return "Hund: Bu oyunda boş kutuları soldan sağa doldur.";
+   if(b>0&&arrow!==group[0][0])return "Hund: Tek elektronların spinleri paralel olmalı.";
+  }else{
+   const single=group.findIndex(item=>item.length===1);
+   if(b!==single)return "Hund: Eşleştirmeye soldan başla.";
+   if(arrow===box[0])return "Pauli: Eşleşen elektronun spini zıt olmalı.";
+  }
+ }
+ return null;
+}
+function ePlace(s,b){
+ if(eCompleted)return;
+ if(eMistake){eMessage("Önce kırmızı elektronu geri al!","bad");return}
+ if(eCount()>=elements[eSelected].z)return;
+ const error=eValidate(s,b,eSpin);
+ if(error){
+  wrong();eErrors++;eStreak=0;
+  const added=eSlots[s][b].length<2;
+  if(added)eSlots[s][b].push(eSpin);
+  eMistake={s,b,added};
+  eLast=null;
+  eMessage("❌ "+error+" −5 puan. Geri al ve yeniden dene.","bad");
+  eRobot(error);
+  eRender();return;
+ }
+ eSlots[s][b].push(eSpin);
+ const combo=correct();
+ eEarned+=10+combo;
+ eStreak++;
+ eHistory.push({s,b,gain:10+combo});
+ eLast={s,b};
+ achievements.first=true;
+ if(eCount()===elements[eSelected].z){
+  eCompleted=true;
+  changeScore(50);eEarned+=50;
+  if(eErrors===0){
+   changeScore(30);eEarned+=30;
+   achievements.perfect=true;
+  }
+  const stars=eErrors===0?3:eErrors<=2?2:1;
+  $("electronStars").textContent="★".repeat(stars)+"☆".repeat(3-stars);
+  eMessage("🏆 Element tamamlandı! +50"+(eErrors===0?" ve +30 hatasız bonus!":""),"good");
+  eRobot("Muhteşem! Bu elementi tamamladın!");
+  if(eSelected<19)$("electronNext").classList.remove("hidden");
+  celebrate("ELEMENT TAMAMLANDI!",elements[eSelected].n+" • "+stars+" yıldız!",stars);
+ }else{
+  eMessage("✅ Doğru elektron! +10"+(combo?" ve +5 kombo!":""),"good");
+  eRobot(combo?"🔥 Üçlü kombo! Harikasın!":"Doğru hamle! Devam et.");
+ }
+ eRender();
+}
+function eUndo(){
+ if(eMistake){
+  if(eMistake.added)eSlots[eMistake.s][eMistake.b].pop();
+  eMistake=null;eLast=null;
+  eMessage("Yanlış elektron kaldırıldı. Yeniden dene.");
+  eRobot("Hatanı düzelttin. Tekrar deneyebilirsin!");
+  eRender();return;
+ }
+ if(!eHistory.length){eMessage("Geri alınacak hamle yok.");return}
+ const last=eHistory.pop();
+ eSlots[last.s][last.b].pop();
+ changeScore(-last.gain);
+ eEarned-=last.gain;
+ if(eCompleted){
+  changeScore(-50);eEarned-=50;
+  if(eErrors===0){changeScore(-30);eEarned-=30}
+  eCompleted=false;
+  $("electronNext").classList.add("hidden");
+  $("electronStars").textContent="☆☆☆";
+ }
+ eStreak=0;streak=0;$("globalStreak").textContent=0;
+ eLast=null;eMessage("Son elektron geri alındı.");
+ eRender();
+}
+function eReset(){
+ changeScore(-eEarned);
+ eLoad(eSelected);
+ eMessage("Seviye sıfırlandı. Hata cezaları korunur.");
+}
+function eHint(){
+ if(eMistake){eMessage("💡 Önce yanlış elektronu geri al.");return}
+ if(eCompleted){eMessage("Bu elementi tamamladın!");return}
+ for(let s=0;s<eSlots.length;s++){
+  for(let b=0;b<eSlots[s].length;b++){
+   for(const arrow of ["↑","↓"]){
+    if(eValidate(s,b,arrow)===null){
+     const text="💡 "+subshells[s].name+" grubunun "+(b+1)+". kutusuna "+arrow+" koy.";
+     eMessage(text);eRobot(text);return;
     }
+   }
+  }
+ }
+}
+function eRender(){
+ const total=eCount();
+ $("electronCount").textContent=total+" / "+elements[eSelected].z+" elektron";
+ $("electronBar").style.width=Math.min(100,total/elements[eSelected].z*100)+"%";
+ $("spinUp").classList.toggle("active",eSpin==="↑");
+ $("spinDown").classList.toggle("active",eSpin==="↓");
+ $("orbitals").replaceChildren();
+ subshells.forEach((sub,s)=>{
+  const row=document.createElement("div");row.className="orbital";
+  const label=document.createElement("span");label.className="orbitalLabel";label.textContent=sub.name;
+  const boxes=document.createElement("div");boxes.className="boxes";
+  eSlots[s].forEach((electrons,b)=>{
+   const btn=document.createElement("button");btn.className="slot";
+   btn.textContent=electrons.join("");
+   btn.disabled=eCompleted;
+   if(eMistake&&eMistake.s===s&&eMistake.b===b)btn.classList.add("wrong");
+   else if(eLast&&eLast.s===s&&eLast.b===b)btn.classList.add("correct");
+   btn.setAttribute("aria-label",sub.name+" orbital "+(b+1));
+   btn.onclick=()=>ePlace(s,b);
+   boxes.append(btn);
+  });
+  row.append(label,boxes);$("orbitals").append(row);
+ });
+ eRenderAtom();
+ $("badgeFirst").classList.toggle("unlocked",achievements.first);
+ $("badgeCombo").classList.toggle("unlocked",achievements.combo);
+ $("badgePerfect").classList.toggle("unlocked",achievements.perfect);
+}
+function eRenderAtom(){
+ const atom=$("atom");atom.replaceChildren();
+ const shells=[0,0,0,0];
+ eSlots.forEach((group,s)=>group.forEach((box,b)=>{
+  let length=box.length;
+  if(eMistake&&eMistake.added&&eMistake.s===s&&eMistake.b===b)length--;
+  shells[subshells[s].shell-1]+=length;
+ }));
+ const sizes=[95,145,195,255];
+ const maxShell=elements[eSelected].z<=2?1:elements[eSelected].z<=10?2:elements[eSelected].z<=18?3:4;
+ for(let s=0;s<maxShell;s++){
+  const ring=document.createElement("div");ring.className="shell";
+  ring.style.width=sizes[s]+"px";ring.style.height=sizes[s]+"px";
+  atom.append(ring);
+  for(let i=0;i<shells[s];i++){
+   const angle=2*Math.PI*i/shells[s]-Math.PI/2;
+   const dot=document.createElement("div");dot.className="electron";
+   dot.style.left="calc(50% + "+Math.cos(angle)*sizes[s]/2+"px)";
+   dot.style.top="calc(50% + "+Math.sin(angle)*sizes[s]/2+"px)";
+   atom.append(dot);
+  }
+ }
+ const nucleus=document.createElement("div");nucleus.className="nucleus";
+ nucleus.textContent=elements[eSelected].s;atom.append(nucleus);
+ $("atomCaption").textContent="Katmanlar: "+shells.slice(0,maxShell).join(" • ");
+}
+buildPeriodic("electronPeriodic",eLoad);
+$("electronChoose").onclick=()=>{
+ $("electronSelection").classList.remove("hidden");
+ $("electronGame").classList.add("hidden");
+};
+$("spinUp").onclick=()=>{eSpin="↑";eRender()};
+$("spinDown").onclick=()=>{eSpin="↓";eRender()};
+$("electronUndo").onclick=eUndo;
+$("electronReset").onclick=eReset;
+$("electronHint").onclick=eHint;
+$("electronNext").onclick=()=>{if(eCompleted&&eSelected<19)eLoad(eSelected+1)};
 
-    // NORMAL GERİ AL
-
-    if (!history.length) {
-        message("Geri alınacak hamle yok.");
-        return;
-    }
-
-    const wasCompleted = completed;
-
-    const {s, b} = history.pop();
-
-    slots[s][b].pop();
-
-    points = Math.max(
-        0,
-        points - (wasCompleted ? 60 : 10)
-    );
-
-    completed = false;
-    lastCorrect = null;
-
-    $("next").classList.add("hidden");
-
-    message("Son hamle geri alındı.");
-
-    render();
+// LEWIS NOKTA YAPISI
+let lSelected=5,lDots=[0,0,0,0],lHistory=[],lMistake=null,lFinished=false,lErrors=0,lEarned=0;
+function lMessage(text,type="info"){
+ $("lewisFeedback").textContent=text;
+ $("lewisFeedback").className="feedback "+type;
+}
+function lCount(){return lDots.reduce((a,b)=>a+b,0)}
+function lLoad(i){
+ lSelected=i;lDots=[0,0,0,0];lHistory=[];lMistake=null;lFinished=false;lErrors=0;lEarned=0;
+ $("lewisSymbol").textContent=elements[i].s;
+ lMessage("İlk noktayı bir yöne yerleştir.");
+ $("lewisRobot").textContent="Önce dört yöne birer nokta, sonra çiftleme yap!";
+ lRender();
+}
+function lPlace(side){
+ if(lFinished)return;
+ if(lMistake){lMessage("Önce kırmızı noktayı geri al!","bad");return}
+ const target=elements[lSelected].v;
+ if(lCount()>=target)return;
+ const firstEmpty=lDots.findIndex(v=>v===0);
+ const firstSingle=lDots.findIndex(v=>v===1);
+ let error="";
+ if(lDots[side]>=2)error="Bir yönde en fazla iki nokta olabilir.";
+ else if(firstEmpty!==-1&&side!==firstEmpty)error="Önce boş yönlere birer nokta koy.";
+ else if(firstEmpty===-1&&side!==firstSingle)error="Noktaları sırayla eşleştir.";
+ if(error){
+  wrong();lErrors++;
+  const added=lDots[side]<2;
+  if(added)lDots[side]++;
+  lMistake={side,added};
+  lMessage("❌ "+error+" −5 puan. Geri al.","bad");
+  $("lewisRobot").textContent=error;
+  lRender();return;
+ }
+ lDots[side]++;
+ const bonus=correct();lEarned+=10+bonus;
+ lHistory.push({side,gain:10+bonus});
+ if(lCount()===target){
+  lFinished=true;changeScore(50);lEarned+=50;
+  if(lErrors===0){changeScore(30);lEarned+=30}
+  lMessage("🏆 Lewis yapısı tamamlandı!","good");
+  $("lewisRobot").textContent="Harika! "+elements[lSelected].n+" için "+target+" değerlik noktası yerleştirdin.";
+  celebrate("LEWIS TAMAMLANDI!",elements[lSelected].n+" • "+target+" nokta",lErrors===0?3:lErrors<=2?2:1);
+ }else{
+  lMessage("✅ Doğru nokta! +10"+(bonus?" ve +5 kombo!":""),"good");
+ }
+ lRender();
+}
+function lRender(){
+ $("lewisCount").textContent=lCount()+" / "+elements[lSelected].v+" değerlik elektronu";
+ document.querySelectorAll(".lewisSpot").forEach(btn=>{
+  const side=Number(btn.dataset.side);
+  btn.textContent="•".repeat(lDots[side]);
+  btn.disabled=lFinished;
+  btn.classList.toggle("wrong",!!lMistake&&lMistake.side===side);
+  btn.classList.toggle("correct",!lMistake&&lDots[side]>0);
+ });
+}
+function lReset(){
+ changeScore(-lEarned);
+ lLoad(lSelected);
+}
+elements.forEach((el,i)=>{
+ const option=document.createElement("option");
+ option.value=i;option.textContent=el.n+" ("+el.s+")";
+ $("lewisElement").append(option);
 });
-
-// SIFIRLA
-
-$("reset").addEventListener("click", () => {
-
-    points = Math.max(
-        0,
-        points -
-        history.length * 10 -
-        (completed ? 50 : 0)
-    );
-
-    load(selected);
+$("lewisElement").value="5";
+$("lewisElement").onchange=e=>lLoad(Number(e.target.value));
+document.querySelectorAll(".lewisSpot").forEach(btn=>{
+ btn.onclick=()=>lPlace(Number(btn.dataset.side));
 });
+$("lewisReset").onclick=lReset;
+$("lewisHint").onclick=()=>{
+ if(lMistake){lMessage("💡 Önce yanlış noktayı kaldır.");return}
+ const empty=lDots.findIndex(v=>v===0);
+ const side=empty!==-1?empty:lDots.findIndex(v=>v===1);
+ const names=["üst","sağ","alt","sol"];
+ if(side>=0)lMessage("💡 "+names[side]+" tarafa bir nokta koy.");
+ else lMessage("Lewis yapısı tamamlandı.");
+};
+// Lewis'te yanlış hamleyi geri almak için kutuya tekrar basma
+// yerine geri alma butonu ekliyoruz.
+const lewisUndo=document.createElement("button");
+lewisUndo.textContent="↶ Geri al";
+lewisUndo.className="ghost";
+$("lewisReset").before(lewisUndo);
+lewisUndo.onclick=()=>{
+ if(lMistake){
+  if(lMistake.added)lDots[lMistake.side]--;
+  lMistake=null;lMessage("Yanlış nokta kaldırıldı.");lRender();return;
+ }
+ if(!lHistory.length){lMessage("Geri alınacak nokta yok.");return}
+ const last=lHistory.pop();lDots[last.side]--;
+ changeScore(-last.gain);lEarned-=last.gain;
+ if(lFinished){
+  changeScore(-50);lEarned-=50;
+  if(lErrors===0){changeScore(-30);lEarned-=30}
+  lFinished=false;
+ }
+ streak=0;$("globalStreak").textContent=0;
+ lMessage("Son nokta geri alındı.");lRender();
+};
+lLoad(5);
 
-// SONRAKİ ELEMENT
+// DEĞERLİK OYUNU
+let vIndex=0,vAnswered=false,vErrors=0;
+function vLoad(){
+ const el=elements[vIndex%elements.length];
+ vAnswered=false;vErrors=0;
+ $("valenceLevel").textContent="SORU "+(vIndex+1);
+ $("valenceSymbol").textContent=el.s;
+ $("valenceName").textContent=el.n;
+ $("valenceQuestion").textContent="Bu elementin değerlik elektron sayısı kaçtır?";
+ $("valenceFeedback").textContent="Cevabını seç.";
+ $("valenceFeedback").className="feedback";
+ $("valenceNext").classList.add("hidden");
+ $("valenceChoices").replaceChildren();
+ const choices=new Set([el.v]);
+ let candidate=1;
+ while(choices.size<4){
+  choices.add(candidate);
+  candidate++;
+ }
+ const sorted=[...choices].sort(()=>Math.random()-.5);
+ sorted.forEach(n=>{
+  const btn=document.createElement("button");
+  btn.textContent=n;
+  btn.onclick=()=>{
+   if(vAnswered)return;
+   if(n!==el.v){
+    wrong();vErrors++;
+    $("valenceFeedback").textContent="❌ Yanlış! −5 puan. Tekrar dene.";
+    $("valenceFeedback").className="feedback bad";
+    $("valenceRobot").textContent="Son katmandaki elektronları düşün. Tekrar dene!";
+    return;
+   }
+   vAnswered=true;
+   const bonus=correct();
+   changeScore(50);
+   if(vErrors===0)changeScore(30);
+   $("valenceFeedback").textContent="✅ Doğru! "+el.n+" için "+el.v+" değerlik elektronu. +10, +50 bitirme"+(vErrors===0?", +30 hatasız":"")+(bonus?", +5 kombo":"");
+   $("valenceFeedback").className="feedback good";
+   $("valenceRobot").textContent="Bravo! Şimdi başka bir element deneyelim.";
+   $("valenceNext").classList.remove("hidden");
+   celebrate("DOĞRU CEVAP!",el.n+" • "+el.v+" değerlik elektronu",vErrors===0?3:2);
+  };
+  $("valenceChoices").append(btn);
+ });
+}
+$("valenceNext").onclick=()=>{vIndex++;vLoad()};
+vLoad();
 
-$("next").addEventListener("click", () => {
-
-    if (
-        completed &&
-        selected < elements.length - 1
-    ) {
-        load(selected + 1);
-    }
+// ASİT-BAZ LABORATUVARI
+const liquids=[
+ {name:"Limon suyu",emoji:"🍋",ph:2.2,color:"#f1d45e",type:"acid"},
+ {name:"Sirke",emoji:"🍶",ph:3.0,color:"#e7b978",type:"acid"},
+ {name:"Saf su",emoji:"💧",ph:7.0,color:"#75cfff",type:"neutral"},
+ {name:"Karbonat çözeltisi",emoji:"🫧",ph:8.4,color:"#8bdcba",type:"base"},
+ {name:"Sabunlu su",emoji:"🧼",ph:10.0,color:"#9b9df0",type:"base"}
+];
+let aLiquid=null,aVolume=0,aWater=0,aDepth=0,aMeasured=false;
+let aLastResult=null;
+function aMessage(text,type="info"){
+ $("acidFeedback").textContent=text;
+ $("acidFeedback").className="feedback "+type;
+}
+function aPH(){
+ if(!aLiquid)return 7;
+ // Eğitimsel tek çözelti seyreltme modeli.
+ // Nötre doğru yaklaşmayı gösterir.
+ const original=aLiquid.ph;
+ if(aWater===0)return original;
+ const factor=aVolume/(aVolume+aWater);
+ const distance=Math.abs(original-7);
+ const reduced=Math.log10(1+(Math.pow(10,distance)-1)*factor);
+ return Math.max(0,Math.min(14,7+Math.sign(original-7)*reduced));
+}
+function aAdd(liquid){
+ if(aVolume+aWater>=10){
+  aMessage("Kap dolu! Önce musluğu açıp boşalt.");return;
+ }
+ if(aLiquid&&aLiquid.name!==liquid.name){
+  aMessage("Güvenlik için farklı maddeleri aynı kapta karıştırmıyoruz. Önce kabı boşalt.","bad");
+  $("acidRobot").textContent="Gerçek kimyasallar rastgele karıştırılmaz. Önce kabı boşalt!";
+  playSound("wrong");return;
+ }
+ aLiquid=liquid;aVolume++;aMeasured=false;aDepth=0;
+ aMessage(liquid.name+" kaba eklendi. Ölçüm cihazını indir.");
+ $("acidRobot").textContent="Şimdi ölçüm cihazına basarak aşağı indirebilirsin.";
+ playSound("correct");aRender();
+}
+function aWaterAdd(){
+ if(!aLiquid){aMessage("Önce bir sıvı ekle.");return}
+ if(aVolume+aWater>=10){aMessage("Kap dolu!");return}
+ aWater++;aMeasured=false;
+ aMessage("💧 Su eklendi. Seyreltme sonucunu görmek için yeniden ölç.");
+ $("acidRobot").textContent="Seyreltme, asit veya bazın pH değerini genellikle 7'ye yaklaştırır.";
+ playSound("correct");aRender();
+}
+function aProbe(){
+ if(!aLiquid){aMessage("Önce kaba bir sıvı ekle.");return}
+ if(aDepth<4)aDepth++;
+ if(aDepth===4){
+  aMeasured=true;
+  const ph=aPH();
+  const type=ph<6.5?"ASİDİK":ph>7.5?"BAZİK":"NÖTR";
+  aMessage("📊 Ölçüm tamamlandı! "+type+" • pH ≈ "+ph.toFixed(1),"good");
+  $("acidRobot").textContent="Göstergeyi oku: "+type+". Su ekleyip tekrar ölçebilirsin.";
+  if(aLastResult!==aLiquid.name){
+   correct();
+   aLastResult=aLiquid.name;
+  }
+ }else{
+  aMessage("Ölçüm cihazı aşağı iniyor... "+aDepth+"/4");
+ }
+ aRender();
+}
+function aDrain(){
+ if(aVolume+aWater===0){aMessage("Kap zaten boş.");return}
+ aLiquid=null;aVolume=0;aWater=0;aDepth=0;aMeasured=false;aLastResult=null;
+ aMessage("🚰 Musluk açıldı. Kap boşaltıldı.");
+ $("acidRobot").textContent="Kap temiz! Yeni bir sıvı deneyebilirsin.";
+ playSound("correct");aRender();
+}
+function aRender(){
+ const total=aVolume+aWater;
+ const height=total*18;
+ $("liquidFill").setAttribute("y",274-height);
+ $("liquidFill").setAttribute("height",height);
+ $("liquidFill").setAttribute("fill",aLiquid?aLiquid.color:"#75cfff");
+ $("beakerLabel").textContent=total?total+" ölçü sıvı":"Kap boş";
+ $("probe").setAttribute("y",91+aDepth*22);
+ $("probeWire").setAttribute("y2",91+aDepth*22);
+ $("probeDepth").textContent=aDepth===0?"Cihaz yukarıda":aDepth===4?"Cihaz sıvıya indirildi":"Cihaz seviyesi: "+aDepth+"/4";
+ $("meterDisplay").textContent=aMeasured?aPH().toFixed(1):"--";
+ $("drainDrop").setAttribute("opacity",0);
+ if(aMeasured){
+  const ph=aPH();
+  $("phArrow").style.left=(ph/14*100)+"%";
+  $("phValue").textContent=(ph<6.5?"ASİDİK":ph>7.5?"BAZİK":"NÖTR")+" • pH ≈ "+ph.toFixed(1);
+ }else{
+  $("phArrow").style.left="50%";
+  $("phValue").textContent="Ölçüm bekleniyor";
+ }
+}
+liquids.forEach(liquid=>{
+ const btn=document.createElement("button");
+ btn.className="liquidBtn";
+ const emoji=document.createElement("span");emoji.className="drop";emoji.textContent=liquid.emoji;
+ const name=document.createElement("span");name.textContent=liquid.name;
+ btn.append(emoji,name);
+ btn.onclick=()=>aAdd(liquid);
+ $("liquidChoices").append(btn);
 });
+$("probeButton").onclick=aProbe;
+$("waterButton").onclick=aWaterAdd;
+$("drainButton").onclick=aDrain;
+aMessage("Bir sıvı seçerek deneye başla.");
+aRender();
 
+showPage("home");
 </script>
 </body>
 </html>

@@ -2,131 +2,569 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elektron Laboratuvarı</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elektron Laboratuvarı</title>
 
-    <style>
-        body {
-            background-color: #0d2036;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 80px 20px;
-        }
+<style>
+* {
+    box-sizing: border-box;
+}
 
-        h1 {
-            color: #64c5ff;
-        }
+body {
+    margin: 0;
+    padding: 25px 15px;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    color: white;
+    background: linear-gradient(#16466c, #0b1c30);
+}
 
-        button {
-            background-color: #64c5ff;
-            color: #0d2036;
-            border: none;
-            padding: 16px 32px;
-            border-radius: 12px;
-            font-size: 18px;
-            cursor: pointer;
-            margin: 10px;
-        }
+main {
+    max-width: 950px;
+    margin: auto;
+}
 
-        button:hover {
-            background-color: #a4e0ff;
-        }
-   
-.orbital {
-    background-color: #173550;
-    display: inline-block;
-    padding: 20px;
-    margin: 10px;
+header {
+    text-align: center;
+    margin: 20px 0 30px;
+}
+
+h1 {
+    color: #77d2ff;
+    font-size: 36px;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+p {
+    color: #c3dced;
+}
+
+.panel {
+    background: #142f4b;
+    border: 1px solid #315778;
+    border-radius: 20px;
+    padding: 24px;
+}
+
+.center {
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+button {
+    background: #66caff;
+    color: #09223b;
+    border: none;
     border-radius: 12px;
+    padding: 13px 18px;
+    margin: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    touch-action: manipulation;
 }
 
-.kutu {
-    display: inline-block;
-    width: 35px;
-    height: 45px;
-    background-color: #244663;
-    border-bottom: 3px solid #64c5ff;
-    margin: 4px;
+button:hover {
+    filter: brightness(1.15);
 }
 
-    </style>
+.ghost {
+    background: #244c6c;
+    color: white;
+}
+
+.elements {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.element {
+    background: #204b70;
+    color: white;
+    min-height: 110px;
+}
+
+.element strong {
+    display: block;
+    color: #83d9ff;
+    font-size: 30px;
+    margin: 5px;
+}
+
+.small {
+    color: #a9cce4;
+    font-size: 13px;
+}
+
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.orbital {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    background: #1b405e;
+    padding: 15px;
+    border-radius: 14px;
+    margin: 12px 0;
+}
+
+.orbital-label {
+    color: #8cddff;
+    font-size: 22px;
+    font-weight: bold;
+    width: 45px;
+}
+
+.boxes {
+    display: flex;
+    gap: 9px;
+}
+
+.slot {
+    width: 65px;
+    height: 65px;
+    background: #254e6b;
+    color: white;
+    border-bottom: 4px solid #69cfff;
+    font-size: 25px;
+    padding: 5px;
+    margin: 0;
+}
+
+.spin.active {
+    background: white;
+    color: #123451;
+    outline: 3px solid #6ed3ff;
+}
+
+.feedback {
+    padding: 16px;
+    border-radius: 12px;
+    background: #204563;
+    margin: 20px 0;
+    min-height: 65px;
+}
+
+.good {
+    border: 1px solid #4fba9b;
+}
+
+.bad {
+    border: 1px solid #ff9a8b;
+}
+
+.info {
+    border: 1px solid #6089b0;
+}
+
+.progress {
+    height: 12px;
+    background: #24435c;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 15px 0;
+}
+
+.bar {
+    height: 100%;
+    background: #66caff;
+    width: 0%;
+}
+
+.rules {
+    margin-top: 25px;
+    color: #c4ddeb;
+    line-height: 1.6;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #a9cce4;
+}
+
+@media(max-width: 520px) {
+    .panel {
+        padding: 15px;
+    }
+
+    .slot {
+        width: 52px;
+        height: 60px;
+    }
+}
+</style>
 </head>
 
 <body>
+<main>
 
-    <div id="anaEkran">
-        <h1>ELEKTRON LABORATUVARI</h1>
-        <p>Aufbau • Pauli • Hund</p>
-        <button onclick="oyunuBaslat()">
-            OYUNA BAŞLA
-        </button>
+<header>
+    <h1>⚛ ELEKTRON LABORATUVARI</h1>
+    <p>Aufbau • Pauli • Hund</p>
+</header>
+
+<section id="home" class="panel center">
+    <h2>Elektronları doğru yerleştirebilir misin?</h2>
+    <p>Element seç, elektronları orbitallere yerleştir!</p>
+    <button id="start">OYUNA BAŞLA</button>
+</section>
+
+<section id="choose" class="panel hidden">
+    <h2>ELEMENTİNİ SEÇ</h2>
+    <button id="backHome" class="ghost">Ana sayfa</button>
+    <p>Kolaydan zora ilerle!</p>
+    <div id="elements" class="elements"></div>
+</section>
+
+<section id="game" class="panel hidden">
+
+    <p id="level"></p>
+    <h2 id="elementName"></h2>
+
+    <p id="count"></p>
+    <p id="score"></p>
+
+    <div class="progress">
+        <div id="bar" class="bar"></div>
     </div>
 
-    <div id="elementEkrani" style="display: none;">
-        <h1>ELEMENTİNİ SEÇ</h1>
+    <p>Elektronun yönünü seç ve orbital kutusuna bas.</p>
 
-        <button onclick="elementSec('Hidrojen', 1)">
-            H - Hidrojen
-        </button>
-
-        <button onclick="elementSec('Helyum', 2)">
-            He - Helyum
-        </button>
-
-        <button onclick="elementSec('Karbon', 6)">
-            C - Karbon
-        </button>
-
-        <button onclick="elementSec('Azot', 7)">
-            N - Azot
-        </button>
+    <div class="toolbar">
+        <button id="up" class="spin active">↑ Yukarı spin</button>
+        <button id="down" class="spin ghost">↓ Aşağı spin</button>
+        <button id="undo" class="ghost">↶ Geri al</button>
+        <button id="reset" class="ghost">⟳ Sıfırla</button>
     </div>
 
-<div id="orbitalEkrani" style="display: none;">
+    <div id="orbitals"></div>
 
-    <h1 id="elementBasligi">Karbon (C)</h1>
-    <p>Elektronları orbitallere yerleştir!</p>
-
-    <div class="orbital">
-        <h2>1s</h2>
-        <div class="kutu"></div>
+    <div id="feedback" class="feedback info">
+        İlk elektronu 1s orbitaline yerleştir.
     </div>
 
-    <div class="orbital">
-        <h2>2s</h2>
-        <div class="kutu"></div>
-    </div>
+    <button id="next" class="hidden">Sonraki element →</button>
+    <button id="backChoose" class="ghost">
+        Element seçimine dön
+    </button>
 
-    <div class="orbital">
-        <h2>2p</h2>
-        <div class="kutu"></div>
-        <div class="kutu"></div>
-        <div class="kutu"></div>
-    </div>
+    <details class="rules">
+        <summary>Kuralları hatırlat</summary>
+        <p>
+            <b>Aufbau:</b> Elektronlar düşük enerjili
+            orbitallerden başlayarak yerleşir.
+        </p>
+        <p>
+            <b>Pauli:</b> Bir orbitalde en fazla iki
+            elektron bulunur ve spinleri zıttır.
+        </p>
+        <p>
+            <b>Hund:</b> Eş enerjili orbitallere önce
+            paralel spinli birer elektron yerleşir.
+        </p>
+    </details>
 
-</div>
+</section>
 
-    <script>
-        function oyunuBaslat() {
-            document.getElementById("anaEkran").style.display = "none";
-            document.getElementById("elementEkrani").style.display = "block";
-        }
+<footer>Elektron Laboratuvarı • Kimya Oyunu</footer>
 
+</main>
 
-function elementSec(isim, numara) {
+<script>
+const elements = [
+    {symbol:"H", name:"Hidrojen", z:1},
+    {symbol:"He", name:"Helyum", z:2},
+    {symbol:"Li", name:"Lityum", z:3},
+    {symbol:"Be", name:"Berilyum", z:4},
+    {symbol:"B", name:"Bor", z:5},
+    {symbol:"C", name:"Karbon", z:6},
+    {symbol:"N", name:"Azot", z:7},
+    {symbol:"O", name:"Oksijen", z:8},
+    {symbol:"F", name:"Flor", z:9},
+    {symbol:"Ne", name:"Neon", z:10},
+    {symbol:"Na", name:"Sodyum", z:11},
+    {symbol:"Mg", name:"Magnezyum", z:12},
+    {symbol:"Al", name:"Alüminyum", z:13},
+    {symbol:"Si", name:"Silisyum", z:14},
+    {symbol:"P", name:"Fosfor", z:15},
+    {symbol:"S", name:"Kükürt", z:16},
+    {symbol:"Cl", name:"Klor", z:17},
+    {symbol:"Ar", name:"Argon", z:18},
+    {symbol:"K", name:"Potasyum", z:19},
+    {symbol:"Ca", name:"Kalsiyum", z:20}
+];
 
-    document.getElementById("elementEkrani").style.display = "none";
+const subshells = [
+    {name:"1s", n:1},
+    {name:"2s", n:1},
+    {name:"2p", n:3},
+    {name:"3s", n:1},
+    {name:"3p", n:3},
+    {name:"4s", n:1}
+];
 
-    document.getElementById("orbitalEkrani").style.display = "block";
+const $ = id => document.getElementById(id);
 
-    document.getElementById("elementBasligi").innerText =
-        isim + " - Atom numarası: " + numara;
+let selected = null;
+let spin = "↑";
+let slots = [];
+let history = [];
+let points = 0;
+let completed = false;
 
+function screen(id) {
+    ["home", "choose", "game"].forEach(key => {
+        $(key).classList.toggle("hidden", key !== id);
+    });
 }
 
-    </script>
+function message(text, type = "info") {
+    $("feedback").textContent = text;
+    $("feedback").className = "feedback " + type;
+}
+
+function choose() {
+    screen("choose");
+    $("elements").replaceChildren();
+
+    elements.forEach((el, i) => {
+        const b = document.createElement("button");
+        b.className = "element";
+
+        b.innerHTML =
+            '<span class="small">Atom no: ' + el.z + '</span>' +
+            '<strong>' + el.symbol + '</strong>' +
+            '<span>' + el.name + '</span>';
+
+        b.addEventListener("click", () => load(i));
+        $("elements").append(b);
+    });
+}
+
+function load(i) {
+    selected = i;
+    spin = "↑";
+    history = [];
+    completed = false;
+
+    slots = subshells.map(s =>
+        Array.from({length:s.n}, () => [])
+    );
+
+    $("level").textContent =
+        "SEVİYE " + (i + 1) + " / " + elements.length;
+
+    $("elementName").textContent =
+        elements[i].name + " (" + elements[i].symbol + ")";
+
+    $("next").classList.add("hidden");
+
+    message("İlk elektronu 1s orbitaline yerleştir.");
+
+    screen("game");
+    render();
+}
+
+function count() {
+    return slots.flat().reduce(
+        (sum, s) => sum + s.length, 0
+    );
+}
+
+function validate(s, b, arrow) {
+    const current = slots[s][b];
+
+    if (count() >= elements[selected].z) {
+        return "Tüm elektronları yerleştirdin!";
+    }
+
+    if (current.length === 2) {
+        return "Pauli: Bir orbitalde en fazla iki elektron bulunur!";
+    }
+
+    if (current.includes(arrow)) {
+        return "Pauli: Aynı orbitalde spinler zıt olmalı!";
+    }
+
+    for (let k = 0; k < s; k++) {
+        if (slots[k].some(box => box.length < 2)) {
+            return "Aufbau: Önce " +
+                subshells[k].name + " orbitalini doldur!";
+        }
+    }
+
+    const group = slots[s];
+
+    if (current.length === 1) {
+        if (group.some(box => box.length === 0)) {
+            return "Hund: Önce boş orbitallere birer elektron koy!";
+        }
+
+        const singles = group.filter(box => box.length === 1);
+
+        if (singles.some(box => box[0] !== current[0])) {
+            return "Hund: Tek elektronların spinleri paralel olmalı!";
+        }
+    }
+
+    if (current.length === 0) {
+        const singles = group.filter(box => box.length === 1);
+
+        if (singles.length &&
+            singles.some(box => box[0] !== arrow)) {
+            return "Hund: Tek elektronların yönleri aynı olmalı!";
+        }
+    }
+
+    return null;
+}
+
+function place(s, b) {
+    if (completed) return;
+
+    const error = validate(s, b, spin);
+
+    if (error) {
+        message(error, "bad");
+        return;
+    }
+
+    slots[s][b].push(spin);
+    history.push({s, b});
+    points += 10;
+
+    if (count() === elements[selected].z) {
+        completed = true;
+        points += 50;
+
+        message(
+            "TEBRİKLER! " + elements[selected].name +
+            " tamamlandı! +50 bonus puan!",
+            "good"
+        );
+
+        if (selected < elements.length - 1) {
+            $("next").classList.remove("hidden");
+        }
+    } else {
+        message("Doğru hamle! +10 puan", "good");
+    }
+
+    render();
+}
+
+function render() {
+    const total = count();
+
+    $("count").textContent =
+        total + " / " + elements[selected].z + " elektron";
+
+    $("score").textContent = "Puan: " + points;
+
+    $("bar").style.width =
+        (total / elements[selected].z * 100) + "%";
+
+    $("up").classList.toggle("active", spin === "↑");
+    $("down").classList.toggle("active", spin === "↓");
+
+    $("orbitals").replaceChildren();
+
+    subshells.forEach((sub, s) => {
+        const row = document.createElement("div");
+        row.className = "orbital";
+
+        const label = document.createElement("span");
+        label.className = "orbital-label";
+        label.textContent = sub.name;
+
+        const boxes = document.createElement("div");
+        boxes.className = "boxes";
+
+        slots[s].forEach((electrons, b) => {
+            const btn = document.createElement("button");
+            btn.className = "slot";
+            btn.textContent = electrons.join("");
+
+            btn.addEventListener(
+                "click", () => place(s, b)
+            );
+
+            boxes.append(btn);
+        });
+
+        row.append(label, boxes);
+        $("orbitals").append(row);
+    });
+}
+
+$("start").addEventListener("click", choose);
+
+$("backHome").addEventListener(
+    "click", () => screen("home")
+);
+
+$("backChoose").addEventListener("click", choose);
+
+$("up").addEventListener("click", () => {
+    spin = "↑";
+    render();
+});
+
+$("down").addEventListener("click", () => {
+    spin = "↓";
+    render();
+});
+
+$("undo").addEventListener("click", () => {
+    if (!history.length) {
+        message("Geri alınacak hamle yok.");
+        return;
+    }
+
+    const {s, b} = history.pop();
+    slots[s][b].pop();
+
+    points = Math.max(
+        0, points - (completed ? 60 : 10)
+    );
+
+    completed = false;
+    $("next").classList.add("hidden");
+
+    message("Son hamle geri alındı.");
+    render();
+});
+
+$("reset").addEventListener("click", () => {
+    points = Math.max(
+        0,
+        points - history.length * 10 -
+        (completed ? 50 : 0)
+    );
+
+    load(selected);
+});
+
+$("next").addEventListener(
+    "click", () => load(selected + 1)
+);
+</script>
 
 </body>
 </html>

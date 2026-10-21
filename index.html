@@ -3,149 +3,131 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>KimyaVerse 5.1 | Kimya Akademisi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KimyaVerse 6.0 | Kimya Akademisi</title>
 <style>
 :root{
- --bg:#071321;--panel:#102940;--card:#1b3b55;
- --line:#426c89;--text:#ecf8ff;--muted:#c4d9e8;
- --cyan:#80ddff;--pink:#ff9bcf;--green:#83e9b8;
- --gold:#ffdf8b
+ --bg:#071321;--panel:#102a40;--card:#1b3d57;
+ --line:#416d8c;--text:#eef8ff;--muted:#c8dbe8;
+ --cyan:#83e2ff;--pink:#ff9fce;--green:#8eebc0;
+ --gold:#ffe09a
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
  margin:0;color:var(--text);font:15px Arial,sans-serif;
- background:radial-gradient(circle at 5% 0%,#204a70,transparent 35%),
- radial-gradient(circle at 95% 15%,#342052,transparent 35%),var(--bg);
- min-height:100vh
+ background:
+ radial-gradient(circle at 10% 0%,#24577a,transparent 32%),
+ radial-gradient(circle at 95% 15%,#3d245d,transparent 30%),
+ var(--bg);min-height:100vh
 }
 button,input,textarea,select{font:inherit}
 button{
- background:#285b7c;color:white;border:1px solid #6290ad;
+ background:#285c7c;color:white;border:1px solid #6095b4;
  border-radius:12px;padding:11px 15px;cursor:pointer;
  transition:background .15s,transform .15s
 }
-button:hover{background:#377da3;transform:translateY(-1px)}
+button:hover{background:#387fa3;transform:translateY(-1px)}
 button:disabled{opacity:.45;cursor:default;transform:none}
-button.primary{background:linear-gradient(120deg,#3db9e9,#8466dd);border:0}
-button.gold{background:#997335}
-button.danger{background:#904052}
-button.active{background:#8150aa;border-color:#e0b5ff}
+button.primary{background:linear-gradient(120deg,#28aee4,#8a5cd9);border:0}
+button.active{background:#8957b8;border-color:#e3b8ff}
+button.gold{background:#997234}
+button.danger{background:#8c4157}
 input,textarea,select{
- width:100%;background:#183b55;color:white;
- border:1px solid #6389a3;border-radius:11px;padding:12px
+ width:100%;background:#173a55;color:white;
+ border:1px solid #6591ab;border-radius:11px;padding:12px
 }
-input[type=range]{accent-color:#83dcff}
-label{display:block;margin:13px 0 7px}
+input[type=range]{accent-color:#8be4ff}
+label{display:block;margin:12px 0 7px}
 h1,h2,h3{margin-top:0}
 h2{color:var(--cyan)}
-h3{color:#d1eaff}
+h3{color:#d9efff}
 p{line-height:1.65;color:var(--muted)}
 main{max-width:1160px;margin:auto;padding:18px}
-header{text-align:center;padding:28px 0 15px}
+header{text-align:center;padding:26px 0 12px}
 .logo{
- font-size:clamp(38px,7vw,66px);font-weight:900;
- background:linear-gradient(90deg,#6bd9ff,#d9a6ff,#85efc0);
+ font-size:clamp(38px,7vw,67px);font-weight:900;
+ background:linear-gradient(90deg,#73dcff,#dca8ff,#8deec5);
  color:transparent;background-clip:text
 }
-.subtitle{color:#c6d8e9;letter-spacing:2px;margin-top:8px}
+.subtitle{letter-spacing:2px;color:#cbdcec}
 .panel{
- background:#102940ee;border:1px solid var(--line);
- border-radius:20px;padding:22px;margin:17px 0
+ background:#102940f2;border:1px solid var(--line);
+ border-radius:20px;padding:22px;margin:18px 0
 }
 .card{
- background:var(--card);border:1px solid #49718e;
- border-radius:16px;padding:18px;margin:12px 0
+ background:var(--card);border:1px solid #4b7795;
+ border-radius:16px;padding:18px;margin:13px 0
 }
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
 .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
 .row{display:flex;align-items:center;flex-wrap:wrap;gap:9px}
 .center{text-align:center}
 .hidden{display:none!important}
-.tile{min-height:125px;text-align:left;background:#1d4664;width:100%}
-.tile b{display:block;color:#8fe1ff;font-size:19px;margin-bottom:10px}
-.tile span{color:#d0e5f1;line-height:1.5}
+.tile{min-height:125px;text-align:left;width:100%;background:#204762}
+.tile b{display:block;color:#91e6ff;font-size:18px;margin-bottom:10px}
+.tile span{color:#d1e5f1;line-height:1.5}
 .grade{
- min-height:195px;text-align:center;
- background:linear-gradient(145deg,#1c526f,#33305f)
+ min-height:185px;text-align:center;
+ background:linear-gradient(140deg,#1b5473,#373064)
 }
-.grade strong{display:block;font-size:52px;margin:13px}
-.grade small{color:#d8e8f2;font-size:15px}
-.stats{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;margin:17px 0}
+.grade strong{display:block;font-size:51px;margin:12px}
+.grade small{font-size:15px;color:#e0eaf5}
+.stats{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;margin:16px 0}
 .stat{
- background:#193d58;border:1px solid #497b9b;
- border-radius:12px;text-align:center;padding:11px 17px;min-width:95px
+ background:#193d58;border:1px solid #487c9b;
+ border-radius:12px;text-align:center;padding:10px 17px;min-width:95px
 }
 .stat strong{display:block;color:var(--gold);font-size:23px}
-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:17px 0}
+nav{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:16px 0}
 .note{
- padding:14px;border-radius:12px;background:#544630;
+ padding:14px;border-radius:12px;background:#54462e;
  border-left:4px solid var(--gold);line-height:1.6
 }
-.robot{background:#27516c;padding:15px;border-radius:13px;line-height:1.6}
-.msg{padding:13px;border-radius:12px;background:#2b506a;margin:13px 0}
-.ok{background:#24634e!important}
-.no{background:#853d53!important}
+.robot{background:#28526d;padding:15px;border-radius:13px;line-height:1.6}
+.msg{padding:13px;border-radius:12px;background:#2b526d;margin:13px 0}
+.ok{background:#24634f!important}
+.no{background:#853c53!important}
 .progress{height:12px;background:#294e68;border-radius:20px;overflow:hidden}
-.progress div{height:100%;width:0;background:var(--green);transition:width .2s}
+.progress div{height:100%;background:var(--green);width:0}
 .choices{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}
-.choices button{min-height:60px}
-.lesson{background:#1a3c56;border-radius:14px;padding:18px;margin:14px 0}
+.choices button{min-height:58px}
+.lesson{background:#1b405b;border-radius:14px;padding:18px;margin:14px 0}
 .lesson p{margin:12px 0}
 .pill{background:#31536e;border-radius:20px;padding:9px 13px}
 .badges{display:flex;flex-wrap:wrap;gap:9px}
-.badge{background:#454c5b;opacity:.45;padding:12px;border-radius:12px}
-.badge.earned{background:#78602d;opacity:1}
+.badge{background:#414c5c;opacity:.5;padding:12px;border-radius:12px}
+.badge.earned{background:#79602d;opacity:1}
 #scene{
- width:100%;height:370px;display:block;
- background:radial-gradient(circle,#194363,#06111f);
- border:1px solid #51809d;border-radius:16px;
+ width:100%;height:390px;display:block;
+ background:radial-gradient(circle,#1b4262,#06111f);
+ border:1px solid #5588a6;border-radius:16px;
  touch-action:none;cursor:grab
 }
-.modelBtns{display:flex;flex-wrap:wrap;gap:8px;margin:15px 0}
+.modelBtns{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
 .orbitalRow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:12px 0}
-.orbitalRow b{min-width:45px;color:var(--cyan)}
-.orbitalBox{width:60px;height:56px;font-size:25px}
-.lewisBoard{position:relative;width:250px;height:250px;margin:25px auto}
+.orbitalRow b{min-width:42px;color:var(--cyan)}
+.orbitalBox{width:57px;height:54px;font-size:24px}
+.lewisBoard{position:relative;width:240px;height:240px;margin:20px auto}
 .lewisSymbol{
  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
- font-size:70px;color:var(--cyan)
+ font-size:67px;color:var(--cyan)
 }
-.lewisDot{position:absolute;width:62px;height:58px;font-size:25px}
-.lewisDot[data-side="0"]{top:0;left:94px}
-.lewisDot[data-side="1"]{right:0;top:94px}
-.lewisDot[data-side="2"]{bottom:0;left:94px}
-.lewisDot[data-side="3"]{left:0;top:94px}
-.beaker{
- width:180px;height:215px;border:6px solid #a3def5;
- border-top:0;border-radius:0 0 25px 25px;
- margin:30px auto;position:relative;overflow:hidden
-}
-.liquid{
- position:absolute;bottom:0;width:100%;height:65%;
- background:#7ac9ee;transition:background .3s
-}
-.beakerText{
- position:relative;text-align:center;padding-top:90px;
- text-shadow:0 2px 5px #000;font-weight:bold
-}
-.phScale{
- height:20px;border-radius:20px;
- background:linear-gradient(90deg,#f65e70,#f3ac52,#eee275,#79dba3,#6db9f2,#9361e8)
-}
-#phPointer{height:27px;position:relative}
-#phPointer span{position:absolute;left:50%;transform:translateX(-50%)}
+.lewisDot{position:absolute;width:60px;height:56px;font-size:25px}
+.lewisDot[data-side="0"]{top:0;left:90px}
+.lewisDot[data-side="1"]{right:0;top:92px}
+.lewisDot[data-side="2"]{bottom:0;left:90px}
+.lewisDot[data-side="3"]{left:0;top:92px}
 .projectStep{
- background:#1a405a;border-left:3px solid #79d9ff;
- padding:12px;margin:12px 0
+ background:#1a405a;border-left:3px solid #7bdfff;
+ padding:13px;margin:12px 0
 }
-footer{text-align:center;padding:35px;color:#bdd4e5}
+footer{text-align:center;padding:35px;color:#c4d8e7}
 footer strong{color:white}
 @media(max-width:700px){
  .grid,.grid3,.choices{grid-template-columns:1fr}
  .panel{padding:15px}
- #scene{height:300px}
+ #scene{height:310px}
  .grade{min-height:150px}
 }
 </style>
@@ -166,13 +148,13 @@ footer strong{color:white}
 🧪<strong>9. SINIF</strong><small>Kimyanın Temelleri</small>
 </button>
 <button class="grade" onclick="chooseGrade(10)">
-⚗️<strong>10. SINIF</strong><small>Tepkimeler ve Maddeler</small>
+⚗️<strong>10. SINIF</strong><small>Etkileşim • Çeşitlilik • Sürdürülebilirlik</small>
 </button>
 <button class="grade" onclick="chooseGrade(11)">
-⚛️<strong>11. SINIF</strong><small>Atom, Gazlar ve Denge</small>
+⚛️<strong>11. SINIF</strong><small>Modern Atom • Gazlar • Denge</small>
 </button>
 <button class="grade" onclick="chooseGrade(12)">
-🧬<strong>12. SINIF</strong><small>Elektrokimya ve Organik Kimya</small>
+🧬<strong>12. SINIF</strong><small>Elektrokimya • Organik Kimya</small>
 </button>
 </div>
 <p class="center">💗 Her sınıfın ilerlemesi ayrı kaydedilir.</p>
@@ -206,42 +188,39 @@ footer strong{color:white}
 <p>Bugün kimyanın hangi bölümünü keşfetmek istersin?</p>
 <div class="grid3">
 <button class="tile" onclick="showPage('academy')">
-<b>📚 Konu Anlatımı</b><span>Dersler, örnekler ve açıklamalar.</span>
+<b>📚 Konu Anlatımı</b><span>Üniteler, açıklamalar, örnekler ve testler.</span>
 </button>
 <button class="tile" onclick="showPage('games')">
-<b>🎮 Kimya Oyunları</b><span>Testler, elektron ve Lewis oyunları.</span>
+<b>🎮 Kimya Oyunları</b><span>Mini test, elektron ve Lewis oyunları.</span>
 </button>
 <button class="tile" onclick="showPage('projects')">
-<b>📁 Proje Atölyesi</b><span>Proje planla, raporunu hazırla.</span>
+<b>📁 Proje Atölyesi</b><span>Projeni planla ve raporunu hazırla.</span>
 </button>
 <button class="tile" onclick="showPage('experiments')">
-<b>🧪 Sanal Deneyler</b><span>Güvenli ve etkileşimli simülasyonlar.</span>
+<b>🧪 Sanal Deneyler</b><span>Güvenli, etkileşimli simülasyonlar.</span>
 </button>
 <button class="tile" onclick="showPage('threeD')">
-<b>🌌 3D Laboratuvar</b><span>Atom ve molekül modellerini döndür.</span>
+<b>🌌 3D Laboratuvar</b><span>Atomlar, moleküller ve deney düzenekleri.</span>
 </button>
 <button class="tile" onclick="showPage('feedback')">
-<b>💌 Görüş Bildir</b><span>Yeni özellikler öner.</span>
+<b>💌 Görüş Bildir</b><span>Yeni özellik öner veya hata bildir.</span>
 </button>
 </div>
-
 <div class="card">
 <h3>👩‍🔬 Öğrenci Profilim</h3>
 <label>Oyuncu adın</label>
 <input id="playerName" maxlength="30" placeholder="Oyuncu adını yaz">
 <div class="row" style="margin-top:12px">
 <button onclick="saveName()">💾 Kaydet</button>
-<button class="danger" onclick="resetGrade()">Bu Sınıfın İlerlemesini Sıfırla</button>
+<button class="danger" onclick="resetGrade()">İlerlemeyi Sıfırla</button>
 </div>
 <p>İlerlemen bu tarayıcıda saklanır.</p>
 </div>
-
 <div class="card">
 <h3>🌞 Günlük Kimya Görevi</h3>
 <p id="dailyText"></p>
-<button class="gold" id="dailyBtn" onclick="startDaily()">Günlük Görevi Başlat</button>
+<button id="dailyBtn" class="gold" onclick="startDaily()">Görevi Başlat</button>
 </div>
-
 <div class="card">
 <h3>🏅 Başarı Rozetleri</h3>
 <div id="badges" class="badges"></div>
@@ -250,7 +229,7 @@ footer strong{color:white}
 
 <section id="academy" class="panel hidden">
 <h2>📚 KimyaVerse Akademi</h2>
-<p>Üniteyi seç, konuyu öğren ve mini testini çöz.</p>
+<p>Üniteyi seç, konuları sırayla öğren ve mini testini çöz.</p>
 <div id="unitList" class="grid"></div>
 </section>
 
@@ -263,12 +242,11 @@ footer strong{color:white}
 <h3>🤖 LAB-BOT Öğretmen</h3>
 <div id="lessonHint" class="robot"></div>
 </div>
-<button class="primary" onclick="quizForCurrentUnit()">🧠 Mini Testi Başlat</button>
+<button class="primary" onclick="startQuiz(currentUnit)">🧠 Mini Testi Başlat</button>
 </section>
 
 <section id="games" class="panel hidden">
 <h2>🎮 Kimya Oyunları</h2>
-<p>Sınıfına uygun etkinlikleri seç!</p>
 <div id="gameList" class="grid"></div>
 </section>
 
@@ -308,15 +286,12 @@ footer strong{color:white}
 <div id="orbitalArea"></div>
 <div id="electronMessage" class="msg"></div>
 </div>
-<div class="robot">
-🤖 LAB-BOT: Aufbau, Pauli ve Hund kurallarını unutma.
-</div>
 </section>
 
 <section id="lewisGame" class="panel hidden">
 <button onclick="showPage('games')">← Oyunlara Dön</button>
 <h2 style="margin-top:18px">🔵 Lewis Nokta Oyunu</h2>
-<p>Elementin değerlik elektronlarını sembolün çevresine yerleştir.</p>
+<p>Değerlik elektronlarını sembolün çevresine yerleştir.</p>
 <select id="lewisElement" onchange="resetLewis()"></select>
 <div class="card">
 <h3 id="lewisCount"></h3>
@@ -338,7 +313,7 @@ footer strong{color:white}
 
 <section id="projects" class="panel hidden">
 <h2>📁 KimyaVerse Proje Atölyesi</h2>
-<p>Proje seç, araştırmanı yap ve raporunu oluştur.</p>
+<p>Ünitene uygun bir proje seç ve raporunu oluştur.</p>
 <div id="projectList" class="grid"></div>
 </section>
 
@@ -366,7 +341,7 @@ footer strong{color:white}
 <section id="experiments" class="panel hidden">
 <h2>🧪 Sanal Deney Merkezi</h2>
 <div class="note">
-⚠️ Bunlar eğitim amaçlı dijital simülasyonlardır. Gerçek kimyasalları veya temizlik ürünlerini karıştırma.
+⚠️ Bunlar dijital eğitim simülasyonlarıdır. Gerçek kimyasalları, özellikle temizlik ürünlerini birbirine karıştırma.
 </div>
 <div id="experimentList" class="grid" style="margin-top:16px"></div>
 </section>
@@ -381,23 +356,8 @@ footer strong{color:white}
 
 <section id="threeD" class="panel hidden">
 <h2>🌌 KimyaVerse 3D Laboratuvarı</h2>
-<p>Modelleri sürükleyerek döndür, fare tekerleğiyle yakınlaştır.</p>
-<h3>⚛️ Atom Modelleri Müzesi</h3>
-<div class="modelBtns">
-<button data-model="dalton" onclick="selectModel('dalton')">Dalton</button>
-<button data-model="thomson" onclick="selectModel('thomson')">Thomson</button>
-<button data-model="rutherford" onclick="selectModel('rutherford')">Rutherford</button>
-<button data-model="bohr" onclick="selectModel('bohr')">Bohr</button>
-<button data-model="modern" onclick="selectModel('modern')">Modern Atom</button>
-</div>
-<h3>🧬 Molekül ve Kristal Galerisi</h3>
-<div class="modelBtns">
-<button data-model="water" onclick="selectModel('water')">H₂O</button>
-<button data-model="co2" onclick="selectModel('co2')">CO₂</button>
-<button data-model="methane" onclick="selectModel('methane')">CH₄</button>
-<button data-model="ammonia" onclick="selectModel('ammonia')">NH₃</button>
-<button data-model="salt" onclick="selectModel('salt')">NaCl</button>
-</div>
+<p>Modeli sürükleyerek döndür. Fare tekerleğiyle yakınlaştır.</p>
+<div id="modelCategories"></div>
 <canvas id="scene"></canvas>
 <div class="row" style="margin-top:12px">
 <button onclick="resetCamera()">🔄 Görünümü Sıfırla</button>
@@ -410,7 +370,6 @@ footer strong{color:white}
 </div>
 <div class="card">
 <h3>⏳ Atom Modelleri Zaman Makinesi</h3>
-<p>Atom modellerinin tarihsel gelişimini sırayla keşfet.</p>
 <button onclick="nextHistoricalModel()">⏭️ Sonraki Atom Modeli</button>
 <p id="historyMessage"></p>
 </div>
@@ -451,7 +410,7 @@ footer strong{color:white}
 </div>
 
 <footer>
-<h3>⚗️ KimyaVerse 5.1</h3>
+<h3>⚗️ KimyaVerse 6.0</h3>
 <p>Kimya öğrenmenin en eğlenceli yolu!</p>
 <strong>Designed & Developed by Miray Aygün</strong>
 <p>© 2026 KimyaVerse</p>
@@ -460,31 +419,32 @@ footer strong{color:white}
 
 <script>
 "use strict";
+
 const $=id=>document.getElementById(id);
-const STORAGE="kimyaverse-5-1";
-let database={};
-try{
- database=JSON.parse(localStorage.getItem(STORAGE)||"{}");
-}catch(e){database={}}
+const KEY="kimyaverse-6";
+let db={};
+try{db=JSON.parse(localStorage.getItem(KEY)||"{}")}
+catch(e){db={}}
+
 let grade=null,progress=null,streak=0;
 let currentUnit=0,currentLesson=0,currentProject=0;
 let quizQuestions=[],questionIndex=0,quizMistakes=0;
 let quizAnswered=false,quizCompleted=false,dailyMode=false;
 
+function save(){
+ try{localStorage.setItem(KEY,JSON.stringify(db))}
+ catch(e){console.warn("Kayıt yapılamadı",e)}
+}
 function blankProgress(){
  return {
   score:0,stars:0,errors:0,name:"",
   badges:{},daily:"",reports:{},projects:{}
  };
 }
-function save(){
- try{localStorage.setItem(STORAGE,JSON.stringify(database))}
- catch(e){console.warn("İlerleme kaydedilemedi",e)}
-}
 function chooseGrade(n,push=true){
  grade=n;
- if(!database[n])database[n]=blankProgress();
- progress=database[n];streak=0;
+ if(!db[n])db[n]=blankProgress();
+ progress=db[n];streak=0;
  $("gradeSelect").classList.add("hidden");
  $("schoolApp").classList.remove("hidden");
  $("gradeLabel").textContent="🎓 "+grade+". SINIF";
@@ -513,7 +473,7 @@ function showPage(id,push=true){
  pages.forEach(p=>$(p).classList.toggle("hidden",p!==id));
  if(push)history.pushState({grade,page:id},"","#"+id);
  window.scrollTo(0,0);
- if(id==="threeD")setTimeout(resizeScene,60);
+ if(id==="threeD")setTimeout(resizeScene,50);
 }
 window.addEventListener("popstate",e=>{
  const s=e.state;
@@ -566,7 +526,7 @@ function saveName(){
 }
 function resetGrade(){
  if(!confirm(grade+". sınıf ilerlemesini sıfırlamak istiyor musun?"))return;
- database[grade]=blankProgress();progress=database[grade];
+ db[grade]=blankProgress();progress=db[grade];
  streak=0;$("playerName").value="";
  updateStats();updateDaily();
 }
@@ -580,335 +540,428 @@ function updateDaily(){
  $("dailyBtn").disabled=done;
 }
 
-// KONU ANLATIMI VERİLERİ
-// Her konu: başlık, açıklamalar, LAB-BOT notu, soru
+// DERS VERİLERİ
+// K: Konu başlığı, kısa anlatım, soru, dört seçenek, doğru cevap
+const K=(title,info,q,options,answer)=>
+ ({title,info,q,options,answer});
+const U=(title,topics)=>({title,topics});
+
 const courses={
 9:[
- {title:"🧑‍🔬 Kimya Bilimi",lessons:[
-  ["Kimya Nedir?",[
-   "Kimya, maddelerin yapısını, özelliklerini ve değişimlerini inceler.",
-   "Yemek pişirmek, paslanma ve temizlik ürünleri kimyayla ilişkilidir.",
-   "Fiziksel değişimde maddenin kimliği korunur; kimyasal değişimde yeni maddeler oluşur."
-  ],"Buzun erimesi fiziksel, odunun yanması kimyasal değişimdir.",
-  ["Kimya neyi inceler?",["Maddeleri ve değişimlerini","Yalnızca gezegenleri","Yalnızca canlıları","Yalnızca haritaları"],0]],
-  ["Laboratuvar Güvenliği",[
-   "Deneylerde uygun koruyucu ekipman kullanılır.",
-   "Kimyasalların tadına bakılmaz ve doğrudan koklanmaz.",
-   "Çamaşır suyu ile tuz ruhu gibi temizlik ürünleri asla karıştırılmaz."
-  ],"Önce güvenlik, sonra deney!",
-  ["Laboratuvarda hangisi doğrudur?",["Kimyasalları tatmak","Etiketleri okumak","Rastgele karıştırmak","Koruyucu gözlüğü çıkarmak"],1]],
-  ["Kimyanın Alt Dalları",[
-   "Organik kimya karbon bileşiklerinin büyük bölümünü inceler.",
-   "Analitik kimya maddelerin türünü ve miktarını belirler.",
-   "Biyokimya canlılardaki kimyasal süreçleri inceler."
-  ],"Biyo = canlı, analitik = analiz.",
-  ["Canlılardaki kimyasal olayları inceleyen dal?",["Astronomi","Biyokimya","Jeoloji","Analitik kimya"],1]]
- ]},
- {title:"⚛️ Atom ve Periyodik Sistem",lessons:[
-  ["Atomun Yapısı",[
-   "Atomda proton, nötron ve elektron bulunur.",
-   "Proton pozitif, elektron negatif yüklüdür.",
-   "Atom numarası proton sayısını gösterir.",
-   "Nötr atomlarda proton sayısı elektron sayısına eşittir."
-  ],"Oksijenin atom numarası 8'dir.",
-  ["Atom numarası neyi gösterir?",["Nötron sayısını","Proton sayısını","Kütleyi","Periyodu"],1]],
-  ["Elektron Dizilimi",[
-   "Elektronlar düşük enerjili orbitallerden başlayarak yerleşir.",
-   "İlk 20 elementte temel sıra 1s, 2s, 2p, 3s, 3p, 4s şeklindedir.",
-   "Bir orbital en fazla iki zıt spinli elektron alır.",
-   "Hund kuralına göre eş enerjili orbitaller önce tek tek dolar."
-  ],"Azot: 1s² 2s² 2p³.",
-  ["Bir s orbitali en fazla kaç elektron alır?",["1","2","6","8"],1]],
-  ["Lewis Nokta Yapısı",[
-   "Lewis gösteriminde değerlik elektronları noktalarla gösterilir.",
-   "Karbonun 4, oksijenin 6 değerlik elektronu vardır.",
-   "Noktalar önce dört yöne tek tek, sonra çiftler hâlinde yerleştirilebilir."
-  ],"Karbonun çevresine dört tek nokta yerleştir.",
-  ["Karbonun değerlik elektron sayısı?",["2","4","6","8"],1]],
-  ["Atom Modelleri",[
-   "Dalton atomu içi dolu küre olarak düşündü.",
-   "Thomson negatif elektronların pozitif yapı içinde bulunduğunu önerdi.",
-   "Rutherford küçük ve yoğun bir çekirdeği ortaya koydu.",
-   "Bohr belirli enerji düzeylerini kullandı.",
-   "Modern model elektronları orbitallerle açıklar."
-  ],"3D müzede modelleri karşılaştır.",
-  ["Çekirdekli atom modelini kim geliştirdi?",["Dalton","Thomson","Rutherford","Lavoisier"],2]]
- ]},
- {title:"🔗 Kimyasal Etkileşimler",lessons:[
-  ["Kimyasal Türler",[
-   "Atom, molekül ve iyon kimyasal türlerdir.",
-   "Pozitif iyon katyon, negatif iyon anyondur.",
-   "Na⁺ katyon, Cl⁻ anyondur."
-  ],"Artı = katyon, eksi = anyon.",
-  ["Na⁺ nedir?",["Anyon","Katyon","Molekül","Nötron"],1]],
-  ["Kimyasal Bağlar",[
-   "İyonik bağ zıt yüklü iyonlar arasındaki çekimdir.",
-   "Kovalent bağ elektron çiftlerinin ortaklaşa kullanılmasıyla oluşur.",
-   "Metalik bağ metallerdeki hareketli elektronlarla ilişkilidir."
-  ],"NaCl iyonik, H₂O kovalent bağ içerir.",
-  ["NaCl'deki bağ türü?",["Kovalent","İyonik","Metalik","Hidrojen bağı"],1]]
- ]},
- {title:"🧊 Maddenin Halleri",lessons:[
-  ["Katı, Sıvı ve Gaz",[
-   "Katıların belirli şekli ve hacmi vardır.",
-   "Sıvılar kabın şeklini alır, hacimleri yaklaşık sabittir.",
-   "Gazlar bulundukları kabın hacmine yayılır."
-  ],"Buz, su ve su buharını düşün.",
-  ["Belirli şekli olan madde hâli?",["Gaz","Sıvı","Katı","Plazma"],2]],
-  ["Hâl Değişimleri",[
-   "Erime katıdan sıvıya geçiştir.",
-   "Donma sıvıdan katıya geçiştir.",
-   "Yoğuşma gazdan sıvıya geçiştir.",
-   "Süblimleşme katıdan doğrudan gaza geçiştir."
-  ],"Kuru buzun gaz hâline geçmesi süblimleşmedir.",
-  ["Gazdan sıvıya geçiş?",["Erime","Donma","Yoğuşma","Süblimleşme"],2]]
- ]},
- {title:"🌱 Doğa ve Kimya",lessons:[
-  ["Asitler ve Bazlar",[
-   "25 °C'de saf suyun pH değeri yaklaşık 7'dir.",
-   "pH 7'den küçükse asidik, büyükse bazik kabul edilir.",
-   "Limon suyu asidik, karbonat çözeltisi hafif baziktir."
-  ],"pH değerleri koşullara göre değişebilir.",
-  ["Limon suyu genellikle nasıldır?",["Bazik","Asidik","Metalik","Nötr"],1]],
-  ["Yeşil Kimya",[
-   "Yeşil kimya çevresel tehlikeleri azaltmayı amaçlar.",
-   "Atık oluşumunu önlemek önemlidir.",
-   "Enerji tasarrufu ve daha güvenli maddeler tercih edilir."
-  ],"En iyi atık, oluşması önlenen atıktır.",
-  ["Yeşil kimyanın amacı?",["Atığı artırmak","Tehlikeyi azaltmak","Suyu kirletmek","Enerjiyi boşa harcamak"],1]]
- ]}
+ U("🧑‍🔬 Kimya Bilimi",[
+  K("Kimya Nedir?",
+   "Kimya maddelerin yapısını, özelliklerini ve değişimlerini inceler. Fiziksel değişimde maddenin kimliği korunur; kimyasal değişimde yeni maddeler oluşur.",
+   "Hangisi kimyasal değişimdir?",
+   ["Buzun erimesi","Demirin paslanması","Camın kırılması","Suyun donması"],1),
+  K("Laboratuvar Güvenliği",
+   "Kimyasalların tadına bakılmaz. Koruyucu ekipman kullanılır. Çamaşır suyu ile asitli temizlik ürünleri kesinlikle karıştırılmaz.",
+   "Laboratuvarda doğru davranış?",
+   ["Kimyasalı tatmak","Etiketi okumak","Rastgele karıştırmak","Koruyucuyu çıkarmak"],1),
+  K("Kimyanın Alt Dalları",
+   "Organik kimya karbon bileşiklerinin büyük bölümünü, analitik kimya maddelerin türünü ve miktarını, biyokimya canlılardaki kimyasal olayları inceler.",
+   "Canlılardaki kimyasal olayları inceleyen dal?",
+   ["Jeoloji","Biyokimya","Astronomi","Fizik"],1)
+ ]),
+ U("⚛️ Atom ve Periyodik Sistem",[
+  K("Atomun Yapısı",
+   "Atomda proton, nötron ve elektron bulunur. Atom numarası proton sayısıdır. Nötr atomda proton ve elektron sayıları eşittir.",
+   "Atom numarası neyi gösterir?",
+   ["Nötron sayısı","Proton sayısı","Kütle","Periyot"],1),
+  K("Elektron Dizilimi",
+   "Elektronlar düşük enerjili orbitallerden başlayarak yerleşir. Bir orbitalde en fazla iki zıt spinli elektron bulunur. Eş enerjili orbitaller önce tek tek dolar.",
+   "Bir orbital en fazla kaç elektron alır?",
+   ["1","2","6","8"],1),
+  K("Lewis Nokta Yapısı",
+   "Lewis gösteriminde değerlik elektronları sembol çevresinde noktalarla gösterilir. Karbonun dört, oksijenin altı değerlik elektronu vardır.",
+   "Karbonun değerlik elektron sayısı?",
+   ["2","4","6","8"],1),
+  K("Atom Modelleri",
+   "Dalton küre, Thomson pozitif yapı içine gömülü elektronlar, Rutherford çekirdek, Bohr enerji düzeyleri, modern atom teorisi ise orbitaller fikrini kullanır.",
+   "Çekirdekli atom modelini kim geliştirdi?",
+   ["Dalton","Thomson","Rutherford","Lavoisier"],2)
+ ]),
+ U("🔗 Kimyasal Etkileşimler",[
+  K("İyonlar",
+   "Elektron veren atom katyon, elektron alan atom anyon oluşturabilir. Na⁺ katyon, Cl⁻ anyondur.",
+   "Na⁺ hangi türdür?",
+   ["Anyon","Katyon","Nötron","Molekül"],1),
+  K("Kimyasal Bağlar",
+   "İyonik bağ zıt yüklü iyonlar arasındaki çekimdir. Kovalent bağ elektronların ortaklaşa kullanılmasıyla oluşur. Metalik bağ hareketli elektronlarla ilişkilidir.",
+   "NaCl'deki bağ türü?",
+   ["Kovalent","İyonik","Metalik","Hidrojen bağı"],1),
+  K("Molekül Geometrisi",
+   "H₂O açısal, CO₂ doğrusal, CH₄ tetrahedral geometriye sahiptir. Bağlar ve elektron çiftleri molekülün şeklini etkiler.",
+   "CO₂ molekülünün geometrisi?",
+   ["Açısal","Doğrusal","Tetrahedral","Üçgen piramidal"],1)
+ ]),
+ U("🧊 Maddenin Halleri",[
+  K("Katı, Sıvı ve Gaz",
+   "Katıların belirli şekli ve hacmi vardır. Sıvılar kabın şeklini alır. Gazlar kabın hacmine yayılır.",
+   "Belirli şekli olan madde hâli?",
+   ["Gaz","Sıvı","Katı","Plazma"],2),
+  K("Hâl Değişimleri",
+   "Erime katıdan sıvıya, donma sıvıdan katıya, yoğuşma gazdan sıvıya, süblimleşme katıdan doğrudan gaza geçiştir.",
+   "Gazdan sıvıya geçiş?",
+   ["Erime","Donma","Yoğuşma","Süblimleşme"],2)
+ ]),
+ U("🌱 Doğa ve Kimya",[
+  K("Asit ve Bazlar",
+   "25 °C'de saf suyun pH değeri yaklaşık 7'dir. pH 7'den küçükse asidik, büyükse bazik kabul edilir.",
+   "Limon suyu genellikle nasıldır?",
+   ["Bazik","Asidik","Metalik","Nötr"],1),
+  K("Yeşil Kimya",
+   "Yeşil kimya tehlikeli maddeleri, atıkları ve enerji tüketimini azaltmayı amaçlar.",
+   "Yeşil kimyanın amacı?",
+   ["Atığı artırmak","Tehlikeyi azaltmak","Suyu kirletmek","Enerjiyi boşa harcamak"],1)
+ ])
 ],
 10:[
- {title:"⚗️ Kimyasal Hesaplamalar",lessons:[
-  ["Kütlenin Korunumu",[
-   "Kapalı sistemde kimyasal tepkimede toplam kütle korunur.",
-   "Atomlar yok olmaz, yeniden düzenlenir.",
-   "Denklemlerde her elementin atom sayısı eşitlenir."
-  ],"2H₂ + O₂ → 2H₂O.",
-  ["Kapalı sistemde ne korunur?",["Toplam kütle","Renk","Sıcaklık","Hacim"],0]],
-  ["Mol Kavramı",[
-   "Mol, madde miktarının SI birimidir.",
-   "1 mol yaklaşık 6,022 × 10²³ tanecik içerir.",
-   "Mol sayısı n = m / M bağıntısıyla hesaplanır."
-  ],"18 g H₂O yaklaşık 1 moldür.",
-  ["1 mol yaklaşık kaç tanecik içerir?",["6,022 × 10²³","100","12","1000"],0]],
-  ["Denklem Denkleştirme",[
-   "Denklemlerde atom sayıları iki tarafta eşit olmalıdır.",
-   "Alt indisler değil, katsayılar değiştirilir.",
-   "Örnek: 2H₂ + O₂ → 2H₂O."
-  ],"Önce atomları say.",
-  ["Denkleştirmede hangisi değiştirilir?",["Alt indis","Katsayı","Element sembolü","Proton sayısı"],1]]
- ]},
- {title:"🧪 Karışımlar",lessons:[
-  ["Homojen ve Heterojen",[
-   "Homojen karışımlar her yerinde aynı özellik gösterir.",
-   "Heterojen karışımların farklı bölgeleri farklı özellik gösterebilir.",
-   "Tuzlu su homojen, yağ-su heterojendir."
-  ],"Çözeltiler homojen karışımlardır.",
-  ["Yağ-su karışımı?",["Homojen","Heterojen","Element","Bileşik"],1]],
-  ["Çözeltiler",[
-   "Çözelti, çözücü ve çözünen içerir.",
-   "Derişim çözünen miktarıyla ilgilidir.",
-   "Çözünürlük sıcaklık ve madde türünden etkilenebilir."
-  ],"Şekerli suda çözücü sudur.",
-  ["Şekerli suda çözücü?",["Şeker","Su","Hava","Tuz"],1]]
- ]},
- {title:"🌱 Asitler, Bazlar ve Tuzlar",lessons:[
-  ["Asit ve Bazlar",[
-   "Asit ve bazlar farklı kuramlarla tanımlanabilir.",
-   "Sulu çözeltilerde pH asitlik-bazlık hakkında bilgi verir.",
-   "Bazı asit-baz tepkimelerinde tuz ve su oluşur."
-  ],"pH 7, 25 °C'deki saf su için nötrdür.",
-  ["Nötr suyun yaklaşık pH değeri?",["1","7","10","14"],1]],
-  ["Tuzlar",[
-   "Tuzlar iyonlardan oluşan bileşiklerdir.",
-   "Sodyum klorürün formülü NaCl'dir.",
-   "Her tuz çözeltisi nötr değildir."
-  ],"NaCl sofra tuzudur.",
-  ["Sofra tuzunun formülü?",["H₂O","NaCl","CO₂","NH₃"],1]]
- ]},
- {title:"🏭 Kimya Her Yerde",lessons:[
-  ["Temizlik ve Kimya",[
-   "Sabun ve deterjanlar kirlerin uzaklaştırılmasına yardım eder.",
-   "Ürünler etiket talimatlarına göre kullanılmalıdır.",
-   "Temizlik kimyasalları birbirine karıştırılmamalıdır."
-  ],"Kimya güvenli kullanım gerektirir.",
-  ["Temizlik ürünleri nasıl kullanılmalı?",["Rastgele","Talimatlara uygun","Karıştırarak","Tadına bakarak"],1]],
-  ["Polimerler",[
-   "Polimerler tekrar eden birimlerden oluşur.",
-   "Plastikler ve selüloz polimer örnekleridir.",
-   "Geri dönüşüm ve atık yönetimi önemlidir."
-  ],"Selüloz doğal bir polimerdir.",
-  ["Polimerler ne içerir?",["Tekrar eden birimler","Yalnızca tek atom","Sadece metaller","Sadece gazlar"],0]]
- ]}
+ U("⚛️ 1. Tema: Etkileşim",[
+  K("Kimyasal Tepkimeler",
+   "Kimyasal tepkimelerde atomlar yeniden düzenlenir ve yeni maddeler oluşur. Tepkimeler semboller ve denklemlerle modellenebilir.",
+   "Kimyasal tepkimede ne olur?",
+   ["Atomlar yok olur","Atomlar yeniden düzenlenir","Protonlar kaybolur","Kütle daima artar"],1),
+  K("Çökelme Tepkimeleri",
+   "Sulu çözeltilerde bazı iyonlar birleşerek az çözünen katı oluşturur. Oluşan katıya çökelek denir.",
+   "Çökelme tepkimesinde ne oluşur?",
+   ["Daima gaz","Az çözünen katı","Yalnızca ışık","Elektron bulutu"],1),
+  K("Asit-Baz Tepkimeleri",
+   "Asit ve bazların tepkimesi nötralleşme örnekleri içerebilir. Uygun koşullarda tuz ve su oluşabilir.",
+   "Asit-baz tepkimesinde hangisi oluşabilir?",
+   ["Tuz","Elektron","Proton çekirdeği","Metal örgü"],0),
+  K("Redoks Tepkimeleri",
+   "Yükseltgenme elektron verme, indirgenme elektron alma ile ilişkilidir. Bu olaylar birlikte gerçekleşir.",
+   "Elektron verme hangi olaydır?",
+   ["İndirgenme","Yükseltgenme","Yoğuşma","Donma"],1),
+  K("Mol Kavramı",
+   "Mol madde miktarının SI birimidir. Bir mol yaklaşık 6,022 × 10²³ tanecik içerir.",
+   "Bir mol yaklaşık kaç tanecik içerir?",
+   ["6,022 × 10²³","100","12","1000"],0),
+  K("Mol Hesaplamaları",
+   "Mol sayısı n = m / M bağıntısıyla bulunur. m kütle, M molar kütledir.",
+   "18 g su yaklaşık kaç moldür?",
+   ["0,5","1","2","18"],1),
+  K("Denklem Denkleştirme",
+   "Denklemlerde her elementin atom sayısı iki tarafta eşit olmalıdır. Alt indisler değil, katsayılar değiştirilir.",
+   "Denkleştirmede hangisi değiştirilir?",
+   ["Alt indis","Katsayı","Element sembolü","Atom numarası"],1),
+  K("Stokiyometri",
+   "Denkleştirilmiş tepkime katsayıları maddelerin mol oranlarını verir. Örneğin 2H₂ + O₂ → 2H₂O denkleminde H₂/O₂ mol oranı 2/1'dir.",
+   "2H₂ + O₂ tepkimesinde H₂/O₂ mol oranı?",
+   ["1/1","2/1","1/2","3/1"],1),
+  K("Gazların Genel Özellikleri",
+   "Gazların belirli şekli ve hacmi yoktur. Tanecikleri hareketlidir ve bulundukları kabı doldurur.",
+   "Gazlar ne yapar?",
+   ["Kabı doldurur","Sabit şekil alır","Hareketsizdir","Sıkıştırılamaz"],0),
+  K("Gaz Yasaları",
+   "Boyle sabit sıcaklıkta basınç-hacim, Charles sabit basınçta hacim-sıcaklık, Gay-Lussac sabit hacimde basınç-sıcaklık, Avogadro ise hacim-mol ilişkisini açıklar.",
+   "Boyle yasasında hangi büyüklük sabittir?",
+   ["Sıcaklık","Basınç","Hacim","Mol kütlesi"],0),
+  K("İdeal Gaz Yasası",
+   "İdeal gaz denklemi PV = nRT'dir. Sıcaklık Kelvin cinsinden alınır.",
+   "İdeal gaz denklemi hangisi?",
+   ["PV=nRT","F=ma","E=mc²","n=mV"],0),
+  K("Kinetik Moleküler Teori",
+   "İdeal gaz modelinde tanecikler sürekli rastgele hareket eder ve çarpışmalar esnektir. Ortalama kinetik enerji mutlak sıcaklıkla ilişkilidir.",
+   "Gaz tanecikleri nasıl hareket eder?",
+   ["Sürekli ve rastgele","Tamamen hareketsiz","Yalnızca yukarı","Dairesel sabit yörüngede"],0),
+  K("Difüzyon ve Efüzyon",
+   "Difüzyon taneciklerin yayılmasıdır. Efüzyon gazın küçük bir delikten dışarı çıkmasıdır.",
+   "Gazın küçük delikten çıkması?",
+   ["Donma","Efüzyon","Çökelme","Elektroliz"],1)
+ ]),
+ U("💧 2. Tema: Çeşitlilik",[
+  K("Çözünme Süreci",
+   "Çözünmede çözünen tanecikler çözücü içinde dağılır. İyonik maddeler iyonlarına ayrılabilir; moleküler maddeler molekül hâlinde dağılabilir.",
+   "NaCl suda çözünürken ne olur?",
+   ["Na⁺ ve Cl⁻ ayrılır","Protonlar yok olur","Su yanar","Elektronlar donar"],0),
+  K("Çözücü-Çözünen Etkileşimleri",
+   "Maddelerin çözünürlüğünde tanecikler arası etkileşimler önemlidir. Polar maddeler çoğu zaman polar çözücülerde daha iyi çözünür.",
+   "Suyun yaygın özelliği?",
+   ["Polar çözücü olması","Metalik olması","Apolar gaz olması","Yanıcı olması"],0),
+  K("Çözelti Türleri",
+   "Doymamış çözelti daha fazla madde çözebilir. Doymuş çözelti belirli koşullarda çözünürlük sınırındadır. Aşırı doymuş çözelti kararsız olabilir.",
+   "Daha fazla çözünen alabilen çözelti?",
+   ["Doymuş","Doymamış","Aşırı doymuş","Çökelmiş"],1),
+  K("Molarite",
+   "Molarite bir litre çözeltideki çözünen mol sayısıdır: M = n / V.",
+   "Molarite birimi hangisi?",
+   ["mol/L","kg","K","Pa"],0),
+  K("ppm",
+   "ppm milyonda bir kısım anlamına gelir. Çok küçük derişimleri ifade etmek için kullanılır.",
+   "ppm ne anlama gelir?",
+   ["Yüzde bir","Milyonda bir","Binde bir","Mol başına gram"],1),
+  K("Koligatif Özellikler",
+   "İdeal seyreltik çözeltilerde uçucu olmayan çözünen, kaynama noktasını yükseltebilir ve donma noktasını düşürebilir.",
+   "Tuz eklenmesi suyun donma noktasını genellikle nasıl etkiler?",
+   ["Düşürür","Yükseltir","Daima değiştirmez","Sıfırlar"],0)
+ ]),
+ U("🌱 3. Tema: Sürdürülebilirlik",[
+  K("Makro ve Mikro Ölçekli Deneyler",
+   "Mikro ölçekli deneylerde daha az madde kullanılır. Bu yaklaşım atık ve riskleri azaltmaya yardımcı olabilir.",
+   "Mikro ölçekli deneyin avantajı?",
+   ["Daha fazla atık","Daha az kimyasal kullanımı","Daha fazla risk","Daha çok enerji kaybı"],1),
+  K("Atom Ekonomisi",
+   "Atom ekonomisi, tepkimedeki atomların ne kadarının hedef üründe bulunduğunu değerlendirir. Yüksek atom ekonomisi istenmeyen yan ürünleri azaltmaya yardımcı olur.",
+   "Atom ekonomisinin hedefi?",
+   ["Atıkları artırmak","Atomları hedef üründe değerlendirmek","Daha çok duman","Kütleyi yok etmek"],1),
+  K("Yeşil Kimya",
+   "Yeşil kimya tehlikeli madde kullanımını ve atıkları azaltmayı, enerji verimliliğini artırmayı amaçlar.",
+   "Yeşil kimyanın amacı?",
+   ["Atığı azaltmak","Suyu kirletmek","Enerjiyi boşa harcamak","Toksisiteyi artırmak"],0),
+  K("Sera Etkisi",
+   "Sera gazları Dünya'nın yaydığı kızılötesi ışınımın bir bölümünü soğurup yeniden yayarak atmosferin ısınmasına katkıda bulunur.",
+   "Sera etkisi hangi ışınımla ilişkilidir?",
+   ["Kızılötesi","Yalnızca morötesi","Yalnızca radyo","Yalnızca görünür"],0),
+  K("Asit Yağmurları",
+   "SO₂ ve azot oksitler atmosferde tepkimelere girerek asidik çökelmeye katkıda bulunabilir.",
+   "Asit yağmurlarına katkıda bulunan gaz?",
+   ["SO₂","He","Ne","Ar"],0),
+  K("Ozon Tabakası",
+   "Stratosferdeki ozon, Güneş'ten gelen zararlı morötesi ışınımın önemli bölümünü soğurur.",
+   "Ozon tabakası neyi azaltır?",
+   ["Zararlı UV ışınımını","Yerçekimini","Atmosfer basıncını","Geceyi"],0),
+  K("Küresel Çevre Sorunları",
+   "İklim değişikliği, hava ve su kirliliği ile kaynak tüketimi sürdürülebilir çözümler gerektirir.",
+   "Sürdürülebilir yaklaşım hangisi?",
+   ["Kaynakları verimli kullanmak","Atıkları artırmak","Suyu kirletmek","Enerjiyi boşa harcamak"],0)
+ ])
 ],
 11:[
- {title:"⚛️ Modern Atom Teorisi",lessons:[
-  ["Orbitaller",[
-   "Elektronların bulunma olasılığı orbitallerle açıklanır.",
-   "s orbitalleri küresel, p orbitalleri iki loblu şekillerle temsil edilir.",
-   "Bir orbitalde en fazla iki elektron bulunur."
-  ],"Orbital kesin bir yörünge değildir.",
-  ["Bir orbital en fazla kaç elektron alır?",["1","2","6","8"],1]],
-  ["Kuantum Sayıları",[
-   "Baş kuantum sayısı n enerji düzeyiyle ilişkilidir.",
-   "Açısal momentum kuantum sayısı l alt kabuğu belirtir.",
-   "Manyetik kuantum sayısı mₗ yönelimi belirtir.",
-   "Spin kuantum sayısı mₛ iki olası değer alır."
-  ],"Kuantum sayıları elektron durumlarını tanımlar.",
-  ["Baş kuantum sayısının sembolü?",["n","p","s","M"],0]],
-  ["Periyodik Özellikler",[
-   "Atom yarıçapı periyotta genellikle soldan sağa azalır.",
-   "İyonlaşma enerjisi elektronu uzaklaştırmak için gereken enerjidir.",
-   "Elektronegatiflik bağ elektronlarını çekme eğilimidir."
-  ],"Periyodik eğilimlerin istisnaları olabilir.",
-  ["Elektronegatiflik neyle ilgilidir?",["Elektron çekme eğilimi","Kütle","Erime","Yoğunluk"],0]]
- ]},
- {title:"💨 Gazlar",lessons:[
-  ["Gaz Yasaları",[
-   "Boyle yasası sabit sıcaklıkta basınç-hacim ilişkisini açıklar.",
-   "Charles yasası sabit basınçta hacim-sıcaklık ilişkisini açıklar.",
-   "Sıcaklık hesaplamalarında Kelvin kullanılır."
-  ],"Boyle: P × V = sabit.",
-  ["Boyle yasasında ne sabittir?",["Sıcaklık","Hacim","Basınç","Atom numarası"],0]],
-  ["İdeal Gaz",[
-   "İdeal gaz denklemi PV = nRT'dir.",
-   "P basınç, V hacim, n mol, T mutlak sıcaklıktır.",
-   "Gerçek gazlar bazı koşullarda ideal davranıştan sapar."
-  ],"T daima Kelvin cinsindendir.",
-  ["İdeal gaz denklemi?",["PV=nRT","E=mc²","F=ma","n=mV"],0]]
- ]},
- {title:"💧 Sıvı Çözeltiler",lessons:[
-  ["Molarite",[
-   "Molarite, bir litre çözeltideki çözünen mol sayısıdır.",
-   "M = n / V bağıntısı kullanılır.",
-   "V litre cinsinden çözelti hacmidir."
-  ],"0,5 mol / 1 L = 0,5 M.",
-  ["Molarite birimi?",["mol/L","kg","K","Pa"],0]],
-  ["Çözünürlük",[
-   "Çözünürlük madde türü ve sıcaklığa bağlıdır.",
-   "Gazların çözünürlüğü basınçtan etkilenebilir.",
-   "Doymuş çözelti belirli koşullarda daha fazla madde çözemez."
-  ],"Gazlarda basıncın etkisini düşün.",
-  ["Gazların çözünürlüğünü etkileyen faktör?",["Basınç","Renk","Şekil","Atom numarası"],0]]
- ]},
- {title:"🔥 Enerji ve Tepkime Hızı",lessons:[
-  ["Tepkimelerde Enerji",[
-   "Ekzotermik tepkimeler çevreye enerji aktarır.",
-   "Endotermik tepkimeler çevreden enerji alır.",
-   "Entalpi değişimi ΔH ile gösterilir."
-  ],"Ekzotermikte ΔH genellikle negatiftir.",
-  ["Ekzotermik tepkime?",["Enerji verir","Kütleyi yok eder","Sadece donar","Elektron yok eder"],0]],
-  ["Tepkime Hızı",[
-   "Tepkime hızı sıcaklık ve derişimden etkilenebilir.",
-   "Katalizör farklı bir tepkime yolu sağlayabilir.",
-   "Katalizör denge sabitini değiştirmez."
-  ],"Katalizör aktivasyon enerjisini düşürebilir.",
-  ["Katalizör neyi etkileyebilir?",["Tepkime hızını","Atom numarasını","Proton sayısını","Sembolü"],0]]
- ]},
- {title:"⚖️ Kimyasal Denge",lessons:[
-  ["Dinamik Denge",[
-   "Tersinir tepkimelerde ileri ve geri tepkimeler sürer.",
-   "Dengede ileri ve geri tepkime hızları eşittir.",
-   "Dengede derişimlerin eşit olması gerekmez."
-  ],"Denge, tepkimelerin durması değildir.",
-  ["Dengede hangi hızlar eşittir?",["İleri ve geri","Sıfır ve sonsuz","Erime ve yanma","Yalnızca ileri"],0]],
-  ["Asit-Baz Dengesi",[
-   "Zayıf asitler suda kısmen iyonlaşabilir.",
-   "pH ve pOH asit-baz dengesiyle ilişkilidir.",
-   "Tampon çözeltiler pH değişimlerine direnç gösterir."
-  ],"Tamponlar pH değişimini sınırlar.",
-  ["Tampon çözeltinin özelliği?",["pH değişimine direnmek","Daima pH 7 olmak","Gaz olmak","Yanmak"],0]]
- ]}
+ U("⚛️ 1. Ünite: Modern Atom Teorisi",[
+  K("Atomun Kuantum Modeli",
+   "Modern atom teorisinde elektronlar kesin dairesel yörüngelerle değil, bulunma olasılığının yüksek olduğu orbitallerle tanımlanır.",
+   "Orbital neyi açıklar?",
+   ["Elektronun olasılık dağılımını","Kesin dairesel yolunu","Protonun rengini","Atomun kokusunu"],0),
+  K("Kuantum Sayıları",
+   "n enerji düzeyini, l alt kabuk türünü, mₗ orbital yönelimini ve mₛ elektron spinini belirtir.",
+   "Baş kuantum sayısının sembolü?",
+   ["n","p","s","M"],0),
+  K("Elektron Dizilimleri",
+   "Elektron diziliminde Aufbau, Pauli ve Hund ilkeleri kullanılır. Eş enerjili orbitaller önce tek tek dolar.",
+   "Bir orbitalde en fazla kaç elektron bulunur?",
+   ["1","2","6","8"],1),
+  K("Periyodik Özellikler",
+   "Atom yarıçapı periyotta genellikle azalır. İyonlaşma enerjisi elektron koparmak için gereken enerjidir. Elektron ilgisi ve elektronegatiflik farklı kavramlardır.",
+   "Elektron koparmak için gereken enerji?",
+   ["İyonlaşma enerjisi","Yoğunluk","Erime ısısı","Basınç"],0),
+  K("Yükseltgenme Basamakları",
+   "Yükseltgenme basamağı elektronların varsayımsal dağılımına göre verilen sayıdır. Element hâlindeki atomlarda sıfırdır.",
+   "Element hâlindeki O₂'nin yükseltgenme basamağı?",
+   ["-2","0","+1","+2"],1)
+ ]),
+ U("💨 2. Ünite: Gazlar",[
+  K("Gazların Genel Özellikleri",
+   "Gazlar sıkıştırılabilir, kabı doldurur ve tanecikleri sürekli hareket eder.",
+   "Gazların genel özelliği?",
+   ["Sıkıştırılabilir olmaları","Sabit şekilleri","Hareketsiz tanecikler","Sabit hacimleri"],0),
+  K("Gaz Yasaları",
+   "Boyle, Charles, Gay-Lussac ve Avogadro yasaları basınç, hacim, sıcaklık ve mol arasındaki ilişkileri açıklar.",
+   "Sabit sıcaklıkta basınç-hacim ilişkisi?",
+   ["Boyle","Charles","Avogadro","Faraday"],0),
+  K("İdeal Gaz Yasası",
+   "PV = nRT bağıntısı ideal gazın durumunu açıklar. T Kelvin cinsindedir.",
+   "İdeal gaz denklemi?",
+   ["PV=nRT","M=n/V","E=mc²","F=ma"],0),
+  K("Kinetik Teori",
+   "Gaz taneciklerinin ortalama kinetik enerjisi mutlak sıcaklıkla orantılıdır.",
+   "Ortalama kinetik enerji neyle ilişkilidir?",
+   ["Kelvin sıcaklığıyla","Kabın rengiyle","Molekül adıyla","Yalnızca hacimle"],0),
+  K("Gaz Karışımları",
+   "Dalton yasasına göre ideal gaz karışımının toplam basıncı kısmi basınçların toplamıdır.",
+   "Toplam basınç neye eşittir?",
+   ["Kısmi basınçlar toplamına","Sıfıra","Tek gazın molüne","Sadece sıcaklığa"],0),
+  K("Gerçek Gazlar",
+   "Gerçek gazlar özellikle yüksek basınç ve düşük sıcaklıkta ideal gaz davranışından sapabilir.",
+   "İdeal davranıştan sapma ne zaman belirginleşir?",
+   ["Yüksek basınçta","Daima sıfır basınçta","Yalnızca boşlukta","Her koşulda aynı"],0)
+ ]),
+ U("💧 3. Ünite: Sıvı Çözeltiler ve Çözünürlük",[
+  K("Çözücü-Çözünen Etkileşimleri",
+   "Çözünmede çözücü ve çözünen tanecikler arasında etkileşimler oluşur. İyonik maddelerin suda hidratlaşması buna örnektir.",
+   "Na⁺ iyonunu suda ne çevreler?",
+   ["Su molekülleri","Protonlar","Metaller","Elektron yörüngeleri"],0),
+  K("Molarite ve Molalite",
+   "Molarite litre çözelti başına mol, molalite kilogram çözücü başına mol sayısıdır.",
+   "Molalitenin birimi?",
+   ["mol/kg","mol/L","Pa","K"],0),
+  K("Koligatif Özellikler",
+   "Koligatif özellikler ideal koşullarda çözünmüş tanecik sayısına bağlıdır. Kaynama noktası yükselmesi ve donma noktası düşmesi örneklerdir.",
+   "Hangisi koligatif özelliktir?",
+   ["Donma noktası düşmesi","Atom numarası","Elektron spini","Proton sayısı"],0),
+  K("Çözünürlük",
+   "Çözünürlük madde türüne ve sıcaklığa bağlıdır. Gazların sıvılardaki çözünürlüğü basınçtan da etkilenir.",
+   "Gazların çözünürlüğünü etkileyen faktör?",
+   ["Basınç","Renk","Şekil","Atom numarası"],0)
+ ]),
+ U("🔥 4. Ünite: Kimyasal Tepkimelerde Enerji",[
+  K("Endotermik ve Egzotermik",
+   "Ekzotermik tepkimeler çevreye enerji aktarır. Endotermik tepkimeler çevreden enerji alır.",
+   "Ekzotermik tepkime ne yapar?",
+   ["Enerji verir","Daima donar","Proton kaybeder","Kütleyi yok eder"],0),
+  K("Entalpi",
+   "Sabit basınçta tepkime ısısı entalpi değişimiyle ilişkilidir. Standart oluşum entalpisi belirli standart koşullarda tanımlanır.",
+   "Entalpi değişiminin sembolü?",
+   ["ΔH","pH","n","V"],0),
+  K("Bağ Enerjileri",
+   "Bağ koparmak enerji gerektirir, bağ oluşurken enerji açığa çıkar. Bağ enerjileri tepkime entalpisini yaklaşık hesaplamada kullanılabilir.",
+   "Bağ koparmak ne gerektirir?",
+   ["Enerji","Yalnızca ışık","Hiçbir şey","Elektronun yok olması"],0),
+  K("Hess Yasası",
+   "Entalpi bir hâl fonksiyonudur. Tepkime hangi yoldan gerçekleşirse gerçekleşsin toplam entalpi değişimi aynıdır.",
+   "Hess yasası neyle ilgilidir?",
+   ["Entalpi değişimi","Atom numarası","Elektron spini","Yoğunluk"],0)
+ ]),
+ U("⏱️ 5. Ünite: Tepkime Hızları",[
+  K("Çarpışma Teorisi",
+   "Tepkime oluşması için taneciklerin uygun enerji ve yönelimle çarpışması gerekir.",
+   "Etkili çarpışmada ne önemlidir?",
+   ["Enerji ve yönelim","Renk","Yalnızca kütle","Atom adı"],0),
+  K("Tepkime Hızını Etkileyen Faktörler",
+   "Sıcaklık, derişim, yüzey alanı ve katalizör tepkime hızını etkileyebilir. Katalizör alternatif bir tepkime yolu sağlar.",
+   "Katalizör genellikle neyi etkiler?",
+   ["Tepkime hızını","Atom numarasını","Proton sayısını","Element sembolünü"],0)
+ ]),
+ U("⚖️ 6. Ünite: Sulu Çözelti Dengeleri",[
+  K("Kimyasal Denge",
+   "Dengede ileri ve geri tepkime hızları eşittir. Tepkimeler durmaz, dinamik olarak devam eder.",
+   "Dengede hangi hızlar eşittir?",
+   ["İleri ve geri","Sıfır ve sonsuz","Erime ve yanma","Yalnızca ileri"],0),
+  K("Dengeye Etki Eden Faktörler",
+   "Derişim, basınç ve sıcaklık değişimleri uygun sistemlerde denge konumunu etkileyebilir. Katalizör denge sabitini değiştirmez.",
+   "Katalizör denge sabitini nasıl etkiler?",
+   ["Değiştirmez","Daima artırır","Daima azaltır","Sıfırlar"],0),
+  K("Asit-Baz Dengesi",
+   "Zayıf asit ve bazlar suda kısmen iyonlaşır. pH ve pOH asit-baz dengesini değerlendirmede kullanılır.",
+   "25 °C'de pH + pOH yaklaşık kaçtır?",
+   ["7","14","1","100"],1),
+  K("Tampon Çözeltiler",
+   "Tampon çözeltiler az miktarda asit veya baz eklendiğinde pH değişimini sınırlar.",
+   "Tampon çözeltinin görevi?",
+   ["pH değişimine direnmek","Daima pH 7 olmak","Gaz oluşturmak","Suyu dondurmak"],0),
+  K("Çözünme-Çökelme Dengesi",
+   "Az çözünen iyonik katılarda çözünme ve çökelme dengesi oluşabilir. Çözünürlük çarpımı Kçç ile ifade edilir.",
+   "Çözünürlük çarpımının sembolü?",
+   ["Kçç","ΔH","n","R"],0)
+ ])
 ],
 12:[
- {title:"⚡ Kimya ve Elektrik",lessons:[
-  ["Redoks Tepkimeleri",[
-   "Yükseltgenme elektron verme, indirgenme elektron almadır.",
-   "Redoks tepkimelerinde elektron aktarımı önemlidir.",
-   "Yükseltgenme ve indirgenme birlikte gerçekleşir."
-  ],"Elektron verme = yükseltgenme.",
-  ["Yükseltgenme neyle ilişkilidir?",["Elektron verme","Elektron alma","Donma","Erime"],0]],
-  ["Elektrokimyasal Hücreler",[
-   "Galvanik hücreler kimyasal enerjiden elektrik üretir.",
-   "Anotta yükseltgenme, katotta indirgenme olur.",
-   "Elektrolizde elektrik enerjisi kimyasal değişimi yürütür."
-  ],"Anot = yükseltgenme, katot = indirgenme.",
-  ["Katotta hangi olay gerçekleşir?",["İndirgenme","Yükseltgenme","Buharlaşma","Süblimleşme"],0]]
- ]},
- {title:"🧬 Karbon Kimyası",lessons:[
-  ["Karbonun Özellikleri",[
-   "Karbon çok sayıda kovalent bağ oluşturabilir.",
-   "Karbon atomları zincir ve halka yapıları oluşturabilir.",
-   "Organik kimya karbon bileşiklerinin büyük bölümünü inceler."
-  ],"Karbonun bağ çeşitliliği çok önemlidir.",
-  ["Karbon çoğunlukla hangi bağı oluşturur?",["Kovalent","Metalik","İyonik","Hidrojen bağı"],0]],
-  ["Hidrokarbonlar",[
-   "Hidrokarbonlar karbon ve hidrojen içerir.",
-   "Alkanlarda yalnızca tekli C–C bağları bulunur.",
-   "Alkenlerde C=C, alkinlerde C≡C bağı bulunur."
-  ],"Etan alkan, eten alken, etin alkindir.",
-  ["C=C bağı içeren sınıf?",["Alkan","Alken","Alkin","Alkol"],1]]
- ]},
- {title:"🧪 Organik Bileşikler",lessons:[
-  ["Alkoller ve Eterler",[
-   "Alkoller uygun karbon yapısına bağlı -OH grubu içerir.",
-   "Eterlerde oksijen iki karbon grubuna bağlıdır.",
-   "Bileşiklerin özellikleri molekül yapısına göre değişir."
-  ],"Etanol bir alkoldür.",
-  ["Alkollerin karakteristik grubu?",["-OH","-COOH","-NH₂","-Cl"],0]],
-  ["Aldehit ve Ketonlar",[
-   "Aldehit ve ketonlar karbonil grubu içerir.",
-   "Aldehitlerde karbonil grubu zincir ucundadır.",
-   "Ketonlarda karbonil karbonu iki karbon grubuna bağlıdır."
-  ],"Karbonil grubu C=O'dur.",
-  ["Karbonil grubu?",["C=O","O–O","N≡N","H–H"],0]],
-  ["Karboksilik Asitler",[
-   "Karboksilik asitler -COOH grubu içerir.",
-   "Asetik asit bir karboksilik asittir.",
-   "Esterler karboksilik asit türevlerindendir."
-  ],"Sirke asetik asit içerir.",
-  ["Karboksilik asit grubu?",["-COOH","-OH","-O-","-NH₂"],0]]
- ]},
- {title:"🌿 Enerji ve Malzemeler",lessons:[
-  ["Enerji Kaynakları",[
-   "Kömür, petrol ve doğal gaz fosil yakıtlardır.",
-   "Güneş ve rüzgâr yenilenebilir kaynaklardır.",
-   "Enerji kaynaklarının çevresel etkileri değerlendirilmelidir."
-  ],"Sürdürülebilir enerji önemlidir.",
-  ["Yenilenebilir enerji kaynağı?",["Kömür","Petrol","Güneş","Doğal gaz"],2]],
-  ["Nanoteknoloji",[
-   "Nanoteknoloji nanometre ölçeğindeki yapıları inceler.",
-   "Malzemelerin özellikleri boyut ve yapıya bağlı değişebilir.",
-   "Nanomalzemeler elektronik ve tıpta araştırılır."
-  ],"1 nanometre = 10⁻⁹ metre.",
-  ["1 nanometre kaç metredir?",["10⁻⁹","10⁻³","10³","10⁹"],0]]
- ]}
+ U("⚡ 1. Ünite: Kimya ve Elektrik",[
+  K("Redoks ve Elektrik Akımı",
+   "Yükseltgenme elektron verme, indirgenme elektron alma ile ilişkilidir. Elektrokimyasal sistemlerde elektron aktarımı önemlidir.",
+   "Yükseltgenme neyle ilişkilidir?",
+   ["Elektron verme","Elektron alma","Erime","Donma"],0),
+  K("Elektrotlar ve Galvanik Piller",
+   "Galvanik pil kimyasal enerjiyi elektrik enerjisine dönüştürür. Anotta yükseltgenme, katotta indirgenme olur.",
+   "Katotta hangi olay gerçekleşir?",
+   ["İndirgenme","Yükseltgenme","Buharlaşma","Süblimleşme"],0),
+  K("Standart Elektrot Potansiyelleri",
+   "Standart indirgenme potansiyelleri elektrotların indirgenme eğilimlerini karşılaştırmada kullanılır.",
+   "Standart elektrot potansiyeli neyle ilgilidir?",
+   ["İndirgenme eğilimi","Yoğunluk","Erime noktası","Atom yarıçapı"],0),
+  K("Pil Potansiyeline Etki Eden Faktörler",
+   "Elektrot türü, iyon derişimi ve sıcaklık pil potansiyelini etkileyebilir.",
+   "Pil potansiyelini ne etkileyebilir?",
+   ["İyon derişimi","Kabın rengi","Etiket yazısı","Maddenin adı tek başına"],0),
+  K("Elektroliz ve Faraday Kanunları",
+   "Elektrolizde elektrik enerjisi kimyasal değişimi yürütür. Aktarılan yük miktarı oluşan madde miktarıyla ilişkilidir.",
+   "Elektroliz hangi enerjiyi kullanır?",
+   ["Elektrik","Yalnızca ses","Yalnızca ışık","Yerçekimi"],0),
+  K("Korozyon",
+   "Korozyon malzemelerin çevreleriyle kimyasal veya elektrokimyasal etkileşim sonucu bozulmasıdır. Kaplama ve uygun malzeme seçimi koruma sağlayabilir.",
+   "Korozyondan korunma yöntemi?",
+   ["Kaplama","Tuzlu suya bırakma","Çizme","Nemlendirme"],0)
+ ]),
+ U("🧬 2. Ünite: Karbon Kimyasına Giriş",[
+  K("Organik ve Anorganik Bileşikler",
+   "Organik kimya karbon bileşiklerinin büyük bölümünü inceler. CO₂ ve karbonatlar gibi bazı karbon bileşikleri geleneksel olarak anorganik sınıflandırılır.",
+   "Hangisi organik bileşik örneğidir?",
+   ["Metan","NaCl","CaCO₃","CO₂"],0),
+  K("Basit ve Molekül Formülü",
+   "Basit formül atomların en küçük tam sayı oranını, molekül formülü moleküldeki gerçek atom sayılarını gösterir.",
+   "C₆H₁₂O₆ bileşiğinin basit formülü?",
+   ["CH₂O","C₆H₁₂O₆","CO₂","CH₄"],0),
+  K("Karbon Allotropları",
+   "Elmas üç boyutlu kovalent ağ, grafit katmanlı yapı, fulleren kafes benzeri ve nanotüp silindirik karbon yapılarıdır.",
+   "Katmanlı karbon allotropu?",
+   ["Grafit","Elmas","Fulleren","Metan"],0),
+  K("Lewis Formülleri",
+   "Lewis formülleri bağ elektron çiftlerini ve bağ yapmayan elektron çiftlerini gösterir.",
+   "Lewis formülü neyi gösterir?",
+   ["Değerlik elektronlarını","Nötron hızını","Atom rengini","Yoğunluğu"],0),
+  K("Hibritleşme",
+   "Hibritleşme, bağlanmayı açıklamak için atom orbitallerinin matematiksel olarak birleştirilmesiyle tanımlanır. sp, sp² ve sp³ yaygın örneklerdir.",
+   "CH₄ için karbonun hibritleşmesi?",
+   ["sp","sp²","sp³","d²sp³"],2),
+  K("Molekül Geometrileri",
+   "VSEPR yaklaşımı elektron bölgelerinin itmesini kullanır. CH₄ tetrahedral, NH₃ üçgen piramidal, BH₃ düzlem üçgendir.",
+   "CH₄ geometrisi?",
+   ["Doğrusal","Tetrahedral","Açısal","Düzlem üçgen"],1)
+ ]),
+ U("🧪 3. Ünite: Organik Bileşikler",[
+  K("Alkanlar",
+   "Alkanlar yalnızca tekli karbon-karbon bağları içeren doymuş açık zincirli hidrokarbonlardır.",
+   "Alkanlarda C–C bağı nasıldır?",
+   ["Tekli","İkili","Üçlü","İyonik"],0),
+  K("Alkenler",
+   "Alkenler en az bir karbon-karbon çift bağı içerir. Çift bağ çevresinde cis/trans veya E/Z izomerliği görülebilir.",
+   "Alkenlerde hangi bağ bulunur?",
+   ["C=C","C≡C","Na–Cl","O–H yalnızca"],0),
+  K("Alkinler",
+   "Alkinler en az bir karbon-karbon üçlü bağı içeren hidrokarbonlardır.",
+   "Alkinlerde hangi bağ bulunur?",
+   ["C–C","C=C","C≡C","İyonik"],2),
+  K("Aromatik Bileşikler",
+   "Benzen aromatik bileşiklerin temel örneklerindendir. Halkadaki elektronlar delokalizedir.",
+   "Aromatik bileşik örneği?",
+   ["Benzen","NaCl","H₂O","Ne"],0),
+  K("Fonksiyonel Gruplar",
+   "Fonksiyonel gruplar organik bileşiklerin özelliklerini belirleyen karakteristik atom gruplarıdır.",
+   "Alkollerde yaygın grup?",
+   ["-OH","-COOH","-CHO","-Cl"],0),
+  K("Alkoller ve Eterler",
+   "Alkollerde hidroksil grubu, eterlerde iki karbon grubuna bağlı oksijen bulunur.",
+   "Etanol hangi sınıftadır?",
+   ["Alkol","Eter","Alkin","Aldehit"],0),
+  K("Aldehitler ve Ketonlar",
+   "Aldehit ve ketonlar karbonil grubu içerir. Aldehitlerde karbonil uçta, ketonlarda iki karbon grubunun arasındadır.",
+   "Karbonil grubu hangisidir?",
+   ["C=O","O–O","N≡N","H–H"],0),
+  K("Karboksilik Asitler",
+   "Karboksilik asitlerde -COOH grubu bulunur. Asetik asit bir örnektir.",
+   "Karboksilik asit grubu?",
+   ["-COOH","-OH","-O-","-NH₂"],0),
+  K("Esterler",
+   "Esterler R–COO–R' genel yapısıyla gösterilebilir. Bazı esterler karakteristik kokularıyla bilinir.",
+   "Esterlerde hangi bağlantı vardır?",
+   ["-COO-","-NH₂","-OH tek başına","C≡C"],0),
+  K("Organik İzomeri",
+   "İzomerler aynı molekül formülüne sahip farklı yapılardır. Cis/trans izomerleri uzaysal diziliş bakımından farklılaşır.",
+   "Cis/trans izomerliği neyle ilgilidir?",
+   ["Uzaysal diziliş","Proton sayısı","Atom numarası","Mol birimi"],0)
+ ]),
+ U("🌿 4. Ünite: Enerji Kaynakları ve Bilimsel Gelişmeler",[
+  K("Fosil Yakıtlar",
+   "Kömür, petrol ve doğal gaz fosil yakıtlardır. Kullanımları sera gazı salımlarına katkıda bulunabilir.",
+   "Fosil yakıt örneği?",
+   ["Kömür","Rüzgâr","Güneş","Gelgit"],0),
+  K("Alternatif Enerji Kaynakları",
+   "Güneş, rüzgâr, jeotermal ve hidroelektrik enerji yenilenebilir kaynak örnekleridir.",
+   "Yenilenebilir kaynak hangisi?",
+   ["Petrol","Kömür","Güneş","Doğal gaz"],2),
+  K("Sürdürülebilirlik",
+   "Sürdürülebilirlik doğal kaynakların gelecek kuşakların ihtiyaçlarını tehlikeye atmadan kullanılmasını hedefler.",
+   "Sürdürülebilir yaklaşım?",
+   ["Kaynakları verimli kullanmak","Atıkları artırmak","Suyu kirletmek","Enerjiyi boşa harcamak"],0),
+  K("Nanoteknoloji",
+   "Nanoteknoloji nanometre ölçeğindeki yapıları ve malzemeleri inceler. Bir nanometre 10⁻⁹ metredir.",
+   "Bir nanometre kaç metredir?",
+   ["10⁻⁹","10⁻³","10³","10⁹"],0)
+ ])
 ]
 };
 
-function buildMenus(){
- $("unitList").replaceChildren();
- $("gameList").replaceChildren();
- courses[grade].forEach((u,i)=>{
-  addTile("unitList",u.title,
-   u.lessons.length+" konu • Mini test",
-   ()=>openLesson(i,0));
-  addTile("gameList","🧠 "+u.title,
-   "Bilgi yarışmasını başlat",()=>startQuiz(i));
- });
- if(grade===9||grade===11){
-  addTile("gameList","⚛️ Elektron Dizilimi",
-   "Orbital kutularını doldur",()=>showPage("electronGame"));
- }
- if(grade===9||grade===10){
-  addTile("gameList","🔵 Lewis Nokta Oyunu",
-   "Değerlik elektronlarını yerleştir",()=>showPage("lewisGame"));
- }
- addTile("gameList","🌌 3D Laboratuvar",
-  "Atom ve molekül modellerini keşfet",()=>showPage("threeD"));
- buildProjects();buildExperiments();
-}
+// MENÜLER
 function addTile(parent,title,description,callback){
  const b=document.createElement("button");
  b.className="tile";
@@ -920,14 +973,38 @@ function addTile(parent,title,description,callback){
  b.onclick=callback;
  $(parent).append(b);
 }
+function buildMenus(){
+ $("unitList").replaceChildren();
+ $("gameList").replaceChildren();
+ courses[grade].forEach((u,i)=>{
+  addTile("unitList",u.title,
+   u.topics.length+" konu • Mini test",
+   ()=>openLesson(i,0));
+  addTile("gameList","🧠 "+u.title,
+   "Bilgi yarışmasını başlat",()=>startQuiz(i));
+ });
+ if(grade===9||grade===11){
+  addTile("gameList","⚛️ Elektron Dizilimi",
+   "Orbital kutularını doldur",
+   ()=>showPage("electronGame"));
+ }
+ if(grade===9||grade===12){
+  addTile("gameList","🔵 Lewis Nokta Oyunu",
+   "Değerlik elektronlarını yerleştir",
+   ()=>showPage("lewisGame"));
+ }
+ addTile("gameList","🌌 3D Laboratuvar",
+  "Modelleri keşfet",()=>showPage("threeD"));
+ buildProjects();buildExperiments();buildModelCategories();
+}
 function openLesson(u,l){
  currentUnit=u;currentLesson=l;
- const unit=courses[grade][u],lesson=unit.lessons[l];
+ const unit=courses[grade][u],lesson=unit.topics[l];
  $("lessonTitle").textContent=unit.title;
  $("lessonTabs").replaceChildren();
- unit.lessons.forEach((item,i)=>{
+ unit.topics.forEach((topic,i)=>{
   const b=document.createElement("button");
-  b.textContent=(i+1)+". "+item[0];
+  b.textContent=(i+1)+". "+topic.title;
   if(i===l)b.className="active";
   b.onclick=()=>openLesson(u,i);
   $("lessonTabs").append(b);
@@ -936,16 +1013,18 @@ function openLesson(u,l){
  const box=document.createElement("div");
  box.className="lesson";
  const h=document.createElement("h3");
- h.textContent=lesson[0];box.append(h);
- lesson[1].forEach(t=>{
-  const p=document.createElement("p");
-  p.textContent="🔹 "+t;box.append(p);
- });
+ h.textContent=lesson.title;
+ const p=document.createElement("p");
+ p.textContent=lesson.info;
+ box.append(h,p);
  $("lessonBody").append(box);
- $("lessonHint").textContent="💡 "+lesson[2];
+ $("lessonHint").textContent=
+  "💡 Konuyu okuduktan sonra mini testle kendini dene. "+
+  "3D laboratuvarda ilgili modelleri de keşfedebilirsin.";
  showPage("lessonPage");
 }
-function quizForCurrentUnit(){startQuiz(currentUnit)}
+
+// TEST SİSTEMİ
 function shuffle(a){
  const x=[...a];
  for(let i=x.length-1;i>0;i--){
@@ -957,17 +1036,17 @@ function shuffle(a){
 function startQuiz(u){
  dailyMode=false;questionIndex=0;
  quizMistakes=0;quizCompleted=false;
- quizQuestions=shuffle(courses[grade][u].lessons.map(l=>l[3]));
+ quizQuestions=shuffle(courses[grade][u].topics);
  $("quizTitle").textContent="🧠 "+courses[grade][u].title;
  showPage("quiz");showQuestion();
 }
 function startDaily(){
  const today=new Date().toLocaleDateString("sv-SE");
  if(progress.daily===today)return;
- const all=courses[grade].flatMap(u=>u.lessons.map(l=>l[3]));
+ const all=courses[grade].flatMap(u=>u.topics);
  const seed=Number(today.replaceAll("-",""));
- quizQuestions=Array.from({length:Math.min(5,all.length)},(_,i)=>
-  all[(seed+i*7)%all.length]);
+ quizQuestions=Array.from({length:Math.min(5,all.length)},
+  (_,i)=>all[(seed+i*7)%all.length]);
  questionIndex=0;quizMistakes=0;
  quizCompleted=false;dailyMode=true;
  $("quizTitle").textContent="🌞 Günlük Kimya Görevi";
@@ -987,8 +1066,7 @@ function showQuestion(){
    if(dailyMode){
     const today=new Date().toLocaleDateString("sv-SE");
     if(progress.daily!==today){
-     progress.daily=today;
-     progress.score+=25;
+     progress.daily=today;progress.score+=25;
      progress.badges.daily=true;
      updateStats();updateDaily();
     }
@@ -998,9 +1076,9 @@ function showQuestion(){
  }
  quizAnswered=false;
  const q=quizQuestions[questionIndex];
- $("question").textContent=q[0];
- $("quizNumber").textContent="Soru "+(questionIndex+1)+
-  " / "+quizQuestions.length;
+ $("question").textContent=q.q;
+ $("quizNumber").textContent=
+  "Soru "+(questionIndex+1)+" / "+quizQuestions.length;
  $("quizProgress").style.width=
   questionIndex/quizQuestions.length*100+"%";
  $("quizResult").textContent="Cevabını seç!";
@@ -1010,17 +1088,17 @@ function showQuestion(){
  $("answers").replaceChildren();
  shuffle([0,1,2,3]).forEach(i=>{
   const b=document.createElement("button");
-  b.textContent=q[1][i];
+  b.textContent=q.options[i];
   b.onclick=()=>{
    if(quizAnswered)return;
-   if(i===q[2]){
+   if(i===q.answer){
     quizAnswered=true;rewardCorrect();
     b.classList.add("ok");
     $("answers").querySelectorAll("button")
      .forEach(x=>x.disabled=true);
     $("quizResult").textContent="✅ Doğru!";
     $("quizResult").className="msg ok";
-    $("quizBot").textContent="🤖 Doğru cevap: "+q[1][q[2]];
+    $("quizBot").textContent="🤖 "+q.info;
     $("nextBtn").classList.remove("hidden");
    }else{
     quizMistakes++;rewardWrong();
@@ -1038,8 +1116,8 @@ function nextQuestion(){
 }
 function showQuizHint(){
  if(questionIndex>=quizQuestions.length)return;
- $("quizBot").textContent=
-  "💡 LAB-BOT: Konu anlatımındaki bilgileri hatırla ve seçenekleri karşılaştır.";
+ const q=quizQuestions[questionIndex];
+ $("quizBot").textContent="💡 "+q.info;
 }
 
 // ELEKTRON DİZİLİMİ
@@ -1057,9 +1135,9 @@ const elements=[
 ];
 elements.forEach((e,i)=>{
  ["electronElement","lewisElement"].forEach(id=>{
-  const option=document.createElement("option");
-  option.value=i;option.textContent=e[1]+" ("+e[0]+")";
-  $(id).append(option);
+  const o=document.createElement("option");
+  o.value=i;o.textContent=e[1]+" ("+e[0]+")";
+  $(id).append(o);
  });
 });
 const subs=[
@@ -1112,19 +1190,18 @@ function placeElectron(s,b){
   return;
  }
  eBoxes[s][b].push(spin);
- eHistory.push([s,b]);
- rewardCorrect();renderElectron();
+ eHistory.push([s,b]);rewardCorrect();renderElectron();
  $("electronMessage").textContent="✅ Doğru!";
  $("electronMessage").className="msg ok";
  if(electronTotal()===target){
   eFinished=true;finishGame(eMistakes);
-  $("electronMessage").textContent="🏆 Elektron dizilimi tamamlandı!";
+  $("electronMessage").textContent="🏆 Dizilim tamamlandı!";
  }
 }
 function renderElectron(){
  const el=elements[Number($("electronElement").value)];
- $("electronCount").textContent=el[1]+": "+
-  electronTotal()+" / "+el[2]+" elektron";
+ $("electronCount").textContent=
+  el[1]+": "+electronTotal()+" / "+el[2]+" elektron";
  $("electronProgress").style.width=
   electronTotal()/el[2]*100+"%";
  $("orbitalArea").replaceChildren();
@@ -1149,8 +1226,7 @@ function setSpin(s){spin=s;renderElectron()}
 function undoElectron(){
  if(!eHistory.length)return;
  const [s,b]=eHistory.pop();
- eBoxes[s][b].pop();
- eFinished=false;streak=0;
+ eBoxes[s][b].pop();eFinished=false;streak=0;
  updateStats();renderElectron();
  $("electronMessage").textContent="↶ Son elektron kaldırıldı.";
 }
@@ -1172,7 +1248,7 @@ function electronHint(){
 }
 resetElectron();
 
-// LEWIS NOKTA OYUNU
+// LEWIS OYUNU
 let lDots=[0,0,0,0],lHistory=[];
 let lMistakes=0,lFinished=false;
 function resetLewis(){
@@ -1228,83 +1304,31 @@ function lewisHint(){
 }
 resetLewis();
 
-// PROJE ATÖLYESİ
-const projectData={
-9:[
- ["Atom Modelleri Müzesi","Atom modellerinin tarihsel gelişimini karşılaştır.",
-  "Dalton, Thomson, Rutherford, Bohr ve modern modeli araştır.",
-  "Her modelin güçlü ve eksik yönlerini göster.",
-  "Modellerin yeni deneylerle neden değiştiğini açıkla."],
- ["Periyodik Tablo Tasarımı","İlk 20 elementi tanıtan tablo hazırla.",
-  "Elementlerin sembol ve atom numaralarını araştır.",
-  "Elementleri grup ve periyotlarına yerleştir.",
-  "Seçtiğin elementlerin günlük kullanımını açıkla."],
- ["Çevre Dostu Yaşam","Atık azaltma önerileri geliştir.",
-  "Atık türlerini araştır.",
-  "Bir haftalık gözlem tablosu hazırla.",
-  "Üç çözüm önerisi yaz."]
-],
-10:[
- ["Mol Kavramı Posteri","Mol kavramını görselleştir.",
-  "Avogadro sayısını araştır.",
-  "Mol-kütle ilişkisini örnekle.",
-  "Bilgileri poster hâlinde düzenle."],
- ["Karışımları Sınıflandır","Günlük karışımları incele.",
-  "Homojen ve heterojen örnekleri listele.",
-  "Ayırma yöntemlerini araştır.",
-  "Bulguları tabloda sun."],
- ["Polimer ve Geri Dönüşüm","Polimerleri araştır.",
-  "Doğal ve sentetik polimerleri karşılaştır.",
-  "Plastik atık sorunlarını incele.",
-  "Çözüm önerilerini yaz."]
-],
-11:[
- ["Gaz Yasaları Grafikleri","Gaz yasalarını grafiklerle açıkla.",
-  "Basınç-hacim-sıcaklık ilişkilerini araştır.",
-  "Örnek veri tablosu oluştur.",
-  "Grafikleri yorumla."],
- ["Çözelti Derişimi","Molarite kavramını araştır.",
-  "Örnek hesaplamalar yap.",
-  "Derişimin kullanım alanlarını incele.",
-  "Sonuçları raporlaştır."],
- ["Tepkime Hızı Araştırması","Tepkime hızını etkileyen faktörleri araştır.",
-  "Sıcaklık ve derişimin etkisini karşılaştır.",
-  "Katalizör örneklerini incele.",
-  "Kavram haritası oluştur."]
-],
-12:[
- ["Elektrokimya Posterim","Pil ve elektrolizi karşılaştır.",
-  "Anot ve katot kavramlarını açıkla.",
-  "Galvanik hücreyi şemayla göster.",
-  "Günlük uygulamaları araştır."],
- ["Organik Bileşikler Atlası","Organik bileşik sınıflarını tanıt.",
-  "Alkan, alken ve alkinleri karşılaştır.",
-  "Fonksiyonel grupları araştır.",
-  "Örnek molekül kartları hazırla."],
- ["Sürdürülebilir Enerji","Enerji kaynaklarını araştır.",
-  "Fosil ve yenilenebilir kaynakları karşılaştır.",
-  "Çevresel etkileri değerlendir.",
-  "Geleceğe yönelik öneriler yaz."]
-]};
+// PROJELER
 function buildProjects(){
  $("projectList").replaceChildren();
- projectData[grade].forEach((p,i)=>{
-  addTile("projectList","📁 "+p[0]+
+ courses[grade].forEach((u,i)=>{
+  addTile("projectList","📁 "+u.title+
    (progress.projects[i]?" ✅":""),
-   p[1],()=>openProject(i));
+   "Bu ünitenin araştırma projesini hazırla.",
+   ()=>openProject(i));
  });
 }
 function openProject(i){
  currentProject=i;
- const p=projectData[grade][i];
- $("projectTitle").textContent="📁 "+p[0];
+ const u=courses[grade][i];
+ $("projectTitle").textContent="📁 "+u.title+" Projesi";
  $("projectContent").replaceChildren();
- const intro=document.createElement("p");
- intro.textContent=p[1];$("projectContent").append(intro);
- p.slice(2).forEach((step,j)=>{
+ const steps=[
+  "Ünitenin temel kavramlarını araştır.",
+  "En az üç konuyu örneklerle açıkla.",
+  "Bir şema, grafik veya model hazırla.",
+  "Öğrendiklerini kendi cümlelerinle değerlendir."
+ ];
+ steps.forEach((s,j)=>{
   const d=document.createElement("div");
   d.className="projectStep";
-  d.textContent="Aşama "+(j+1)+": "+step;
+  d.textContent="Aşama "+(j+1)+": "+s;
   $("projectContent").append(d);
  });
  const r=progress.reports[i]||{};
@@ -1325,12 +1349,12 @@ function saveReport(){
 }
 function downloadReport(){
  saveReport();
- const p=projectData[grade][currentProject];
+ const u=courses[grade][currentProject];
  const r=progress.reports[currentProject];
  const text=[
   "KİMYAVERSE PROJE RAPORU",
   "Sınıf: "+grade,
-  "Proje: "+p[0],
+  "Proje: "+u.title,
   "Öğrenci: "+(progress.name||"Belirtilmedi"),
   "","AMAÇ",r.aim,
   "","ARAŞTIRMA NOTLARI",r.notes,
@@ -1340,8 +1364,7 @@ function downloadReport(){
  const url=URL.createObjectURL(blob);
  const a=document.createElement("a");
  a.href=url;a.download="kimyaverse-proje-"+grade+".txt";
- a.click();
- setTimeout(()=>URL.revokeObjectURL(url),1000);
+ a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
 function completeProject(){
  saveReport();
@@ -1357,25 +1380,32 @@ function completeProject(){
 // SANAL DENEYLER
 const experimentData={
 9:[
- ["🧪 Asit-Baz pH Ölçümü","Günlük sıvıların yaklaşık pH değerlerini incele.","ph"],
- ["⚛️ Rutherford Altın Levha","Alfa parçacıklarının saçılmasını gözlemle.","rutherford"],
- ["🧊 Hâl Değişimi","Sıcaklığın madde hâline etkisini incele.","heat"]
+ ["🧪 pH Ölçümü","Asit-baz örneklerini karşılaştır.","ph"],
+ ["🧊 Hâl Değişimi","Sıcaklık ve madde hâli ilişkisi.","heat"],
+ ["⚛️ Atom Modelleri","Atom modellerini incele.","model:thomson"]
 ],
 10:[
- ["🧪 Asit-Baz pH Ölçümü","Sıvıların pH değerlerini karşılaştır.","ph"],
- ["⚖️ Kütlenin Korunumu","Kapalı sistemde kütlenin korunmasını modelle.","mass"],
- ["💧 Çözünme","Derişim hesapla.","solution"]
+ ["⚖️ Kütlenin Korunumu","Kapalı sistemde kütle korunumu.","mass"],
+ ["💨 Gaz Yasaları","Basınç ve hacim ilişkisi.","gas"],
+ ["💧 Çözünme","Molarite hesapla.","solution"],
+ ["🧪 pH Ölçümü","Asit-baz özelliklerini incele.","ph"],
+ ["🌱 Sera Etkisi","Sera gazlarının etkisini karşılaştır.","greenhouse"],
+ ["💧 Hidratlaşma","NaCl çözünmesini gör.","model:dissolve"]
 ],
 11:[
- ["💨 Gaz Yasaları","Basınç-hacim ilişkisini incele.","gas"],
+ ["💨 Gaz Yasaları","Boyle yasasını incele.","gas"],
  ["💧 Derişim","Molarite hesapla.","solution"],
- ["🔥 Tepkime Hızı","Sıcaklığın hıza etkisini modelle.","rate"]
+ ["🔥 Tepkime Hızı","Sıcaklık ve hız ilişkisi.","rate"],
+ ["⚖️ Kimyasal Denge","Denge konumunu modelle.","equilibrium"],
+ ["☁️ Orbitaller","s, p ve d orbitallerini incele.","model:orbitalP"]
 ],
 12:[
- ["⚡ Elektrokimyasal Hücre","Hücre potansiyeli kavramını incele.","cell"],
- ["🧬 Molekül Galerisi","Molekül geometrilerini incele.","molecules"],
- ["🌱 Enerji Kaynakları","Enerji dağılımını karşılaştır.","energy"]
-]};
+ ["⚡ Galvanik Pil","Anot, katot ve tuz köprüsünü gör.","model:cell"],
+ ["🧬 Molekül Geometrileri","VSEPR modellerini incele.","model:methane"],
+ ["💎 Karbon Allotropları","Elmas, grafit ve fullereni gör.","model:diamond"],
+ ["🌱 Enerji Kaynakları","Enerji paylarını karşılaştır.","energy"]
+]
+};
 function buildExperiments(){
  $("experimentList").replaceChildren();
  experimentData[grade].forEach((e,i)=>{
@@ -1384,6 +1414,11 @@ function buildExperiments(){
 }
 function openExperiment(i){
  const e=experimentData[grade][i];
+ if(e[2].startsWith("model:")){
+  showPage("threeD");
+  selectModel(e[2].split(":")[1]);
+  return;
+ }
  $("experimentTitle").textContent=e[0];
  $("experimentIntro").textContent=e[1];
  $("experimentArea").replaceChildren();
@@ -1392,27 +1427,15 @@ function openExperiment(i){
  showPage("experimentPage");
  const t=e[2];
  if(t==="ph")experimentPH();
- else if(t==="rutherford")experimentRutherford();
  else if(t==="solution")experimentSolution();
- else if(t==="molecules"){
-  const b=document.createElement("button");
-  b.className="primary";
-  b.textContent="🌌 3D Molekül Galerisini Aç";
-  b.onclick=()=>{
-   showPage("threeD");
-   selectModel("methane");
-  };
-  $("experimentArea").append(b);
- }
  else if(t==="heat")experimentSlider(
   "Sıcaklık (°C)",-20,120,20,
-  v=>v<0?"Su buz hâlindedir.":v<100?
-  "Su sıvı hâldedir.":"Su kaynama sıcaklığına ulaştı.",
+  v=>v<0?"Buz":v<100?"Sıvı su":"Kaynama sıcaklığına ulaşıldı",
   "Saf su ve normal atmosfer basıncı için basitleştirilmiş model."
  );
  else if(t==="mass")experimentSlider(
   "Tepkime ilerleme yüzdesi",0,100,0,
-  v=>"Başlangıç kütlesi: 100 g • Son kütle: 100 g • İlerleme: %"+v,
+  v=>"Başlangıç: 100 g • Son: 100 g • İlerleme: %"+v,
   "Kapalı sistemde toplam kütle korunur."
  );
  else if(t==="gas")experimentSlider(
@@ -1424,31 +1447,32 @@ function openExperiment(i){
   "Sıcaklık (°C)",10,80,25,
   v=>"Göreli hız göstergesi: "+
    Math.pow(2,(v-25)/10).toFixed(2),
-  "Bu yalnızca örnek bir hız modelidir; gerçek tepkimeler farklı davranabilir."
+  "Bu örnek modeldir; gerçek tepkimeler farklı davranabilir."
  );
- else if(t==="cell")experimentSlider(
-  "Örnek hücre potansiyeli (V)",0,3,1,
-  v=>"Seçilen hücre potansiyeli: "+v+" V",
-  "Anotta yükseltgenme, katotta indirgenme gerçekleşir."
+ else if(t==="equilibrium")experimentSlider(
+  "Dengeyi etkileyen değişim (%)",-50,50,0,
+  v=>"Şematik denge göstergesi: "+v,
+  "Gerçek denge yönü tepkimeye ve yapılan değişime bağlıdır."
+ );
+ else if(t==="greenhouse")experimentSlider(
+  "Sera gazı düzeyi (göreli)",1,10,4,
+  v=>"Şematik kızılötesi enerji tutulumu: %"+(v*8),
+  "Bu yalnızca kavramsal bir göstergedir, iklim tahmini değildir."
  );
  else experimentSlider(
   "Yenilenebilir enerji payı (%)",0,100,50,
-  v=>"Örnek dağılımda yenilenebilir enerji payı: %"+v,
-  "Bu görsel bir dağılım modelidir; gerçek emisyon hesabı değildir."
+  v=>"Örnek yenilenebilir enerji payı: %"+v,
+  "Gerçek enerji üretim verilerini temsil etmez."
  );
 }
 function experimentSlider(title,min,max,value,describe,note){
  const card=document.createElement("div");
  card.className="card";
- const h=document.createElement("h3");
- h.textContent=title;
+ const h=document.createElement("h3");h.textContent=title;
  const slider=document.createElement("input");
- slider.type="range";slider.min=min;slider.max=max;
- slider.value=value;
- const output=document.createElement("div");
- output.className="msg";
- slider.oninput=()=>output.textContent=
-  describe(Number(slider.value));
+ slider.type="range";slider.min=min;slider.max=max;slider.value=value;
+ const output=document.createElement("div");output.className="msg";
+ slider.oninput=()=>output.textContent=describe(Number(slider.value));
  card.append(h,slider,output);
  $("experimentArea").append(card);
  slider.oninput();
@@ -1457,8 +1481,8 @@ function experimentSlider(title,min,max,value,describe,note){
 function experimentSolution(){
  const card=document.createElement("div");
  card.className="card";
- const title=document.createElement("h3");
- title.textContent="💧 Molarite Simülatörü";
+ const h=document.createElement("h3");
+ h.textContent="💧 Molarite Simülatörü";
  const mol=document.createElement("input");
  mol.type="number";mol.min="0";mol.step=".1";mol.value="1";
  const vol=document.createElement("input");
@@ -1467,19 +1491,17 @@ function experimentSolution(){
  l1.textContent="Çözünen madde miktarı (mol)";
  const l2=document.createElement("label");
  l2.textContent="Çözelti hacmi (L)";
- const result=document.createElement("div");
- result.className="msg";
- const button=document.createElement("button");
- button.className="primary";button.textContent="Hesapla";
- button.onclick=()=>{
+ const result=document.createElement("div");result.className="msg";
+ const btn=document.createElement("button");
+ btn.className="primary";btn.textContent="Hesapla";
+ btn.onclick=()=>{
   const n=Number(mol.value),v=Number(vol.value);
   result.textContent=n>=0&&v>0?
    "Molarite = "+(n/v).toFixed(2)+" mol/L":
    "Geçerli değerler gir.";
  };
- card.append(title,l1,mol,l2,vol,button,result);
- $("experimentArea").append(card);
- button.click();
+ card.append(h,l1,mol,l2,vol,btn,result);
+ $("experimentArea").append(card);btn.click();
  $("experimentExplanation").textContent="🤖 M = n / V";
 }
 function experimentPH(){
@@ -1489,220 +1511,171 @@ function experimentPH(){
   ["Deniz suyu",8.1],["Karbonat çözeltisi",8.4],
   ["Sabunlu su",10]
  ];
- const card=document.createElement("div");
- card.className="card";
+ const card=document.createElement("div");card.className="card";
  const select=document.createElement("select");
  samples.forEach((s,i)=>{
   const o=document.createElement("option");
   o.value=i;o.textContent=s[0];select.append(o);
  });
- const beaker=document.createElement("div");
- beaker.className="beaker";
- const liquid=document.createElement("div");
- liquid.className="liquid";
- const label=document.createElement("div");
- label.className="beakerText";
- beaker.append(liquid,label);
- const scale=document.createElement("div");
- scale.className="phScale";
+ const output=document.createElement("div");output.className="msg";
+ const bar=document.createElement("div");
+ bar.style.cssText=
+  "height:25px;border-radius:15px;margin:25px 0;"+
+  "background:linear-gradient(90deg,red,orange,yellow,green,blue,purple)";
  const pointer=document.createElement("div");
- pointer.id="phPointer";
+ pointer.style.cssText="position:relative;height:24px";
  const arrow=document.createElement("span");
- arrow.textContent="▼";pointer.append(arrow);
- const output=document.createElement("div");
- output.className="msg";
+ arrow.textContent="▼";arrow.style.position="absolute";
+ pointer.append(arrow);
  const btn=document.createElement("button");
  btn.className="primary";btn.textContent="📟 pH Ölç";
- select.onchange=()=>{
-  label.textContent=samples[Number(select.value)][0];
-  output.textContent="Ölçüm için düğmeye bas.";
- };
  btn.onclick=()=>{
   const p=samples[Number(select.value)][1];
   output.textContent="pH ≈ "+p+" • "+
    (p<6.5?"Asidik":p>7.5?"Bazik":"Nötre yakın");
   arrow.style.left=p/14*100+"%";
-  liquid.style.background=p<7?"#f3a06d":
-   p>7?"#8cbaed":"#76e4bf";
  };
- card.append(select,beaker,scale,pointer,btn,output);
- $("experimentArea").append(card);
- select.onchange();
+ card.append(select,bar,pointer,btn,output);
+ $("experimentArea").append(card);btn.click();
  $("experimentExplanation").textContent=
-  "🤖 pH değerleri yaklaşık örneklerdir. Gerçek kimyasalları karıştırma.";
-}
-function experimentRutherford(){
- const card=document.createElement("div");
- card.className="card";
- const c=document.createElement("canvas");
- c.width=760;c.height=310;
- c.style.width="100%";
- c.style.background="#071726";
- c.style.borderRadius="12px";
- const btn=document.createElement("button");
- btn.className="primary";
- btn.textContent="▶️ Alfa Parçacıklarını Gönder";
- const info=document.createElement("div");
- info.className="msg";
- card.append(c,btn,info);
- $("experimentArea").append(card);
- const x=c.getContext("2d");
- let particles=[],running=false,frame=0;
- btn.onclick=()=>{
-  particles=Array.from({length:65},(_,i)=>({
-   x:12-(i%10)*20,
-   y:18+Math.floor(i/10)*43+(i%3)*5,
-   angle:0,deflected:false
-  }));
-  running=true;frame=0;
-  info.textContent="Alfa parçacıkları gönderiliyor...";
- };
- function draw(){
-  if(!c.isConnected)return;
-  x.clearRect(0,0,760,310);
-  x.fillStyle="#26445e";
-  x.fillRect(370,0,8,310);
-  x.fillStyle="#ffe38a";
-  for(let y=18;y<310;y+=42){
-   x.beginPath();x.arc(374,y,3,0,Math.PI*2);x.fill();
-  }
-  x.fillStyle="#f88ab7";
-  x.beginPath();x.arc(374,155,10,0,Math.PI*2);x.fill();
-  if(running){
-   particles.forEach(p=>{
-    p.x+=3.4*Math.cos(p.angle);
-    p.y+=3.4*Math.sin(p.angle);
-    if(!p.deflected&&p.x>=350){
-     p.deflected=true;
-     const d=Math.abs(p.y-155);
-     if(d<8)p.angle=Math.PI-.15;
-     else if(d<26)p.angle=p.y<155?-.35:.35;
-     else if(d<45)p.angle=p.y<155?-.10:.10;
-    }
-    x.fillStyle="#76dfff";
-    x.beginPath();x.arc(p.x,p.y,3,0,Math.PI*2);x.fill();
-   });
-   frame++;
-   if(frame>350){
-    running=false;
-    info.textContent=
-     "Gözlem: Çoğu geçti, bazıları saptı, çok azı geri döndü.";
-   }
-  }
-  requestAnimationFrame(draw);
- }
- draw();
- $("experimentExplanation").textContent=
-  "🤖 Bu kavramsal animasyondur; gerçek saçılma olasılıklarını hesaplamaz.";
+  "🤖 pH değerleri yaklaşık örneklerdir; gerçek ölçümler değişebilir.";
 }
 
-// 3D LABORATUVAR
-// Harici kütüphane gerektirmeyen döndürülebilir 3D projeksiyon.
-const canvas=$("scene");
-const ctx=canvas.getContext("2d");
+// 3D MODEL VERİLERİ
+const models={
+ dalton:["⚫ Dalton Atom Modeli",
+  "Atomlar içi dolu küreler olarak düşünülmüştür.",
+  "Tarihsel model; atomun iç yapısını açıklamaz."],
+ thomson:["🍮 Thomson Atom Modeli",
+  "Elektronlar pozitif yüklü yapı içine gömülüdür.",
+  "Üzümlü kek modeli; çekirdeği açıklamaz."],
+ rutherford:["🎯 Rutherford Atom Modeli",
+  "Pozitif yük küçük ve yoğun çekirdekte toplanır.",
+  "Altın levha deneyi atomun büyük ölçüde boşluk içerdiğini gösterdi."],
+ bohr:["🪐 Bohr Atom Modeli",
+  "Elektronlar belirli enerji düzeyleriyle açıklanır.",
+  "Hidrojen spektrumunu açıklamada başarılıdır."],
+ modern:["☁️ Modern Atom Modeli",
+  "Elektronlar kesin yörüngeler yerine orbitallerle tanımlanır.",
+  "Elektron bulutu olasılık dağılımının şematik temsilidir."],
+ salt:["💎 NaCl Kristal Örgüsü",
+  "Na⁺ ve Cl⁻ iyonları düzenli üç boyutlu örgü oluşturur.",
+  "Gösterilen küçük kesit, kristalin tamamı değildir."],
+ water:["💧 H₂O — Açısal",
+  "Su molekülü iki hidrojen ve bir oksijen içerir.",
+  "Bağ açısı yaklaşık 104,5°'dir."],
+ co2:["🌫️ CO₂ — Doğrusal",
+  "Bir karbon ve iki oksijen atomundan oluşur.",
+  "O=C=O bağ açısı 180°'dir."],
+ dissolve:["💧 NaCl Hidratlaşması",
+  "Su molekülleri Na⁺ ve Cl⁻ iyonlarının çevresinde yönlenir.",
+  "Su moleküllerinin oksijen tarafı Na⁺'a, hidrojen tarafı Cl⁻'a yönelir."],
+ funnel:["🧪 Ayırma Hunisi",
+  "Birbirine karışmayan sıvıların ayrılmasında kullanılır.",
+  "Şematik laboratuvar düzeneğidir."],
+ distill:["🌡️ Basit Damıtma",
+  "Kaynama ve yoğuşma yoluyla ayırma yapılır.",
+  "Şematik düzenek; gerçek laboratuvar kullanım talimatı değildir."],
+ fraction:["🏭 Ayrımsal Damıtma",
+  "Farklı uçuculuktaki bileşenler kolon yardımıyla ayrılabilir.",
+  "Şematik düzenek; gerçek deney düzeneği değildir."],
+ orbitalS:["☁️ s Orbitali",
+  "s orbitalleri küresel simetriye sahiptir.",
+  "Görüntü olasılık dağılımının temsili."],
+ orbitalP:["🦋 p Orbitali",
+  "p orbitalleri iki loblu olarak temsil edilir.",
+  "Elektronun kesin hareket yolu değildir."],
+ orbitalD:["🍀 d Orbitali",
+  "Birçok d orbitali dört loblu olarak gösterilir.",
+  "Bazı d orbitallerinin şekli farklıdır."],
+ methane:["🔥 CH₄ — Tetrahedral",
+  "Metan molekülünde karbon dört hidrojenle bağ yapar.",
+  "Bağ açıları yaklaşık 109,5°'dir."],
+ ammonia:["🧪 NH₃ — Üçgen Piramidal",
+  "Azot üç hidrojenle bağ yapar; bağ yapmayan elektron çifti bulunur.",
+  "Bağ açıları yaklaşık 107°'dir."],
+ bh3:["🔺 BH₃ — Düzlem Üçgen",
+  "Bor merkezli üç hidrojen düzlem üçgen oluşturur.",
+  "İdeal bağ açıları 120°'dir."],
+ diamond:["💎 Elmas",
+  "Karbon atomları üç boyutlu kovalent ağ oluşturur.",
+  "Kristal yapının küçük, şematik bir parçasıdır."],
+ graphite:["📚 Grafit",
+  "Karbon atomları altıgen katmanlar oluşturur.",
+  "Katmanlar arası etkileşimler, katman içi bağlardan daha zayıftır."],
+ fullerene:["⚽ Fulleren",
+  "Karbon atomlarından oluşan kapalı kafes yapısıdır.",
+  "C₆₀ yapısının stilize gösterimidir."],
+ nanotube:["🧵 Karbon Nanotüp",
+  "Karbon atomları silindirik ağ oluşturur.",
+  "Şematik nanotüp modelidir."],
+ cis:["↔️ Cis İzomer",
+  "Benzer gruplar çift bağın aynı tarafındadır.",
+  "Basitleştirilmiş cis-2-büten modeli."],
+ trans:["↔️ Trans İzomer",
+  "Benzer gruplar çift bağın karşı taraflarındadır.",
+  "Basitleştirilmiş trans-2-büten modeli."],
+ ring:["🔷 Halkalı Karbon Yapısı",
+  "Karbon atomları halka oluşturabilir.",
+  "Basitleştirilmiş siklohekzan iskelet gösterimi."],
+ cell:["🔋 Galvanik Pil",
+  "Anot, katot ve tuz köprüsü içeren elektrokimyasal hücre.",
+  "Anotta yükseltgenme, katotta indirgenme gerçekleşir."]
+};
+
+const modelGroups={
+ "⚛️ Atom Modelleri":["dalton","thomson","rutherford","bohr","modern"],
+ "💧 Molekül ve Kristaller":["salt","water","co2"],
+ "🧪 Çözünme ve Laboratuvar":["dissolve","funnel","distill","fraction"],
+ "☁️ Orbitaller":["orbitalS","orbitalP","orbitalD"],
+ "🧬 Molekül Geometrileri":["methane","ammonia","bh3","water"],
+ "💎 Karbon Allotropları":["diamond","graphite","fullerene","nanotube"],
+ "🔗 Organik İzomeri":["cis","trans","ring"],
+ "⚡ Elektrokimya":["cell"]
+};
+function buildModelCategories(){
+ $("modelCategories").replaceChildren();
+ Object.entries(modelGroups).forEach(([title,ids])=>{
+  const h=document.createElement("h3");h.textContent=title;
+  const row=document.createElement("div");row.className="modelBtns";
+  ids.forEach(id=>{
+   const b=document.createElement("button");
+   b.textContent=models[id][0];
+   b.dataset.model=id;
+   b.onclick=()=>selectModel(id);
+   row.append(b);
+  });
+  $("modelCategories").append(h,row);
+ });
+}
+
+// 3D ÇİZİM MOTORU
+const canvas=$("scene"),ctx=canvas.getContext("2d");
 let model="thomson",yaw=.5,pitch=.3,zoom=1;
 let autoRotate=true,dragging=false,lastX=0,lastY=0;
 let historyIndex=1;
-const historical=[
- "dalton","thomson","rutherford","bohr","modern"
-];
-const models={
- dalton:{
-  title:"⚫ Dalton Atom Modeli",
-  description:"Atomları içi dolu ve bölünemez küreler olarak düşündü.",
-  note:"Tarihsel bir modeldir; atomun iç yapısını açıklayamaz."
- },
- thomson:{
-  title:"🍮 Thomson — Üzümlü Kek Modeli",
-  description:"Negatif elektronların pozitif yüklü yapı içine gömülü olduğunu öne sürdü.",
-  note:"Elektronun keşfinden sonra geliştirildi. Çekirdeği açıklayamaz."
- },
- rutherford:{
-  title:"🎯 Rutherford — Çekirdekli Atom Modeli",
-  description:"Atomun pozitif yükünün ve kütlesinin büyük bölümünün küçük çekirdekte toplandığını ortaya koydu.",
-  note:"Altın levha deneyinde çoğu alfa parçacığı geçti, bazıları saptı, çok azı geri döndü."
- },
- bohr:{
-  title:"🪐 Bohr Atom Modeli",
-  description:"Elektronların belirli enerji düzeylerinde bulunduğu bir model geliştirdi.",
-  note:"Özellikle hidrojen atomunun çizgi spektrumunu açıklamada başarılıdır."
- },
- modern:{
-  title:"☁️ Modern Atom Modeli",
-  description:"Elektronlar kesin yörüngeler yerine olasılık dağılımlarıyla tanımlanır.",
-  note:"Bulut görseli orbital fikrinin basitleştirilmiş temsilidir."
- },
- water:{
-  title:"💧 Su — H₂O",
-  description:"İki hidrojen ve bir oksijen atomu içerir. Açısal geometridedir.",
-  note:"H–O–H açısı yaklaşık 104,5°'dir."
- },
- co2:{
-  title:"🌫️ Karbondioksit — CO₂",
-  description:"Bir karbon ve iki oksijen atomundan oluşur. Doğrusaldır.",
-  note:"O=C=O bağ açısı 180°'dir."
- },
- methane:{
-  title:"🔥 Metan — CH₄",
-  description:"Bir karbon ve dört hidrojen atomundan oluşur. Tetrahedral geometridedir.",
-  note:"H–C–H bağ açıları yaklaşık 109,5°'dir."
- },
- ammonia:{
-  title:"🧪 Amonyak — NH₃",
-  description:"Bir azot ve üç hidrojen atomundan oluşur. Üçgen piramidal geometridedir.",
-  note:"H–N–H bağ açısı yaklaşık 107°'dir."
- },
- salt:{
-  title:"💎 NaCl Kristal Örgüsü",
-  description:"Sodyum ve klorür iyonları düzenli kristal örgü oluşturur.",
-  note:"Gösterilen küçük kesit kristalin tamamı değildir."
- }
-};
-const moleculeAtoms={
- water:[
-  [0,0,0,25,"#ff6883","O"],
-  [-1.05,.76,0,16,"#f3f7ff","H"],
-  [1.05,.76,0,16,"#f3f7ff","H"]
- ],
- co2:[
-  [0,0,0,24,"#aebdca","C"],
-  [-1.5,0,0,24,"#ff6883","O"],
-  [1.5,0,0,24,"#ff6883","O"]
- ],
- methane:[
-  [0,0,0,24,"#aebdca","C"],
-  [1,1,1,15,"#f3f7ff","H"],
-  [-1,-1,1,15,"#f3f7ff","H"],
-  [-1,1,-1,15,"#f3f7ff","H"],
-  [1,-1,-1,15,"#f3f7ff","H"]
- ],
- ammonia:[
-  [0,-.55,0,26,"#698eff","N"],
-  [1,.45,.55,16,"#f3f7ff","H"],
-  [-1,.45,.55,16,"#f3f7ff","H"],
-  [0,.45,-1,16,"#f3f7ff","H"]
- ]
-};
+const historical=["dalton","thomson","rutherford","bohr","modern"];
+
 function selectModel(m){
+ if(!models[m])return;
  model=m;
- $("modelTitle").textContent=models[m].title;
- $("modelDescription").textContent=models[m].description;
- $("modelNote").textContent=models[m].note;
+ $("modelTitle").textContent=models[m][0];
+ $("modelDescription").textContent=models[m][1];
+ $("modelNote").textContent=models[m][2];
  document.querySelectorAll("[data-model]").forEach(b=>
   b.classList.toggle("active",b.dataset.model===m));
- if(grade!==null){
+ const i=historical.indexOf(m);
+ if(i>=0)historyIndex=i;
+ if(progress){
   progress.badges.explorer=true;updateStats();
  }
- const index=historical.indexOf(m);
- if(index>=0)historyIndex=index;
  draw3D();
 }
 function nextHistoricalModel(){
  historyIndex=(historyIndex+1)%historical.length;
- const m=historical[historyIndex];
- selectModel(m);
+ selectModel(historical[historyIndex]);
  $("historyMessage").textContent=
-  "⏳ "+(historyIndex+1)+"/5 — "+models[m].title;
+  (historyIndex+1)+"/5 — "+models[historical[historyIndex]][0];
 }
 function resizeScene(){
  const rect=canvas.getBoundingClientRect();
@@ -1718,8 +1691,8 @@ function project(p){
  const zz=x*Math.sin(yaw)+z*Math.cos(yaw);
  const yy=y*Math.cos(pitch)-zz*Math.sin(pitch);
  const depth=y*Math.sin(pitch)+zz*Math.cos(pitch);
- const scale=Math.min(canvas.width,canvas.height)*.2*zoom;
- const perspective=5/(5+depth*.25);
+ const scale=Math.min(canvas.width,canvas.height)*.19*zoom;
+ const perspective=5/(5+depth*.18);
  return {
   x:canvas.width/2+xx*scale*perspective,
   y:canvas.height/2+yy*scale*perspective,
@@ -1728,152 +1701,324 @@ function project(p){
 }
 function ball(p,r,color,label=""){
  const v=project(p);
- const size=r*v.s*(canvas.width/
-  Math.max(canvas.clientWidth,1));
- const gradient=ctx.createRadialGradient(
-  v.x-size*.35,v.y-size*.35,1,
-  v.x,v.y,size
- );
- gradient.addColorStop(0,"#ffffff");
- gradient.addColorStop(.25,color);
- gradient.addColorStop(1,"#14243d");
- ctx.fillStyle=gradient;
- ctx.beginPath();
- ctx.arc(v.x,v.y,size,0,Math.PI*2);
- ctx.fill();
+ const size=Math.max(2,r*zoom*v.s*
+  canvas.width/Math.max(canvas.clientWidth,1));
+ const g=ctx.createRadialGradient(
+  v.x-size*.3,v.y-size*.3,1,v.x,v.y,size);
+ g.addColorStop(0,"#ffffff");
+ g.addColorStop(.25,color);
+ g.addColorStop(1,"#14243d");
+ ctx.fillStyle=g;
+ ctx.beginPath();ctx.arc(v.x,v.y,size,0,Math.PI*2);ctx.fill();
  if(label){
   ctx.fillStyle="white";
   ctx.font=`bold ${Math.max(10,size*.65)}px Arial`;
-  ctx.textAlign="center";
-  ctx.textBaseline="middle";
+  ctx.textAlign="center";ctx.textBaseline="middle";
   ctx.fillText(label,v.x,v.y);
  }
 }
-function line3D(a,b){
+function line3D(a,b,color="#b9dcf0",width=4){
  const p=project(a),q=project(b);
- ctx.strokeStyle="#afd4ea";
- ctx.lineWidth=6*(canvas.width/
-  Math.max(canvas.clientWidth,1));
- ctx.lineCap="round";
- ctx.beginPath();
- ctx.moveTo(p.x,p.y);
- ctx.lineTo(q.x,q.y);
- ctx.stroke();
-}
-function ring(r,axis,color){
  ctx.strokeStyle=color;
- ctx.lineWidth=2.5;
- ctx.beginPath();
- for(let i=0;i<=120;i++){
-  const t=i/120*Math.PI*2;
-  let p;
-  if(axis===0)p=[r*Math.cos(t),r*Math.sin(t),0];
-  else if(axis===1)p=[r*Math.cos(t),0,r*Math.sin(t)];
-  else p=[0,r*Math.cos(t),r*Math.sin(t)];
-  const v=project(p);
-  if(i===0)ctx.moveTo(v.x,v.y);
-  else ctx.lineTo(v.x,v.y);
+ ctx.lineWidth=width*canvas.width/
+  Math.max(canvas.clientWidth,1);
+ ctx.lineCap="round";
+ ctx.beginPath();ctx.moveTo(p.x,p.y);
+ ctx.lineTo(q.x,q.y);ctx.stroke();
+}
+function poly(points,color="#9cdbef",width=3,closed=false){
+ for(let i=1;i<points.length;i++)
+  line3D(points[i-1],points[i],color,width);
+ if(closed)line3D(points.at(-1),points[0],color,width);
+}
+function ring(r,axis,color="#75dcff"){
+ const pts=[];
+ for(let i=0;i<=90;i++){
+  const t=i/90*Math.PI*2;
+  if(axis===0)pts.push([r*Math.cos(t),r*Math.sin(t),0]);
+  else if(axis===1)pts.push([r*Math.cos(t),0,r*Math.sin(t)]);
+  else pts.push([0,r*Math.cos(t),r*Math.sin(t)]);
  }
- ctx.stroke();
+ poly(pts,color,2);
+}
+function cloud(points,color="#8fdcff"){
+ points.forEach(p=>{
+  const v=project(p);
+  ctx.fillStyle=color+"66";
+  ctx.beginPath();
+  ctx.arc(v.x,v.y,3.5*zoom,0,Math.PI*2);
+  ctx.fill();
+ });
+}
+function sphereCloud(type){
+ const pts=[];
+ for(let i=0;i<600;i++){
+  const t=i*2.399963;
+  const z=1-2*(i+.5)/600;
+  const rr=Math.sqrt(1-z*z);
+  const r=1.8*Math.pow((i+.5)/600,.65);
+  let p=[r*rr*Math.cos(t),r*rr*Math.sin(t),r*z];
+  if(type==="p"){
+   p=[p[0]*.42,p[1]*.42,
+    Math.sign(z)*(Math.abs(z)*2.2)];
+  }
+  if(type==="d"){
+   const a=Math.sin(2*t)*1.5;
+   p=[a*rr,p[1]*.5,z*.8];
+  }
+  pts.push(p);
+ }
+ cloud(pts);
+ ball([0,0,0],16,"#ff89ba","+");
+}
+function atom(x,y,z,r,color,label=""){
+ return [x,y,z,r,color,label];
+}
+function drawMolecule(atoms,bonds){
+ bonds.forEach(([a,b])=>line3D(
+  atoms[a].slice(0,3),atoms[b].slice(0,3)));
+ [...atoms].sort((a,b)=>
+  project(b).z-project(a).z).forEach(a=>
+   ball(a.slice(0,3),a[3],a[4],a[5]));
 }
 function draw3D(){
  if(!canvas.width||!canvas.height)return;
  ctx.clearRect(0,0,canvas.width,canvas.height);
  const w=canvas.width,h=canvas.height;
- for(let i=0;i<55;i++){
-  ctx.fillStyle="#b1dfff77";
-  ctx.fillRect(
-   (i*127.7%1000)/1000*w,
-   (i*87.3%1000)/1000*h,2,2
-  );
+ for(let i=0;i<60;i++){
+  ctx.fillStyle="#b1dfff66";
+  ctx.fillRect((i*127.7%1000)/1000*w,
+   (i*87.3%1000)/1000*h,2,2);
  }
  if(model==="dalton"){
   ball([0,0,0],85,"#9aadd0");
  }
  else if(model==="thomson"){
-  ball([0,0,0],100,"#ed91ba","+");
-  const electrons=[
-   [-.7,.6,.6],[.7,.6,.5],
-   [-.7,-.6,.4],[.6,-.5,-.4],
-   [0,.2,-.7],[.1,.8,0],
+  ball([0,0,0],92,"#ed91ba","+");
+  [
+   [-.7,.6,.6],[.7,.6,.5],[-.7,-.6,.4],
+   [.6,-.5,-.4],[0,.2,-.7],[.1,.8,0],
    [-.3,-.1,.7],[.5,-.2,.7]
-  ];
-  electrons.sort((a,b)=>project(b).z-project(a).z)
-   .forEach(p=>ball(p,12,"#67dfff","−"));
+  ].forEach(p=>ball(p,12,"#67dfff","−"));
  }
  else if(model==="rutherford"||model==="bohr"){
-  const radii=model==="bohr"?
-   [1.15,1.9]:[1.55,2.15];
-  radii.forEach((r,i)=>
-   ring(r,i%3,i?"#d39affaa":"#74dbffaa"));
-  ball([0,0,0],29,"#ff8fb4","+");
-  const e=model==="bohr"?
-   [[1.15,0,0],[-1.15,0,0],[0,1.9,0],[0,-1.9,0]]:
-   [[1.55,0,0],[-1.55,0,0],[0,2.15,0]];
-  e.forEach(p=>ball(p,11,"#7bdfff","−"));
+  ring(1.2,0);ring(1.9,1,"#d39aff");
+  ball([0,0,0],28,"#ff8fb4","+");
+  [[1.2,0,0],[-1.2,0,0],[0,0,1.9],[0,0,-1.9]]
+   .forEach(p=>ball(p,11,"#7bdfff","−"));
  }
- else if(model==="modern"){
-  const points=[];
-  for(let i=0;i<250;i++){
-   const t=i*2.399963;
-   const r=1.6*Math.pow((i+.5)/250,.7);
-   const z=1-2*(i+.5)/250;
-   const rr=Math.sqrt(1-z*z);
-   points.push([
-    r*rr*Math.cos(t),
-    r*rr*Math.sin(t),
-    r*z
-   ]);
+ else if(model==="modern"||model==="orbitalS"){
+  sphereCloud("s");
+ }
+ else if(model==="orbitalP"){
+  sphereCloud("p");
+ }
+ else if(model==="orbitalD"){
+  sphereCloud("d");
+ }
+ else if(model==="water"){
+  drawMolecule([
+   atom(0,0,0,25,"#ff6883","O"),
+   atom(-1,.75,0,16,"#f3f7ff","H"),
+   atom(1,.75,0,16,"#f3f7ff","H")
+  ],[[0,1],[0,2]]);
+ }
+ else if(model==="co2"){
+  drawMolecule([
+   atom(0,0,0,24,"#aebdca","C"),
+   atom(-1.5,0,0,24,"#ff6883","O"),
+   atom(1.5,0,0,24,"#ff6883","O")
+  ],[[0,1],[0,2]]);
+ }
+ else if(model==="methane"){
+  drawMolecule([
+   atom(0,0,0,24,"#aebdca","C"),
+   atom(1,1,1,15,"#fff","H"),
+   atom(-1,-1,1,15,"#fff","H"),
+   atom(-1,1,-1,15,"#fff","H"),
+   atom(1,-1,-1,15,"#fff","H")
+  ],[[0,1],[0,2],[0,3],[0,4]]);
+ }
+ else if(model==="ammonia"){
+  drawMolecule([
+   atom(0,-.55,0,26,"#698eff","N"),
+   atom(1,.45,.55,16,"#fff","H"),
+   atom(-1,.45,.55,16,"#fff","H"),
+   atom(0,.45,-1,16,"#fff","H")
+  ],[[0,1],[0,2],[0,3]]);
+ }
+ else if(model==="bh3"){
+  const a=[atom(0,0,0,24,"#ed9fd2","B")];
+  for(let i=0;i<3;i++){
+   const t=i*2*Math.PI/3;
+   a.push(atom(1.5*Math.cos(t),
+    1.5*Math.sin(t),0,16,"#fff","H"));
   }
-  points.sort((a,b)=>project(b).z-project(a).z);
-  points.forEach(p=>{
-   const v=project(p);
-   ctx.fillStyle="#74cfff55";
-   ctx.beginPath();
-   ctx.arc(v.x,v.y,5*zoom,0,Math.PI*2);
-   ctx.fill();
-  });
-  ball([0,0,0],18,"#ff8db3","+");
+  drawMolecule(a,[[0,1],[0,2],[0,3]]);
  }
  else if(model==="salt"){
   const atoms=[];
-  for(let x=-1;x<=1;x++){
-   for(let y=-1;y<=1;y++){
+  for(let x=-1;x<=1;x++)
+   for(let y=-1;y<=1;y++)
     for(let z=-1;z<=1;z++){
      const even=(x+y+z+3)%2===0;
-     atoms.push([
-      x*.95,y*.95,z*.95,
-      even?21:16,
-      even?"#8ee5ae":"#b194ff",
-      even?"Cl":"Na"
-     ]);
+     atoms.push(atom(x*.95,y*.95,z*.95,
+      even?21:16,even?"#8ee5ae":"#b194ff",
+      even?"Cl":"Na"));
     }
+  drawMolecule(atoms,[]);
+ }
+ else if(model==="dissolve"){
+  ball([-1.3,0,0],28,"#8cecae","+");
+  ball([1.3,0,0],28,"#b69cff","−");
+  for(let j=0;j<2;j++){
+   const cx=j===0?-1.3:1.3;
+   for(let i=0;i<6;i++){
+    const t=i*Math.PI/3;
+    const a=[cx+Math.cos(t)*.85,
+     Math.sin(t)*.85,Math.sin(t*2)*.3];
+    const sign=j===0?-1:1;
+    const h1=[a[0]+sign*.18,a[1]+.14,a[2]];
+    const h2=[a[0]+sign*.18,a[1]-.14,a[2]];
+    ball(a,12,"#ff7891","O");
+    ball(h1,7,"#fff");
+    ball(h2,7,"#fff");
    }
   }
-  atoms.sort((a,b)=>project(b).z-project(a).z)
-   .forEach(a=>ball(a.slice(0,3),a[3],a[4],a[5]));
  }
- else{
-  const atoms=moleculeAtoms[model];
-  if(!atoms)return;
-  for(let i=1;i<atoms.length;i++){
-   line3D(atoms[0],atoms[i]);
+ else if(model==="diamond"){
+  const a=[
+   [-1,-1,-1],[1,1,-1],[1,-1,1],[-1,1,1],
+   [0,0,0]
+  ];
+  for(let i=0;i<4;i++)
+   line3D(a[4],a[i],"#b7f5f1",5);
+  a.forEach(p=>ball(p,19,"#a3d6ee","C"));
+ }
+ else if(model==="graphite"){
+  for(let layer=-1;layer<=1;layer++){
+   const z=layer*.75;
+   for(let i=0;i<6;i++){
+    const t=i*Math.PI/3;
+    const u=(i+1)*Math.PI/3;
+    line3D([1.55*Math.cos(t),1.55*Math.sin(t),z],
+     [1.55*Math.cos(u),1.55*Math.sin(u),z],
+     "#a8e8ff",4);
+    ball([1.55*Math.cos(t),1.55*Math.sin(t),z],
+     12,"#9fbdcf");
+   }
   }
-  [...atoms].sort((a,b)=>project(b).z-project(a).z)
-   .forEach(a=>ball(a.slice(0,3),a[3],a[4],a[5]));
+ }
+ else if(model==="fullerene"){
+  const pts=[];
+  for(let i=0;i<60;i++){
+   const z=1-2*(i+.5)/60;
+   const t=i*2.399963;
+   const r=Math.sqrt(1-z*z);
+   pts.push([1.8*r*Math.cos(t),
+    1.8*r*Math.sin(t),1.8*z]);
+  }
+  pts.forEach((p,i)=>{
+   const nearest=pts.map((q,j)=>({
+    j,d:(p[0]-q[0])**2+
+     (p[1]-q[1])**2+(p[2]-q[2])**2
+   })).filter(x=>x.j!==i)
+    .sort((a,b)=>a.d-b.d).slice(0,3);
+   nearest.forEach(x=>{
+    if(x.j>i)line3D(p,pts[x.j],"#84dfff",2);
+   });
+  });
+  pts.forEach(p=>ball(p,8,"#b5d1e5"));
+ }
+ else if(model==="nanotube"){
+  const N=12;
+  for(let z=-2;z<=2;z++){
+   for(let i=0;i<N;i++){
+    const t=i*2*Math.PI/N+(z%2)*Math.PI/N;
+    const p=[1.1*Math.cos(t),1.1*Math.sin(t),z*.75];
+    const q=[1.1*Math.cos(t+2*Math.PI/N),
+     1.1*Math.sin(t+2*Math.PI/N),z*.75];
+    line3D(p,q,"#7bdfff",2);
+    ball(p,9,"#a9c4d8");
+   }
+  }
+ }
+ else if(model==="cis"||model==="trans"){
+  const cis=model==="cis";
+  const a=[
+   atom(-.65,0,0,21,"#b3c8d7","C"),
+   atom(.65,0,0,21,"#b3c8d7","C"),
+   atom(-1.25,-1,0,16,"#f9b9dc","CH₃"),
+   atom(1.25,cis?-1:1,0,16,"#f9b9dc","CH₃"),
+   atom(-1.25,1,0,12,"#fff","H"),
+   atom(1.25,cis?1:-1,0,12,"#fff","H")
+  ];
+  drawMolecule(a,[[0,1],[0,2],[1,3],[0,4],[1,5]]);
+  line3D([-.65,.12,0],[.65,.12,0],"#fff",2);
+ }
+ else if(model==="ring"){
+  const a=[];
+  for(let i=0;i<6;i++){
+   const t=i*Math.PI/3;
+   a.push(atom(1.6*Math.cos(t),1.6*Math.sin(t),
+    .22*(i%2),16,"#b7d2e6","C"));
+  }
+  drawMolecule(a,[[0,1],[1,2],[2,3],[3,4],[4,5],[5,0]]);
+ }
+ else if(model==="funnel"){
+  poly([
+   [-1.2,-1.4,0],[1.2,-1.4,0],
+   [.7,.5,0],[.18,1.3,0],
+   [.18,2,0]
+  ],"#8edfff",5);
+  poly([
+   [-1.2,-1.4,0],[-.7,.5,0],
+   [-.18,1.3,0],[-.18,2,0]
+  ],"#8edfff",5);
+  line3D([-.18,1.3,0],[.18,1.3,0],"#fff",5);
+  line3D([-.5,1.7,0],[.5,1.7,0],"#ffc078",5);
+ }
+ else if(model==="distill"||model==="fraction"){
+  ring(.7,0,"#8edfff");
+  line3D([0,-.7,0],[0,-1.7,0]);
+  line3D([0,-1.7,0],[1.7,-1.7,0]);
+  line3D([1.7,-1.7,0],[1.7,.8,0]);
+  line3D([1.7,.8,0],[2.4,.8,0]);
+  ball([0,0,0],22,"#88dcff");
+  if(model==="fraction"){
+   for(let y=-1.5;y<.7;y+=.4)
+    line3D([1.5,y,0],[1.9,y,0],"#ffd27d",3);
+  }
+ }
+ else if(model==="cell"){
+  for(const x of [-1.2,1.2]){
+   poly([
+    [x-.7,-1.3,0],[x+.7,-1.3,0],
+    [x+.7,1.2,0],[x-.7,1.2,0]
+   ],"#9cdfff",4,true);
+   line3D([x,-1.8,0],[x,.5,0],
+    x<0?"#f0b48a":"#b3c8ff",8);
+  }
+  poly([
+   [-1.2,-1.8,0],[-1.2,-2.2,0],
+   [1.2,-2.2,0],[1.2,-1.8,0]
+  ],"#f7d486",5);
+  poly([
+   [-1.2,.5,0],[-1.2,1.6,0],
+   [1.2,1.6,0],[1.2,.5,0]
+  ],"#a8f0c2",5);
+  ball([0,1.6,0],14,"#ffdf85","e");
  }
 }
 canvas.addEventListener("pointerdown",e=>{
- dragging=true;
- lastX=e.clientX;lastY=e.clientY;
+ dragging=true;lastX=e.clientX;lastY=e.clientY;
  canvas.setPointerCapture(e.pointerId);
 });
 canvas.addEventListener("pointermove",e=>{
  if(!dragging)return;
  yaw+=(e.clientX-lastX)*.012;
  pitch+=(e.clientY-lastY)*.012;
- lastX=e.clientX;lastY=e.clientY;
- draw3D();
+ lastX=e.clientX;lastY=e.clientY;draw3D();
 });
 canvas.addEventListener("pointerup",()=>dragging=false);
 canvas.addEventListener("pointercancel",()=>dragging=false);
@@ -1901,7 +2046,7 @@ window.addEventListener("resize",resizeScene);
 selectModel("thomson");
 requestAnimationFrame(animate);
 
-// FORMSPREE
+// GERİ BİLDİRİM
 $("feedbackForm").addEventListener("submit",async e=>{
  e.preventDefault();
  const form=e.currentTarget;
@@ -1911,8 +2056,7 @@ $("feedbackForm").addEventListener("submit",async e=>{
  $("feedbackStatus").className="msg";
  try{
   const response=await fetch(form.action,{
-   method:"POST",
-   body:new FormData(form),
+   method:"POST",body:new FormData(form),
    headers:{Accept:"application/json"}
   });
   if(response.ok){

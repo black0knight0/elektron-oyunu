@@ -4,10 +4,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Elektron Laboratuvarı</title>
 
 <style>
-* { box-sizing: border-box; }
+* {
+    box-sizing: border-box;
+}
 
 body {
     margin: 0;
@@ -15,19 +18,32 @@ body {
     min-height: 100vh;
     font-family: Arial, sans-serif;
     color: white;
-    background: linear-gradient(#16466c, #0b1c30);
+    background: linear-gradient(160deg, #16466c, #091827);
 }
 
-main { max-width: 950px; margin: auto; }
+main {
+    max-width: 950px;
+    margin: auto;
+}
 
 header {
     text-align: center;
     margin: 20px 0 30px;
 }
 
-h1 { color: #77d2ff; font-size: 36px; }
-h2 { margin-top: 0; }
-p { color: #c3dced; }
+h1 {
+    color: #77d2ff;
+    font-size: 36px;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+p {
+    color: #c3dced;
+    line-height: 1.5;
+}
 
 .panel {
     background: #142f4b;
@@ -36,8 +52,13 @@ p { color: #c3dced; }
     padding: 24px;
 }
 
-.center { text-align: center; }
-.hidden { display: none !important; }
+.center {
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
+}
 
 button {
     background: #66caff;
@@ -52,7 +73,9 @@ button {
     touch-action: manipulation;
 }
 
-button:hover { filter: brightness(1.15); }
+button:hover {
+    filter: brightness(1.15);
+}
 
 button:focus-visible {
     outline: 3px solid white;
@@ -65,7 +88,10 @@ button:focus-visible {
 
 .elements {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(120px, 1fr)
+    );
     gap: 12px;
     margin-top: 20px;
 }
@@ -148,9 +174,17 @@ button:focus-visible {
     min-height: 65px;
 }
 
-.good { border: 1px solid #4fba9b; }
-.bad { border: 1px solid #ff9a8b; }
-.info { border: 1px solid #6089b0; }
+.good {
+    border: 1px solid #4fba9b;
+}
+
+.bad {
+    border: 1px solid #ff9a8b;
+}
+
+.info {
+    border: 1px solid #6089b0;
+}
 
 .progress {
     height: 12px;
@@ -179,10 +213,20 @@ footer {
     color: #a9cce4;
 }
 
-@media(max-width: 520px) {
-    .panel { padding: 15px; }
-    .slot { width: 52px; height: 60px; }
-    h1 { font-size: 27px; }
+@media (max-width: 520px) {
+    .panel {
+        padding: 15px;
+    }
+
+    .slot {
+        width: 52px;
+        height: 60px;
+        font-size: 21px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
 }
 </style>
 </head>
@@ -195,41 +239,88 @@ footer {
     <p>Aufbau • Pauli • Hund</p>
 </header>
 
+<!-- ANA SAYFA -->
+
 <section id="home" class="panel center">
+
     <h2>Elektronları doğru yerleştirebilir misin?</h2>
-    <p>Element seç, elektronları orbitallere yerleştir!</p>
-    <button id="start">OYUNA BAŞLA</button>
+
+    <p>
+        Element seç, elektronları orbitallere
+        yerleştir ve kimya kurallarını öğren!
+    </p>
+
+    <button id="start">
+        OYUNA BAŞLA
+    </button>
+
 </section>
+
+<!-- ELEMENT SEÇİMİ -->
 
 <section id="choose" class="panel hidden">
+
     <h2>ELEMENTİNİ SEÇ</h2>
-    <button id="backHome" class="ghost">Ana sayfa</button>
-    <p>Kolaydan zora ilerle!</p>
+
+    <button id="backHome" class="ghost">
+        Ana sayfa
+    </button>
+
+    <p>İlk 20 elementten birini seç!</p>
+
     <div id="elements" class="elements"></div>
+
 </section>
 
+<!-- OYUN -->
+
 <section id="game" class="panel hidden">
+
     <p id="level"></p>
+
     <h2 id="elementName"></h2>
+
     <p id="count"></p>
+
     <p id="score"></p>
 
     <div class="progress">
         <div id="bar" class="bar"></div>
     </div>
 
-    <p>Elektronun yönünü seç ve orbital kutusuna bas.</p>
+    <p>
+        Önce elektronun yönünü seç.
+        Sonra yerleştireceğin kutuya tıkla.
+    </p>
 
     <div class="toolbar">
-        <button id="up" class="spin active">↑ Yukarı spin</button>
-        <button id="down" class="spin ghost">↓ Aşağı spin</button>
-        <button id="undo" class="ghost">↶ Geri al</button>
-        <button id="reset" class="ghost">⟳ Sıfırla</button>
+
+        <button id="up" class="spin active">
+            ↑ Yukarı spin
+        </button>
+
+        <button id="down" class="spin ghost">
+            ↓ Aşağı spin
+        </button>
+
+        <button id="undo" class="ghost">
+            ↶ Geri al
+        </button>
+
+        <button id="reset" class="ghost">
+            ⟳ Sıfırla
+        </button>
+
     </div>
 
     <div id="orbitals"></div>
 
-    <div id="feedback" class="feedback info" role="status">
+    <div
+        id="feedback"
+        class="feedback info"
+        role="status"
+        aria-live="polite"
+    >
         İlk elektronu 1s orbitaline yerleştir.
     </div>
 
@@ -242,23 +333,42 @@ footer {
     </button>
 
     <details class="rules">
+
         <summary>Kuralları hatırlat</summary>
-        <p><b>Aufbau:</b> Elektronlar önce düşük
-        enerjili orbitallere yerleşir.</p>
 
-        <p><b>Pauli:</b> Bir orbitalde en fazla
-        iki elektron bulunur. Spinleri zıttır.</p>
+        <p>
+            <b>Aufbau:</b>
+            Elektronlar önce düşük enerjili
+            orbitallere yerleşir.
+        </p>
 
-        <p><b>Hund:</b> Eş enerjili orbitaller
-        önce paralel spinli tek elektronlarla dolar.</p>
+        <p>
+            <b>Pauli:</b>
+            Bir orbitalde en fazla iki elektron
+            bulunur ve spinleri zıttır.
+        </p>
+
+        <p>
+            <b>Hund:</b>
+            Eş enerjili orbitallere önce
+            paralel spinli tek elektronlar yerleşir.
+            Sonra elektronlar eşleşir.
+        </p>
+
     </details>
+
 </section>
 
-<footer>Elektron Laboratuvarı • Kimya Oyunu</footer>
+<footer>
+    Elektron Laboratuvarı • Kimya Oyunu
+</footer>
 
 </main>
 
 <script>
+
+// İLK 20 ELEMENT
+
 const elements = [
     {symbol:"H", name:"Hidrojen", z:1},
     {symbol:"He", name:"Helyum", z:2},
@@ -282,6 +392,8 @@ const elements = [
     {symbol:"Ca", name:"Kalsiyum", z:20}
 ];
 
+// ORBİTALLER
+
 const subshells = [
     {name:"1s", n:1},
     {name:"2s", n:1},
@@ -290,6 +402,8 @@ const subshells = [
     {name:"3p", n:3},
     {name:"4s", n:1}
 ];
+
+// DEĞİŞKENLER
 
 const $ = id => document.getElementById(id);
 
@@ -300,23 +414,35 @@ let history = [];
 let points = 0;
 let completed = false;
 
+// EKRAN DEĞİŞTİRME
+
 function screen(id) {
     ["home", "choose", "game"].forEach(key => {
-        $(key).classList.toggle("hidden", key !== id);
+        $(key).classList.toggle(
+            "hidden",
+            key !== id
+        );
     });
 }
 
+// MESAJ GÖSTERME
+
 function message(text, type = "info") {
     $("feedback").textContent = text;
-    $("feedback").className = "feedback " + type;
+    $("feedback").className =
+        "feedback " + type;
 }
+
+// ELEMENTLERİ LİSTELEME
 
 function choose() {
     screen("choose");
+
     $("elements").replaceChildren();
 
     elements.forEach((el, i) => {
         const button = document.createElement("button");
+
         button.className = "element";
 
         const number = document.createElement("span");
@@ -330,10 +456,17 @@ function choose() {
         name.textContent = el.name;
 
         button.append(number, symbol, name);
-        button.addEventListener("click", () => load(i));
+
+        button.addEventListener(
+            "click",
+            () => load(i)
+        );
+
         $("elements").append(button);
     });
 }
+
+// ELEMENTİ BAŞLATMA
 
 function load(i) {
     selected = i;
@@ -341,32 +474,44 @@ function load(i) {
     history = [];
     completed = false;
 
-    slots = subshells.map(s =>
-        Array.from({length:s.n}, () => [])
+    slots = subshells.map(sub =>
+        Array.from(
+            {length: sub.n},
+            () => []
+        )
     );
 
     $("level").textContent =
-        "SEVİYE " + (i + 1) + " / " + elements.length;
+        "SEVİYE " + (i + 1) +
+        " / " + elements.length;
 
     $("elementName").textContent =
-        elements[i].name + " (" + elements[i].symbol + ")";
+        elements[i].name +
+        " (" + elements[i].symbol + ")";
 
     $("next").classList.add("hidden");
 
-    message("İlk elektronu 1s orbitaline yerleştir.");
+    message(
+        "İlk elektronu 1s orbitaline yerleştir."
+    );
 
     screen("game");
     render();
 }
 
+// ELEKTRON SAYISI
+
 function count() {
     return slots.flat().reduce(
-        (sum, box) => sum + box.length, 0
+        (sum, box) => sum + box.length,
+        0
     );
 }
 
-// AUFBAU, PAULI VE HUND KONTROLÜ
+// KURALLARI KONTROL ETME
+
 function validate(s, b, arrow) {
+
     const current = slots[s][b];
     const group = slots[s];
 
@@ -375,55 +520,67 @@ function validate(s, b, arrow) {
     }
 
     // PAULI KURALI
+
     if (current.length === 2) {
-        return "Pauli: Bu orbital zaten dolu!";
+        return "Pauli: Bir orbitalde en fazla iki elektron olabilir!";
     }
 
     if (current.includes(arrow)) {
-        return "Pauli: Aynı orbitalde spinler zıt olmalı!";
+        return "Pauli: Aynı orbitaldeki elektronların spinleri zıt olmalı!";
     }
 
     // AUFBAU KURALI
+
     for (let k = 0; k < s; k++) {
-        if (slots[k].some(box => box.length < 2)) {
+
+        if (
+            slots[k].some(
+                box => box.length < 2
+            )
+        ) {
             return "Aufbau: Önce " +
-                subshells[k].name + " orbitalini doldur!";
+                subshells[k].name +
+                " orbitalini doldur!";
         }
     }
 
     // HUND KURALI
+
     if (group.length > 1) {
+
         const firstEmpty = group.findIndex(
             box => box.length === 0
         );
 
-        // Henüz boş orbital varsa
+        // ÖNCE HER KUTUYA BİR ELEKTRON
+
         if (firstEmpty !== -1) {
 
-            // Dolu orbitale ikinci elektron eklenemez
             if (current.length > 0) {
-                return "Hund: Önce üç kutuya da birer elektron koy!";
+                return "Hund: Önce üç kutuya da birer elektron koymalısın!";
             }
 
-            // Öğretici oyun sırası: soldan sağa
             if (b !== firstEmpty) {
-                return "Önce soldaki boş kutuyu doldur!";
+                return "Hund: Önce soldaki boş kutuyu doldur!";
             }
 
-            // Tek elektronlar paralel spinli olmalı
-            if (b > 0 && arrow !== group[0][0]) {
+            if (
+                b > 0 &&
+                arrow !== group[0][0]
+            ) {
                 return "Hund: Tek elektronların spinleri aynı olmalı!";
             }
 
         } else {
 
-            // Boş orbital kalmadıysa çiftlemeye geç
+            // BOŞ KUTU KALMADIYSA EŞLEŞTİR
+
             const firstSingle = group.findIndex(
                 box => box.length === 1
             );
 
             if (b !== firstSingle) {
-                return "Önce soldaki tek elektronu eşleştir!";
+                return "Hund: Önce soldaki tek elektronu eşleştir!";
             }
 
             if (arrow === current[0]) {
@@ -435,7 +592,10 @@ function validate(s, b, arrow) {
     return null;
 }
 
+// ELEKTRON YERLEŞTİRME
+
 function place(s, b) {
+
     if (completed) return;
 
     const error = validate(s, b, spin);
@@ -446,46 +606,78 @@ function place(s, b) {
     }
 
     slots[s][b].push(spin);
+
     history.push({s, b});
+
     points += 10;
 
-    if (count() === elements[selected].z) {
+    if (
+        count() === elements[selected].z
+    ) {
+
         completed = true;
+
         points += 50;
 
         message(
-            "TEBRİKLER! " + elements[selected].name +
+            "TEBRİKLER! " +
+            elements[selected].name +
             " tamamlandı! +50 bonus puan!",
             "good"
         );
 
-        if (selected < elements.length - 1) {
+        if (
+            selected < elements.length - 1
+        ) {
             $("next").classList.remove("hidden");
         }
+
     } else {
-        message("Doğru hamle! +10 puan", "good");
+
+        message(
+            "Doğru hamle! +10 puan",
+            "good"
+        );
     }
 
     render();
 }
 
+// ORBİTALLERİ ÇİZME
+
 function render() {
+
     const total = count();
 
     $("count").textContent =
-        total + " / " + elements[selected].z + " elektron";
+        total + " / " +
+        elements[selected].z +
+        " elektron";
 
-    $("score").textContent = "Puan: " + points;
+    $("score").textContent =
+        "Puan: " + points;
 
     $("bar").style.width =
-        (total / elements[selected].z * 100) + "%";
+        (
+            total /
+            elements[selected].z *
+            100
+        ) + "%";
 
-    $("up").classList.toggle("active", spin === "↑");
-    $("down").classList.toggle("active", spin === "↓");
+    $("up").classList.toggle(
+        "active",
+        spin === "↑"
+    );
+
+    $("down").classList.toggle(
+        "active",
+        spin === "↓"
+    );
 
     $("orbitals").replaceChildren();
 
     subshells.forEach((sub, s) => {
+
         const row = document.createElement("div");
         row.className = "orbital";
 
@@ -497,82 +689,135 @@ function render() {
         boxes.className = "boxes";
 
         slots[s].forEach((electrons, b) => {
+
             const btn = document.createElement("button");
+
             btn.className = "slot";
+
             btn.textContent = electrons.join("");
+
             btn.disabled = completed;
 
             btn.setAttribute(
                 "aria-label",
-                sub.name + " orbital " + (b + 1) +
-                ": " + (electrons.join("") || "boş")
+                sub.name +
+                " orbital " + (b + 1) +
+                ": " +
+                (electrons.join("") || "boş")
             );
 
-            btn.addEventListener("click", () => place(s, b));
+            btn.addEventListener(
+                "click",
+                () => place(s, b)
+            );
+
             boxes.append(btn);
         });
 
         row.append(label, boxes);
+
         $("orbitals").append(row);
     });
 }
 
-$("start").addEventListener("click", choose);
+// BUTONLAR
 
-$("backHome").addEventListener(
-    "click", () => screen("home")
+$("start").addEventListener(
+    "click",
+    choose
 );
 
-$("backChoose").addEventListener("click", choose);
+$("backHome").addEventListener(
+    "click",
+    () => screen("home")
+);
 
-$("up").addEventListener("click", () => {
-    spin = "↑";
-    render();
-});
+$("backChoose").addEventListener(
+    "click",
+    choose
+);
 
-$("down").addEventListener("click", () => {
-    spin = "↓";
-    render();
-});
-
-$("undo").addEventListener("click", () => {
-    if (!history.length) {
-        message("Geri alınacak hamle yok.");
-        return;
+$("up").addEventListener(
+    "click",
+    () => {
+        spin = "↑";
+        render();
     }
+);
 
-    const wasCompleted = completed;
-    const {s, b} = history.pop();
-
-    slots[s][b].pop();
-
-    points = Math.max(
-        0, points - (wasCompleted ? 60 : 10)
-    );
-
-    completed = false;
-    $("next").classList.add("hidden");
-
-    message("Son hamle geri alındı.");
-    render();
-});
-
-$("reset").addEventListener("click", () => {
-    points = Math.max(
-        0,
-        points - history.length * 10 -
-        (completed ? 50 : 0)
-    );
-
-    load(selected);
-});
-
-$("next").addEventListener("click", () => {
-    if (completed && selected < elements.length - 1) {
-        load(selected + 1);
+$("down").addEventListener(
+    "click",
+    () => {
+        spin = "↓";
+        render();
     }
-});
+);
+
+// GERİ AL
+
+$("undo").addEventListener(
+    "click",
+    () => {
+
+        if (!history.length) {
+            message("Geri alınacak hamle yok.");
+            return;
+        }
+
+        const wasCompleted = completed;
+
+        const {s, b} = history.pop();
+
+        slots[s][b].pop();
+
+        points = Math.max(
+            0,
+            points -
+            (wasCompleted ? 60 : 10)
+        );
+
+        completed = false;
+
+        $("next").classList.add("hidden");
+
+        message("Son hamle geri alındı.");
+
+        render();
+    }
+);
+
+// SIFIRLA
+
+$("reset").addEventListener(
+    "click",
+    () => {
+
+        points = Math.max(
+            0,
+            points -
+            history.length * 10 -
+            (completed ? 50 : 0)
+        );
+
+        load(selected);
+    }
+);
+
+// SONRAKİ ELEMENT
+
+$("next").addEventListener(
+    "click",
+    () => {
+
+        if (
+            completed &&
+            selected < elements.length - 1
+        ) {
+            load(selected + 1);
+        }
+    }
+);
+
 </script>
-
 </body>
 </html>

@@ -17,12 +17,6 @@
 
         h1 {
             color: #64c5ff;
-            font-size: 36px;
-        }
-
-        p {
-            color: #b9d4e8;
-            font-size: 18px;
         }
 
         button {
@@ -32,9 +26,8 @@
             padding: 16px 32px;
             border-radius: 12px;
             font-size: 18px;
-            font-weight: bold;
             cursor: pointer;
-            margin-top: 25px;
+            margin: 10px;
         }
 
         button:hover {
@@ -43,55 +36,46 @@
     </style>
 </head>
 
-<div id="elementEkrani" style="display: none;">
-
-    <h2>ELEMENTİNİ SEÇ</h2>
-
-    <p>Elektron dizilimini oluştur!</p>
-
-    <button onclick="elementSec('Hidrojen', 1)">
-        H - Hidrojen
-    </button>
-
-    <button onclick="elementSec('Helyum', 2)">
-        He - Helyum
-    </button>
-
-    <button onclick="elementSec('Lityum', 3)">
-        Li - Lityum
-    </button>
-
-    <button onclick="elementSec('Karbon', 6)">
-        C - Karbon
-    </button>
-
-    <button onclick="elementSec('Azot', 7)">
-        N - Azot
-    </button>
-
-    <button onclick="elementSec('Oksijen', 8)">
-        O - Oksijen
-    </button>
-
-</div>
-
-<script>
-    function oyunuBaslat() {
-        document.getElementById("elementEkrani").style.display = "block";
-    }
-
-    function elementSec(isim, numara) {
-        alert(isim + " seçildi! Atom numarası: " + numara);
-    }
-</script>
-
 <body>
-    <h1>ELEKTRON LABORATUVARI</h1>
 
-    <p>Aufbau • Pauli • Hund</p>
+    <div id="anaEkran">
+        <h1>ELEKTRON LABORATUVARI</h1>
+        <p>Aufbau • Pauli • Hund</p>
+        <button onclick="oyunuBaslat()">
+            OYUNA BAŞLA
+        </button>
+    </div>
 
-    <button onclick="oyunuBaslat()">OYUNA BAŞLA</button>
+    <div id="elementEkrani" style="display: none;">
+        <h1>ELEMENTİNİ SEÇ</h1>
 
-    <p>Kimya öğrenmenin eğlenceli yolu</p>
+        <button onclick="elementSec('Hidrojen', 1)">
+            H - Hidrojen
+        </button>
+
+        <button onclick="elementSec('Helyum', 2)">
+            He - Helyum
+        </button>
+
+        <button onclick="elementSec('Karbon', 6)">
+            C - Karbon
+        </button>
+
+        <button onclick="elementSec('Azot', 7)">
+            N - Azot
+        </button>
+    </div>
+
+    <script>
+        function oyunuBaslat() {
+            document.getElementById("anaEkran").style.display = "none";
+            document.getElementById("elementEkrani").style.display = "block";
+        }
+
+        function elementSec(isim, numara) {
+            alert(isim + " seçildi! Atom numarası: " + numara);
+        }
+    </script>
+
 </body>
 </html>

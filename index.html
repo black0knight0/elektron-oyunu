@@ -43,12 +43,54 @@
     </style>
 </head>
 
+<div id="elementEkrani" style="display: none;">
+
+    <h2>ELEMENTİNİ SEÇ</h2>
+
+    <p>Elektron dizilimini oluştur!</p>
+
+    <button onclick="elementSec('Hidrojen', 1)">
+        H - Hidrojen
+    </button>
+
+    <button onclick="elementSec('Helyum', 2)">
+        He - Helyum
+    </button>
+
+    <button onclick="elementSec('Lityum', 3)">
+        Li - Lityum
+    </button>
+
+    <button onclick="elementSec('Karbon', 6)">
+        C - Karbon
+    </button>
+
+    <button onclick="elementSec('Azot', 7)">
+        N - Azot
+    </button>
+
+    <button onclick="elementSec('Oksijen', 8)">
+        O - Oksijen
+    </button>
+
+</div>
+
+<script>
+    function oyunuBaslat() {
+        document.getElementById("elementEkrani").style.display = "block";
+    }
+
+    function elementSec(isim, numara) {
+        alert(isim + " seçildi! Atom numarası: " + numara);
+    }
+</script>
+
 <body>
     <h1>ELEKTRON LABORATUVARI</h1>
 
     <p>Aufbau • Pauli • Hund</p>
 
-    <button>OYUNA BAŞLA</button>
+    <button onclick="oyunuBaslat()">OYUNA BAŞLA</button>
 
     <p>Kimya öğrenmenin eğlenceli yolu</p>
 </body>

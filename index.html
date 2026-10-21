@@ -387,21 +387,25 @@ function count() {
     );
 }
 
+
 function validate(s, b, arrow) {
     const current = slots[s][b];
+    const group = slots[s];
 
     if (count() >= elements[selected].z) {
         return "Tüm elektronları yerleştirdin!";
     }
 
+    // PAULI KURALI
     if (current.length === 2) {
-        return "Pauli: Bir orbitalde en fazla iki elektron bulunur!";
+        return "Pauli: Bir orbitalde en fazla iki elektron olabilir!";
     }
 
     if (current.includes(arrow)) {
         return "Pauli: Aynı orbitalde spinler zıt olmalı!";
     }
 
+    // AUFBAU KURALI
     for (let k = 0; k < s; k++) {
         if (slots[k].some(box => box.length < 2)) {
             return "Aufbau: Önce " +
@@ -409,31 +413,43 @@ function validate(s, b, arrow) {
         }
     }
 
-    const group = slots[s];
+    // HUND KURALI
+    if (group.length > 1) {
 
-    if (current.length === 1) {
-        if (group.some(box => box.length === 0)) {
-            return "Hund: Önce boş orbitallere birer elektron koy!";
+        const firstEmpty = group.findIndex(
+            box => box.length === 0
+        );
+
+        // Önce bütün kutulara birer elektron
+        if (firstEmpty !== -1) {
+            if (b !== firstEmpty) {
+                return "Hund: Önce boş kutuları sırayla doldur!";
+            }
+
+            if (b > 0 && arrow !== group[0][0]) {
+                return "Hund: Tek elektronların spinleri aynı olmalı!";
+            }
         }
 
-        const singles = group.filter(box => box.length === 1);
+        // Bütün kutular tek dolduktan sonra eşleştirme
+        else {
+            const firstSingle = group.findIndex(
+                box => box.length === 1
+            );
 
-        if (singles.some(box => box[0] !== current[0])) {
-            return "Hund: Tek elektronların spinleri paralel olmalı!";
-        }
-    }
+            if (b !== firstSingle) {
+                return "Hund: Elektronları soldan sağa eşleştir!";
+            }
 
-    if (current.length === 0) {
-        const singles = group.filter(box => box.length === 1);
-
-        if (singles.length &&
-            singles.some(box => box[0] !== arrow)) {
-            return "Hund: Tek elektronların yönleri aynı olmalı!";
+            if (arrow === current[0]) {
+                return "Pauli: İkinci elektron zıt spinli olmalı!";
+            }
         }
     }
 
     return null;
 }
+
 
 function place(s, b) {
     if (completed) return;

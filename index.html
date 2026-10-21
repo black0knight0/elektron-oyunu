@@ -3,132 +3,110 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>KimyaVerse 6.0 | Kimya Akademisi</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KimyaVerse 7.0</title>
 <style>
 :root{
- --bg:#071321;--panel:#102a40;--card:#1b3d57;
- --line:#416d8c;--text:#eef8ff;--muted:#c8dbe8;
- --cyan:#83e2ff;--pink:#ff9fce;--green:#8eebc0;
- --gold:#ffe09a
+ --bg:#081322;--panel:#122b42;--card:#1d405c;
+ --border:#507c9c;--text:#f0f8ff;--muted:#c6dce9;
+ --cyan:#8be7ff;--pink:#ffaad6;--gold:#ffe29d
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
 body{
  margin:0;color:var(--text);font:15px Arial,sans-serif;
- background:
- radial-gradient(circle at 10% 0%,#24577a,transparent 32%),
- radial-gradient(circle at 95% 15%,#3d245d,transparent 30%),
- var(--bg);min-height:100vh
+ background:radial-gradient(circle at 10% 0%,#24516d,transparent 35%),
+ radial-gradient(circle at 90% 15%,#34245a,transparent 30%),var(--bg)
 }
 button,input,textarea,select{font:inherit}
 button{
- background:#285c7c;color:white;border:1px solid #6095b4;
- border-radius:12px;padding:11px 15px;cursor:pointer;
- transition:background .15s,transform .15s
+ color:white;background:#285b7b;border:1px solid #6a9bbb;
+ border-radius:12px;padding:11px 14px;cursor:pointer
 }
-button:hover{background:#387fa3;transform:translateY(-1px)}
-button:disabled{opacity:.45;cursor:default;transform:none}
-button.primary{background:linear-gradient(120deg,#28aee4,#8a5cd9);border:0}
-button.active{background:#8957b8;border-color:#e3b8ff}
-button.gold{background:#997234}
-button.danger{background:#8c4157}
+button:hover{background:#34789e}
+button:disabled{opacity:.45;cursor:default}
+button.active,.primary{background:#7451ad}
 input,textarea,select{
- width:100%;background:#173a55;color:white;
- border:1px solid #6591ab;border-radius:11px;padding:12px
+ width:100%;padding:12px;border-radius:11px;
+ background:#173851;color:white;border:1px solid #6289a5
 }
-input[type=range]{accent-color:#8be4ff}
-label{display:block;margin:12px 0 7px}
-h1,h2,h3{margin-top:0}
+input[type=range]{accent-color:#88e6ff}
+main{max-width:1150px;margin:auto;padding:16px}
+header{text-align:center;padding:25px 0}
+.logo{
+ font-size:clamp(38px,7vw,68px);font-weight:900;
+ background:linear-gradient(90deg,#79e5ff,#d8a5ff,#92f2c4);
+ color:transparent;background-clip:text
+}
 h2{color:var(--cyan)}
 h3{color:#d9efff}
 p{line-height:1.65;color:var(--muted)}
-main{max-width:1160px;margin:auto;padding:18px}
-header{text-align:center;padding:26px 0 12px}
-.logo{
- font-size:clamp(38px,7vw,67px);font-weight:900;
- background:linear-gradient(90deg,#73dcff,#dca8ff,#8deec5);
- color:transparent;background-clip:text
-}
-.subtitle{letter-spacing:2px;color:#cbdcec}
 .panel{
- background:#102940f2;border:1px solid var(--line);
- border-radius:20px;padding:22px;margin:18px 0
+ background:#10283fee;border:1px solid var(--border);
+ border-radius:20px;padding:21px;margin:17px 0
 }
 .card{
- background:var(--card);border:1px solid #4b7795;
- border-radius:16px;padding:18px;margin:13px 0
+ background:var(--card);border:1px solid #4f7e9d;
+ border-radius:15px;padding:17px;margin:12px 0
 }
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
-.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
-.row{display:flex;align-items:center;flex-wrap:wrap;gap:9px}
-.center{text-align:center}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.row{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
 .hidden{display:none!important}
-.tile{min-height:125px;text-align:left;width:100%;background:#204762}
-.tile b{display:block;color:#91e6ff;font-size:18px;margin-bottom:10px}
-.tile span{color:#d1e5f1;line-height:1.5}
+.center{text-align:center}
 .grade{
- min-height:185px;text-align:center;
- background:linear-gradient(140deg,#1b5473,#373064)
+ min-height:160px;background:linear-gradient(130deg,#1c5b78,#46336c);
+ font-size:22px;font-weight:bold
 }
-.grade strong{display:block;font-size:51px;margin:12px}
-.grade small{font-size:15px;color:#e0eaf5}
-.stats{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;margin:16px 0}
+.grade strong{display:block;font-size:52px;margin:8px}
+.tile{text-align:left;min-height:105px;background:#204760}
+.tile b{display:block;color:#9ceaff;font-size:17px;margin-bottom:8px}
+.tile span{color:#d7e6f1;line-height:1.5}
+nav{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:15px 0}
+.stats{display:flex;justify-content:center;gap:9px;flex-wrap:wrap}
 .stat{
- background:#193d58;border:1px solid #487c9b;
- border-radius:12px;text-align:center;padding:10px 17px;min-width:95px
+ background:#193c56;padding:12px 18px;border-radius:12px;
+ text-align:center;min-width:95px
 }
 .stat strong{display:block;color:var(--gold);font-size:23px}
-nav{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:16px 0}
-.note{
- padding:14px;border-radius:12px;background:#54462e;
- border-left:4px solid var(--gold);line-height:1.6
-}
-.robot{background:#28526d;padding:15px;border-radius:13px;line-height:1.6}
-.msg{padding:13px;border-radius:12px;background:#2b526d;margin:13px 0}
-.ok{background:#24634f!important}
-.no{background:#853c53!important}
-.progress{height:12px;background:#294e68;border-radius:20px;overflow:hidden}
-.progress div{height:100%;background:var(--green);width:0}
-.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}
-.choices button{min-height:58px}
-.lesson{background:#1b405b;border-radius:14px;padding:18px;margin:14px 0}
-.lesson p{margin:12px 0}
-.pill{background:#31536e;border-radius:20px;padding:9px 13px}
-.badges{display:flex;flex-wrap:wrap;gap:9px}
-.badge{background:#414c5c;opacity:.5;padding:12px;border-radius:12px}
-.badge.earned{background:#79602d;opacity:1}
+.note,.msg{padding:14px;border-radius:12px;margin:12px 0}
+.note{background:#5b492e;border-left:4px solid #ffe29d}
+.msg{background:#2b506b}
+.ok{background:#24644e!important}
+.no{background:#803b51!important}
+.progress{height:12px;border-radius:15px;background:#294e69;overflow:hidden}
+.progress div{height:100%;width:0;background:#8cefc3}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.choices button{min-height:56px}
+label{display:block;margin:12px 0 7px}
+.pill{background:#31516c;border-radius:20px;padding:9px 13px}
 #scene{
- width:100%;height:390px;display:block;
- background:radial-gradient(circle,#1b4262,#06111f);
- border:1px solid #5588a6;border-radius:16px;
- touch-action:none;cursor:grab
+ width:100%;height:370px;background:radial-gradient(circle,#1b4262,#071320);
+ border:1px solid #608eaa;border-radius:15px;
+ touch-action:none;display:block;cursor:grab
 }
-.modelBtns{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
-.orbitalRow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:12px 0}
-.orbitalRow b{min-width:42px;color:var(--cyan)}
-.orbitalBox{width:57px;height:54px;font-size:24px}
-.lewisBoard{position:relative;width:240px;height:240px;margin:20px auto}
-.lewisSymbol{
- position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
- font-size:67px;color:var(--cyan)
+.orbital{display:flex;align-items:center;gap:8px;margin:12px 0}
+.orbital button{min-width:56px;height:52px;font-size:23px}
+.lewis{
+ display:grid;grid-template-columns:70px 90px 70px;
+ grid-template-rows:65px 85px 65px;gap:5px;
+ justify-content:center;align-items:center;margin:20px auto
 }
-.lewisDot{position:absolute;width:60px;height:56px;font-size:25px}
-.lewisDot[data-side="0"]{top:0;left:90px}
-.lewisDot[data-side="1"]{right:0;top:92px}
-.lewisDot[data-side="2"]{bottom:0;left:90px}
-.lewisDot[data-side="3"]{left:0;top:92px}
-.projectStep{
- background:#1a405a;border-left:3px solid #7bdfff;
- padding:13px;margin:12px 0
+.lewis button{height:58px;font-size:26px}
+.lewis .symbol{font-size:60px;text-align:center;color:var(--cyan)}
+.badge{padding:11px;border-radius:11px;background:#4a5362;opacity:.55}
+.badge.earned{opacity:1;background:#7d6330}
+#arenaClock,#quizClock{font-size:29px;font-weight:bold;color:var(--gold)}
+.scoreboard{display:grid;gap:8px;margin:15px 0}
+.scoreLine{
+ display:flex;justify-content:space-between;align-items:center;
+ padding:13px;background:#244761;border-radius:11px
 }
-footer{text-align:center;padding:35px;color:#c4d8e7}
-footer strong{color:white}
+.scoreLine.turn{outline:2px solid #ffe29d}
+footer{text-align:center;padding:35px;color:#c9dbe8}
 @media(max-width:700px){
  .grid,.grid3,.choices{grid-template-columns:1fr}
- .panel{padding:15px}
+ .panel{padding:14px}
  #scene{height:310px}
- .grade{min-height:150px}
 }
 </style>
 </head>
@@ -136,282 +114,307 @@ footer strong{color:white}
 <main>
 <header>
 <div class="logo">⚗️ KİMYAVERSE</div>
-<div class="subtitle">KEŞFET • ÖĞREN • DENEYİMLE</div>
-<p>9 • 10 • 11 • 12. Sınıf Kimya Akademisi</p>
+<p>7.0 • KİMYA AKADEMİSİ & ARENA</p>
 </header>
 
-<section id="gradeSelect" class="panel">
-<h2 class="center">🎓 Hangi Sınıftasın?</h2>
-<p class="center">Kimya yolculuğuna başlamak için sınıfını seç!</p>
+<section id="gradeScreen" class="panel">
+<h2 class="center">🎓 Sınıfını Seç</h2>
 <div class="grid">
-<button class="grade" onclick="chooseGrade(9)">
-🧪<strong>9. SINIF</strong><small>Kimyanın Temelleri</small>
-</button>
-<button class="grade" onclick="chooseGrade(10)">
-⚗️<strong>10. SINIF</strong><small>Etkileşim • Çeşitlilik • Sürdürülebilirlik</small>
-</button>
-<button class="grade" onclick="chooseGrade(11)">
-⚛️<strong>11. SINIF</strong><small>Modern Atom • Gazlar • Denge</small>
-</button>
-<button class="grade" onclick="chooseGrade(12)">
-🧬<strong>12. SINIF</strong><small>Elektrokimya • Organik Kimya</small>
-</button>
+<button class="grade" onclick="selectGrade(9)">⚛️<strong>9</strong>Kimyanın Temelleri</button>
+<button class="grade" onclick="selectGrade(10)">🧪<strong>10</strong>Üç Tema</button>
+<button class="grade" onclick="selectGrade(11)">🔬<strong>11</strong>Altı Ünite</button>
+<button class="grade" onclick="selectGrade(12)">🧬<strong>12</strong>Dört Ünite</button>
 </div>
-<p class="center">💗 Her sınıfın ilerlemesi ayrı kaydedilir.</p>
 </section>
 
-<div id="schoolApp" class="hidden">
+<div id="app" class="hidden">
 <div class="row" style="justify-content:space-between">
-<span id="gradeLabel" class="pill"></span>
-<button onclick="changeGrade()">← Sınıf Seçimine Dön</button>
+<span class="pill" id="gradeText"></span>
+<button onclick="leaveGrade()">← Sınıf Değiştir</button>
 </div>
 
 <div class="stats">
-<div class="stat">🏆 Puan<strong id="score">0</strong></div>
+<div class="stat">🏆 Puan<strong id="points">0</strong></div>
 <div class="stat">⭐ Yıldız<strong id="stars">0</strong></div>
-<div class="stat">🔥 Kombo<strong id="streak">0</strong></div>
+<div class="stat">🔥 Kombo<strong id="combo">0</strong></div>
 <div class="stat">❌ Hata<strong id="errors">0</strong></div>
 </div>
 
 <nav>
-<button onclick="showPage('home')">🏠 Ana Sayfa</button>
-<button onclick="showPage('academy')">📚 Akademi</button>
-<button onclick="showPage('games')">🎮 Oyunlar</button>
-<button onclick="showPage('projects')">📁 Projeler</button>
-<button onclick="showPage('experiments')">🧪 Deneyler</button>
-<button onclick="showPage('threeD')">🌌 3D</button>
-<button onclick="showPage('feedback')">💌 Feedback</button>
+<button onclick="page('home')">🏠 Ana Sayfa</button>
+<button onclick="page('academy')">📚 Dersler</button>
+<button onclick="page('games')">🎮 Oyunlar</button>
+<button onclick="page('arenaSetup')">⚔️ Arena</button>
+<button onclick="page('experiments')">🧪 Deneyler</button>
+<button onclick="page('models')">🌌 3D</button>
+<button onclick="page('projects')">📁 Projeler</button>
+<button onclick="page('feedback')">💌 Feedback</button>
 </nav>
 
 <section id="home" class="panel">
-<h2 id="welcome"></h2>
-<p>Bugün kimyanın hangi bölümünü keşfetmek istersin?</p>
+<h2>✨ KimyaVerse'e Hoş Geldin!</h2>
 <div class="grid3">
-<button class="tile" onclick="showPage('academy')">
-<b>📚 Konu Anlatımı</b><span>Üniteler, açıklamalar, örnekler ve testler.</span>
-</button>
-<button class="tile" onclick="showPage('games')">
-<b>🎮 Kimya Oyunları</b><span>Mini test, elektron ve Lewis oyunları.</span>
-</button>
-<button class="tile" onclick="showPage('projects')">
-<b>📁 Proje Atölyesi</b><span>Projeni planla ve raporunu hazırla.</span>
-</button>
-<button class="tile" onclick="showPage('experiments')">
-<b>🧪 Sanal Deneyler</b><span>Güvenli, etkileşimli simülasyonlar.</span>
-</button>
-<button class="tile" onclick="showPage('threeD')">
-<b>🌌 3D Laboratuvar</b><span>Atomlar, moleküller ve deney düzenekleri.</span>
-</button>
-<button class="tile" onclick="showPage('feedback')">
-<b>💌 Görüş Bildir</b><span>Yeni özellik öner veya hata bildir.</span>
-</button>
+<button class="tile" onclick="page('academy')"><b>📚 Akademi</b><span>9–12. sınıf kimya konuları</span></button>
+<button class="tile" onclick="page('games')"><b>🎮 Oyunlar</b><span>Test, elektron ve Lewis</span></button>
+<button class="tile" onclick="page('arenaSetup')"><b>⚔️ Arena</b><span>2–5 kişilik bilgi kapışması</span></button>
+<button class="tile" onclick="page('models')"><b>🌌 3D Laboratuvar</b><span>Döndürülebilir modeller</span></button>
+<button class="tile" onclick="page('experiments')"><b>🧪 Deneyler</b><span>Etkileşimli hesaplamalar</span></button>
+<button class="tile" onclick="page('projects')"><b>📁 Projeler</b><span>Rapor ve araştırma</span></button>
 </div>
+
 <div class="card">
-<h3>👩‍🔬 Öğrenci Profilim</h3>
-<label>Oyuncu adın</label>
-<input id="playerName" maxlength="30" placeholder="Oyuncu adını yaz">
+<h3>🔊 Ses Ayarları</h3>
+<div class="row">
+<button id="soundToggle" onclick="toggleSound()"></button>
+<button onclick="playSound('win')">🎵 Sesi Dene</button>
+</div>
+<p>Sesler cihazın ses seviyesine bağlıdır. İlk dokunuştan sonra etkinleşir.</p>
+</div>
+
+<div class="card">
+<h3>⏱️ Normal Test Süresi</h3>
+<div class="row">
+<button id="timerToggle" onclick="toggleTimer()"></button>
+<select id="timerLength" style="max-width:180px" onchange="saveSettings()">
+<option value="15">15 saniye</option>
+<option value="30">30 saniye</option>
+<option value="60">60 saniye</option>
+</select>
+</div>
+<p>Kapalıyken normal testlerde süre sınırı yoktur. Arena'nın süresi ayrı ayarlanır.</p>
+</div>
+
+<div class="card">
+<h3>👩‍🔬 Profil</h3>
+<label>Oyuncu adı</label>
+<input id="playerName" maxlength="30" placeholder="Adını yaz">
 <div class="row" style="margin-top:12px">
-<button onclick="saveName()">💾 Kaydet</button>
-<button class="danger" onclick="resetGrade()">İlerlemeyi Sıfırla</button>
+<button onclick="saveProfile()">💾 Kaydet</button>
+<button onclick="resetProgress()">🗑️ İlerlemeyi Sıfırla</button>
 </div>
-<p>İlerlemen bu tarayıcıda saklanır.</p>
 </div>
+
 <div class="card">
-<h3>🌞 Günlük Kimya Görevi</h3>
-<p id="dailyText"></p>
-<button id="dailyBtn" class="gold" onclick="startDaily()">Görevi Başlat</button>
+<h3>🌞 Günlük Görev</h3>
+<p id="dailyStatus"></p>
+<button id="dailyButton" onclick="startDaily()">5 Soruluk Göreve Başla</button>
 </div>
+
 <div class="card">
-<h3>🏅 Başarı Rozetleri</h3>
-<div id="badges" class="badges"></div>
+<h3>🏅 Rozetler</h3>
+<div id="badges" class="row"></div>
 </div>
 </section>
 
 <section id="academy" class="panel hidden">
-<h2>📚 KimyaVerse Akademi</h2>
-<p>Üniteyi seç, konuları sırayla öğren ve mini testini çöz.</p>
-<div id="unitList" class="grid"></div>
+<h2>📚 Kimya Akademisi</h2>
+<div id="units" class="grid"></div>
 </section>
 
-<section id="lessonPage" class="panel hidden">
-<button onclick="showPage('academy')">← Akademiye Dön</button>
-<h2 id="lessonTitle" style="margin-top:18px"></h2>
-<div id="lessonTabs" class="row"></div>
-<div id="lessonBody"></div>
-<div class="card">
-<h3>🤖 LAB-BOT Öğretmen</h3>
-<div id="lessonHint" class="robot"></div>
-</div>
-<button class="primary" onclick="startQuiz(currentUnit)">🧠 Mini Testi Başlat</button>
+<section id="lesson" class="panel hidden">
+<button onclick="page('academy')">← Üniteler</button>
+<h2 id="lessonTitle"></h2>
+<div id="lessonContent"></div>
+<button class="primary" onclick="startUnitQuiz(selectedUnit)">🧠 Ünite Testi</button>
 </section>
 
 <section id="games" class="panel hidden">
-<h2>🎮 Kimya Oyunları</h2>
-<div id="gameList" class="grid"></div>
+<h2>🎮 Oyun Merkezi</h2>
+<div class="grid">
+<button class="tile" onclick="startMixedQuiz()"><b>🧠 Karışık Bilgi Testi</b><span>Sınıfının bütün konularından</span></button>
+<button class="tile" onclick="page('electron')"><b>⚛️ Elektron Oyunu</b><span>İlk 20 element</span></button>
+<button class="tile" onclick="page('lewis')"><b>🔵 Lewis Oyunu</b><span>Değerlik elektronları</span></button>
+<button class="tile" onclick="page('arenaSetup')"><b>⚔️ KimyaVerse Arena</b><span>Arkadaşlarınla yarış</span></button>
+</div>
 </section>
 
 <section id="quiz" class="panel hidden">
-<button onclick="showPage('games')">← Oyunlara Dön</button>
-<h2 id="quizTitle" style="margin-top:18px"></h2>
-<p id="quizNumber"></p>
-<div class="progress"><div id="quizProgress"></div></div>
+<button onclick="page('games')">← Oyunlar</button>
+<h2 id="quizTitle"></h2>
+<div class="row" style="justify-content:space-between">
+<p id="quizCount"></p>
+<div id="quizClock"></div>
+</div>
+<div class="progress"><div id="quizBar"></div></div>
 <div class="card">
-<h3 id="question"></h3>
-<div id="answers" class="choices"></div>
-<div id="quizResult" class="msg">Cevabını seç!</div>
+<h3 id="quizQuestion"></h3>
+<div id="quizChoices" class="choices"></div>
+<div id="quizMessage" class="msg"></div>
 <div class="row">
-<button class="gold" onclick="showQuizHint()">💡 İpucu</button>
-<button id="nextBtn" class="primary hidden" onclick="nextQuestion()">Sonraki Soru →</button>
+<button onclick="quizHint()">💡 İpucu</button>
+<button id="quizNext" class="primary hidden" onclick="nextQuiz()">Sonraki →</button>
 </div>
 </div>
-<div id="quizBot" class="robot"></div>
 </section>
 
-<section id="electronGame" class="panel hidden">
-<button onclick="showPage('games')">← Oyunlara Dön</button>
-<h2 style="margin-top:18px">⚛️ Elektron Dizilimi Oyunu</h2>
-<p>İlk 20 elementin elektronlarını orbital kutularına yerleştir.</p>
-<label>Element seç</label>
-<select id="electronElement" onchange="resetElectron()"></select>
+<section id="electron" class="panel hidden">
+<h2>⚛️ Elektron Dizilimi Oyunu</h2>
+<p>Orbital kutularına elektron yerleştir. Aufbau, Pauli ve Hund kurallarına dikkat et.</p>
+<select id="electronSelect" onchange="resetElectron()"></select>
 <div class="card">
-<h3 id="electronCount"></h3>
-<div class="progress"><div id="electronProgress"></div></div>
-<div class="row" style="margin:17px 0">
-<button id="spinUp" onclick="setSpin('↑')">↑ Spin</button>
-<button id="spinDown" onclick="setSpin('↓')">↓ Spin</button>
+<h3 id="electronInfo"></h3>
+<div class="row">
+<button id="spinUp" onclick="spin='↑';renderElectron()">↑ Spin</button>
+<button id="spinDown" onclick="spin='↓';renderElectron()">↓ Spin</button>
 <button onclick="undoElectron()">↶ Geri Al</button>
-<button class="gold" onclick="electronHint()">💡 İpucu</button>
-<button class="danger" onclick="resetElectron()">Sıfırla</button>
+<button onclick="electronHint()">💡 İpucu</button>
+<button onclick="resetElectron()">Sıfırla</button>
 </div>
-<div id="orbitalArea"></div>
+<div id="orbitals"></div>
 <div id="electronMessage" class="msg"></div>
 </div>
 </section>
 
-<section id="lewisGame" class="panel hidden">
-<button onclick="showPage('games')">← Oyunlara Dön</button>
-<h2 style="margin-top:18px">🔵 Lewis Nokta Oyunu</h2>
-<p>Değerlik elektronlarını sembolün çevresine yerleştir.</p>
-<select id="lewisElement" onchange="resetLewis()"></select>
+<section id="lewis" class="panel hidden">
+<h2>🔵 Lewis Nokta Oyunu</h2>
+<p>Önce dört yöne tek elektron, ardından eşleşen elektronları yerleştir.</p>
+<select id="lewisSelect" onchange="resetLewis()"></select>
 <div class="card">
-<h3 id="lewisCount"></h3>
-<div class="lewisBoard">
-<div id="lewisSymbol" class="lewisSymbol"></div>
-<button class="lewisDot" data-side="0" onclick="placeLewis(0)"></button>
-<button class="lewisDot" data-side="1" onclick="placeLewis(1)"></button>
-<button class="lewisDot" data-side="2" onclick="placeLewis(2)"></button>
-<button class="lewisDot" data-side="3" onclick="placeLewis(3)"></button>
+<h3 id="lewisInfo"></h3>
+<div class="lewis">
+<div></div><button id="dot0" onclick="putLewis(0)"></button><div></div>
+<button id="dot3" onclick="putLewis(3)"></button>
+<div id="lewisSymbol" class="symbol"></div>
+<button id="dot1" onclick="putLewis(1)"></button>
+<div></div><button id="dot2" onclick="putLewis(2)"></button><div></div>
 </div>
 <div class="row">
 <button onclick="undoLewis()">↶ Geri Al</button>
-<button class="gold" onclick="lewisHint()">💡 İpucu</button>
-<button class="danger" onclick="resetLewis()">Sıfırla</button>
+<button onclick="lewisHint()">💡 İpucu</button>
+<button onclick="resetLewis()">Sıfırla</button>
 </div>
 <div id="lewisMessage" class="msg"></div>
 </div>
 </section>
 
-<section id="projects" class="panel hidden">
-<h2>📁 KimyaVerse Proje Atölyesi</h2>
-<p>Ünitene uygun bir proje seç ve raporunu oluştur.</p>
-<div id="projectList" class="grid"></div>
+<section id="arenaSetup" class="panel hidden">
+<h2>⚔️ KimyaVerse Arena</h2>
+<p>Arkadaşlarınla aynı cihazdan sırayla yarış!</p>
+<div class="card">
+<label>Oyuncu sayısı</label>
+<select id="arenaCount" onchange="renderNameInputs()">
+<option value="2">2 kişi</option>
+<option value="3">3 kişi</option>
+<option value="4">4 kişi</option>
+<option value="5">5 kişi</option>
+</select>
+<div id="arenaNames"></div>
+<label>Her oyuncunun cevap süresi</label>
+<select id="arenaDuration">
+<option value="10">10 saniye</option>
+<option value="20" selected>20 saniye</option>
+<option value="30">30 saniye</option>
+<option value="60">60 saniye</option>
+</select>
+<label>Tur sayısı</label>
+<select id="arenaRounds">
+<option value="5">5 tur</option>
+<option value="10" selected>10 tur</option>
+<option value="15">15 tur</option>
+<option value="20">20 tur</option>
+</select>
+<p>Her turda her oyuncu bir soru cevaplar. Doğru cevap +100 puan, yanlış veya süre aşımı 0 puan.</p>
+<button class="primary" onclick="startArena()">🏁 Yarışmayı Başlat</button>
+</div>
 </section>
 
-<section id="projectPage" class="panel hidden">
-<button onclick="showPage('projects')">← Projelere Dön</button>
-<h2 id="projectTitle" style="margin-top:18px"></h2>
-<div id="projectContent"></div>
+<section id="arenaGame" class="panel hidden">
+<h2>⚔️ KİMYAVERSE ARENA</h2>
+<div id="arenaBoard" class="scoreboard"></div>
 <div class="card">
-<h3>📝 Proje Raporum</h3>
-<label>Projenin amacı</label>
-<textarea id="reportAim" rows="2"></textarea>
-<label>Araştırma notları ve gözlemler</label>
-<textarea id="reportNotes" rows="4"></textarea>
-<label>Sonuç</label>
-<textarea id="reportResult" rows="3"></textarea>
-<div class="row" style="margin-top:12px">
-<button class="primary" onclick="saveReport()">💾 Kaydet</button>
-<button onclick="downloadReport()">📄 Raporu İndir</button>
-<button class="gold" onclick="completeProject()">🏆 Tamamladım</button>
+<div class="row" style="justify-content:space-between">
+<h3 id="arenaTurn"></h3>
+<div id="arenaClock"></div>
 </div>
-<p id="reportStatus"></p>
+<div class="progress"><div id="arenaBar"></div></div>
+<h3 id="arenaQuestion"></h3>
+<div id="arenaChoices" class="choices"></div>
+<div id="arenaMessage" class="msg"></div>
+<button id="arenaNext" class="primary hidden" onclick="advanceArena()">Devam Et →</button>
+</div>
+<button onclick="stopArena()">🚪 Yarışmadan Çık</button>
+</section>
+
+<section id="arenaResults" class="panel hidden">
+<h2 class="center">🏆 ARENA SONUÇLARI</h2>
+<h3 class="center" id="arenaWinner"></h3>
+<div id="arenaRanking" class="scoreboard"></div>
+<div class="row">
+<button class="primary" onclick="page('arenaSetup')">🔄 Yeni Yarışma</button>
+<button onclick="page('home')">🏠 Ana Sayfa</button>
 </div>
 </section>
 
 <section id="experiments" class="panel hidden">
 <h2>🧪 Sanal Deney Merkezi</h2>
-<div class="note">
-⚠️ Bunlar dijital eğitim simülasyonlarıdır. Gerçek kimyasalları, özellikle temizlik ürünlerini birbirine karıştırma.
+<div class="note">Bunlar eğitim amaçlı dijital modellerdir. Gerçek kimyasalları rastgele karıştırma.</div>
+<div id="experimentMenu" class="grid"></div>
+<div id="experimentBox" class="card hidden">
+<h3 id="experimentTitle"></h3>
+<div id="experimentControls"></div>
+<div id="experimentOutput" class="msg"></div>
 </div>
-<div id="experimentList" class="grid" style="margin-top:16px"></div>
 </section>
 
-<section id="experimentPage" class="panel hidden">
-<button onclick="showPage('experiments')">← Deneylere Dön</button>
-<h2 id="experimentTitle" style="margin-top:18px"></h2>
-<p id="experimentIntro"></p>
-<div id="experimentArea"></div>
-<div id="experimentExplanation" class="robot"></div>
-</section>
-
-<section id="threeD" class="panel hidden">
-<h2>🌌 KimyaVerse 3D Laboratuvarı</h2>
-<p>Modeli sürükleyerek döndür. Fare tekerleğiyle yakınlaştır.</p>
-<div id="modelCategories"></div>
+<section id="models" class="panel hidden">
+<h2>🌌 3D Model Galerisi</h2>
+<p>Modeli parmağınla sürükleyerek döndür. Bilgisayarda tekerlekle yakınlaştır.</p>
+<div id="modelMenu" class="row"></div>
 <canvas id="scene"></canvas>
 <div class="row" style="margin-top:12px">
-<button onclick="resetCamera()">🔄 Görünümü Sıfırla</button>
-<button id="rotateBtn" onclick="toggleRotate()">⏸️ Dönüşü Durdur</button>
+<button onclick="resetCamera()">🔄 Sıfırla</button>
+<button id="rotationButton" onclick="toggleRotation()">⏸️ Dönüşü Durdur</button>
 </div>
 <div class="card">
 <h3 id="modelTitle"></h3>
 <p id="modelDescription"></p>
-<div id="modelNote" class="note"></div>
 </div>
-<div class="card">
-<h3>⏳ Atom Modelleri Zaman Makinesi</h3>
-<button onclick="nextHistoricalModel()">⏭️ Sonraki Atom Modeli</button>
-<p id="historyMessage"></p>
+</section>
+
+<section id="projects" class="panel hidden">
+<h2>📁 Proje Atölyesi</h2>
+<div id="projectMenu" class="grid"></div>
+<div id="projectEditor" class="card hidden">
+<h3 id="projectTitle"></h3>
+<p>Araştırmanı yap, öğrendiklerini kendi cümlelerinle yaz ve sonucunu değerlendir.</p>
+<label>Projenin amacı</label>
+<textarea id="projectAim" rows="2"></textarea>
+<label>Araştırma ve gözlemler</label>
+<textarea id="projectNotes" rows="4"></textarea>
+<label>Sonuç</label>
+<textarea id="projectResult" rows="3"></textarea>
+<div class="row" style="margin-top:12px">
+<button onclick="saveProject()">💾 Kaydet</button>
+<button onclick="downloadProject()">📄 İndir</button>
+<button onclick="completeProject()">🏆 Tamamladım</button>
+</div>
+<p id="projectStatus"></p>
 </div>
 </section>
 
 <section id="feedback" class="panel hidden">
-<h2>💌 KimyaVerse Feedback</h2>
-<p>Önerilerini ve hata bildirimlerini gönder. Mesajların sitede herkese açık yayınlanmaz.</p>
+<h2>💌 Geri Bildirim</h2>
 <form id="feedbackForm" action="https://formspree.io/f/xoejgydq" method="POST">
 <label>Adın (isteğe bağlı)</label>
 <input name="name" maxlength="50">
-<label>Geri bildirim türü</label>
+<label>Tür</label>
 <select name="category">
-<option>💡 Yeni özellik</option>
+<option>💡 Özellik önerisi</option>
 <option>🐞 Hata bildirimi</option>
-<option>📚 Konu anlatımı</option>
+<option>📚 Ders önerisi</option>
 <option>🎮 Oyun önerisi</option>
-<option>🧪 Deney önerisi</option>
-<option>💬 Diğer</option>
 </select>
-<label>Puanın</label>
-<select name="rating">
-<option value="5">⭐⭐⭐⭐⭐</option>
-<option value="4">⭐⭐⭐⭐</option>
-<option value="3">⭐⭐⭐</option>
-<option value="2">⭐⭐</option>
-<option value="1">⭐</option>
-</select>
-<label>Mesajın</label>
-<textarea name="message" rows="6" maxlength="3000" required></textarea>
+<label>Mesaj</label>
+<textarea name="message" rows="5" required maxlength="3000"></textarea>
 <input type="hidden" name="_subject" value="KimyaVerse Feedback">
-<input type="hidden" id="feedbackGrade" name="grade">
-<p>Lütfen telefon numarası veya adres gibi özel bilgilerini yazma.</p>
-<button id="feedbackButton" class="primary" type="submit">📨 Gönder</button>
-<div id="feedbackStatus" class="msg">Mesajın gönderilmeye hazır.</div>
+<button id="feedbackSend" class="primary" type="submit">📨 Gönder</button>
+<p id="feedbackStatus"></p>
 </form>
 </section>
 </div>
 
 <footer>
-<h3>⚗️ KimyaVerse 6.0</h3>
-<p>Kimya öğrenmenin en eğlenceli yolu!</p>
+<h3>⚗️ KimyaVerse 7.0</h3>
 <strong>Designed & Developed by Miray Aygün</strong>
 <p>© 2026 KimyaVerse</p>
 </footer>
@@ -419,1596 +422,1114 @@ footer strong{color:white}
 
 <script>
 "use strict";
-
 const $=id=>document.getElementById(id);
-const KEY="kimyaverse-6";
-let db={};
-try{db=JSON.parse(localStorage.getItem(KEY)||"{}")}
-catch(e){db={}}
+const STORE="kv7-progress";
+let saved={};
+try{saved=JSON.parse(localStorage.getItem(STORE)||"{}")}
+catch(e){saved={}}
 
-let grade=null,progress=null,streak=0;
-let currentUnit=0,currentLesson=0,currentProject=0;
-let quizQuestions=[],questionIndex=0,quizMistakes=0;
-let quizAnswered=false,quizCompleted=false,dailyMode=false;
+let grade=null,profile=null,combo=0;
+let selectedUnit=0,selectedProject=0;
+let soundEnabled=saved.sound!==false;
+let timerEnabled=saved.timer===true;
+let timerLength=Number(saved.timerLength)||30;
+let audioContext=null;
 
-function save(){
- try{localStorage.setItem(KEY,JSON.stringify(db))}
- catch(e){console.warn("Kayıt yapılamadı",e)}
+function persist(){
+ try{localStorage.setItem(STORE,JSON.stringify(saved))}
+ catch(e){console.warn(e)}
 }
-function blankProgress(){
+function defaultProfile(){
  return {
-  score:0,stars:0,errors:0,name:"",
-  badges:{},daily:"",reports:{},projects:{}
+  points:0,stars:0,errors:0,name:"",
+  badges:{},daily:"",projects:{},completed:{}
  };
 }
-function chooseGrade(n,push=true){
+function selectGrade(n){
  grade=n;
- if(!db[n])db[n]=blankProgress();
- progress=db[n];streak=0;
- $("gradeSelect").classList.add("hidden");
- $("schoolApp").classList.remove("hidden");
- $("gradeLabel").textContent="🎓 "+grade+". SINIF";
- $("welcome").textContent="✨ "+grade+". Sınıf Kimya Akademisi";
- $("feedbackGrade").value=grade+". Sınıf";
- $("playerName").value=progress.name||"";
+ if(!saved[n])saved[n]=defaultProfile();
+ profile=saved[n];combo=0;
+ $("gradeScreen").classList.add("hidden");
+ $("app").classList.remove("hidden");
+ $("gradeText").textContent=n+". SINIF";
+ $("playerName").value=profile.name||"";
  buildMenus();updateStats();updateDaily();
- showPage("home",false);
- if(push)history.pushState({grade:n,page:"home"},"","#sinif-"+n);
+ page("home");playSound("click");
 }
-function changeGrade(push=true){
- grade=null;progress=null;
- $("schoolApp").classList.add("hidden");
- $("gradeSelect").classList.remove("hidden");
- if(push)history.pushState({grade:null},"","#sinif-sec");
+function leaveGrade(){
+ stopClock();stopArenaClock();
+ grade=null;profile=null;
+ $("app").classList.add("hidden");
+ $("gradeScreen").classList.remove("hidden");
  window.scrollTo(0,0);
 }
 const pages=[
- "home","academy","lessonPage","games","quiz",
- "electronGame","lewisGame","projects","projectPage",
- "experiments","experimentPage","threeD","feedback"
+ "home","academy","lesson","games","quiz","electron",
+ "lewis","arenaSetup","arenaGame","arenaResults",
+ "experiments","models","projects","feedback"
 ];
-function showPage(id,push=true){
- if(grade===null)return;
- if(!pages.includes(id))id="home";
+function page(id){
+ stopClock();
+ if(id!=="arenaGame")stopArenaClock();
  pages.forEach(p=>$(p).classList.toggle("hidden",p!==id));
- if(push)history.pushState({grade,page:id},"","#"+id);
+ if(id==="models")setTimeout(resizeScene,40);
  window.scrollTo(0,0);
- if(id==="threeD")setTimeout(resizeScene,50);
 }
-window.addEventListener("popstate",e=>{
- const s=e.state;
- if(!s||!s.grade){changeGrade(false);return}
- if(grade!==s.grade)chooseGrade(s.grade,false);
- showPage(s.page||"home",false);
-});
 function updateStats(){
- if(!progress)return;
- $("score").textContent=progress.score;
- $("stars").textContent=progress.stars;
- $("errors").textContent=progress.errors;
- $("streak").textContent=streak;
- const badges=[
-  ["first","🔬 İlk Doğru"],
-  ["combo","🔥 Üçlü Kombo"],
-  ["perfect","🏆 Hatasız Oyun"],
-  ["daily","🌞 Günlük Görev"],
-  ["explorer","🌌 3D Kaşif"],
+ if(!profile)return;
+ $("points").textContent=profile.points;
+ $("stars").textContent=profile.stars;
+ $("errors").textContent=profile.errors;
+ $("combo").textContent=combo;
+ const list=[
+  ["first","🔬 İlk Doğru"],["combo","🔥 Üçlü Kombo"],
+  ["perfect","🏆 Hatasız Test"],["arena","⚔️ Arena Şampiyonu"],
+  ["daily","🌞 Günlük Görev"],["model","🌌 3D Kaşif"],
   ["project","📁 Proje Ustası"]
  ];
  $("badges").replaceChildren();
- badges.forEach(([key,title])=>{
-  const d=document.createElement("div");
-  d.className="badge"+(progress.badges[key]?" earned":"");
-  d.textContent=title;$("badges").append(d);
+ list.forEach(([key,title])=>{
+  const b=document.createElement("span");
+  b.className="badge"+(profile.badges[key]?" earned":"");
+  b.textContent=title;$("badges").append(b);
  });
- save();
+ persist();
 }
-function rewardCorrect(){
- progress.score+=10;streak++;
- progress.badges.first=true;
- if(streak===3){
-  progress.score+=15;progress.badges.combo=true;
+function correct(){
+ profile.points+=10;combo++;
+ profile.badges.first=true;
+ if(combo===3){
+  profile.points+=15;profile.badges.combo=true;
  }
- updateStats();
+ playSound("correct");updateStats();
 }
-function rewardWrong(){
- progress.score-=5;progress.errors++;streak=0;updateStats();
+function wrong(){
+ profile.errors++;profile.points-=5;combo=0;
+ playSound("wrong");updateStats();
 }
-function finishGame(mistakes){
- progress.score+=30;
- progress.stars+=mistakes===0?3:mistakes<=2?2:1;
- if(mistakes===0)progress.badges.perfect=true;
- updateStats();
+function finish(mistakes){
+ profile.points+=30;
+ profile.stars+=mistakes===0?3:mistakes<=2?2:1;
+ if(mistakes===0)profile.badges.perfect=true;
+ playSound("win");updateStats();
 }
-function saveName(){
- progress.name=$("playerName").value.trim();
- updateStats();alert("💾 Profil kaydedildi!");
+function saveProfile(){
+ profile.name=$("playerName").value.trim();
+ updateStats();playSound("click");
+ alert("Profil kaydedildi!");
 }
-function resetGrade(){
- if(!confirm(grade+". sınıf ilerlemesini sıfırlamak istiyor musun?"))return;
- db[grade]=blankProgress();progress=db[grade];
- streak=0;$("playerName").value="";
+function resetProgress(){
+ if(!confirm("Bu sınıfın ilerlemesini sıfırlamak istiyor musun?"))return;
+ saved[grade]=defaultProfile();profile=saved[grade];
+ combo=0;$("playerName").value="";
  updateStats();updateDaily();
 }
+function todayKey(){return new Date().toLocaleDateString("sv-SE")}
 function updateDaily(){
- if(!progress)return;
- const today=new Date().toLocaleDateString("sv-SE");
- const done=progress.daily===today;
- $("dailyText").textContent=done?
-  "Bugünkü görevi tamamladın! Yarın tekrar gel. 🎉":
-  "Bugün 5 soru çöz, +25 bonus puan kazan!";
- $("dailyBtn").disabled=done;
+ const done=profile.daily===todayKey();
+ $("dailyStatus").textContent=done?
+  "Bugünkü görevi tamamladın! 🎉":
+  "5 soruyu tamamla, 25 bonus puan kazan.";
+ $("dailyButton").disabled=done;
 }
 
-// DERS VERİLERİ
-// K: Konu başlığı, kısa anlatım, soru, dört seçenek, doğru cevap
-const K=(title,info,q,options,answer)=>
- ({title,info,q,options,answer});
-const U=(title,topics)=>({title,topics});
+// SES MOTORU
+function audio(){
+ if(!soundEnabled)return null;
+ try{
+  if(!audioContext)
+   audioContext=new (window.AudioContext||window.webkitAudioContext)();
+  if(audioContext.state==="suspended")audioContext.resume();
+  return audioContext;
+ }catch(e){return null}
+}
+function tone(freq,duration,type="sine",volume=.06,delay=0){
+ const a=audio();if(!a)return;
+ const oscillator=a.createOscillator();
+ const gain=a.createGain();
+ const now=a.currentTime+delay;
+ oscillator.type=type;oscillator.frequency.setValueAtTime(freq,now);
+ gain.gain.setValueAtTime(.0001,now);
+ gain.gain.exponentialRampToValueAtTime(Math.max(volume,.001),now+.012);
+ gain.gain.exponentialRampToValueAtTime(.0001,now+duration);
+ oscillator.connect(gain);gain.connect(a.destination);
+ oscillator.start(now);oscillator.stop(now+duration+.02);
+}
+function playSound(type){
+ if(!soundEnabled)return;
+ if(type==="click")tone(510,.07,"sine",.025);
+ if(type==="correct"){
+  tone(540,.12);tone(810,.19,"sine",.06,.12);
+ }
+ if(type==="wrong"){
+  tone(290,.14,"triangle",.045);
+  tone(220,.17,"triangle",.035,.12);
+ }
+ if(type==="electron")tone(740,.09,"sine",.035);
+ if(type==="star"){
+  tone(900,.12);tone(1200,.2,"sine",.05,.12);
+ }
+ if(type==="tick")tone(470,.06,"sine",.018);
+ if(type==="win"){
+  [523,659,784,1047].forEach((f,i)=>
+   tone(f,.22,"sine",.065,i*.14));
+ }
+}
+function toggleSound(){
+ soundEnabled=!soundEnabled;saved.sound=soundEnabled;
+ $("soundToggle").textContent=soundEnabled?"🔊 Ses ON":"🔇 Ses OFF";
+ persist();if(soundEnabled)playSound("correct");
+}
+function toggleTimer(){
+ timerEnabled=!timerEnabled;saved.timer=timerEnabled;
+ $("timerToggle").textContent=timerEnabled?
+  "⏱️ Süre ON":"⏱️ Süre OFF";
+ persist();playSound("click");
+}
+function saveSettings(){
+ timerLength=Number($("timerLength").value);
+ saved.timerLength=timerLength;persist();
+}
+$("soundToggle").textContent=soundEnabled?"🔊 Ses ON":"🔇 Ses OFF";
+$("timerToggle").textContent=timerEnabled?"⏱️ Süre ON":"⏱️ Süre OFF";
+$("timerLength").value=String(timerLength);
 
-const courses={
+// KİMYA MÜFREDATI
+// Her başlık: [konu, açıklama, soru, 4 seçenek, doğru indeks]
+const T=(title,info,q,a,correct)=>({title,info,q,a,correct});
+const U=(title,topics)=>({title,topics});
+const data={
 9:[
- U("🧑‍🔬 Kimya Bilimi",[
-  K("Kimya Nedir?",
-   "Kimya maddelerin yapısını, özelliklerini ve değişimlerini inceler. Fiziksel değişimde maddenin kimliği korunur; kimyasal değişimde yeni maddeler oluşur.",
-   "Hangisi kimyasal değişimdir?",
-   ["Buzun erimesi","Demirin paslanması","Camın kırılması","Suyun donması"],1),
-  K("Laboratuvar Güvenliği",
-   "Kimyasalların tadına bakılmaz. Koruyucu ekipman kullanılır. Çamaşır suyu ile asitli temizlik ürünleri kesinlikle karıştırılmaz.",
-   "Laboratuvarda doğru davranış?",
-   ["Kimyasalı tatmak","Etiketi okumak","Rastgele karıştırmak","Koruyucuyu çıkarmak"],1),
-  K("Kimyanın Alt Dalları",
-   "Organik kimya karbon bileşiklerinin büyük bölümünü, analitik kimya maddelerin türünü ve miktarını, biyokimya canlılardaki kimyasal olayları inceler.",
-   "Canlılardaki kimyasal olayları inceleyen dal?",
-   ["Jeoloji","Biyokimya","Astronomi","Fizik"],1)
+ U("Kimya Bilimi",[
+ T("Kimya Nedir?","Kimya, maddelerin yapısını ve değişimlerini inceler.","Kimyasal değişim hangisidir?",["Erime","Paslanma","Kırılma","Donma"],1),
+ T("Kimya Laboratuvarı","Laboratuvarda güvenlik kuralları uygulanır. Kimyasallar rastgele karıştırılmaz.","Doğru davranış?",["Kimyasal tatmak","Etiket okumak","Koruyucusuz çalışmak","Rastgele karıştırmak"],1),
+ T("Kimyanın Alt Dalları","Biyokimya canlıların kimyasal süreçlerini inceler.","Canlıların kimyası?",["Biyokimya","Jeoloji","Astronomi","Optik"],0)
  ]),
- U("⚛️ Atom ve Periyodik Sistem",[
-  K("Atomun Yapısı",
-   "Atomda proton, nötron ve elektron bulunur. Atom numarası proton sayısıdır. Nötr atomda proton ve elektron sayıları eşittir.",
-   "Atom numarası neyi gösterir?",
-   ["Nötron sayısı","Proton sayısı","Kütle","Periyot"],1),
-  K("Elektron Dizilimi",
-   "Elektronlar düşük enerjili orbitallerden başlayarak yerleşir. Bir orbitalde en fazla iki zıt spinli elektron bulunur. Eş enerjili orbitaller önce tek tek dolar.",
-   "Bir orbital en fazla kaç elektron alır?",
-   ["1","2","6","8"],1),
-  K("Lewis Nokta Yapısı",
-   "Lewis gösteriminde değerlik elektronları sembol çevresinde noktalarla gösterilir. Karbonun dört, oksijenin altı değerlik elektronu vardır.",
-   "Karbonun değerlik elektron sayısı?",
-   ["2","4","6","8"],1),
-  K("Atom Modelleri",
-   "Dalton küre, Thomson pozitif yapı içine gömülü elektronlar, Rutherford çekirdek, Bohr enerji düzeyleri, modern atom teorisi ise orbitaller fikrini kullanır.",
-   "Çekirdekli atom modelini kim geliştirdi?",
-   ["Dalton","Thomson","Rutherford","Lavoisier"],2)
+ U("Atom ve Periyodik Sistem",[
+ T("Atomun Yapısı","Atom numarası proton sayısına eşittir.","Atom numarası neyi gösterir?",["Proton","Nötron","Kütle","Hacim"],0),
+ T("Atom Modelleri","Dalton, Thomson, Rutherford, Bohr ve modern atom modelleri zamanla gelişmiştir.","Çekirdeği ortaya koyan model?",["Dalton","Thomson","Rutherford","Demokritos"],2),
+ T("Elektron Dizilimi","Elektronlar düşük enerjili orbitallerden başlayarak yerleşir.","Bir orbitalin kapasitesi?",["1","2","6","8"],1),
+ T("Lewis Gösterimi","Değerlik elektronları sembol çevresinde noktalarla gösterilir.","Karbonun değerlik elektronu?",["2","4","6","8"],1)
  ]),
- U("🔗 Kimyasal Etkileşimler",[
-  K("İyonlar",
-   "Elektron veren atom katyon, elektron alan atom anyon oluşturabilir. Na⁺ katyon, Cl⁻ anyondur.",
-   "Na⁺ hangi türdür?",
-   ["Anyon","Katyon","Nötron","Molekül"],1),
-  K("Kimyasal Bağlar",
-   "İyonik bağ zıt yüklü iyonlar arasındaki çekimdir. Kovalent bağ elektronların ortaklaşa kullanılmasıyla oluşur. Metalik bağ hareketli elektronlarla ilişkilidir.",
-   "NaCl'deki bağ türü?",
-   ["Kovalent","İyonik","Metalik","Hidrojen bağı"],1),
-  K("Molekül Geometrisi",
-   "H₂O açısal, CO₂ doğrusal, CH₄ tetrahedral geometriye sahiptir. Bağlar ve elektron çiftleri molekülün şeklini etkiler.",
-   "CO₂ molekülünün geometrisi?",
-   ["Açısal","Doğrusal","Tetrahedral","Üçgen piramidal"],1)
+ U("Kimyasal Etkileşimler",[
+ T("İyonik Bağ","Zıt yüklü iyonlar arasında elektrostatik çekim bulunur.","NaCl bağ türü?",["İyonik","Kovalent","Metalik","Hidrojen"],0),
+ T("Kovalent Bağ","Atomlar elektronlarını ortaklaşa kullanabilir.","H₂O'daki O-H bağları?",["İyonik","Kovalent","Metalik","Hiçbiri"],1),
+ T("Molekül Geometrisi","H₂O açısal, CO₂ doğrusal yapıdadır.","CO₂ geometrisi?",["Açısal","Doğrusal","Tetrahedral","Piramit"],1)
  ]),
- U("🧊 Maddenin Halleri",[
-  K("Katı, Sıvı ve Gaz",
-   "Katıların belirli şekli ve hacmi vardır. Sıvılar kabın şeklini alır. Gazlar kabın hacmine yayılır.",
-   "Belirli şekli olan madde hâli?",
-   ["Gaz","Sıvı","Katı","Plazma"],2),
-  K("Hâl Değişimleri",
-   "Erime katıdan sıvıya, donma sıvıdan katıya, yoğuşma gazdan sıvıya, süblimleşme katıdan doğrudan gaza geçiştir.",
-   "Gazdan sıvıya geçiş?",
-   ["Erime","Donma","Yoğuşma","Süblimleşme"],2)
+ U("Maddenin Halleri",[
+ T("Katı, Sıvı, Gaz","Katıların belirli şekli vardır; gazlar bulundukları kabı doldurur.","Belirli şekli olan?",["Gaz","Sıvı","Katı","Buhar"],2),
+ T("Hâl Değişimleri","Yoğuşma gazdan sıvıya geçiştir.","Gazdan sıvıya geçiş?",["Erime","Yoğuşma","Donma","Süblimleşme"],1)
  ]),
- U("🌱 Doğa ve Kimya",[
-  K("Asit ve Bazlar",
-   "25 °C'de saf suyun pH değeri yaklaşık 7'dir. pH 7'den küçükse asidik, büyükse bazik kabul edilir.",
-   "Limon suyu genellikle nasıldır?",
-   ["Bazik","Asidik","Metalik","Nötr"],1),
-  K("Yeşil Kimya",
-   "Yeşil kimya tehlikeli maddeleri, atıkları ve enerji tüketimini azaltmayı amaçlar.",
-   "Yeşil kimyanın amacı?",
-   ["Atığı artırmak","Tehlikeyi azaltmak","Suyu kirletmek","Enerjiyi boşa harcamak"],1)
+ U("Doğa ve Kimya",[
+ T("Asit ve Baz","25 °C'de saf suyun pH değeri yaklaşık 7'dir.","Limon suyu genellikle?",["Bazik","Asidik","Metalik","Nötr"],1),
+ T("Yeşil Kimya","Atıkları ve tehlikeli maddeleri azaltmayı hedefler.","Yeşil kimyanın hedefi?",["Atığı artırmak","Atığı azaltmak","Suyu kirletmek","Enerji israfı"],1)
  ])
 ],
 10:[
- U("⚛️ 1. Tema: Etkileşim",[
-  K("Kimyasal Tepkimeler",
-   "Kimyasal tepkimelerde atomlar yeniden düzenlenir ve yeni maddeler oluşur. Tepkimeler semboller ve denklemlerle modellenebilir.",
-   "Kimyasal tepkimede ne olur?",
-   ["Atomlar yok olur","Atomlar yeniden düzenlenir","Protonlar kaybolur","Kütle daima artar"],1),
-  K("Çökelme Tepkimeleri",
-   "Sulu çözeltilerde bazı iyonlar birleşerek az çözünen katı oluşturur. Oluşan katıya çökelek denir.",
-   "Çökelme tepkimesinde ne oluşur?",
-   ["Daima gaz","Az çözünen katı","Yalnızca ışık","Elektron bulutu"],1),
-  K("Asit-Baz Tepkimeleri",
-   "Asit ve bazların tepkimesi nötralleşme örnekleri içerebilir. Uygun koşullarda tuz ve su oluşabilir.",
-   "Asit-baz tepkimesinde hangisi oluşabilir?",
-   ["Tuz","Elektron","Proton çekirdeği","Metal örgü"],0),
-  K("Redoks Tepkimeleri",
-   "Yükseltgenme elektron verme, indirgenme elektron alma ile ilişkilidir. Bu olaylar birlikte gerçekleşir.",
-   "Elektron verme hangi olaydır?",
-   ["İndirgenme","Yükseltgenme","Yoğuşma","Donma"],1),
-  K("Mol Kavramı",
-   "Mol madde miktarının SI birimidir. Bir mol yaklaşık 6,022 × 10²³ tanecik içerir.",
-   "Bir mol yaklaşık kaç tanecik içerir?",
-   ["6,022 × 10²³","100","12","1000"],0),
-  K("Mol Hesaplamaları",
-   "Mol sayısı n = m / M bağıntısıyla bulunur. m kütle, M molar kütledir.",
-   "18 g su yaklaşık kaç moldür?",
-   ["0,5","1","2","18"],1),
-  K("Denklem Denkleştirme",
-   "Denklemlerde her elementin atom sayısı iki tarafta eşit olmalıdır. Alt indisler değil, katsayılar değiştirilir.",
-   "Denkleştirmede hangisi değiştirilir?",
-   ["Alt indis","Katsayı","Element sembolü","Atom numarası"],1),
-  K("Stokiyometri",
-   "Denkleştirilmiş tepkime katsayıları maddelerin mol oranlarını verir. Örneğin 2H₂ + O₂ → 2H₂O denkleminde H₂/O₂ mol oranı 2/1'dir.",
-   "2H₂ + O₂ tepkimesinde H₂/O₂ mol oranı?",
-   ["1/1","2/1","1/2","3/1"],1),
-  K("Gazların Genel Özellikleri",
-   "Gazların belirli şekli ve hacmi yoktur. Tanecikleri hareketlidir ve bulundukları kabı doldurur.",
-   "Gazlar ne yapar?",
-   ["Kabı doldurur","Sabit şekil alır","Hareketsizdir","Sıkıştırılamaz"],0),
-  K("Gaz Yasaları",
-   "Boyle sabit sıcaklıkta basınç-hacim, Charles sabit basınçta hacim-sıcaklık, Gay-Lussac sabit hacimde basınç-sıcaklık, Avogadro ise hacim-mol ilişkisini açıklar.",
-   "Boyle yasasında hangi büyüklük sabittir?",
-   ["Sıcaklık","Basınç","Hacim","Mol kütlesi"],0),
-  K("İdeal Gaz Yasası",
-   "İdeal gaz denklemi PV = nRT'dir. Sıcaklık Kelvin cinsinden alınır.",
-   "İdeal gaz denklemi hangisi?",
-   ["PV=nRT","F=ma","E=mc²","n=mV"],0),
-  K("Kinetik Moleküler Teori",
-   "İdeal gaz modelinde tanecikler sürekli rastgele hareket eder ve çarpışmalar esnektir. Ortalama kinetik enerji mutlak sıcaklıkla ilişkilidir.",
-   "Gaz tanecikleri nasıl hareket eder?",
-   ["Sürekli ve rastgele","Tamamen hareketsiz","Yalnızca yukarı","Dairesel sabit yörüngede"],0),
-  K("Difüzyon ve Efüzyon",
-   "Difüzyon taneciklerin yayılmasıdır. Efüzyon gazın küçük bir delikten dışarı çıkmasıdır.",
-   "Gazın küçük delikten çıkması?",
-   ["Donma","Efüzyon","Çökelme","Elektroliz"],1)
+ U("1. Tema: Etkileşim",[
+ T("Kimyasal Tepkimeler","Tepkimelerde atomlar yeniden düzenlenir.","Tepkimede ne olur?",["Atom yok olur","Atomlar yeniden düzenlenir","Proton kaybolur","Kütle yaratılır"],1),
+ T("Çökelme","Bazı iyonlar az çözünen katı oluşturur.","Çökelme ürünü?",["Katı","Işık","Elektron","Proton"],0),
+ T("Asit-Baz Tepkimeleri","Nötralleşme tepkimelerinde uygun koşullarda tuz ve su oluşabilir.","Hangi ürün oluşabilir?",["Tuz","Nötron","Elektron","Plazma"],0),
+ T("Redoks","Yükseltgenme elektron verme, indirgenme elektron almadır.","Elektron verme?",["İndirgenme","Yükseltgenme","Erime","Yoğuşma"],1),
+ T("Mol Kavramı","Bir mol yaklaşık 6,022×10²³ taneciktir.","Bir mol tanecik sayısı?",["100","6,022×10²³","12","1000"],1),
+ T("Mol Hesapları","Mol sayısı n=m/M ile hesaplanır.","18 gram su kaç moldür?",["0,5","1","2","18"],1),
+ T("Denklem Denkleştirme","Denkleştirmede katsayılar değiştirilir.","Ne değiştirilir?",["Alt indis","Katsayı","Sembol","Atom numarası"],1),
+ T("Stokiyometri","Denklem katsayıları mol oranlarını verir.","2H₂+O₂→2H₂O için H₂/O₂?",["1/1","2/1","1/2","3/1"],1),
+ T("Gaz Yasaları","Boyle, Charles, Gay-Lussac ve Avogadro yasaları gaz değişkenlerini açıklar.","Boyle yasasında sabit olan?",["Sıcaklık","Basınç","Hacim","Mol"],0),
+ T("İdeal Gaz","PV=nRT; sıcaklık Kelvin cinsinden alınır.","İdeal gaz denklemi?",["PV=nRT","M=n/V","F=ma","E=mc²"],0),
+ T("Kinetik Teori","Gaz tanecikleri sürekli rastgele hareket eder.","Tanecik hareketi?",["Rastgele","Hareketsiz","Sadece yukarı","Sabit yörünge"],0),
+ T("Difüzyon ve Efüzyon","Difüzyon yayılma, efüzyon küçük delikten geçiştir.","Küçük delikten gaz çıkışı?",["Difüzyon","Efüzyon","Donma","Erime"],1)
  ]),
- U("💧 2. Tema: Çeşitlilik",[
-  K("Çözünme Süreci",
-   "Çözünmede çözünen tanecikler çözücü içinde dağılır. İyonik maddeler iyonlarına ayrılabilir; moleküler maddeler molekül hâlinde dağılabilir.",
-   "NaCl suda çözünürken ne olur?",
-   ["Na⁺ ve Cl⁻ ayrılır","Protonlar yok olur","Su yanar","Elektronlar donar"],0),
-  K("Çözücü-Çözünen Etkileşimleri",
-   "Maddelerin çözünürlüğünde tanecikler arası etkileşimler önemlidir. Polar maddeler çoğu zaman polar çözücülerde daha iyi çözünür.",
-   "Suyun yaygın özelliği?",
-   ["Polar çözücü olması","Metalik olması","Apolar gaz olması","Yanıcı olması"],0),
-  K("Çözelti Türleri",
-   "Doymamış çözelti daha fazla madde çözebilir. Doymuş çözelti belirli koşullarda çözünürlük sınırındadır. Aşırı doymuş çözelti kararsız olabilir.",
-   "Daha fazla çözünen alabilen çözelti?",
-   ["Doymuş","Doymamış","Aşırı doymuş","Çökelmiş"],1),
-  K("Molarite",
-   "Molarite bir litre çözeltideki çözünen mol sayısıdır: M = n / V.",
-   "Molarite birimi hangisi?",
-   ["mol/L","kg","K","Pa"],0),
-  K("ppm",
-   "ppm milyonda bir kısım anlamına gelir. Çok küçük derişimleri ifade etmek için kullanılır.",
-   "ppm ne anlama gelir?",
-   ["Yüzde bir","Milyonda bir","Binde bir","Mol başına gram"],1),
-  K("Koligatif Özellikler",
-   "İdeal seyreltik çözeltilerde uçucu olmayan çözünen, kaynama noktasını yükseltebilir ve donma noktasını düşürebilir.",
-   "Tuz eklenmesi suyun donma noktasını genellikle nasıl etkiler?",
-   ["Düşürür","Yükseltir","Daima değiştirmez","Sıfırlar"],0)
+ U("2. Tema: Çeşitlilik",[
+ T("Çözünme","Çözünen tanecikler çözücü içinde dağılır.","NaCl suda nasıl ayrılır?",["Na⁺ ve Cl⁻","H ve O","Proton ve nötron","Ayrılmaz"],0),
+ T("Çözünürlük","Çözücü-çözünen etkileşimleri çözünmeyi etkiler.","Su nasıl bir çözücüdür?",["Apolar","Polar","Metalik","Soy gaz"],1),
+ T("Çözelti Türleri","Doymamış çözelti daha fazla madde çözebilir.","Hangisi daha fazla çözer?",["Doymuş","Doymamış","Aşırı doymuş","Çökelmiş"],1),
+ T("Molarite","M=n/V, birimi mol/L'dir.","Molarite birimi?",["mol/L","kg","K","Pa"],0),
+ T("ppm","ppm milyonda bir kısım anlamına gelir.","ppm açılımı?",["Yüzde","Milyonda bir","Binde bir","Mol başına gram"],1),
+ T("Koligatif Özellikler","Çözünen tanecikler kaynama ve donma noktalarını etkileyebilir.","Tuz suyun donma noktasını?",["Düşürür","Artırır","Değiştirmez","Sıfırlar"],0)
  ]),
- U("🌱 3. Tema: Sürdürülebilirlik",[
-  K("Makro ve Mikro Ölçekli Deneyler",
-   "Mikro ölçekli deneylerde daha az madde kullanılır. Bu yaklaşım atık ve riskleri azaltmaya yardımcı olabilir.",
-   "Mikro ölçekli deneyin avantajı?",
-   ["Daha fazla atık","Daha az kimyasal kullanımı","Daha fazla risk","Daha çok enerji kaybı"],1),
-  K("Atom Ekonomisi",
-   "Atom ekonomisi, tepkimedeki atomların ne kadarının hedef üründe bulunduğunu değerlendirir. Yüksek atom ekonomisi istenmeyen yan ürünleri azaltmaya yardımcı olur.",
-   "Atom ekonomisinin hedefi?",
-   ["Atıkları artırmak","Atomları hedef üründe değerlendirmek","Daha çok duman","Kütleyi yok etmek"],1),
-  K("Yeşil Kimya",
-   "Yeşil kimya tehlikeli madde kullanımını ve atıkları azaltmayı, enerji verimliliğini artırmayı amaçlar.",
-   "Yeşil kimyanın amacı?",
-   ["Atığı azaltmak","Suyu kirletmek","Enerjiyi boşa harcamak","Toksisiteyi artırmak"],0),
-  K("Sera Etkisi",
-   "Sera gazları Dünya'nın yaydığı kızılötesi ışınımın bir bölümünü soğurup yeniden yayarak atmosferin ısınmasına katkıda bulunur.",
-   "Sera etkisi hangi ışınımla ilişkilidir?",
-   ["Kızılötesi","Yalnızca morötesi","Yalnızca radyo","Yalnızca görünür"],0),
-  K("Asit Yağmurları",
-   "SO₂ ve azot oksitler atmosferde tepkimelere girerek asidik çökelmeye katkıda bulunabilir.",
-   "Asit yağmurlarına katkıda bulunan gaz?",
-   ["SO₂","He","Ne","Ar"],0),
-  K("Ozon Tabakası",
-   "Stratosferdeki ozon, Güneş'ten gelen zararlı morötesi ışınımın önemli bölümünü soğurur.",
-   "Ozon tabakası neyi azaltır?",
-   ["Zararlı UV ışınımını","Yerçekimini","Atmosfer basıncını","Geceyi"],0),
-  K("Küresel Çevre Sorunları",
-   "İklim değişikliği, hava ve su kirliliği ile kaynak tüketimi sürdürülebilir çözümler gerektirir.",
-   "Sürdürülebilir yaklaşım hangisi?",
-   ["Kaynakları verimli kullanmak","Atıkları artırmak","Suyu kirletmek","Enerjiyi boşa harcamak"],0)
+ U("3. Tema: Sürdürülebilirlik",[
+ T("Mikro Ölçekli Deney","Az kimyasal kullanarak atık ve riski azaltabilir.","Avantajı?",["Çok atık","Az madde kullanımı","Yüksek risk","Enerji israfı"],1),
+ T("Atom Ekonomisi","Atomların hedef üründe kullanılma oranını değerlendirir.","Amaç?",["Atığı artırmak","Atomları değerlendirmek","Gaz salmak","Kütleyi yok etmek"],1),
+ T("Yeşil Kimya","Atık, tehlike ve enerji tüketimini azaltmayı hedefler.","Hedef?",["Atığı azaltmak","Atığı artırmak","Suyu kirletmek","Toksisiteyi artırmak"],0),
+ T("Sera Etkisi","Sera gazları kızılötesi ışınımı soğurup yeniden yayar.","İlgili ışınım?",["Kızılötesi","Yalnızca UV","Radyo","X ışını"],0),
+ T("Asit Yağmurları","SO₂ ve azot oksitler asidik çökelmeye katkıda bulunabilir.","Katkı sağlayan gaz?",["SO₂","He","Ne","Ar"],0),
+ T("Ozon Tabakası","Stratosferdeki ozon zararlı UV ışınımını soğurur.","Neyi azaltır?",["UV","Yerçekimi","Basınç","Nem"],0),
+ T("Çevre Sorunları","İklim değişikliği ve kirlilik sürdürülebilir çözümler gerektirir.","Doğru yaklaşım?",["Verimli kaynak kullanımı","Atık artırma","Su kirletme","İsraf"],0)
  ])
 ],
 11:[
- U("⚛️ 1. Ünite: Modern Atom Teorisi",[
-  K("Atomun Kuantum Modeli",
-   "Modern atom teorisinde elektronlar kesin dairesel yörüngelerle değil, bulunma olasılığının yüksek olduğu orbitallerle tanımlanır.",
-   "Orbital neyi açıklar?",
-   ["Elektronun olasılık dağılımını","Kesin dairesel yolunu","Protonun rengini","Atomun kokusunu"],0),
-  K("Kuantum Sayıları",
-   "n enerji düzeyini, l alt kabuk türünü, mₗ orbital yönelimini ve mₛ elektron spinini belirtir.",
-   "Baş kuantum sayısının sembolü?",
-   ["n","p","s","M"],0),
-  K("Elektron Dizilimleri",
-   "Elektron diziliminde Aufbau, Pauli ve Hund ilkeleri kullanılır. Eş enerjili orbitaller önce tek tek dolar.",
-   "Bir orbitalde en fazla kaç elektron bulunur?",
-   ["1","2","6","8"],1),
-  K("Periyodik Özellikler",
-   "Atom yarıçapı periyotta genellikle azalır. İyonlaşma enerjisi elektron koparmak için gereken enerjidir. Elektron ilgisi ve elektronegatiflik farklı kavramlardır.",
-   "Elektron koparmak için gereken enerji?",
-   ["İyonlaşma enerjisi","Yoğunluk","Erime ısısı","Basınç"],0),
-  K("Yükseltgenme Basamakları",
-   "Yükseltgenme basamağı elektronların varsayımsal dağılımına göre verilen sayıdır. Element hâlindeki atomlarda sıfırdır.",
-   "Element hâlindeki O₂'nin yükseltgenme basamağı?",
-   ["-2","0","+1","+2"],1)
+ U("1. Modern Atom Teorisi",[
+ T("Kuantum Modeli","Elektronlar kesin yörüngeler yerine olasılık dağılımlarıyla açıklanır.","Orbital neyi gösterir?",["Olasılık dağılımı","Kesin yol","Proton rengi","Atom kokusu"],0),
+ T("Kuantum Sayıları","n, l, mₗ ve mₛ elektron durumunu tanımlar.","Baş kuantum sayısı?",["n","p","M","V"],0),
+ T("Elektron Dizilimi","Aufbau, Pauli ve Hund ilkeleri kullanılır.","Orbital kapasitesi?",["1","2","6","8"],1),
+ T("Periyodik Özellikler","İyonlaşma enerjisi elektron koparmak için gereken enerjidir.","Elektron koparma enerjisi?",["İyonlaşma","Erime","Bağlanma","Basınç"],0),
+ T("Yükseltgenme Basamağı","Element hâlindeki atomların yükseltgenme basamağı sıfırdır.","O₂ için değer?",["-2","0","+1","+2"],1)
  ]),
- U("💨 2. Ünite: Gazlar",[
-  K("Gazların Genel Özellikleri",
-   "Gazlar sıkıştırılabilir, kabı doldurur ve tanecikleri sürekli hareket eder.",
-   "Gazların genel özelliği?",
-   ["Sıkıştırılabilir olmaları","Sabit şekilleri","Hareketsiz tanecikler","Sabit hacimleri"],0),
-  K("Gaz Yasaları",
-   "Boyle, Charles, Gay-Lussac ve Avogadro yasaları basınç, hacim, sıcaklık ve mol arasındaki ilişkileri açıklar.",
-   "Sabit sıcaklıkta basınç-hacim ilişkisi?",
-   ["Boyle","Charles","Avogadro","Faraday"],0),
-  K("İdeal Gaz Yasası",
-   "PV = nRT bağıntısı ideal gazın durumunu açıklar. T Kelvin cinsindedir.",
-   "İdeal gaz denklemi?",
-   ["PV=nRT","M=n/V","E=mc²","F=ma"],0),
-  K("Kinetik Teori",
-   "Gaz taneciklerinin ortalama kinetik enerjisi mutlak sıcaklıkla orantılıdır.",
-   "Ortalama kinetik enerji neyle ilişkilidir?",
-   ["Kelvin sıcaklığıyla","Kabın rengiyle","Molekül adıyla","Yalnızca hacimle"],0),
-  K("Gaz Karışımları",
-   "Dalton yasasına göre ideal gaz karışımının toplam basıncı kısmi basınçların toplamıdır.",
-   "Toplam basınç neye eşittir?",
-   ["Kısmi basınçlar toplamına","Sıfıra","Tek gazın molüne","Sadece sıcaklığa"],0),
-  K("Gerçek Gazlar",
-   "Gerçek gazlar özellikle yüksek basınç ve düşük sıcaklıkta ideal gaz davranışından sapabilir.",
-   "İdeal davranıştan sapma ne zaman belirginleşir?",
-   ["Yüksek basınçta","Daima sıfır basınçta","Yalnızca boşlukta","Her koşulda aynı"],0)
+ U("2. Gazlar",[
+ T("Gaz Yasaları","Boyle, Charles, Gay-Lussac ve Avogadro yasaları gaz davranışlarını açıklar.","Sabit sıcaklıkta P-V ilişkisi?",["Boyle","Charles","Faraday","Hess"],0),
+ T("İdeal Gaz","PV=nRT bağıntısı kullanılır.","Denklem?",["PV=nRT","M=n/V","E=mc²","F=ma"],0),
+ T("Kinetik Teori","Ortalama kinetik enerji mutlak sıcaklıkla ilişkilidir.","Hangi sıcaklık?",["Kelvin","Celsius tek başına","Renk","Yoğunluk"],0),
+ T("Kısmi Basınç","Toplam basınç kısmi basınçların toplamıdır.","Bu yasa?",["Dalton","Hess","Faraday","Raoult"],0),
+ T("Gerçek Gazlar","Yüksek basınç ve düşük sıcaklıkta ideallikten sapma artabilir.","Sapma hangi koşulda?",["Yüksek basınç","Çok düşük basınç","Vakum","Her zaman aynı"],0)
  ]),
- U("💧 3. Ünite: Sıvı Çözeltiler ve Çözünürlük",[
-  K("Çözücü-Çözünen Etkileşimleri",
-   "Çözünmede çözücü ve çözünen tanecikler arasında etkileşimler oluşur. İyonik maddelerin suda hidratlaşması buna örnektir.",
-   "Na⁺ iyonunu suda ne çevreler?",
-   ["Su molekülleri","Protonlar","Metaller","Elektron yörüngeleri"],0),
-  K("Molarite ve Molalite",
-   "Molarite litre çözelti başına mol, molalite kilogram çözücü başına mol sayısıdır.",
-   "Molalitenin birimi?",
-   ["mol/kg","mol/L","Pa","K"],0),
-  K("Koligatif Özellikler",
-   "Koligatif özellikler ideal koşullarda çözünmüş tanecik sayısına bağlıdır. Kaynama noktası yükselmesi ve donma noktası düşmesi örneklerdir.",
-   "Hangisi koligatif özelliktir?",
-   ["Donma noktası düşmesi","Atom numarası","Elektron spini","Proton sayısı"],0),
-  K("Çözünürlük",
-   "Çözünürlük madde türüne ve sıcaklığa bağlıdır. Gazların sıvılardaki çözünürlüğü basınçtan da etkilenir.",
-   "Gazların çözünürlüğünü etkileyen faktör?",
-   ["Basınç","Renk","Şekil","Atom numarası"],0)
+ U("3. Sıvı Çözeltiler",[
+ T("Çözücü Etkileşimleri","İyonlar suda hidratlaşabilir.","Na⁺ çevresinde ne bulunur?",["Su molekülleri","Nötronlar","Metaller","Elektronlar"],0),
+ T("Molarite-Molalite","Molarite mol/L çözelti, molalite mol/kg çözücüdür.","Molalite birimi?",["mol/kg","mol/L","Pa","K"],0),
+ T("Koligatif Özellikler","Çözünen tanecik sayısına bağlı özelliklerdir.","Örnek?",["Donma noktası düşmesi","Atom numarası","Spin","Proton sayısı"],0),
+ T("Çözünürlük","Gaz çözünürlüğü basınçtan etkilenebilir.","Gaz çözünürlüğünü etkileyen?",["Basınç","Renk","Şekil","Etiket"],0)
  ]),
- U("🔥 4. Ünite: Kimyasal Tepkimelerde Enerji",[
-  K("Endotermik ve Egzotermik",
-   "Ekzotermik tepkimeler çevreye enerji aktarır. Endotermik tepkimeler çevreden enerji alır.",
-   "Ekzotermik tepkime ne yapar?",
-   ["Enerji verir","Daima donar","Proton kaybeder","Kütleyi yok eder"],0),
-  K("Entalpi",
-   "Sabit basınçta tepkime ısısı entalpi değişimiyle ilişkilidir. Standart oluşum entalpisi belirli standart koşullarda tanımlanır.",
-   "Entalpi değişiminin sembolü?",
-   ["ΔH","pH","n","V"],0),
-  K("Bağ Enerjileri",
-   "Bağ koparmak enerji gerektirir, bağ oluşurken enerji açığa çıkar. Bağ enerjileri tepkime entalpisini yaklaşık hesaplamada kullanılabilir.",
-   "Bağ koparmak ne gerektirir?",
-   ["Enerji","Yalnızca ışık","Hiçbir şey","Elektronun yok olması"],0),
-  K("Hess Yasası",
-   "Entalpi bir hâl fonksiyonudur. Tepkime hangi yoldan gerçekleşirse gerçekleşsin toplam entalpi değişimi aynıdır.",
-   "Hess yasası neyle ilgilidir?",
-   ["Entalpi değişimi","Atom numarası","Elektron spini","Yoğunluk"],0)
+ U("4. Tepkimelerde Enerji",[
+ T("Endotermik-Egzotermik","Endotermik enerji alır, egzotermik enerji verir.","Enerji veren?",["Egzotermik","Endotermik","Nötr","İyonik"],0),
+ T("Entalpi","Sabit basınçta ısı değişimi entalpiyle ilişkilidir.","Sembol?",["ΔH","pH","n","V"],0),
+ T("Bağ Enerjisi","Bağ koparmak enerji gerektirir.","Bağ koparmak?",["Enerji alır","Enerji üretir","Kütleyi yok eder","Proton çıkarır"],0),
+ T("Hess Yasası","Toplam entalpi değişimi izlenen yoldan bağımsızdır.","Neyle ilgilidir?",["Entalpi","Atom numarası","Spin","Yoğunluk"],0)
  ]),
- U("⏱️ 5. Ünite: Tepkime Hızları",[
-  K("Çarpışma Teorisi",
-   "Tepkime oluşması için taneciklerin uygun enerji ve yönelimle çarpışması gerekir.",
-   "Etkili çarpışmada ne önemlidir?",
-   ["Enerji ve yönelim","Renk","Yalnızca kütle","Atom adı"],0),
-  K("Tepkime Hızını Etkileyen Faktörler",
-   "Sıcaklık, derişim, yüzey alanı ve katalizör tepkime hızını etkileyebilir. Katalizör alternatif bir tepkime yolu sağlar.",
-   "Katalizör genellikle neyi etkiler?",
-   ["Tepkime hızını","Atom numarasını","Proton sayısını","Element sembolünü"],0)
+ U("5. Tepkime Hızları",[
+ T("Çarpışma Teorisi","Etkili çarpışma için uygun enerji ve yönelim gerekir.","Önemli olan?",["Enerji ve yönelim","Renk","Etiket","Koku"],0),
+ T("Hıza Etki Eden Faktörler","Sıcaklık, derişim, yüzey alanı ve katalizör hızı etkileyebilir.","Katalizör neyi etkiler?",["Hızı","Proton sayısını","Atom numarasını","Element türünü"],0)
  ]),
- U("⚖️ 6. Ünite: Sulu Çözelti Dengeleri",[
-  K("Kimyasal Denge",
-   "Dengede ileri ve geri tepkime hızları eşittir. Tepkimeler durmaz, dinamik olarak devam eder.",
-   "Dengede hangi hızlar eşittir?",
-   ["İleri ve geri","Sıfır ve sonsuz","Erime ve yanma","Yalnızca ileri"],0),
-  K("Dengeye Etki Eden Faktörler",
-   "Derişim, basınç ve sıcaklık değişimleri uygun sistemlerde denge konumunu etkileyebilir. Katalizör denge sabitini değiştirmez.",
-   "Katalizör denge sabitini nasıl etkiler?",
-   ["Değiştirmez","Daima artırır","Daima azaltır","Sıfırlar"],0),
-  K("Asit-Baz Dengesi",
-   "Zayıf asit ve bazlar suda kısmen iyonlaşır. pH ve pOH asit-baz dengesini değerlendirmede kullanılır.",
-   "25 °C'de pH + pOH yaklaşık kaçtır?",
-   ["7","14","1","100"],1),
-  K("Tampon Çözeltiler",
-   "Tampon çözeltiler az miktarda asit veya baz eklendiğinde pH değişimini sınırlar.",
-   "Tampon çözeltinin görevi?",
-   ["pH değişimine direnmek","Daima pH 7 olmak","Gaz oluşturmak","Suyu dondurmak"],0),
-  K("Çözünme-Çökelme Dengesi",
-   "Az çözünen iyonik katılarda çözünme ve çökelme dengesi oluşabilir. Çözünürlük çarpımı Kçç ile ifade edilir.",
-   "Çözünürlük çarpımının sembolü?",
-   ["Kçç","ΔH","n","R"],0)
+ U("6. Sulu Çözelti Dengeleri",[
+ T("Kimyasal Denge","İleri ve geri tepkime hızları eşittir.","Dengede eşit olan?",["İleri ve geri hız","Mol sayıları","Derişimler daima","Kütleler daima"],0),
+ T("Denge Faktörleri","Derişim, basınç ve sıcaklık değişimleri dengeyi etkileyebilir.","Katalizör denge sabitini?",["Değiştirmez","Artırır","Azaltır","Sıfırlar"],0),
+ T("Asit-Baz Dengesi","25 °C'de pH+pOH=14'tür.","Toplam?",["7","14","1","100"],1),
+ T("Tampon Çözeltiler","Küçük asit-baz eklemelerinde pH değişimine direnç gösterir.","Görevi?",["pH değişimini sınırlamak","Daima pH 7 olmak","Gaz oluşturmak","Suyu dondurmak"],0),
+ T("Çözünme-Çökelme","Az çözünen katılar çözünme dengesi kurabilir.","Çözünürlük çarpımı?",["Kçç","ΔH","n","R"],0)
  ])
 ],
 12:[
- U("⚡ 1. Ünite: Kimya ve Elektrik",[
-  K("Redoks ve Elektrik Akımı",
-   "Yükseltgenme elektron verme, indirgenme elektron alma ile ilişkilidir. Elektrokimyasal sistemlerde elektron aktarımı önemlidir.",
-   "Yükseltgenme neyle ilişkilidir?",
-   ["Elektron verme","Elektron alma","Erime","Donma"],0),
-  K("Elektrotlar ve Galvanik Piller",
-   "Galvanik pil kimyasal enerjiyi elektrik enerjisine dönüştürür. Anotta yükseltgenme, katotta indirgenme olur.",
-   "Katotta hangi olay gerçekleşir?",
-   ["İndirgenme","Yükseltgenme","Buharlaşma","Süblimleşme"],0),
-  K("Standart Elektrot Potansiyelleri",
-   "Standart indirgenme potansiyelleri elektrotların indirgenme eğilimlerini karşılaştırmada kullanılır.",
-   "Standart elektrot potansiyeli neyle ilgilidir?",
-   ["İndirgenme eğilimi","Yoğunluk","Erime noktası","Atom yarıçapı"],0),
-  K("Pil Potansiyeline Etki Eden Faktörler",
-   "Elektrot türü, iyon derişimi ve sıcaklık pil potansiyelini etkileyebilir.",
-   "Pil potansiyelini ne etkileyebilir?",
-   ["İyon derişimi","Kabın rengi","Etiket yazısı","Maddenin adı tek başına"],0),
-  K("Elektroliz ve Faraday Kanunları",
-   "Elektrolizde elektrik enerjisi kimyasal değişimi yürütür. Aktarılan yük miktarı oluşan madde miktarıyla ilişkilidir.",
-   "Elektroliz hangi enerjiyi kullanır?",
-   ["Elektrik","Yalnızca ses","Yalnızca ışık","Yerçekimi"],0),
-  K("Korozyon",
-   "Korozyon malzemelerin çevreleriyle kimyasal veya elektrokimyasal etkileşim sonucu bozulmasıdır. Kaplama ve uygun malzeme seçimi koruma sağlayabilir.",
-   "Korozyondan korunma yöntemi?",
-   ["Kaplama","Tuzlu suya bırakma","Çizme","Nemlendirme"],0)
+ U("1. Kimya ve Elektrik",[
+ T("Redoks","Yükseltgenme elektron verme, indirgenme elektron almadır.","Elektron verme?",["Yükseltgenme","İndirgenme","Erime","Donma"],0),
+ T("Galvanik Pil","Anotta yükseltgenme, katotta indirgenme olur.","Katotta ne olur?",["İndirgenme","Yükseltgenme","Buharlaşma","Donma"],0),
+ T("Elektrot Potansiyeli","Standart indirgenme potansiyelleri indirgenme eğilimini karşılaştırır.","Neyi karşılaştırır?",["İndirgenme eğilimi","Yoğunluk","Erime noktası","Renk"],0),
+ T("Pil Potansiyeli","Elektrot türü, derişim ve sıcaklık etkili olabilir.","Etkileyen?",["Derişim","Etiket","Renk","Kabın adı"],0),
+ T("Elektroliz","Elektrik enerjisiyle kimyasal değişim yürütülür.","Hangi enerji?",["Elektrik","Ses","Işık yalnızca","Yerçekimi"],0),
+ T("Faraday Kanunları","Aktarılan elektrik yükü ürün miktarıyla ilişkilidir.","İlgili büyüklük?",["Elektrik yükü","Renk","Koku","Hacim tek başına"],0),
+ T("Korozyon","Metal çevresiyle tepkimeye girerek bozulabilir.","Korunma yöntemi?",["Kaplama","Tuzlu su","Çizme","Nemlendirme"],0)
  ]),
- U("🧬 2. Ünite: Karbon Kimyasına Giriş",[
-  K("Organik ve Anorganik Bileşikler",
-   "Organik kimya karbon bileşiklerinin büyük bölümünü inceler. CO₂ ve karbonatlar gibi bazı karbon bileşikleri geleneksel olarak anorganik sınıflandırılır.",
-   "Hangisi organik bileşik örneğidir?",
-   ["Metan","NaCl","CaCO₃","CO₂"],0),
-  K("Basit ve Molekül Formülü",
-   "Basit formül atomların en küçük tam sayı oranını, molekül formülü moleküldeki gerçek atom sayılarını gösterir.",
-   "C₆H₁₂O₆ bileşiğinin basit formülü?",
-   ["CH₂O","C₆H₁₂O₆","CO₂","CH₄"],0),
-  K("Karbon Allotropları",
-   "Elmas üç boyutlu kovalent ağ, grafit katmanlı yapı, fulleren kafes benzeri ve nanotüp silindirik karbon yapılarıdır.",
-   "Katmanlı karbon allotropu?",
-   ["Grafit","Elmas","Fulleren","Metan"],0),
-  K("Lewis Formülleri",
-   "Lewis formülleri bağ elektron çiftlerini ve bağ yapmayan elektron çiftlerini gösterir.",
-   "Lewis formülü neyi gösterir?",
-   ["Değerlik elektronlarını","Nötron hızını","Atom rengini","Yoğunluğu"],0),
-  K("Hibritleşme",
-   "Hibritleşme, bağlanmayı açıklamak için atom orbitallerinin matematiksel olarak birleştirilmesiyle tanımlanır. sp, sp² ve sp³ yaygın örneklerdir.",
-   "CH₄ için karbonun hibritleşmesi?",
-   ["sp","sp²","sp³","d²sp³"],2),
-  K("Molekül Geometrileri",
-   "VSEPR yaklaşımı elektron bölgelerinin itmesini kullanır. CH₄ tetrahedral, NH₃ üçgen piramidal, BH₃ düzlem üçgendir.",
-   "CH₄ geometrisi?",
-   ["Doğrusal","Tetrahedral","Açısal","Düzlem üçgen"],1)
+ U("2. Karbon Kimyasına Giriş",[
+ T("Organik Bileşikler","Organik kimya karbon bileşiklerinin büyük bölümünü inceler.","Organik örnek?",["Metan","NaCl","CaCO₃","CO₂"],0),
+ T("Basit Formül","En küçük tam sayı atom oranını gösterir.","C₆H₁₂O₆ basit formülü?",["CH₂O","C₆H₁₂O₆","CO₂","CH₄"],0),
+ T("Karbon Allotropları","Elmas ağ, grafit katman, fulleren kafes yapıdadır.","Katmanlı yapı?",["Grafit","Elmas","Fulleren","Metan"],0),
+ T("Lewis Formülleri","Bağ ve bağ yapmayan değerlik elektronlarını gösterir.","Neyi gösterir?",["Değerlik elektronları","Nötron hızı","Renk","Yoğunluk"],0),
+ T("Hibritleşme","sp, sp² ve sp³ hibritleşmeleri yaygındır.","CH₄ karbonu?",["sp","sp²","sp³","d²sp³"],2),
+ T("Molekül Geometrileri","CH₄ tetrahedral, NH₃ üçgen piramidal, BH₃ düzlem üçgendir.","CH₄ geometrisi?",["Doğrusal","Tetrahedral","Açısal","Düzlem üçgen"],1)
  ]),
- U("🧪 3. Ünite: Organik Bileşikler",[
-  K("Alkanlar",
-   "Alkanlar yalnızca tekli karbon-karbon bağları içeren doymuş açık zincirli hidrokarbonlardır.",
-   "Alkanlarda C–C bağı nasıldır?",
-   ["Tekli","İkili","Üçlü","İyonik"],0),
-  K("Alkenler",
-   "Alkenler en az bir karbon-karbon çift bağı içerir. Çift bağ çevresinde cis/trans veya E/Z izomerliği görülebilir.",
-   "Alkenlerde hangi bağ bulunur?",
-   ["C=C","C≡C","Na–Cl","O–H yalnızca"],0),
-  K("Alkinler",
-   "Alkinler en az bir karbon-karbon üçlü bağı içeren hidrokarbonlardır.",
-   "Alkinlerde hangi bağ bulunur?",
-   ["C–C","C=C","C≡C","İyonik"],2),
-  K("Aromatik Bileşikler",
-   "Benzen aromatik bileşiklerin temel örneklerindendir. Halkadaki elektronlar delokalizedir.",
-   "Aromatik bileşik örneği?",
-   ["Benzen","NaCl","H₂O","Ne"],0),
-  K("Fonksiyonel Gruplar",
-   "Fonksiyonel gruplar organik bileşiklerin özelliklerini belirleyen karakteristik atom gruplarıdır.",
-   "Alkollerde yaygın grup?",
-   ["-OH","-COOH","-CHO","-Cl"],0),
-  K("Alkoller ve Eterler",
-   "Alkollerde hidroksil grubu, eterlerde iki karbon grubuna bağlı oksijen bulunur.",
-   "Etanol hangi sınıftadır?",
-   ["Alkol","Eter","Alkin","Aldehit"],0),
-  K("Aldehitler ve Ketonlar",
-   "Aldehit ve ketonlar karbonil grubu içerir. Aldehitlerde karbonil uçta, ketonlarda iki karbon grubunun arasındadır.",
-   "Karbonil grubu hangisidir?",
-   ["C=O","O–O","N≡N","H–H"],0),
-  K("Karboksilik Asitler",
-   "Karboksilik asitlerde -COOH grubu bulunur. Asetik asit bir örnektir.",
-   "Karboksilik asit grubu?",
-   ["-COOH","-OH","-O-","-NH₂"],0),
-  K("Esterler",
-   "Esterler R–COO–R' genel yapısıyla gösterilebilir. Bazı esterler karakteristik kokularıyla bilinir.",
-   "Esterlerde hangi bağlantı vardır?",
-   ["-COO-","-NH₂","-OH tek başına","C≡C"],0),
-  K("Organik İzomeri",
-   "İzomerler aynı molekül formülüne sahip farklı yapılardır. Cis/trans izomerleri uzaysal diziliş bakımından farklılaşır.",
-   "Cis/trans izomerliği neyle ilgilidir?",
-   ["Uzaysal diziliş","Proton sayısı","Atom numarası","Mol birimi"],0)
+ U("3. Organik Bileşikler",[
+ T("Alkanlar","Açık zincirli alkanlarda C-C bağları teklidir.","Bağ türü?",["Tekli","İkili","Üçlü","İyonik"],0),
+ T("Alkenler","En az bir C=C bağı içerir.","Hangi bağ?",["C=C","C≡C","Na-Cl","O-O"],0),
+ T("Alkinler","En az bir C≡C bağı içerir.","Hangi bağ?",["C-C","C=C","C≡C","İyonik"],2),
+ T("Aromatikler","Benzen aromatik bileşik örneğidir.","Örnek?",["Benzen","NaCl","H₂O","Ne"],0),
+ T("Fonksiyonel Gruplar","Organik bileşiklerin özelliklerini etkileyen atom gruplarıdır.","Alkol grubu?",["-OH","-COOH","-CHO","-Cl"],0),
+ T("Alkoller ve Eterler","Alkollerde -OH, eterlerde C-O-C bağlantısı bulunur.","Etanol?",["Alkol","Eter","Alkin","Aldehit"],0),
+ T("Aldehit ve Keton","Karbonil C=O grubu içerirler.","Karbonil?",["C=O","O-O","N≡N","H-H"],0),
+ T("Karboksilik Asit","-COOH grubu içerir.","Grup?",["-COOH","-OH","-O-","-NH₂"],0),
+ T("Esterler","Genel olarak R-COO-R' yapısındadır.","Bağlantı?",["-COO-","-NH₂","-OH","C≡C"],0),
+ T("İzomeri","Aynı molekül formülüne sahip farklı yapılar bulunabilir.","Cis/trans neyle ilgilidir?",["Uzaysal diziliş","Proton sayısı","Atom numarası","Mol"],0)
  ]),
- U("🌿 4. Ünite: Enerji Kaynakları ve Bilimsel Gelişmeler",[
-  K("Fosil Yakıtlar",
-   "Kömür, petrol ve doğal gaz fosil yakıtlardır. Kullanımları sera gazı salımlarına katkıda bulunabilir.",
-   "Fosil yakıt örneği?",
-   ["Kömür","Rüzgâr","Güneş","Gelgit"],0),
-  K("Alternatif Enerji Kaynakları",
-   "Güneş, rüzgâr, jeotermal ve hidroelektrik enerji yenilenebilir kaynak örnekleridir.",
-   "Yenilenebilir kaynak hangisi?",
-   ["Petrol","Kömür","Güneş","Doğal gaz"],2),
-  K("Sürdürülebilirlik",
-   "Sürdürülebilirlik doğal kaynakların gelecek kuşakların ihtiyaçlarını tehlikeye atmadan kullanılmasını hedefler.",
-   "Sürdürülebilir yaklaşım?",
-   ["Kaynakları verimli kullanmak","Atıkları artırmak","Suyu kirletmek","Enerjiyi boşa harcamak"],0),
-  K("Nanoteknoloji",
-   "Nanoteknoloji nanometre ölçeğindeki yapıları ve malzemeleri inceler. Bir nanometre 10⁻⁹ metredir.",
-   "Bir nanometre kaç metredir?",
-   ["10⁻⁹","10⁻³","10³","10⁹"],0)
+ U("4. Enerji ve Bilimsel Gelişmeler",[
+ T("Fosil Yakıtlar","Kömür, petrol ve doğal gaz fosil yakıtlardır.","Örnek?",["Kömür","Rüzgâr","Güneş","Gelgit"],0),
+ T("Alternatif Enerji","Güneş ve rüzgâr yenilenebilir kaynaklardır.","Yenilenebilir?",["Petrol","Kömür","Güneş","Doğal gaz"],2),
+ T("Sürdürülebilirlik","Kaynakları gelecek kuşakları gözeterek kullanmayı hedefler.","Doğru yaklaşım?",["Verimli kullanım","Atık artırma","Su kirletme","İsraf"],0),
+ T("Nanoteknoloji","Nanometre 10⁻⁹ metredir.","1 nm kaç metre?",["10⁻⁹","10⁻³","10³","10⁹"],0)
  ])
 ]
 };
 
-// MENÜLER
-function addTile(parent,title,description,callback){
- const b=document.createElement("button");
- b.className="tile";
- const strong=document.createElement("b");
- strong.textContent=title;
- const span=document.createElement("span");
- span.textContent=description;
- b.append(strong,span);
- b.onclick=callback;
- $(parent).append(b);
+function tile(parent,title,description,fn){
+ const b=document.createElement("button");b.className="tile";
+ const h=document.createElement("b");h.textContent=title;
+ const s=document.createElement("span");s.textContent=description;
+ b.append(h,s);b.onclick=fn;$(parent).append(b);
 }
 function buildMenus(){
- $("unitList").replaceChildren();
- $("gameList").replaceChildren();
- courses[grade].forEach((u,i)=>{
-  addTile("unitList",u.title,
-   u.topics.length+" konu • Mini test",
-   ()=>openLesson(i,0));
-  addTile("gameList","🧠 "+u.title,
-   "Bilgi yarışmasını başlat",()=>startQuiz(i));
+ $("units").replaceChildren();
+ data[grade].forEach((u,i)=>{
+  tile("units",u.title,u.topics.length+" konu • Test",()=>openUnit(i));
  });
- if(grade===9||grade===11){
-  addTile("gameList","⚛️ Elektron Dizilimi",
-   "Orbital kutularını doldur",
-   ()=>showPage("electronGame"));
- }
- if(grade===9||grade===12){
-  addTile("gameList","🔵 Lewis Nokta Oyunu",
-   "Değerlik elektronlarını yerleştir",
-   ()=>showPage("lewisGame"));
- }
- addTile("gameList","🌌 3D Laboratuvar",
-  "Modelleri keşfet",()=>showPage("threeD"));
- buildProjects();buildExperiments();buildModelCategories();
+ buildProjects();buildExperiments();buildModels();
 }
-function openLesson(u,l){
- currentUnit=u;currentLesson=l;
- const unit=courses[grade][u],lesson=unit.topics[l];
- $("lessonTitle").textContent=unit.title;
- $("lessonTabs").replaceChildren();
- unit.topics.forEach((topic,i)=>{
-  const b=document.createElement("button");
-  b.textContent=(i+1)+". "+topic.title;
-  if(i===l)b.className="active";
-  b.onclick=()=>openLesson(u,i);
-  $("lessonTabs").append(b);
+function openUnit(i){
+ selectedUnit=i;const u=data[grade][i];
+ $("lessonTitle").textContent=u.title;
+ $("lessonContent").replaceChildren();
+ u.topics.forEach((t,j)=>{
+  const box=document.createElement("div");box.className="card";
+  const h=document.createElement("h3");h.textContent=(j+1)+". "+t.title;
+  const p=document.createElement("p");p.textContent=t.info;
+  box.append(h,p);$("lessonContent").append(box);
  });
- $("lessonBody").replaceChildren();
- const box=document.createElement("div");
- box.className="lesson";
- const h=document.createElement("h3");
- h.textContent=lesson.title;
- const p=document.createElement("p");
- p.textContent=lesson.info;
- box.append(h,p);
- $("lessonBody").append(box);
- $("lessonHint").textContent=
-  "💡 Konuyu okuduktan sonra mini testle kendini dene. "+
-  "3D laboratuvarda ilgili modelleri de keşfedebilirsin.";
- showPage("lessonPage");
+ page("lesson");playSound("click");
 }
 
-// TEST SİSTEMİ
-function shuffle(a){
- const x=[...a];
- for(let i=x.length-1;i>0;i--){
+// TESTLER VE SÜRE
+function shuffle(array){
+ const a=[...array];
+ for(let i=a.length-1;i>0;i--){
   const j=Math.floor(Math.random()*(i+1));
-  [x[i],x[j]]=[x[j],x[i]];
+  [a[i],a[j]]=[a[j],a[i]];
  }
- return x;
+ return a;
 }
-function startQuiz(u){
- dailyMode=false;questionIndex=0;
- quizMistakes=0;quizCompleted=false;
- quizQuestions=shuffle(courses[grade][u].topics);
- $("quizTitle").textContent="🧠 "+courses[grade][u].title;
- showPage("quiz");showQuestion();
+let quiz=[],qi=0,quizMistakes=0,quizAnswered=false;
+let quizDone=false,daily=false,quizInterval=null;
+let quizDeadline=0,quizRemaining=0;
+function stopClock(){
+ clearInterval(quizInterval);quizInterval=null;
+}
+function beginQuiz(list,title,isDaily=false){
+ stopClock();quiz=shuffle(list);
+ qi=0;quizMistakes=0;quizDone=false;daily=isDaily;
+ $("quizTitle").textContent=title;
+ page("quiz");renderQuestion();
+}
+function startUnitQuiz(i){
+ beginQuiz(data[grade][i].topics,"🧠 "+data[grade][i].title);
+}
+function startMixedQuiz(){
+ beginQuiz(data[grade].flatMap(u=>u.topics),"🧠 Karışık Test");
 }
 function startDaily(){
- const today=new Date().toLocaleDateString("sv-SE");
- if(progress.daily===today)return;
- const all=courses[grade].flatMap(u=>u.topics);
- const seed=Number(today.replaceAll("-",""));
- quizQuestions=Array.from({length:Math.min(5,all.length)},
-  (_,i)=>all[(seed+i*7)%all.length]);
- questionIndex=0;quizMistakes=0;
- quizCompleted=false;dailyMode=true;
- $("quizTitle").textContent="🌞 Günlük Kimya Görevi";
- showPage("quiz");showQuestion();
+ if(profile.daily===todayKey())return;
+ const all=data[grade].flatMap(u=>u.topics);
+ const seed=Number(todayKey().replaceAll("-",""));
+ const chosen=[];
+ for(let i=0;i<Math.min(5,all.length);i++)
+  chosen.push(all[(seed+i*11)%all.length]);
+ beginQuiz(chosen,"🌞 Günlük Görev",true);
 }
-function showQuestion(){
- if(questionIndex>=quizQuestions.length){
-  $("question").textContent="🏆 Tebrikler, tamamladın!";
-  $("answers").replaceChildren();
-  $("quizProgress").style.width="100%";
-  $("quizResult").textContent="Bütün soruları bitirdin!";
-  $("quizBot").textContent="🤖 LAB-BOT: Harika çalıştın!";
-  $("nextBtn").classList.add("hidden");
-  if(!quizCompleted){
-   quizCompleted=true;
-   finishGame(quizMistakes);
-   if(dailyMode){
-    const today=new Date().toLocaleDateString("sv-SE");
-    if(progress.daily!==today){
-     progress.daily=today;progress.score+=25;
-     progress.badges.daily=true;
-     updateStats();updateDaily();
-    }
+function startClock(){
+ stopClock();
+ if(!timerEnabled){
+  $("quizClock").textContent="∞";return;
+ }
+ quizDeadline=Date.now()+timerLength*1000;
+ quizRemaining=timerLength;
+ $("quizClock").textContent=timerLength+" sn";
+ quizInterval=setInterval(()=>{
+  quizRemaining=Math.max(0,Math.ceil((quizDeadline-Date.now())/1000));
+  $("quizClock").textContent=quizRemaining+" sn";
+  if(quizRemaining<=5&&quizRemaining>0)playSound("tick");
+  if(quizRemaining<=0){
+   stopClock();
+   if(!quizAnswered){
+    quizMistakes++;wrong();
+    finishQuestion("⏰ Süre doldu!");
+   }
+  }
+ },250);
+}
+function renderQuestion(){
+ stopClock();
+ if(qi>=quiz.length){
+  $("quizQuestion").textContent="🏆 Test tamamlandı!";
+  $("quizChoices").replaceChildren();
+  $("quizMessage").textContent="Harika çalıştın!";
+  $("quizBar").style.width="100%";
+  $("quizClock").textContent="🎉";
+  $("quizNext").classList.add("hidden");
+  if(!quizDone){
+   quizDone=true;finish(quizMistakes);
+   if(daily&&profile.daily!==todayKey()){
+    profile.daily=todayKey();profile.points+=25;
+    profile.badges.daily=true;updateStats();updateDaily();
    }
   }
   return;
  }
  quizAnswered=false;
- const q=quizQuestions[questionIndex];
- $("question").textContent=q.q;
- $("quizNumber").textContent=
-  "Soru "+(questionIndex+1)+" / "+quizQuestions.length;
- $("quizProgress").style.width=
-  questionIndex/quizQuestions.length*100+"%";
- $("quizResult").textContent="Cevabını seç!";
- $("quizResult").className="msg";
- $("quizBot").textContent="🤖 LAB-BOT: Konuyu hatırla!";
- $("nextBtn").classList.add("hidden");
- $("answers").replaceChildren();
- shuffle([0,1,2,3]).forEach(i=>{
+ const q=quiz[qi];
+ $("quizCount").textContent="Soru "+(qi+1)+" / "+quiz.length;
+ $("quizBar").style.width=(qi/quiz.length*100)+"%";
+ $("quizQuestion").textContent=q.q;
+ $("quizMessage").textContent="Cevabını seç!";
+ $("quizMessage").className="msg";
+ $("quizNext").classList.add("hidden");
+ $("quizChoices").replaceChildren();
+ shuffle([0,1,2,3]).forEach(index=>{
   const b=document.createElement("button");
-  b.textContent=q.options[i];
+  b.textContent=q.a[index];
   b.onclick=()=>{
    if(quizAnswered)return;
-   if(i===q.answer){
-    quizAnswered=true;rewardCorrect();
-    b.classList.add("ok");
-    $("answers").querySelectorAll("button")
-     .forEach(x=>x.disabled=true);
-    $("quizResult").textContent="✅ Doğru!";
-    $("quizResult").className="msg ok";
-    $("quizBot").textContent="🤖 "+q.info;
-    $("nextBtn").classList.remove("hidden");
+   if(index===q.correct){
+    correct();b.classList.add("ok");
+    finishQuestion("✅ Doğru! "+q.info);
    }else{
-    quizMistakes++;rewardWrong();
-    b.disabled=true;b.classList.add("no");
-    $("quizResult").textContent="❌ Tekrar dene!";
-    $("quizResult").className="msg no";
+    quizMistakes++;wrong();b.classList.add("no");b.disabled=true;
+    $("quizMessage").textContent="❌ Tekrar dene!";
+    $("quizMessage").className="msg no";
    }
   };
-  $("answers").append(b);
+  $("quizChoices").append(b);
  });
+ startClock();
 }
-function nextQuestion(){
+function finishQuestion(message){
+ quizAnswered=true;stopClock();
+ $("quizMessage").textContent=message;
+ $("quizMessage").className="msg";
+ $("quizChoices").querySelectorAll("button")
+  .forEach(b=>b.disabled=true);
+ $("quizNext").classList.remove("hidden");
+}
+function nextQuiz(){
  if(!quizAnswered)return;
- questionIndex++;showQuestion();
+ qi++;renderQuestion();
 }
-function showQuizHint(){
- if(questionIndex>=quizQuestions.length)return;
- const q=quizQuestions[questionIndex];
- $("quizBot").textContent="💡 "+q.info;
+function quizHint(){
+ if(qi<quiz.length)
+  $("quizMessage").textContent="💡 "+quiz[qi].info;
 }
 
-// ELEKTRON DİZİLİMİ
+// ELEKTRON OYUNU
 const elements=[
- ["H","Hidrojen",1,1],["He","Helyum",2,2],
- ["Li","Lityum",3,1],["Be","Berilyum",4,2],
- ["B","Bor",5,3],["C","Karbon",6,4],
- ["N","Azot",7,5],["O","Oksijen",8,6],
- ["F","Flor",9,7],["Ne","Neon",10,8],
- ["Na","Sodyum",11,1],["Mg","Magnezyum",12,2],
- ["Al","Alüminyum",13,3],["Si","Silisyum",14,4],
- ["P","Fosfor",15,5],["S","Kükürt",16,6],
- ["Cl","Klor",17,7],["Ar","Argon",18,8],
- ["K","Potasyum",19,1],["Ca","Kalsiyum",20,2]
+ ["H",1,1],["He",2,2],["Li",3,1],["Be",4,2],
+ ["B",5,3],["C",6,4],["N",7,5],["O",8,6],
+ ["F",9,7],["Ne",10,8],["Na",11,1],["Mg",12,2],
+ ["Al",13,3],["Si",14,4],["P",15,5],["S",16,6],
+ ["Cl",17,7],["Ar",18,8],["K",19,1],["Ca",20,2]
 ];
 elements.forEach((e,i)=>{
- ["electronElement","lewisElement"].forEach(id=>{
+ ["electronSelect","lewisSelect"].forEach(id=>{
   const o=document.createElement("option");
-  o.value=i;o.textContent=e[1]+" ("+e[0]+")";
+  o.value=i;o.textContent=e[0]+" — Z="+e[1];
   $(id).append(o);
  });
 });
-const subs=[
- ["1s",1],["2s",1],["2p",3],
- ["3s",1],["3p",3],["4s",1]
-];
-let eBoxes=[],eHistory=[],spin="↑";
-let eMistakes=0,eFinished=false;
+const shells=[["1s",1],["2s",1],["2p",3],["3s",1],["3p",3],["4s",1]];
+let boxes=[],ehistory=[],spin="↑",electronFinished=false,eMistakes=0;
 function resetElectron(){
- eBoxes=subs.map(s=>Array.from({length:s[1]},()=>[]));
- eHistory=[];spin="↑";eMistakes=0;eFinished=false;
- $("electronMessage").textContent="1s orbitalinden başla!";
+ boxes=shells.map(s=>Array.from({length:s[1]},()=>[]));
+ ehistory=[];spin="↑";electronFinished=false;eMistakes=0;
+ $("electronMessage").textContent="1s orbitalinden başla.";
  renderElectron();
 }
-function electronTotal(){
- return eBoxes.flat().reduce((n,b)=>n+b.length,0);
+function totalElectron(){
+ return boxes.flat().reduce((n,b)=>n+b.length,0);
 }
-function electronRule(s,b,sp){
- const box=eBoxes[s][b],group=eBoxes[s];
- if(box.length===2)return "Bu orbital dolu.";
- if(box.includes(sp))return "Pauli: Aynı orbitalde spinler zıt olmalı.";
- for(let i=0;i<s;i++){
-  if(eBoxes[i].some(x=>x.length<2))
-   return "Önce "+subs[i][0]+" alt kabuğunu doldur.";
- }
- if(group.length===1){
-  if(box.length===0&&sp!=="↑")
-   return "İlk elektron için ↑ spinini seç.";
-  return "";
- }
+function validElectron(s,b,v){
+ if(boxes[s][b].length>=2)return false;
+ if(boxes[s][b].includes(v))return false;
+ for(let i=0;i<s;i++)
+  if(boxes[i].some(x=>x.length<2))return false;
+ const group=boxes[s];
  const empty=group.findIndex(x=>x.length===0);
- if(empty!==-1){
-  if(b!==empty)return "Hund: Önce boş kutuları doldur.";
-  if(sp!=="↑")return "Hund: Önce ↑ spinlerini yerleştir.";
- }else{
-  const single=group.findIndex(x=>x.length===1);
-  if(b!==single)return "Elektronları soldan sağa eşleştir.";
- }
- return "";
+ if(empty!==-1)return b===empty&&v==="↑";
+ const single=group.findIndex(x=>x.length===1);
+ return b===single&&v==="↓";
 }
-function placeElectron(s,b){
- if(eFinished)return;
- const target=elements[Number($("electronElement").value)][2];
- if(electronTotal()>=target)return;
- const error=electronRule(s,b,spin);
- if(error){
-  rewardWrong();eMistakes++;
-  $("electronMessage").textContent="❌ "+error;
-  $("electronMessage").className="msg no";
+function renderElectron(){
+ const target=elements[Number($("electronSelect").value)][1];
+ $("electronInfo").textContent=totalElectron()+" / "+target+" elektron";
+ $("spinUp").classList.toggle("active",spin==="↑");
+ $("spinDown").classList.toggle("active",spin==="↓");
+ $("orbitals").replaceChildren();
+ shells.forEach((s,i)=>{
+  const row=document.createElement("div");row.className="orbital";
+  const name=document.createElement("strong");
+  name.textContent=s[0];name.style.minWidth="40px";
+  row.append(name);
+  boxes[i].forEach((b,j)=>{
+   const btn=document.createElement("button");
+   btn.textContent=b.join("");
+   btn.onclick=()=>putElectron(i,j);
+   row.append(btn);
+  });
+  $("orbitals").append(row);
+ });
+}
+function putElectron(s,b){
+ if(electronFinished)return;
+ const target=elements[Number($("electronSelect").value)][1];
+ if(totalElectron()>=target)return;
+ if(!validElectron(s,b,spin)){
+  wrong();eMistakes++;
+  $("electronMessage").textContent=
+   "❌ Aufbau, Pauli veya Hund kuralını kontrol et.";
   return;
  }
- eBoxes[s][b].push(spin);
- eHistory.push([s,b]);rewardCorrect();renderElectron();
- $("electronMessage").textContent="✅ Doğru!";
- $("electronMessage").className="msg ok";
- if(electronTotal()===target){
-  eFinished=true;finishGame(eMistakes);
+ boxes[s][b].push(spin);ehistory.push([s,b]);
+ correct();playSound("electron");renderElectron();
+ $("electronMessage").textContent="✅ Elektron yerleştirildi!";
+ if(totalElectron()===target){
+  electronFinished=true;finish(eMistakes);
   $("electronMessage").textContent="🏆 Dizilim tamamlandı!";
  }
 }
-function renderElectron(){
- const el=elements[Number($("electronElement").value)];
- $("electronCount").textContent=
-  el[1]+": "+electronTotal()+" / "+el[2]+" elektron";
- $("electronProgress").style.width=
-  electronTotal()/el[2]*100+"%";
- $("orbitalArea").replaceChildren();
- subs.forEach((sub,s)=>{
-  const row=document.createElement("div");
-  row.className="orbitalRow";
-  const label=document.createElement("b");
-  label.textContent=sub[0];row.append(label);
-  eBoxes[s].forEach((box,b)=>{
-   const btn=document.createElement("button");
-   btn.className="orbitalBox";
-   btn.textContent=box.join("");
-   btn.onclick=()=>placeElectron(s,b);
-   row.append(btn);
-  });
-  $("orbitalArea").append(row);
- });
- $("spinUp").classList.toggle("active",spin==="↑");
- $("spinDown").classList.toggle("active",spin==="↓");
-}
-function setSpin(s){spin=s;renderElectron()}
 function undoElectron(){
- if(!eHistory.length)return;
- const [s,b]=eHistory.pop();
- eBoxes[s][b].pop();eFinished=false;streak=0;
- updateStats();renderElectron();
- $("electronMessage").textContent="↶ Son elektron kaldırıldı.";
+ if(!ehistory.length)return;
+ const [s,b]=ehistory.pop();boxes[s][b].pop();
+ electronFinished=false;renderElectron();
 }
 function electronHint(){
- const target=elements[Number($("electronElement").value)][2];
- if(electronTotal()>=target)return;
- for(let s=0;s<eBoxes.length;s++){
-  for(let b=0;b<eBoxes[s].length;b++){
-   for(const sp of ["↑","↓"]){
-    if(!electronRule(s,b,sp)){
+ for(let i=0;i<boxes.length;i++)
+  for(let j=0;j<boxes[i].length;j++)
+   for(const v of ["↑","↓"])
+    if(validElectron(i,j,v)){
      $("electronMessage").textContent=
-      "💡 "+subs[s][0]+" orbitalinin "+(b+1)+
-      ". kutusuna "+sp+" yerleştir.";
+      "💡 "+shells[i][0]+" kutu "+(j+1)+" → "+v;
      return;
     }
-   }
-  }
- }
 }
 resetElectron();
 
-// LEWIS OYUNU
-let lDots=[0,0,0,0],lHistory=[];
-let lMistakes=0,lFinished=false;
+// LEWIS
+let dots=[0,0,0,0],lhistory=[],lewisFinished=false,lMistakes=0;
 function resetLewis(){
- lDots=[0,0,0,0];lHistory=[];
- lMistakes=0;lFinished=false;
- $("lewisMessage").textContent="Önce dört yöne tek nokta yerleştir.";
+ dots=[0,0,0,0];lhistory=[];lewisFinished=false;lMistakes=0;
+ $("lewisMessage").textContent="Önce tek noktaları yerleştir.";
  renderLewis();
 }
 function renderLewis(){
- const el=elements[Number($("lewisElement").value)];
- $("lewisSymbol").textContent=el[0];
- $("lewisCount").textContent=
-  "Yerleştirilen: "+lDots.reduce((a,b)=>a+b,0)+" / "+el[3];
- document.querySelectorAll(".lewisDot").forEach(btn=>{
-  btn.textContent="•".repeat(lDots[Number(btn.dataset.side)]);
- });
+ const e=elements[Number($("lewisSelect").value)];
+ $("lewisSymbol").textContent=e[0];
+ $("lewisInfo").textContent=
+  dots.reduce((a,b)=>a+b,0)+" / "+e[2]+" değerlik elektronu";
+ dots.forEach((n,i)=>$("dot"+i).textContent="•".repeat(n));
 }
-function lewisTarget(){
- const empty=lDots.findIndex(x=>x===0);
- return empty>=0?empty:lDots.findIndex(x=>x===1);
+function nextLewisSide(){
+ const empty=dots.findIndex(x=>x===0);
+ return empty>=0?empty:dots.findIndex(x=>x===1);
 }
-function placeLewis(i){
- if(lFinished)return;
- const el=elements[Number($("lewisElement").value)];
- const total=lDots.reduce((a,b)=>a+b,0);
- if(total>=el[3])return;
- if(i!==lewisTarget()){
-  rewardWrong();lMistakes++;
-  $("lewisMessage").textContent=
-   "❌ Önce tek noktaları, ardından çiftleri yerleştir.";
-  $("lewisMessage").className="msg no";
+function putLewis(i){
+ if(lewisFinished)return;
+ const target=elements[Number($("lewisSelect").value)][2];
+ const count=dots.reduce((a,b)=>a+b,0);
+ if(count>=target)return;
+ if(i!==nextLewisSide()){
+  wrong();lMistakes++;
+  $("lewisMessage").textContent="❌ Önce tek noktaları tamamla.";
   return;
  }
- lDots[i]++;lHistory.push(i);
- rewardCorrect();renderLewis();
- $("lewisMessage").textContent="✅ Doğru!";
- $("lewisMessage").className="msg ok";
- if(total+1===el[3]){
-  lFinished=true;finishGame(lMistakes);
-  $("lewisMessage").textContent="🏆 Lewis gösterimi tamamlandı!";
- }
+ dots[i]++;lhistory.push(i);correct();playSound("electron");
+ renderLewis();
+ if(count+1===target){
+  lewisFinished=true;finish(lMistakes);
+  $("lewisMessage").textContent="🏆 Lewis tamamlandı!";
+ }else $("lewisMessage").textContent="✅ Güzel!";
 }
 function undoLewis(){
- if(!lHistory.length)return;
- lDots[lHistory.pop()]--;
- lFinished=false;streak=0;updateStats();renderLewis();
+ if(!lhistory.length)return;
+ dots[lhistory.pop()]--;lewisFinished=false;renderLewis();
 }
 function lewisHint(){
- const t=lewisTarget();
- if(t<0)return;
+ const n=nextLewisSide();
  $("lewisMessage").textContent=
-  "💡 "+["Üst","Sağ","Alt","Sol"][t]+" tarafa nokta yerleştir.";
+  "💡 "+["Üst","Sağ","Alt","Sol"][n]+" tarafa nokta koy.";
 }
 resetLewis();
 
+// ARENA
+let arenaPlayers=[],arenaDeck=[],arenaIndex=0;
+let arenaTime=20,arenaRounds=10;
+let arenaAnswered=false,arenaActive=false;
+let arenaInterval=null,arenaDeadline=0,arenaRemaining=0;
+function renderNameInputs(){
+ const n=Number($("arenaCount").value);
+ const old=[...$("arenaNames").querySelectorAll("input")]
+  .map(x=>x.value);
+ $("arenaNames").replaceChildren();
+ for(let i=0;i<n;i++){
+  const label=document.createElement("label");
+  label.textContent=(i+1)+". oyuncunun adı";
+  const input=document.createElement("input");
+  input.maxLength=24;
+  input.value=old[i]||"Oyuncu "+(i+1);
+  $("arenaNames").append(label,input);
+ }
+}
+renderNameInputs();
+function stopArenaClock(){
+ clearInterval(arenaInterval);arenaInterval=null;
+}
+function stopArena(){
+ if(arenaActive&&!confirm("Yarışmadan çıkılsın mı?"))return;
+ arenaActive=false;stopArenaClock();page("arenaSetup");
+}
+function startArena(){
+ const names=[...$("arenaNames").querySelectorAll("input")]
+  .map((x,i)=>x.value.trim()||"Oyuncu "+(i+1));
+ arenaPlayers=names.map(name=>({name,score:0,correct:0}));
+ arenaTime=Number($("arenaDuration").value);
+ arenaRounds=Number($("arenaRounds").value);
+ arenaIndex=0;arenaAnswered=false;arenaActive=true;
+ const all=data[grade].flatMap(u=>u.topics);
+ const total=arenaRounds*arenaPlayers.length;
+ arenaDeck=[];
+ while(arenaDeck.length<total)
+  arenaDeck.push(...shuffle(all));
+ arenaDeck=arenaDeck.slice(0,total);
+ page("arenaGame");renderArenaTurn();
+ playSound("win");
+}
+function arenaBoard(){
+ $("arenaBoard").replaceChildren();
+ arenaPlayers.forEach((p,i)=>{
+  const line=document.createElement("div");
+  line.className="scoreLine"+
+   (i===arenaIndex%arenaPlayers.length?" turn":"");
+  const name=document.createElement("strong");
+  name.textContent=p.name;
+  const score=document.createElement("strong");
+  score.textContent=p.score+" puan";
+  line.append(name,score);$("arenaBoard").append(line);
+ });
+}
+function renderArenaTurn(){
+ stopArenaClock();
+ if(arenaIndex>=arenaDeck.length){
+  finishArena();return;
+ }
+ arenaAnswered=false;
+ const p=arenaPlayers[arenaIndex%arenaPlayers.length];
+ const round=Math.floor(arenaIndex/arenaPlayers.length)+1;
+ const q=arenaDeck[arenaIndex];
+ $("arenaTurn").textContent=
+  "🎯 "+p.name+" • Tur "+round+"/"+arenaRounds;
+ $("arenaQuestion").textContent=q.q;
+ $("arenaMessage").textContent="Hazır ol ve cevapla!";
+ $("arenaMessage").className="msg";
+ $("arenaNext").classList.add("hidden");
+ $("arenaBar").style.width=
+  (arenaIndex/arenaDeck.length*100)+"%";
+ $("arenaChoices").replaceChildren();
+ arenaBoard();
+ shuffle([0,1,2,3]).forEach(index=>{
+  const b=document.createElement("button");
+  b.textContent=q.a[index];
+  b.onclick=()=>{
+   if(arenaAnswered)return;
+   if(index===q.correct){
+    p.score+=100;p.correct++;
+    playSound("correct");
+    endArenaQuestion("✅ Doğru! +100 puan");
+   }else{
+    playSound("wrong");
+    endArenaQuestion("❌ Yanlış! Doğru cevap: "+q.a[q.correct]);
+   }
+  };
+  $("arenaChoices").append(b);
+ });
+ arenaDeadline=Date.now()+arenaTime*1000;
+ arenaRemaining=arenaTime;
+ $("arenaClock").textContent=arenaTime+" sn";
+ arenaInterval=setInterval(()=>{
+  arenaRemaining=Math.max(0,
+   Math.ceil((arenaDeadline-Date.now())/1000));
+  $("arenaClock").textContent=arenaRemaining+" sn";
+  if(arenaRemaining<=5&&arenaRemaining>0)playSound("tick");
+  if(arenaRemaining<=0&&!arenaAnswered){
+   playSound("wrong");
+   endArenaQuestion("⏰ Süre doldu! Doğru cevap: "+
+    q.a[q.correct]);
+  }
+ },250);
+}
+function endArenaQuestion(message){
+ arenaAnswered=true;stopArenaClock();
+ $("arenaMessage").textContent=message;
+ $("arenaChoices").querySelectorAll("button")
+  .forEach(b=>b.disabled=true);
+ $("arenaNext").classList.remove("hidden");
+ arenaBoard();
+}
+function advanceArena(){
+ if(!arenaAnswered)return;
+ arenaIndex++;renderArenaTurn();
+}
+function finishArena(){
+ stopArenaClock();arenaActive=false;
+ const ranking=[...arenaPlayers].sort((a,b)=>b.score-a.score);
+ const top=ranking[0].score;
+ const winners=ranking.filter(p=>p.score===top);
+ $("arenaWinner").textContent=winners.length===1?
+  "👑 Kazanan: "+winners[0].name+"!":
+  "🤝 Beraberlik: "+winners.map(p=>p.name).join(" & ");
+ $("arenaRanking").replaceChildren();
+ ranking.forEach((p,i)=>{
+  const line=document.createElement("div");
+  line.className="scoreLine";
+  const left=document.createElement("strong");
+  left.textContent=(i+1)+". "+p.name;
+  const right=document.createElement("span");
+  right.textContent=p.score+" puan • "+p.correct+" doğru";
+  line.append(left,right);$("arenaRanking").append(line);
+ });
+ if(profile&&winners.length===1){
+  profile.badges.arena=true;
+  profile.points+=20;updateStats();
+ }
+ page("arenaResults");playSound("win");
+}
+
+// DENEYLER
+const experimentNames=[
+ ["🧪 pH Ölçümü","ph"],["💧 Molarite","molarity"],
+ ["💨 Boyle Yasası","gas"],["🔥 Tepkime Hızı","rate"],
+ ["⚖️ Kütlenin Korunumu","mass"],["🌱 Sera Etkisi","greenhouse"],
+ ["⚡ Enerji Payları","energy"]
+];
+function buildExperiments(){
+ $("experimentMenu").replaceChildren();
+ experimentNames.forEach(([title,id])=>
+  tile("experimentMenu",title,"Etkileşimli sanal deney",
+   ()=>openExperiment(title,id)));
+}
+function openExperiment(title,id){
+ $("experimentBox").classList.remove("hidden");
+ $("experimentTitle").textContent=title;
+ $("experimentControls").replaceChildren();
+ const output=$("experimentOutput");
+ if(id==="molarity"){
+  const a=document.createElement("input");
+  a.type="number";a.min=0;a.step=".1";a.value=1;
+  const b=document.createElement("input");
+  b.type="number";b.min=".1";b.step=".1";b.value=2;
+  const l1=document.createElement("label");
+  l1.textContent="Çözünen mol sayısı";
+  const l2=document.createElement("label");
+  l2.textContent="Çözelti hacmi (L)";
+  const calc=()=>{
+   const n=Number(a.value),v=Number(b.value);
+   output.textContent=n>=0&&v>0?
+    "Molarite = "+(n/v).toFixed(2)+" mol/L":
+    "Geçerli değer gir.";
+  };
+  a.oninput=calc;b.oninput=calc;
+  $("experimentControls").append(l1,a,l2,b);
+  calc();return;
+ }
+ const range=document.createElement("input");
+ range.type="range";
+ const settings={
+  ph:[0,14,7],
+  gas:[1,10,5],
+  rate:[10,80,25],
+  mass:[0,100,0],
+  greenhouse:[1,10,4],
+  energy:[0,100,50]
+ };
+ const [min,max,start]=settings[id];
+ range.min=min;range.max=max;range.value=start;
+ range.oninput=()=>{
+  const v=Number(range.value);
+  if(id==="ph")output.textContent=
+   "pH "+v+" • "+(v<7?"Asidik":v>7?"Bazik":"Nötr");
+  if(id==="gas")output.textContent=
+   "Hacim: "+v+" L • Basınç: "+(10/v).toFixed(2)+" atm";
+  if(id==="rate")output.textContent=
+   "Örnek göreli hız: "+Math.pow(2,(v-25)/10).toFixed(2);
+  if(id==="mass")output.textContent=
+   "Tepkime ilerlemesi: %"+v+" • Toplam kütle: 100 g";
+  if(id==="greenhouse")output.textContent=
+   "Şematik sera gazı göstergesi: "+v+"/10";
+  if(id==="energy")output.textContent=
+   "Örnek yenilenebilir enerji payı: %"+v;
+ };
+ $("experimentControls").append(range);
+ range.oninput();playSound("click");
+}
+
 // PROJELER
 function buildProjects(){
- $("projectList").replaceChildren();
- courses[grade].forEach((u,i)=>{
-  addTile("projectList","📁 "+u.title+
-   (progress.projects[i]?" ✅":""),
-   "Bu ünitenin araştırma projesini hazırla.",
+ $("projectMenu").replaceChildren();
+ data[grade].forEach((u,i)=>{
+  tile("projectMenu","📁 "+u.title,
+   profile.completed[i]?"Tamamlandı ✅":"Proje raporu hazırla",
    ()=>openProject(i));
  });
 }
 function openProject(i){
- currentProject=i;
- const u=courses[grade][i];
- $("projectTitle").textContent="📁 "+u.title+" Projesi";
- $("projectContent").replaceChildren();
- const steps=[
-  "Ünitenin temel kavramlarını araştır.",
-  "En az üç konuyu örneklerle açıkla.",
-  "Bir şema, grafik veya model hazırla.",
-  "Öğrendiklerini kendi cümlelerinle değerlendir."
- ];
- steps.forEach((s,j)=>{
-  const d=document.createElement("div");
-  d.className="projectStep";
-  d.textContent="Aşama "+(j+1)+": "+s;
-  $("projectContent").append(d);
- });
- const r=progress.reports[i]||{};
- $("reportAim").value=r.aim||"";
- $("reportNotes").value=r.notes||"";
- $("reportResult").value=r.result||"";
- $("reportStatus").textContent=progress.projects[i]?
-  "🏆 Bu proje tamamlandı.":"";
- showPage("projectPage");
+ selectedProject=i;
+ const u=data[grade][i];
+ $("projectTitle").textContent=u.title;
+ const r=profile.projects[i]||{};
+ $("projectAim").value=r.aim||"";
+ $("projectNotes").value=r.notes||"";
+ $("projectResult").value=r.result||"";
+ $("projectStatus").textContent=
+  profile.completed[i]?"🏆 Tamamlandı":"";
+ $("projectEditor").classList.remove("hidden");
 }
-function saveReport(){
- progress.reports[currentProject]={
-  aim:$("reportAim").value,
-  notes:$("reportNotes").value,
-  result:$("reportResult").value
+function saveProject(){
+ profile.projects[selectedProject]={
+  aim:$("projectAim").value,
+  notes:$("projectNotes").value,
+  result:$("projectResult").value
  };
- save();$("reportStatus").textContent="💾 Rapor kaydedildi!";
+ persist();$("projectStatus").textContent="💾 Kaydedildi!";
 }
-function downloadReport(){
- saveReport();
- const u=courses[grade][currentProject];
- const r=progress.reports[currentProject];
+function downloadProject(){
+ saveProject();
+ const r=profile.projects[selectedProject];
  const text=[
   "KİMYAVERSE PROJE RAPORU",
-  "Sınıf: "+grade,
-  "Proje: "+u.title,
-  "Öğrenci: "+(progress.name||"Belirtilmedi"),
-  "","AMAÇ",r.aim,
-  "","ARAŞTIRMA NOTLARI",r.notes,
-  "","SONUÇ",r.result
- ].join("\n");
- const blob=new Blob([text],{type:"text/plain;charset=utf-8"});
- const url=URL.createObjectURL(blob);
+  grade+". Sınıf",
+  data[grade][selectedProject].title,
+  "AMAÇ",r.aim,"ARAŞTIRMA",r.notes,"SONUÇ",r.result
+ ].join("\n\n");
+ const url=URL.createObjectURL(new Blob([text],
+  {type:"text/plain;charset=utf-8"}));
  const a=document.createElement("a");
- a.href=url;a.download="kimyaverse-proje-"+grade+".txt";
- a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+ a.href=url;a.download="kimyaverse-proje.txt";a.click();
+ setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
 function completeProject(){
- saveReport();
- if(!progress.projects[currentProject]){
-  progress.projects[currentProject]=true;
-  progress.score+=50;progress.stars+=2;
-  progress.badges.project=true;updateStats();
+ saveProject();
+ if(!profile.completed[selectedProject]){
+  profile.completed[selectedProject]=true;
+  profile.points+=50;profile.stars+=2;
+  profile.badges.project=true;updateStats();
+  playSound("star");
  }
- $("reportStatus").textContent="🏆 Proje tamamlandı!";
+ $("projectStatus").textContent="🏆 Proje tamamlandı!";
  buildProjects();
 }
 
-// SANAL DENEYLER
-const experimentData={
-9:[
- ["🧪 pH Ölçümü","Asit-baz örneklerini karşılaştır.","ph"],
- ["🧊 Hâl Değişimi","Sıcaklık ve madde hâli ilişkisi.","heat"],
- ["⚛️ Atom Modelleri","Atom modellerini incele.","model:thomson"]
-],
-10:[
- ["⚖️ Kütlenin Korunumu","Kapalı sistemde kütle korunumu.","mass"],
- ["💨 Gaz Yasaları","Basınç ve hacim ilişkisi.","gas"],
- ["💧 Çözünme","Molarite hesapla.","solution"],
- ["🧪 pH Ölçümü","Asit-baz özelliklerini incele.","ph"],
- ["🌱 Sera Etkisi","Sera gazlarının etkisini karşılaştır.","greenhouse"],
- ["💧 Hidratlaşma","NaCl çözünmesini gör.","model:dissolve"]
-],
-11:[
- ["💨 Gaz Yasaları","Boyle yasasını incele.","gas"],
- ["💧 Derişim","Molarite hesapla.","solution"],
- ["🔥 Tepkime Hızı","Sıcaklık ve hız ilişkisi.","rate"],
- ["⚖️ Kimyasal Denge","Denge konumunu modelle.","equilibrium"],
- ["☁️ Orbitaller","s, p ve d orbitallerini incele.","model:orbitalP"]
-],
-12:[
- ["⚡ Galvanik Pil","Anot, katot ve tuz köprüsünü gör.","model:cell"],
- ["🧬 Molekül Geometrileri","VSEPR modellerini incele.","model:methane"],
- ["💎 Karbon Allotropları","Elmas, grafit ve fullereni gör.","model:diamond"],
- ["🌱 Enerji Kaynakları","Enerji paylarını karşılaştır.","energy"]
-]
+// DÖNDÜRÜLEBİLİR 3D MODEL GALERİSİ
+const modelData={
+ dalton:["Dalton","İçi dolu küre modeli."],
+ thomson:["Thomson","Pozitif yapı içine gömülü elektronlar."],
+ rutherford:["Rutherford","Küçük çekirdek ve büyük boşluk."],
+ bohr:["Bohr","Elektronların enerji düzeyleri."],
+ modern:["Modern Atom","Orbital ve olasılık bulutu."],
+ salt:["NaCl Kristali","İyonik kristal örgünün şematik kesiti."],
+ water:["H₂O","Açısal molekül."],
+ co2:["CO₂","Doğrusal molekül."],
+ dissolve:["Hidratlaşma","Su molekülleri iyonları çevreler."],
+ funnel:["Ayırma Hunisi","Karışmayan sıvıların ayrılması."],
+ distill:["Basit Damıtma","Buharlaşma ve yoğuşma düzeneği."],
+ fraction:["Ayrımsal Damıtma","Damıtma kolonu."],
+ s:["s Orbitali","Küresel orbital."],
+ p:["p Orbitali","İki loblu orbital."],
+ d:["d Orbitali","Dört loblu orbitalin şematik örneği."],
+ methane:["CH₄","Tetrahedral molekül."],
+ ammonia:["NH₃","Üçgen piramidal molekül."],
+ bh3:["BH₃","Düzlem üçgen molekül."],
+ diamond:["Elmas","Üç boyutlu karbon ağı."],
+ graphite:["Grafit","Katmanlı karbon yapısı."],
+ fullerene:["Fulleren","Kafes biçimli karbon yapısı."],
+ nanotube:["Nanotüp","Silindirik karbon ağı."],
+ cis:["Cis İzomer","Gruplar aynı tarafta."],
+ trans:["Trans İzomer","Gruplar karşı tarafta."],
+ ring:["Halkalı Yapı","Karbon halkası."],
+ cell:["Galvanik Pil","Anot, katot ve tuz köprüsü."]
 };
-function buildExperiments(){
- $("experimentList").replaceChildren();
- experimentData[grade].forEach((e,i)=>{
-  addTile("experimentList",e[0],e[1],()=>openExperiment(i));
- });
-}
-function openExperiment(i){
- const e=experimentData[grade][i];
- if(e[2].startsWith("model:")){
-  showPage("threeD");
-  selectModel(e[2].split(":")[1]);
-  return;
- }
- $("experimentTitle").textContent=e[0];
- $("experimentIntro").textContent=e[1];
- $("experimentArea").replaceChildren();
- $("experimentExplanation").textContent=
-  "🤖 LAB-BOT: Kontrolleri kullanarak gözlem yap.";
- showPage("experimentPage");
- const t=e[2];
- if(t==="ph")experimentPH();
- else if(t==="solution")experimentSolution();
- else if(t==="heat")experimentSlider(
-  "Sıcaklık (°C)",-20,120,20,
-  v=>v<0?"Buz":v<100?"Sıvı su":"Kaynama sıcaklığına ulaşıldı",
-  "Saf su ve normal atmosfer basıncı için basitleştirilmiş model."
- );
- else if(t==="mass")experimentSlider(
-  "Tepkime ilerleme yüzdesi",0,100,0,
-  v=>"Başlangıç: 100 g • Son: 100 g • İlerleme: %"+v,
-  "Kapalı sistemde toplam kütle korunur."
- );
- else if(t==="gas")experimentSlider(
-  "Hacim (L)",1,10,5,
-  v=>"Sabit sıcaklıkta basınç: "+(10/v).toFixed(2)+" atm",
-  "Örnek modelde P × V = 10 L·atm sabittir."
- );
- else if(t==="rate")experimentSlider(
-  "Sıcaklık (°C)",10,80,25,
-  v=>"Göreli hız göstergesi: "+
-   Math.pow(2,(v-25)/10).toFixed(2),
-  "Bu örnek modeldir; gerçek tepkimeler farklı davranabilir."
- );
- else if(t==="equilibrium")experimentSlider(
-  "Dengeyi etkileyen değişim (%)",-50,50,0,
-  v=>"Şematik denge göstergesi: "+v,
-  "Gerçek denge yönü tepkimeye ve yapılan değişime bağlıdır."
- );
- else if(t==="greenhouse")experimentSlider(
-  "Sera gazı düzeyi (göreli)",1,10,4,
-  v=>"Şematik kızılötesi enerji tutulumu: %"+(v*8),
-  "Bu yalnızca kavramsal bir göstergedir, iklim tahmini değildir."
- );
- else experimentSlider(
-  "Yenilenebilir enerji payı (%)",0,100,50,
-  v=>"Örnek yenilenebilir enerji payı: %"+v,
-  "Gerçek enerji üretim verilerini temsil etmez."
- );
-}
-function experimentSlider(title,min,max,value,describe,note){
- const card=document.createElement("div");
- card.className="card";
- const h=document.createElement("h3");h.textContent=title;
- const slider=document.createElement("input");
- slider.type="range";slider.min=min;slider.max=max;slider.value=value;
- const output=document.createElement("div");output.className="msg";
- slider.oninput=()=>output.textContent=describe(Number(slider.value));
- card.append(h,slider,output);
- $("experimentArea").append(card);
- slider.oninput();
- $("experimentExplanation").textContent="🤖 "+note;
-}
-function experimentSolution(){
- const card=document.createElement("div");
- card.className="card";
- const h=document.createElement("h3");
- h.textContent="💧 Molarite Simülatörü";
- const mol=document.createElement("input");
- mol.type="number";mol.min="0";mol.step=".1";mol.value="1";
- const vol=document.createElement("input");
- vol.type="number";vol.min=".1";vol.step=".1";vol.value="2";
- const l1=document.createElement("label");
- l1.textContent="Çözünen madde miktarı (mol)";
- const l2=document.createElement("label");
- l2.textContent="Çözelti hacmi (L)";
- const result=document.createElement("div");result.className="msg";
- const btn=document.createElement("button");
- btn.className="primary";btn.textContent="Hesapla";
- btn.onclick=()=>{
-  const n=Number(mol.value),v=Number(vol.value);
-  result.textContent=n>=0&&v>0?
-   "Molarite = "+(n/v).toFixed(2)+" mol/L":
-   "Geçerli değerler gir.";
- };
- card.append(h,l1,mol,l2,vol,btn,result);
- $("experimentArea").append(card);btn.click();
- $("experimentExplanation").textContent="🤖 M = n / V";
-}
-function experimentPH(){
- const samples=[
-  ["Limon suyu",2.2],["Sirke",3],
-  ["Kahve",5],["Süt",6.6],["Saf su",7],
-  ["Deniz suyu",8.1],["Karbonat çözeltisi",8.4],
-  ["Sabunlu su",10]
- ];
- const card=document.createElement("div");card.className="card";
- const select=document.createElement("select");
- samples.forEach((s,i)=>{
-  const o=document.createElement("option");
-  o.value=i;o.textContent=s[0];select.append(o);
- });
- const output=document.createElement("div");output.className="msg";
- const bar=document.createElement("div");
- bar.style.cssText=
-  "height:25px;border-radius:15px;margin:25px 0;"+
-  "background:linear-gradient(90deg,red,orange,yellow,green,blue,purple)";
- const pointer=document.createElement("div");
- pointer.style.cssText="position:relative;height:24px";
- const arrow=document.createElement("span");
- arrow.textContent="▼";arrow.style.position="absolute";
- pointer.append(arrow);
- const btn=document.createElement("button");
- btn.className="primary";btn.textContent="📟 pH Ölç";
- btn.onclick=()=>{
-  const p=samples[Number(select.value)][1];
-  output.textContent="pH ≈ "+p+" • "+
-   (p<6.5?"Asidik":p>7.5?"Bazik":"Nötre yakın");
-  arrow.style.left=p/14*100+"%";
- };
- card.append(select,bar,pointer,btn,output);
- $("experimentArea").append(card);btn.click();
- $("experimentExplanation").textContent=
-  "🤖 pH değerleri yaklaşık örneklerdir; gerçek ölçümler değişebilir.";
-}
-
-// 3D MODEL VERİLERİ
-const models={
- dalton:["⚫ Dalton Atom Modeli",
-  "Atomlar içi dolu küreler olarak düşünülmüştür.",
-  "Tarihsel model; atomun iç yapısını açıklamaz."],
- thomson:["🍮 Thomson Atom Modeli",
-  "Elektronlar pozitif yüklü yapı içine gömülüdür.",
-  "Üzümlü kek modeli; çekirdeği açıklamaz."],
- rutherford:["🎯 Rutherford Atom Modeli",
-  "Pozitif yük küçük ve yoğun çekirdekte toplanır.",
-  "Altın levha deneyi atomun büyük ölçüde boşluk içerdiğini gösterdi."],
- bohr:["🪐 Bohr Atom Modeli",
-  "Elektronlar belirli enerji düzeyleriyle açıklanır.",
-  "Hidrojen spektrumunu açıklamada başarılıdır."],
- modern:["☁️ Modern Atom Modeli",
-  "Elektronlar kesin yörüngeler yerine orbitallerle tanımlanır.",
-  "Elektron bulutu olasılık dağılımının şematik temsilidir."],
- salt:["💎 NaCl Kristal Örgüsü",
-  "Na⁺ ve Cl⁻ iyonları düzenli üç boyutlu örgü oluşturur.",
-  "Gösterilen küçük kesit, kristalin tamamı değildir."],
- water:["💧 H₂O — Açısal",
-  "Su molekülü iki hidrojen ve bir oksijen içerir.",
-  "Bağ açısı yaklaşık 104,5°'dir."],
- co2:["🌫️ CO₂ — Doğrusal",
-  "Bir karbon ve iki oksijen atomundan oluşur.",
-  "O=C=O bağ açısı 180°'dir."],
- dissolve:["💧 NaCl Hidratlaşması",
-  "Su molekülleri Na⁺ ve Cl⁻ iyonlarının çevresinde yönlenir.",
-  "Su moleküllerinin oksijen tarafı Na⁺'a, hidrojen tarafı Cl⁻'a yönelir."],
- funnel:["🧪 Ayırma Hunisi",
-  "Birbirine karışmayan sıvıların ayrılmasında kullanılır.",
-  "Şematik laboratuvar düzeneğidir."],
- distill:["🌡️ Basit Damıtma",
-  "Kaynama ve yoğuşma yoluyla ayırma yapılır.",
-  "Şematik düzenek; gerçek laboratuvar kullanım talimatı değildir."],
- fraction:["🏭 Ayrımsal Damıtma",
-  "Farklı uçuculuktaki bileşenler kolon yardımıyla ayrılabilir.",
-  "Şematik düzenek; gerçek deney düzeneği değildir."],
- orbitalS:["☁️ s Orbitali",
-  "s orbitalleri küresel simetriye sahiptir.",
-  "Görüntü olasılık dağılımının temsili."],
- orbitalP:["🦋 p Orbitali",
-  "p orbitalleri iki loblu olarak temsil edilir.",
-  "Elektronun kesin hareket yolu değildir."],
- orbitalD:["🍀 d Orbitali",
-  "Birçok d orbitali dört loblu olarak gösterilir.",
-  "Bazı d orbitallerinin şekli farklıdır."],
- methane:["🔥 CH₄ — Tetrahedral",
-  "Metan molekülünde karbon dört hidrojenle bağ yapar.",
-  "Bağ açıları yaklaşık 109,5°'dir."],
- ammonia:["🧪 NH₃ — Üçgen Piramidal",
-  "Azot üç hidrojenle bağ yapar; bağ yapmayan elektron çifti bulunur.",
-  "Bağ açıları yaklaşık 107°'dir."],
- bh3:["🔺 BH₃ — Düzlem Üçgen",
-  "Bor merkezli üç hidrojen düzlem üçgen oluşturur.",
-  "İdeal bağ açıları 120°'dir."],
- diamond:["💎 Elmas",
-  "Karbon atomları üç boyutlu kovalent ağ oluşturur.",
-  "Kristal yapının küçük, şematik bir parçasıdır."],
- graphite:["📚 Grafit",
-  "Karbon atomları altıgen katmanlar oluşturur.",
-  "Katmanlar arası etkileşimler, katman içi bağlardan daha zayıftır."],
- fullerene:["⚽ Fulleren",
-  "Karbon atomlarından oluşan kapalı kafes yapısıdır.",
-  "C₆₀ yapısının stilize gösterimidir."],
- nanotube:["🧵 Karbon Nanotüp",
-  "Karbon atomları silindirik ağ oluşturur.",
-  "Şematik nanotüp modelidir."],
- cis:["↔️ Cis İzomer",
-  "Benzer gruplar çift bağın aynı tarafındadır.",
-  "Basitleştirilmiş cis-2-büten modeli."],
- trans:["↔️ Trans İzomer",
-  "Benzer gruplar çift bağın karşı taraflarındadır.",
-  "Basitleştirilmiş trans-2-büten modeli."],
- ring:["🔷 Halkalı Karbon Yapısı",
-  "Karbon atomları halka oluşturabilir.",
-  "Basitleştirilmiş siklohekzan iskelet gösterimi."],
- cell:["🔋 Galvanik Pil",
-  "Anot, katot ve tuz köprüsü içeren elektrokimyasal hücre.",
-  "Anotta yükseltgenme, katotta indirgenme gerçekleşir."]
-};
-
-const modelGroups={
- "⚛️ Atom Modelleri":["dalton","thomson","rutherford","bohr","modern"],
- "💧 Molekül ve Kristaller":["salt","water","co2"],
- "🧪 Çözünme ve Laboratuvar":["dissolve","funnel","distill","fraction"],
- "☁️ Orbitaller":["orbitalS","orbitalP","orbitalD"],
- "🧬 Molekül Geometrileri":["methane","ammonia","bh3","water"],
- "💎 Karbon Allotropları":["diamond","graphite","fullerene","nanotube"],
- "🔗 Organik İzomeri":["cis","trans","ring"],
- "⚡ Elektrokimya":["cell"]
-};
-function buildModelCategories(){
- $("modelCategories").replaceChildren();
- Object.entries(modelGroups).forEach(([title,ids])=>{
-  const h=document.createElement("h3");h.textContent=title;
-  const row=document.createElement("div");row.className="modelBtns";
-  ids.forEach(id=>{
-   const b=document.createElement("button");
-   b.textContent=models[id][0];
-   b.dataset.model=id;
-   b.onclick=()=>selectModel(id);
-   row.append(b);
-  });
-  $("modelCategories").append(h,row);
- });
-}
-
-// 3D ÇİZİM MOTORU
+let currentModel="thomson",yaw=.5,pitch=.25,zoom=1;
+let rotating=true,dragging=false,lastX=0,lastY=0;
 const canvas=$("scene"),ctx=canvas.getContext("2d");
-let model="thomson",yaw=.5,pitch=.3,zoom=1;
-let autoRotate=true,dragging=false,lastX=0,lastY=0;
-let historyIndex=1;
-const historical=["dalton","thomson","rutherford","bohr","modern"];
-
-function selectModel(m){
- if(!models[m])return;
- model=m;
- $("modelTitle").textContent=models[m][0];
- $("modelDescription").textContent=models[m][1];
- $("modelNote").textContent=models[m][2];
- document.querySelectorAll("[data-model]").forEach(b=>
-  b.classList.toggle("active",b.dataset.model===m));
- const i=historical.indexOf(m);
- if(i>=0)historyIndex=i;
- if(progress){
-  progress.badges.explorer=true;updateStats();
- }
- draw3D();
+function buildModels(){
+ $("modelMenu").replaceChildren();
+ Object.entries(modelData).forEach(([id,info])=>{
+  const b=document.createElement("button");
+  b.textContent=info[0];
+  b.onclick=()=>chooseModel(id);
+  $("modelMenu").append(b);
+ });
 }
-function nextHistoricalModel(){
- historyIndex=(historyIndex+1)%historical.length;
- selectModel(historical[historyIndex]);
- $("historyMessage").textContent=
-  (historyIndex+1)+"/5 — "+models[historical[historyIndex]][0];
+function chooseModel(id){
+ currentModel=id;
+ $("modelTitle").textContent=modelData[id][0];
+ $("modelDescription").textContent=modelData[id][1]+
+  " Bu model öğretim amaçlı şematik bir görselleştirmedir.";
+ if(profile){
+  profile.badges.model=true;updateStats();
+ }
+ drawScene();playSound("click");
 }
 function resizeScene(){
- const rect=canvas.getBoundingClientRect();
- if(!rect.width)return;
- const dpr=Math.min(window.devicePixelRatio||1,2);
- canvas.width=Math.round(rect.width*dpr);
- canvas.height=Math.round(rect.height*dpr);
- draw3D();
+ const r=canvas.getBoundingClientRect();
+ if(!r.width)return;
+ const dpr=Math.min(devicePixelRatio||1,2);
+ canvas.width=Math.round(r.width*dpr);
+ canvas.height=Math.round(r.height*dpr);
+ drawScene();
 }
-function project(p){
- const [x,y,z]=p;
+function projection(a){
+ const [x,y,z]=a;
  const xx=x*Math.cos(yaw)-z*Math.sin(yaw);
  const zz=x*Math.sin(yaw)+z*Math.cos(yaw);
  const yy=y*Math.cos(pitch)-zz*Math.sin(pitch);
- const depth=y*Math.sin(pitch)+zz*Math.cos(pitch);
- const scale=Math.min(canvas.width,canvas.height)*.19*zoom;
- const perspective=5/(5+depth*.18);
- return {
-  x:canvas.width/2+xx*scale*perspective,
-  y:canvas.height/2+yy*scale*perspective,
-  z:depth,s:perspective
- };
+ const scale=Math.min(canvas.width,canvas.height)*.2*zoom;
+ return [canvas.width/2+xx*scale,canvas.height/2+yy*scale];
 }
-function ball(p,r,color,label=""){
- const v=project(p);
- const size=Math.max(2,r*zoom*v.s*
-  canvas.width/Math.max(canvas.clientWidth,1));
- const g=ctx.createRadialGradient(
-  v.x-size*.3,v.y-size*.3,1,v.x,v.y,size);
- g.addColorStop(0,"#ffffff");
- g.addColorStop(.25,color);
- g.addColorStop(1,"#14243d");
- ctx.fillStyle=g;
- ctx.beginPath();ctx.arc(v.x,v.y,size,0,Math.PI*2);ctx.fill();
+function ball(x,y,z,r,color,label=""){
+ const [px,py]=projection([x,y,z]);
+ const radius=r*canvas.width/Math.max(canvas.clientWidth,1)*zoom;
+ ctx.fillStyle=color;ctx.beginPath();
+ ctx.arc(px,py,Math.max(2,radius),0,Math.PI*2);ctx.fill();
  if(label){
-  ctx.fillStyle="white";
-  ctx.font=`bold ${Math.max(10,size*.65)}px Arial`;
+  ctx.fillStyle="#fff";ctx.font="bold 13px Arial";
   ctx.textAlign="center";ctx.textBaseline="middle";
-  ctx.fillText(label,v.x,v.y);
+  ctx.fillText(label,px,py);
  }
 }
-function line3D(a,b,color="#b9dcf0",width=4){
- const p=project(a),q=project(b);
- ctx.strokeStyle=color;
- ctx.lineWidth=width*canvas.width/
-  Math.max(canvas.clientWidth,1);
- ctx.lineCap="round";
- ctx.beginPath();ctx.moveTo(p.x,p.y);
- ctx.lineTo(q.x,q.y);ctx.stroke();
+function line(a,b,color="#9cdeff"){
+ const p=projection(a),q=projection(b);
+ ctx.strokeStyle=color;ctx.lineWidth=3;
+ ctx.beginPath();ctx.moveTo(...p);ctx.lineTo(...q);ctx.stroke();
 }
-function poly(points,color="#9cdbef",width=3,closed=false){
- for(let i=1;i<points.length;i++)
-  line3D(points[i-1],points[i],color,width);
- if(closed)line3D(points.at(-1),points[0],color,width);
-}
-function ring(r,axis,color="#75dcff"){
- const pts=[];
- for(let i=0;i<=90;i++){
-  const t=i/90*Math.PI*2;
-  if(axis===0)pts.push([r*Math.cos(t),r*Math.sin(t),0]);
-  else if(axis===1)pts.push([r*Math.cos(t),0,r*Math.sin(t)]);
-  else pts.push([0,r*Math.cos(t),r*Math.sin(t)]);
+function loop(r,z=0){
+ let prev=null;
+ for(let i=0;i<=50;i++){
+  const t=i*Math.PI*2/50;
+  const p=[r*Math.cos(t),r*Math.sin(t),z];
+  if(prev)line(prev,p);prev=p;
  }
- poly(pts,color,2);
 }
-function cloud(points,color="#8fdcff"){
- points.forEach(p=>{
-  const v=project(p);
-  ctx.fillStyle=color+"66";
-  ctx.beginPath();
-  ctx.arc(v.x,v.y,3.5*zoom,0,Math.PI*2);
-  ctx.fill();
- });
+function molecule(atoms,bonds){
+ bonds.forEach(([i,j])=>line(atoms[i],atoms[j]));
+ atoms.forEach(a=>ball(...a));
 }
-function sphereCloud(type){
- const pts=[];
- for(let i=0;i<600;i++){
-  const t=i*2.399963;
-  const z=1-2*(i+.5)/600;
-  const rr=Math.sqrt(1-z*z);
-  const r=1.8*Math.pow((i+.5)/600,.65);
-  let p=[r*rr*Math.cos(t),r*rr*Math.sin(t),r*z];
-  if(type==="p"){
-   p=[p[0]*.42,p[1]*.42,
-    Math.sign(z)*(Math.abs(z)*2.2)];
-  }
-  if(type==="d"){
-   const a=Math.sin(2*t)*1.5;
-   p=[a*rr,p[1]*.5,z*.8];
-  }
-  pts.push(p);
- }
- cloud(pts);
- ball([0,0,0],16,"#ff89ba","+");
-}
-function atom(x,y,z,r,color,label=""){
- return [x,y,z,r,color,label];
-}
-function drawMolecule(atoms,bonds){
- bonds.forEach(([a,b])=>line3D(
-  atoms[a].slice(0,3),atoms[b].slice(0,3)));
- [...atoms].sort((a,b)=>
-  project(b).z-project(a).z).forEach(a=>
-   ball(a.slice(0,3),a[3],a[4],a[5]));
-}
-function draw3D(){
- if(!canvas.width||!canvas.height)return;
+function drawScene(){
+ if(!canvas.width)return;
  ctx.clearRect(0,0,canvas.width,canvas.height);
- const w=canvas.width,h=canvas.height;
- for(let i=0;i<60;i++){
-  ctx.fillStyle="#b1dfff66";
-  ctx.fillRect((i*127.7%1000)/1000*w,
-   (i*87.3%1000)/1000*h,2,2);
+ const m=currentModel;
+ if(m==="dalton")ball(0,0,0,80,"#a5b4d2");
+ else if(m==="thomson"){
+  ball(0,0,0,83,"#dd8caf","+");
+  [[-.7,.6,.4],[.6,.5,.4],[-.5,-.6,.4],
+   [.6,-.5,-.3],[0,.2,-.8]].forEach(p=>
+   ball(...p,12,"#66dcff","−"));
  }
- if(model==="dalton"){
-  ball([0,0,0],85,"#9aadd0");
- }
- else if(model==="thomson"){
-  ball([0,0,0],92,"#ed91ba","+");
-  [
-   [-.7,.6,.6],[.7,.6,.5],[-.7,-.6,.4],
-   [.6,-.5,-.4],[0,.2,-.7],[.1,.8,0],
-   [-.3,-.1,.7],[.5,-.2,.7]
-  ].forEach(p=>ball(p,12,"#67dfff","−"));
- }
- else if(model==="rutherford"||model==="bohr"){
-  ring(1.2,0);ring(1.9,1,"#d39aff");
-  ball([0,0,0],28,"#ff8fb4","+");
-  [[1.2,0,0],[-1.2,0,0],[0,0,1.9],[0,0,-1.9]]
-   .forEach(p=>ball(p,11,"#7bdfff","−"));
- }
- else if(model==="modern"||model==="orbitalS"){
-  sphereCloud("s");
- }
- else if(model==="orbitalP"){
-  sphereCloud("p");
- }
- else if(model==="orbitalD"){
-  sphereCloud("d");
- }
- else if(model==="water"){
-  drawMolecule([
-   atom(0,0,0,25,"#ff6883","O"),
-   atom(-1,.75,0,16,"#f3f7ff","H"),
-   atom(1,.75,0,16,"#f3f7ff","H")
-  ],[[0,1],[0,2]]);
- }
- else if(model==="co2"){
-  drawMolecule([
-   atom(0,0,0,24,"#aebdca","C"),
-   atom(-1.5,0,0,24,"#ff6883","O"),
-   atom(1.5,0,0,24,"#ff6883","O")
-  ],[[0,1],[0,2]]);
- }
- else if(model==="methane"){
-  drawMolecule([
-   atom(0,0,0,24,"#aebdca","C"),
-   atom(1,1,1,15,"#fff","H"),
-   atom(-1,-1,1,15,"#fff","H"),
-   atom(-1,1,-1,15,"#fff","H"),
-   atom(1,-1,-1,15,"#fff","H")
-  ],[[0,1],[0,2],[0,3],[0,4]]);
- }
- else if(model==="ammonia"){
-  drawMolecule([
-   atom(0,-.55,0,26,"#698eff","N"),
-   atom(1,.45,.55,16,"#fff","H"),
-   atom(-1,.45,.55,16,"#fff","H"),
-   atom(0,.45,-1,16,"#fff","H")
-  ],[[0,1],[0,2],[0,3]]);
- }
- else if(model==="bh3"){
-  const a=[atom(0,0,0,24,"#ed9fd2","B")];
-  for(let i=0;i<3;i++){
-   const t=i*2*Math.PI/3;
-   a.push(atom(1.5*Math.cos(t),
-    1.5*Math.sin(t),0,16,"#fff","H"));
+ else if(["rutherford","bohr","modern","s","p","d"].includes(m)){
+  ball(0,0,0,23,"#ff8ea9","+");
+  if(m==="rutherford"||m==="bohr"){
+   loop(1.2);loop(1.9);
+   ball(1.2,0,0,10,"#81e7ff","−");
+   ball(-1.2,0,0,10,"#81e7ff","−");
+  }else{
+   for(let i=0;i<420;i++){
+    const t=i*2.4;
+    const z=1-2*(i+.5)/420;
+    const rr=Math.sqrt(1-z*z);
+    let x=rr*Math.cos(t)*1.7;
+    let y=rr*Math.sin(t)*1.7;
+    let zz=z*1.7;
+    if(m==="p"){x*=.4;y*=.4;zz*=1.4}
+    if(m==="d"){x*=Math.sin(2*t);y*=Math.sin(2*t)}
+    const v=projection([x,y,zz]);
+    ctx.fillStyle="#89dfff66";
+    ctx.fillRect(v[0],v[1],3,3);
+   }
   }
-  drawMolecule(a,[[0,1],[0,2],[0,3]]);
  }
- else if(model==="salt"){
-  const atoms=[];
+ else if(m==="water")
+  molecule([[0,0,0,25,"#ff718e","O"],
+   [-1,.8,0,15,"#fff","H"],[1,.8,0,15,"#fff","H"]],
+   [[0,1],[0,2]]);
+ else if(m==="co2")
+  molecule([[0,0,0,24,"#aebed1","C"],
+   [-1.5,0,0,22,"#ff718e","O"],
+   [1.5,0,0,22,"#ff718e","O"]],[[0,1],[0,2]]);
+ else if(m==="methane")
+  molecule([[0,0,0,24,"#b0c4d3","C"],
+   [1,1,1,14,"#fff","H"],[-1,-1,1,14,"#fff","H"],
+   [-1,1,-1,14,"#fff","H"],[1,-1,-1,14,"#fff","H"]],
+   [[0,1],[0,2],[0,3],[0,4]]);
+ else if(m==="ammonia"||m==="bh3"){
+  const atoms=[[0,0,0,25,m==="ammonia"?"#718aff":"#e89bd5",
+   m==="ammonia"?"N":"B"]];
+  for(let i=0;i<3;i++){
+   const t=i*Math.PI*2/3;
+   atoms.push([1.5*Math.cos(t),1.5*Math.sin(t),
+    m==="ammonia"?.6:0,15,"#fff","H"]);
+  }
+  molecule(atoms,[[0,1],[0,2],[0,3]]);
+ }
+ else if(m==="salt"){
   for(let x=-1;x<=1;x++)
    for(let y=-1;y<=1;y++)
     for(let z=-1;z<=1;z++){
      const even=(x+y+z+3)%2===0;
-     atoms.push(atom(x*.95,y*.95,z*.95,
-      even?21:16,even?"#8ee5ae":"#b194ff",
-      even?"Cl":"Na"));
+     ball(x,y,z,even?17:13,
+      even?"#8ee8b5":"#b8a1ff",even?"Cl":"Na");
     }
-  drawMolecule(atoms,[]);
  }
- else if(model==="dissolve"){
-  ball([-1.3,0,0],28,"#8cecae","+");
-  ball([1.3,0,0],28,"#b69cff","−");
-  for(let j=0;j<2;j++){
-   const cx=j===0?-1.3:1.3;
+ else if(m==="dissolve"){
+  ball(-1.2,0,0,24,"#8ee8b5","+");
+  ball(1.2,0,0,24,"#b8a1ff","−");
+  for(const cx of [-1.2,1.2])
    for(let i=0;i<6;i++){
     const t=i*Math.PI/3;
-    const a=[cx+Math.cos(t)*.85,
-     Math.sin(t)*.85,Math.sin(t*2)*.3];
-    const sign=j===0?-1:1;
-    const h1=[a[0]+sign*.18,a[1]+.14,a[2]];
-    const h2=[a[0]+sign*.18,a[1]-.14,a[2]];
-    ball(a,12,"#ff7891","O");
-    ball(h1,7,"#fff");
-    ball(h2,7,"#fff");
+    ball(cx+.8*Math.cos(t),.8*Math.sin(t),0,10,
+     "#ff819a","O");
    }
-  }
  }
- else if(model==="diamond"){
-  const a=[
-   [-1,-1,-1],[1,1,-1],[1,-1,1],[-1,1,1],
-   [0,0,0]
-  ];
-  for(let i=0;i<4;i++)
-   line3D(a[4],a[i],"#b7f5f1",5);
-  a.forEach(p=>ball(p,19,"#a3d6ee","C"));
- }
- else if(model==="graphite"){
-  for(let layer=-1;layer<=1;layer++){
-   const z=layer*.75;
-   for(let i=0;i<6;i++){
-    const t=i*Math.PI/3;
-    const u=(i+1)*Math.PI/3;
-    line3D([1.55*Math.cos(t),1.55*Math.sin(t),z],
-     [1.55*Math.cos(u),1.55*Math.sin(u),z],
-     "#a8e8ff",4);
-    ball([1.55*Math.cos(t),1.55*Math.sin(t),z],
-     12,"#9fbdcf");
+ else if(["diamond","graphite","fullerene","nanotube","ring"].includes(m)){
+  if(m==="diamond"){
+   const a=[[0,0,0],[1,1,1],[-1,-1,1],
+    [1,-1,-1],[-1,1,-1]];
+   for(let i=1;i<a.length;i++)line(a[0],a[i]);
+   a.forEach(p=>ball(...p,15,"#b5d7e8","C"));
+  }else if(m==="nanotube"){
+   for(let z=-2;z<=2;z++){
+    const a=[];
+    for(let i=0;i<12;i++){
+     const t=i*Math.PI/6;
+     a.push([Math.cos(t),Math.sin(t),z*.7]);
+    }
+    for(let i=0;i<12;i++){
+     line(a[i],a[(i+1)%12]);
+     ball(...a[i],8,"#c1d9e6");
+    }
    }
-  }
- }
- else if(model==="fullerene"){
-  const pts=[];
-  for(let i=0;i<60;i++){
-   const z=1-2*(i+.5)/60;
-   const t=i*2.399963;
-   const r=Math.sqrt(1-z*z);
-   pts.push([1.8*r*Math.cos(t),
-    1.8*r*Math.sin(t),1.8*z]);
-  }
-  pts.forEach((p,i)=>{
-   const nearest=pts.map((q,j)=>({
-    j,d:(p[0]-q[0])**2+
-     (p[1]-q[1])**2+(p[2]-q[2])**2
-   })).filter(x=>x.j!==i)
-    .sort((a,b)=>a.d-b.d).slice(0,3);
-   nearest.forEach(x=>{
-    if(x.j>i)line3D(p,pts[x.j],"#84dfff",2);
+  }else{
+   const layers=m==="graphite"?[-.7,0,.7]:[0];
+   layers.forEach(z=>{
+    const a=[];
+    const n=m==="fullerene"?16:6;
+    for(let i=0;i<n;i++){
+     const t=i*2*Math.PI/n;
+     a.push([1.7*Math.cos(t),1.7*Math.sin(t),
+      m==="fullerene"?.5*Math.sin(t*3):z]);
+    }
+    for(let i=0;i<n;i++){
+     line(a[i],a[(i+1)%n]);
+     ball(...a[i],10,"#a6d1e7");
+    }
    });
-  });
-  pts.forEach(p=>ball(p,8,"#b5d1e5"));
- }
- else if(model==="nanotube"){
-  const N=12;
-  for(let z=-2;z<=2;z++){
-   for(let i=0;i<N;i++){
-    const t=i*2*Math.PI/N+(z%2)*Math.PI/N;
-    const p=[1.1*Math.cos(t),1.1*Math.sin(t),z*.75];
-    const q=[1.1*Math.cos(t+2*Math.PI/N),
-     1.1*Math.sin(t+2*Math.PI/N),z*.75];
-    line3D(p,q,"#7bdfff",2);
-    ball(p,9,"#a9c4d8");
-   }
   }
  }
- else if(model==="cis"||model==="trans"){
-  const cis=model==="cis";
-  const a=[
-   atom(-.65,0,0,21,"#b3c8d7","C"),
-   atom(.65,0,0,21,"#b3c8d7","C"),
-   atom(-1.25,-1,0,16,"#f9b9dc","CH₃"),
-   atom(1.25,cis?-1:1,0,16,"#f9b9dc","CH₃"),
-   atom(-1.25,1,0,12,"#fff","H"),
-   atom(1.25,cis?1:-1,0,12,"#fff","H")
-  ];
-  drawMolecule(a,[[0,1],[0,2],[1,3],[0,4],[1,5]]);
-  line3D([-.65,.12,0],[.65,.12,0],"#fff",2);
+ else if(m==="cis"||m==="trans"){
+  const side=m==="cis"?-1:1;
+  molecule([
+   [-.6,0,0,20,"#b7cbd8","C"],
+   [.6,0,0,20,"#b7cbd8","C"],
+   [-1.2,-1,0,16,"#f9a9d5","CH₃"],
+   [1.2,side,0,16,"#f9a9d5","CH₃"],
+   [-1.2,1,0,11,"#fff","H"],
+   [1.2,-side,0,11,"#fff","H"]
+  ],[[0,1],[0,2],[1,3],[0,4],[1,5]]);
+  line([-.6,.13,0],[.6,.13,0]);
  }
- else if(model==="ring"){
-  const a=[];
-  for(let i=0;i<6;i++){
-   const t=i*Math.PI/3;
-   a.push(atom(1.6*Math.cos(t),1.6*Math.sin(t),
-    .22*(i%2),16,"#b7d2e6","C"));
-  }
-  drawMolecule(a,[[0,1],[1,2],[2,3],[3,4],[4,5],[5,0]]);
- }
- else if(model==="funnel"){
-  poly([
-   [-1.2,-1.4,0],[1.2,-1.4,0],
-   [.7,.5,0],[.18,1.3,0],
-   [.18,2,0]
-  ],"#8edfff",5);
-  poly([
-   [-1.2,-1.4,0],[-.7,.5,0],
-   [-.18,1.3,0],[-.18,2,0]
-  ],"#8edfff",5);
-  line3D([-.18,1.3,0],[.18,1.3,0],"#fff",5);
-  line3D([-.5,1.7,0],[.5,1.7,0],"#ffc078",5);
- }
- else if(model==="distill"||model==="fraction"){
-  ring(.7,0,"#8edfff");
-  line3D([0,-.7,0],[0,-1.7,0]);
-  line3D([0,-1.7,0],[1.7,-1.7,0]);
-  line3D([1.7,-1.7,0],[1.7,.8,0]);
-  line3D([1.7,.8,0],[2.4,.8,0]);
-  ball([0,0,0],22,"#88dcff");
-  if(model==="fraction"){
-   for(let y=-1.5;y<.7;y+=.4)
-    line3D([1.5,y,0],[1.9,y,0],"#ffd27d",3);
-  }
- }
- else if(model==="cell"){
+ else if(m==="cell"){
   for(const x of [-1.2,1.2]){
-   poly([
-    [x-.7,-1.3,0],[x+.7,-1.3,0],
-    [x+.7,1.2,0],[x-.7,1.2,0]
-   ],"#9cdfff",4,true);
-   line3D([x,-1.8,0],[x,.5,0],
-    x<0?"#f0b48a":"#b3c8ff",8);
+   line([x-.7,-1,0],[x+.7,-1,0]);
+   line([x-.7,-1,0],[x-.7,1,0]);
+   line([x+.7,-1,0],[x+.7,1,0]);
+   line([x,-1.6,0],[x,.5,0]);
   }
-  poly([
-   [-1.2,-1.8,0],[-1.2,-2.2,0],
-   [1.2,-2.2,0],[1.2,-1.8,0]
-  ],"#f7d486",5);
-  poly([
-   [-1.2,.5,0],[-1.2,1.6,0],
-   [1.2,1.6,0],[1.2,.5,0]
-  ],"#a8f0c2",5);
-  ball([0,1.6,0],14,"#ffdf85","e");
+  line([-1.2,-1.6,0],[-1.2,-2,0]);
+  line([-1.2,-2,0],[1.2,-2,0]);
+  line([1.2,-2,0],[1.2,-1.6,0]);
+  line([-1.2,1,0],[0,1.6,0]);
+  line([0,1.6,0],[1.2,1,0]);
+  ball(0,1.6,0,12,"#ffdf86","e");
  }
+ else if(["funnel","distill","fraction"].includes(m)){
+  const a=m==="funnel"?
+   [[-1,-1,0],[1,-1,0],[.2,1,0],[.2,2,0]]:
+   [[-1,-1,0],[0,1,0],[1,1,0],[2,0,0]];
+  for(let i=1;i<a.length;i++)line(a[i-1],a[i]);
+  ball(0,0,0,20,"#88dfff");
+ }
+}
+function resetCamera(){yaw=.5;pitch=.25;zoom=1;drawScene()}
+function toggleRotation(){
+ rotating=!rotating;
+ $("rotationButton").textContent=rotating?
+  "⏸️ Dönüşü Durdur":"▶️ Döndür";
 }
 canvas.addEventListener("pointerdown",e=>{
  dragging=true;lastX=e.clientX;lastY=e.clientY;
@@ -2018,68 +1539,55 @@ canvas.addEventListener("pointermove",e=>{
  if(!dragging)return;
  yaw+=(e.clientX-lastX)*.012;
  pitch+=(e.clientY-lastY)*.012;
- lastX=e.clientX;lastY=e.clientY;draw3D();
+ lastX=e.clientX;lastY=e.clientY;drawScene();
 });
 canvas.addEventListener("pointerup",()=>dragging=false);
 canvas.addEventListener("pointercancel",()=>dragging=false);
 canvas.addEventListener("wheel",e=>{
  e.preventDefault();
  zoom=Math.max(.5,Math.min(2,zoom-e.deltaY*.001));
- draw3D();
+ drawScene();
 },{passive:false});
-function resetCamera(){
- yaw=.5;pitch=.3;zoom=1;draw3D();
-}
-function toggleRotate(){
- autoRotate=!autoRotate;
- $("rotateBtn").textContent=autoRotate?
-  "⏸️ Dönüşü Durdur":"▶️ Döndür";
-}
 function animate(){
- if(autoRotate&&!dragging&&
-  !$("threeD").classList.contains("hidden")){
-  yaw+=.004;draw3D();
+ if(rotating&&!dragging&&
+  !$("models").classList.contains("hidden")){
+  yaw+=.004;drawScene();
  }
  requestAnimationFrame(animate);
 }
 window.addEventListener("resize",resizeScene);
-selectModel("thomson");
+chooseModel("thomson");
 requestAnimationFrame(animate);
 
-// GERİ BİLDİRİM
+// FEEDBACK
 $("feedbackForm").addEventListener("submit",async e=>{
  e.preventDefault();
  const form=e.currentTarget;
- const button=$("feedbackButton");
+ const button=$("feedbackSend");
  button.disabled=true;
- $("feedbackStatus").textContent="Mesaj gönderiliyor...";
- $("feedbackStatus").className="msg";
+ $("feedbackStatus").textContent="Gönderiliyor...";
  try{
   const response=await fetch(form.action,{
    method:"POST",body:new FormData(form),
    headers:{Accept:"application/json"}
   });
   if(response.ok){
-   $("feedbackStatus").textContent=
-    "💗 Mesajın gönderildi! Teşekkür ederiz.";
-   $("feedbackStatus").className="msg ok";
+   $("feedbackStatus").textContent="💗 Mesaj gönderildi!";
    form.reset();
-   $("feedbackGrade").value=grade+". Sınıf";
   }else{
    $("feedbackStatus").textContent=
-    "Gönderim başarısız. Formspree ayarlarını kontrol et.";
-   $("feedbackStatus").className="msg no";
+    "Gönderilemedi. Formspree ayarlarını kontrol et.";
   }
- }catch(err){
+ }catch(error){
   $("feedbackStatus").textContent=
-   "Bağlantı hatası. İnternetini kontrol edip tekrar dene.";
-  $("feedbackStatus").className="msg no";
+   "Bağlantı hatası. Tekrar dene.";
  }
  button.disabled=false;
 });
 
-// AÇILIŞ
-history.replaceState({grade:null},"","#sinif-sec");
+document.addEventListener("pointerdown",()=>{
+ if(soundEnabled)audio();
+},{once:true});
 </script>
 </body>
 </html>

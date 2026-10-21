@@ -4,237 +4,232 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#081525">
-<meta name="description" content="KimyaVerse: Elektron dizilimi, Lewis yapısı, değerlik elektronları ve asit-baz deneyleri.">
-<title>KimyaVerse | İnteraktif Kimya Laboratuvarı</title>
+<meta name="theme-color" content="#081727">
+<meta name="description" content="KimyaVerse - 9. sınıf için interaktif kimya oyunları ve deneyler.">
+<title>KimyaVerse | Kimya Oyunları</title>
 <style>
 :root{
- --bg:#071322;--panel:#11263d;--panel2:#193852;
- --line:#345674;--text:#eff8ff;--muted:#aec9dc;
- --cyan:#6bd8ff;--green:#62e3b3;--red:#ff6c86;
- --gold:#ffd46c;--purple:#bba1ff;
+ --bg:#081727;--panel:#112b44;--card:#193954;
+ --border:#3c6684;--text:#f0f9ff;--muted:#b3cfdf;
+ --blue:#70d7ff;--green:#6ae6b5;--red:#ff718b;
+ --yellow:#ffd778;--purple:#c2a6ff;
 }
 *{box-sizing:border-box}
 body{
- margin:0;min-height:100vh;color:var(--text);
+ margin:0;color:var(--text);
  font-family:Arial,Helvetica,sans-serif;
- background:radial-gradient(circle at 15% 0%,#174669,transparent 40%),
- radial-gradient(circle at 85% 85%,#22264d,transparent 45%),var(--bg);
+ background:
+ radial-gradient(circle at 10% 0%,#1b5171,transparent 37%),
+ radial-gradient(circle at 90% 95%,#242a58,transparent 43%),
+ var(--bg);
+ min-height:100vh;
 }
-button,input,select{font:inherit}
+button,select{font:inherit}
 button{
- border:0;border-radius:12px;padding:12px 15px;
- font-weight:800;background:var(--cyan);color:#092037;
- cursor:pointer;transition:transform .15s,filter .15s;
- touch-action:manipulation;
+ border:0;border-radius:12px;padding:11px 15px;
+ background:var(--blue);color:#09253a;
+ font-weight:800;cursor:pointer;
+ transition:transform .15s,filter .15s;
 }
-button:hover:not(:disabled){transform:translateY(-2px);filter:brightness(1.1)}
-button:disabled{opacity:.55;cursor:default}
+button:hover:not(:disabled){transform:translateY(-2px);filter:brightness(1.08)}
+button:disabled{opacity:.5;cursor:default}
 button:focus-visible{outline:3px solid white;outline-offset:2px}
-.ghost{background:#294b68;color:white;border:1px solid #466c88}
-.gold{background:var(--gold);color:#302307}
-.danger{background:#773347;color:white}
+.secondary{background:#2c506d;color:white;border:1px solid #517a98}
+.warning{background:#784055;color:white}
+.yellow{background:var(--yellow);color:#392b08}
 .active{outline:3px solid white}
 .hidden{display:none!important}
-main{max-width:1220px;margin:auto;padding:16px 14px 55px}
-header{text-align:center;padding:15px 0 25px}
-.logo{font-size:clamp(27px,5vw,44px);font-weight:900;color:var(--cyan);
- text-shadow:0 0 25px #6bd8ff44}
-.subtitle{color:var(--muted);margin-top:9px}
+main{max-width:1200px;margin:auto;padding:15px 14px 45px}
+header{text-align:center;padding:15px 0 22px}
+.logo{
+ font-size:clamp(29px,6vw,46px);font-weight:900;
+ color:var(--blue);text-shadow:0 0 22px #70d7ff55;
+}
+.subtitle{color:var(--muted);margin-top:7px}
 .panel{
- background:#10243bec;border:1px solid var(--line);
- border-radius:22px;padding:22px;box-shadow:0 12px 35px #0003;
+ background:#11283feb;border:1px solid var(--border);
+ border-radius:22px;padding:22px;
+ box-shadow:0 15px 40px #0003;
+}
+.card{
+ background:var(--card);border:1px solid var(--border);
+ border-radius:17px;padding:17px;margin:13px 0;
 }
 h1,h2,h3{margin-top:0}
-h2{font-size:25px}
-h3{color:var(--cyan)}
-p{line-height:1.55;color:var(--muted)}
-.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.space{justify-content:space-between}
+h3{color:var(--blue)}
+p{color:var(--muted);line-height:1.55}
+.row{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.between{justify-content:space-between}
 .center{text-align:center}
-.grid2{display:grid;grid-template-columns:1.3fr 1fr;gap:17px}
-.card{
- background:#17324d;border:1px solid #355977;
- border-radius:17px;padding:17px;margin-bottom:15px;
-}
-.card h3{font-size:18px;margin-bottom:12px}
-.badge{
- display:inline-block;padding:6px 10px;border-radius:20px;
- background:#264e68;color:var(--cyan);font-size:12px;font-weight:bold;
-}
-.stats{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.grid2{display:grid;grid-template-columns:1.2fr 1fr;gap:15px}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.stats{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:15px}
 .stat{
- background:#1d3c58;border:1px solid #3a607f;
- border-radius:12px;padding:10px 13px;min-width:92px;
+ background:#1a3a55;border:1px solid #426987;
+ border-radius:13px;padding:10px 14px;
 }
-.stat small{display:block;color:var(--muted);margin-bottom:5px}
-.stat strong{font-size:22px}
-#globalScore{color:var(--gold)}
-.progress{height:12px;border-radius:20px;background:#29465f;overflow:hidden;margin:14px 0}
-.bar{height:100%;width:0;background:linear-gradient(90deg,#57bfff,#62e3b3);transition:width .25s}
+.stat small{display:block;color:var(--muted);font-size:11px}
+.stat strong{display:block;font-size:23px;margin-top:4px}
+#score{color:var(--yellow)}
+#backBtn{margin-bottom:13px}
+.tile{
+ background:#1c405e;color:white;text-align:left;
+ border:1px solid #497b9a;padding:19px;min-height:140px;
+}
+.tile .emoji{display:block;font-size:38px;margin-bottom:9px}
+.tile strong{display:block;color:var(--blue);font-size:19px;margin-bottom:8px}
+.tile small{display:block;color:var(--muted);line-height:1.5;font-weight:normal}
+.unitTitle{
+ background:#20425e;padding:13px 16px;
+ border-radius:13px;border-left:5px solid var(--blue);
+ margin-top:18px;
+}
 .feedback{
- padding:14px;border:1px solid #527b9a;background:#20435f;
- border-radius:12px;min-height:58px;line-height:1.5;margin-top:14px;
+ padding:14px;border-radius:12px;background:#214662;
+ border:1px solid #547f9b;min-height:52px;
+ margin-top:12px;line-height:1.5;
 }
-.feedback.good{background:#174c43;border-color:var(--green)}
-.feedback.bad{background:#612b3c;border-color:var(--red)}
-.robotLine{display:flex;align-items:flex-start;gap:12px}
-.robotFace{
- width:55px;height:55px;border:2px solid var(--cyan);
- border-radius:16px;background:#295b81;display:grid;place-items:center;
- font-size:31px;flex:none;
+.feedback.good{background:#195344;border-color:var(--green)}
+.feedback.bad{background:#622c40;border-color:var(--red)}
+.robot{display:flex;gap:12px;align-items:flex-start}
+.face{
+ flex:none;width:53px;height:53px;border-radius:15px;
+ background:#2b6589;border:2px solid var(--blue);
+ display:grid;place-items:center;font-size:29px;
 }
-.robotBubble{background:#244760;padding:13px;border-radius:12px;flex:1;line-height:1.5}
-.stars{font-size:31px;color:var(--gold);letter-spacing:5px}
-.nav{display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin-bottom:18px}
-.nav button{background:#1d405c;color:white;border:1px solid #3a6888}
-.nav button.selected{background:var(--cyan);color:#092037}
-.homeHero{text-align:center;padding:28px 10px}
-.homeAtom{font-size:80px;animation:float 4s ease-in-out infinite}
-@keyframes float{50%{transform:translateY(-12px)}}
-.modules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.module{
- text-align:left;min-height:155px;background:#1a3b58;color:white;
- border:1px solid #3b6888;padding:19px;
-}
-.module .emoji{font-size:39px;display:block;margin-bottom:12px}
-.module strong{display:block;font-size:20px;color:var(--cyan);margin-bottom:7px}
-.module span:last-child{color:var(--muted);font-size:13px;font-weight:normal;line-height:1.5}
+.bubble{background:#274b65;border-radius:12px;padding:12px;flex:1;line-height:1.5}
+.progress{height:12px;border-radius:30px;background:#2b4b64;overflow:hidden;margin:14px 0}
+.bar{height:100%;width:0;background:linear-gradient(90deg,#60b9ff,#65e7b5);transition:width .2s}
 .periodic{
  display:grid;grid-template-columns:repeat(18,minmax(0,1fr));
  gap:4px;overflow-x:auto;padding:10px 0;
 }
 .element{
- grid-column:var(--c);grid-row:var(--r);padding:5px 2px;
- min-width:0;min-height:67px;color:white;border-radius:8px;
- border:1px solid #ffffff44;
+ grid-column:var(--c);grid-row:var(--r);
+ padding:5px 2px;min-width:0;min-height:65px;
+ color:white;border:1px solid #ffffff44;border-radius:8px;
 }
-.element .num{display:block;font-size:10px}
-.element .sym{display:block;font-size:22px}
-.element .ename{display:block;font-size:9px;overflow:hidden;text-overflow:ellipsis}
-.nonmetal{background:#28796e}.noble{background:#286f9d}
-.alkali{background:#914b57}.earth{background:#936a3b}
-.metalloid{background:#657c35}.halogen{background:#6c4c9c}
-.metal{background:#477399}
+.element small{display:block;font-size:10px}
+.element strong{display:block;font-size:21px}
+.element span{display:block;font-size:9px;overflow:hidden;text-overflow:ellipsis}
+.nonmetal{background:#267c70}
+.noble{background:#2d6eaa}
+.alkali{background:#98515c}
+.earth{background:#97703c}
+.metalloid{background:#72883a}
+.halogen{background:#7650a2}
+.metal{background:#497b9c}
 .orbital{
- display:flex;gap:12px;align-items:center;padding:11px;
- background:#1e405d;border-radius:13px;margin:9px 0;
+ display:flex;align-items:center;gap:12px;
+ background:#22455f;padding:10px;border-radius:12px;margin:8px 0;
 }
-.orbitalLabel{font-size:21px;font-weight:900;color:var(--cyan);min-width:42px}
-.boxes{display:flex;gap:8px}
+.orbitalLabel{min-width:42px;font-size:22px;color:var(--blue);font-weight:900}
+.orbitalBoxes{display:flex;gap:8px}
 .slot{
- width:57px;height:60px;padding:2px;font-size:25px;
- background:#28506c;color:white;border:2px solid #5083a2;
- border-bottom:4px solid var(--cyan);border-radius:7px;
+ width:56px;height:59px;padding:2px;font-size:25px;
+ background:#2c5977;color:white;border:2px solid #6798b8;
+ border-bottom:4px solid var(--blue);border-radius:7px;
 }
-.slot.correct{background:#1b7058;border-color:var(--green)}
-.slot.wrong{
- background:#aa2d46;border-color:#ff9aaa;
- box-shadow:0 0 18px #ff475788;animation:shake .35s;
-}
+.slot.last{background:#226e59;border-color:var(--green)}
+.slot.wrong{background:#a72e49;border-color:#ff9ba8;animation:shake .35s}
 @keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
-.atomArea{height:290px;display:grid;place-items:center}
-.atom{width:270px;height:270px;position:relative}
+.atom{width:260px;height:260px;position:relative;margin:auto}
 .shell{
- position:absolute;top:50%;left:50%;
- transform:translate(-50%,-50%);border:1.5px solid #6ad0ff77;border-radius:50%;
+ position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+ border:1.5px solid #80cfff88;border-radius:50%;
 }
-.electron{
+.electronDot{
  position:absolute;width:12px;height:12px;border-radius:50%;
- background:#86eaff;box-shadow:0 0 10px #6bd8ff;
+ background:#9deaff;box-shadow:0 0 10px #9deaff;
  transform:translate(-50%,-50%);
 }
 .nucleus{
- position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
- width:68px;height:68px;border-radius:50%;
- display:grid;place-items:center;font-weight:900;font-size:23px;
- background:radial-gradient(circle at 30% 30%,#ff9d89,#dc4b78,#81409b);
- box-shadow:0 0 22px #ff628988;z-index:2;
+ position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+ width:67px;height:67px;border-radius:50%;
+ display:grid;place-items:center;font-size:23px;font-weight:bold;
+ background:radial-gradient(circle at 30% 25%,#ffa1a1,#d64b7a,#77419b);
+}
+.lewisBoard{position:relative;width:260px;height:260px;margin:20px auto}
+.lewisSymbol{
+ position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+ font-size:65px;font-weight:bold;color:var(--blue);
+}
+.lewisSpot{
+ position:absolute;width:60px;height:60px;border:2px dashed #76a9c7;
+ background:#27516d;color:white;font-size:27px;
+}
+.lewisSpot.top{top:0;left:100px}
+.lewisSpot.right{top:100px;right:0}
+.lewisSpot.bottom{bottom:0;left:100px}
+.lewisSpot.left{top:100px;left:0}
+.lewisSpot.wrong{background:#a72e49}
+.lewisSpot.correct{background:#207059}
+.labSvg{width:100%;max-width:360px;display:block;margin:auto}
+.liquids{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.liquid{
+ background:#28506e;color:white;border:1px solid #527e9b;
+ text-align:left;min-height:67px;font-size:13px;
+}
+.liquid b{display:block;font-size:22px;margin-bottom:4px}
+.phTrack{
+ height:17px;border-radius:20px;
+ background:linear-gradient(90deg,#e8495b,#f4a14c,#e8da61,#64ca8e,#5cafe0,#866bd3);
+ margin:13px 0 0;
+}
+.phArrow{height:28px;position:relative}
+.phArrow span{position:absolute;transform:translateX(-50%);font-size:24px;top:0}
+.phLabels{display:flex;justify-content:space-between;font-size:13px;font-weight:bold}
+.notice{
+ background:#3d392d;border-left:4px solid var(--yellow);
+ color:#f7e8bc;border-radius:8px;padding:12px;
+ font-size:13px;line-height:1.55;
+}
+.quizChoices{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:15px}
+.quizChoices button{min-height:60px}
+.quizChoices .incorrect{background:#9c314c;color:white}
+.quizChoices .correct{background:#1e795e;color:white}
+.pill{
+ display:inline-block;padding:6px 11px;background:#2b526d;
+ border-radius:30px;color:var(--blue);font-size:12px;font-weight:bold;
 }
 .achievements{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .achievement{
- background:#28435b;border:1px solid #47617a;border-radius:12px;
- text-align:center;padding:12px 5px;opacity:.4;
+ background:#2a4257;border-radius:12px;text-align:center;
+ padding:12px 5px;opacity:.4;
 }
-.achievement.unlocked{opacity:1;background:#51472e;border-color:var(--gold)}
+.achievement.unlocked{
+ opacity:1;background:#584a2e;border:1px solid var(--yellow);
+}
 .achievement span{display:block;font-size:26px;margin-bottom:5px}
 .achievement small{font-size:11px}
-.lewisArea{
- display:flex;justify-content:center;align-items:center;
- min-height:300px;position:relative;
+.modal{
+ position:fixed;inset:0;background:#061321ed;
+ display:grid;place-items:center;padding:15px;z-index:50;
 }
-.lewisBoard{width:260px;height:260px;position:relative}
-.lewisSymbol{
- position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
- font-size:65px;font-weight:900;color:var(--cyan);
+.modalBox{
+ width:min(440px,100%);padding:30px;text-align:center;
+ background:linear-gradient(140deg,#214967,#112940);
+ border:2px solid var(--yellow);border-radius:23px;
+ animation:pop .3s;
 }
-.lewisSpot{
- position:absolute;width:58px;height:58px;
- background:#234b69;border:2px dashed #6f9cba;border-radius:12px;
- color:white;font-size:24px;display:grid;place-items:center;
-}
-.lewisSpot.top{left:101px;top:0}
-.lewisSpot.right{right:0;top:101px}
-.lewisSpot.bottom{left:101px;bottom:0}
-.lewisSpot.left{left:0;top:101px}
-.lewisSpot.correct{border-color:var(--green);background:#17654e}
-.lewisSpot.wrong{border-color:var(--red);background:#922d46}
-.answerChoices{display:flex;gap:10px;flex-wrap:wrap}
-.answerChoices button{min-width:55px}
-.beakerArea{display:grid;grid-template-columns:1fr 1fr;gap:15px;align-items:center}
-.labDrawing{position:relative;width:100%;max-width:350px;margin:auto}
-.labDrawing svg{width:100%;height:auto;display:block}
-.labLiquids{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.liquidBtn{
- background:#234966;color:white;border:1px solid #416c89;
- min-height:70px;text-align:left;font-size:13px;
-}
-.liquidBtn .drop{display:block;font-size:24px;margin-bottom:5px}
-.phScale{margin:20px 0}
-.phLabels{display:flex;justify-content:space-between;font-weight:bold;font-size:13px}
-.phTrack{
- height:16px;border-radius:20px;margin:10px 0;
- background:linear-gradient(90deg,#e24a58,#f1a94c,#e6d965,#59c88e,#5daddc,#8067cc);
- position:relative;
-}
-.phPointer{position:relative;height:23px}
-.phArrow{position:absolute;top:0;transform:translateX(-50%);color:white;font-size:23px}
-.phValue{font-size:25px;font-weight:900;text-align:center}
-.controls{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0}
-.notice{
- padding:11px;border-left:3px solid var(--gold);
- background:#3d3a30;border-radius:8px;color:#f5e5b9;font-size:13px;
- line-height:1.5;
-}
-.celebration{
- position:fixed;inset:0;z-index:100;
- display:grid;place-items:center;background:#04101ee8;padding:15px;
-}
-.celebrationBox{
- background:linear-gradient(145deg,#1b4160,#11243b);
- border:2px solid var(--gold);border-radius:25px;
- padding:30px;text-align:center;width:min(440px,100%);
- box-shadow:0 0 60px #ffd66b33;animation:pop .4s;
-}
-@keyframes pop{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes pop{from{transform:scale(.8);opacity:0}to{transform:scale(1);opacity:1}}
 .confetti{
- position:fixed;top:-30px;z-index:101;width:9px;height:17px;
- pointer-events:none;animation:fall linear forwards;
+ position:fixed;top:-20px;width:10px;height:17px;
+ z-index:60;pointer-events:none;animation:fall linear forwards;
 }
 @keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
-footer{text-align:center;color:#91aec2;padding:25px;font-size:13px}
-details{color:var(--muted);line-height:1.6;margin-top:14px}
-summary{cursor:pointer;color:var(--cyan);font-weight:bold}
+footer{text-align:center;color:#93b4c9;font-size:13px;padding:25px}
+details{margin-top:13px;color:var(--muted);line-height:1.6}
+summary{cursor:pointer;color:var(--blue);font-weight:bold}
 @media(max-width:850px){
- .grid2,.beakerArea{grid-template-columns:1fr}
- .periodic{grid-template-columns:repeat(18,minmax(43px,1fr))}
+ .grid2{grid-template-columns:1fr}
+ .periodic{grid-template-columns:repeat(18,minmax(42px,1fr))}
 }
 @media(max-width:550px){
- .panel{padding:14px}.modules{grid-template-columns:1fr}
- .slot{width:48px;height:55px;font-size:21px}
+ .panel{padding:14px}.cards{grid-template-columns:1fr}
+ .slot{width:47px;height:54px;font-size:21px}
  .orbital{gap:7px;padding:8px}
- .labLiquids{grid-template-columns:1fr 1fr}
- .logo{font-size:28px}
+ .quizChoices{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){
  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
@@ -245,110 +240,90 @@ summary{cursor:pointer;color:var(--cyan);font-weight:bold}
 <main>
 <header>
  <div class="logo">⚗️ KİMYAVERSE</div>
- <div class="subtitle">İnteraktif Kimya Laboratuvarı • Keşfet, Dene, Öğren!</div>
+ <div class="subtitle">9. Sınıf • İnteraktif Kimya Laboratuvarı</div>
 </header>
 
-<nav id="navigation" class="nav hidden">
- <button data-page="home">🏠 Ana sayfa</button>
- <button data-page="electron">⚛️ Elektron</button>
- <button data-page="lewis">🔵 Lewis</button>
- <button data-page="valence">🧬 Değerlik</button>
- <button data-page="acid">🧪 Asit–Baz</button>
-</nav>
-
 <div class="stats">
- <div class="stat"><small>🏆 TOPLAM PUAN</small><strong id="globalScore">0</strong></div>
- <div class="stat"><small>🔥 KOMBO</small><strong id="globalStreak">0</strong></div>
- <div class="stat"><small>❌ HATA</small><strong id="globalErrors">0</strong></div>
+ <div class="stat"><small>🏆 PUAN</small><strong id="score">0</strong></div>
+ <div class="stat"><small>🔥 KOMBO</small><strong id="streak">0</strong></div>
+ <div class="stat"><small>❌ HATA</small><strong id="errors">0</strong></div>
+ <div class="stat"><small>⭐ YILDIZ</small><strong id="stars">0</strong></div>
+ <button id="soundBtn" class="secondary">🔊 Ses açık</button>
 </div>
 
-<!-- ANA SAYFA -->
+<button id="backBtn" class="secondary hidden">← Geri dön</button>
+
 <section id="home" class="panel">
- <div class="homeHero">
-  <div class="homeAtom">⚛️</div>
+ <div class="center">
+  <div style="font-size:76px">⚛️</div>
   <h1>KimyaVerse'e Hoş Geldin!</h1>
-  <p>Kimya artık sadece ezber değil. Deney yap, atomları keşfet ve görevleri tamamla!</p>
+  <p>Beş ünite, farklı oyunlar, deneyler ve keşfedilecek bir kimya dünyası!</p>
  </div>
- <div class="modules">
-  <button class="module" data-page="electron">
-   <span class="emoji">⚛️</span><strong>Elektron Dizilimi</strong>
-   <span>Orbitalleri doldur. Aufbau, Pauli ve Hund kurallarını öğren.</span>
-  </button>
-  <button class="module" data-page="lewis">
-   <span class="emoji">🔵</span><strong>Lewis Nokta Yapısı</strong>
-   <span>Elementlerin değerlik elektronlarını noktalara dönüştür.</span>
-  </button>
-  <button class="module" data-page="valence">
-   <span class="emoji">🧬</span><strong>Değerlik Oyunu</strong>
-   <span>Son katman elektronlarını, grup ve periyotları keşfet.</span>
-  </button>
-  <button class="module" data-page="acid">
-   <span class="emoji">🧪</span><strong>Asit–Baz Laboratuvarı</strong>
-   <span>Sıvı ekle, ölçüm cihazını indir, suyla seyrelt ve boşalt.</span>
-  </button>
+ <div id="homeUnits" class="cards"></div>
+ <div class="card">
+  <h3>🏅 Başarı Panosu</h3>
+  <div class="achievements">
+   <div id="badgeFirst" class="achievement"><span>🔬</span><small>İlk doğru</small></div>
+   <div id="badgeCombo" class="achievement"><span>🔥</span><small>3'lü kombo</small></div>
+   <div id="badgePerfect" class="achievement"><span>🏆</span><small>Hatasız oyun</small></div>
+  </div>
  </div>
 </section>
 
-<!-- ELEKTRON OYUNU -->
+<section id="unit" class="panel hidden">
+ <h2 id="unitTitle"></h2>
+ <p id="unitDescription"></p>
+ <div id="unitGames" class="cards"></div>
+</section>
+
 <section id="electron" class="panel hidden">
- <div class="row space">
-  <h2>⚛️ Elektron Dizilimi</h2>
-  <button id="electronChoose" class="ghost">Element seç</button>
+ <h2>⚛️ Elektron Dizilimi</h2>
+ <div id="electronPicker">
+  <p>Bir element seç. Elektronlarını doğru orbitallere yerleştir!</p>
+  <div id="periodic" class="periodic"></div>
  </div>
- <div id="electronSelection">
-  <p>Periyodik tablodan bir element seç!</p>
-  <div id="electronPeriodic" class="periodic"></div>
- </div>
- <div id="electronGame" class="hidden">
-  <div class="row space">
+ <div id="electronPlay" class="hidden">
+  <div class="row between">
    <div>
-    <span id="electronLevel" class="badge"></span>
+    <span id="electronLevel" class="pill"></span>
     <h2 id="electronName" style="margin:10px 0"></h2>
    </div>
-   <div class="stars" id="electronStars">☆☆☆</div>
+   <button id="changeElement" class="secondary">Element değiştir</button>
   </div>
   <div class="progress"><div id="electronBar" class="bar"></div></div>
   <p id="electronCount"></p>
   <div class="grid2">
    <div>
     <div class="card">
-     <h3>⚡ Orbital Yerleştirme Alanı</h3>
-     <p>Spin seç, kutuya tıkla. Yanlış elektron kırmızı yanar; geri alıp tekrar dene.</p>
-     <div class="controls">
+     <h3>Elektron Yerleştirme</h3>
+     <p>Spin seç ve kutuya bas. Yanlış hamle kırmızı görünür; geri alıp tekrar dene.</p>
+     <div class="row">
       <button id="spinUp">↑ Yukarı</button>
-      <button id="spinDown" class="ghost">↓ Aşağı</button>
-      <button id="electronUndo" class="ghost">↶ Geri al</button>
-      <button id="electronReset" class="danger">⟳ Sıfırla</button>
-      <button id="electronHint" class="gold">💡 İpucu</button>
+      <button id="spinDown" class="secondary">↓ Aşağı</button>
+      <button id="electronUndo" class="secondary">↶ Geri al</button>
+      <button id="electronReset" class="warning">⟳ Sıfırla</button>
+      <button id="electronHint" class="yellow">💡 İpucu</button>
      </div>
-     <div id="orbitals"></div>
-     <div id="electronFeedback" class="feedback" role="status" aria-live="polite"></div>
+     <div id="orbitals" style="margin-top:15px"></div>
+     <div id="electronFeedback" class="feedback" role="status"></div>
     </div>
     <details class="card">
      <summary>📚 Aufbau, Pauli ve Hund kuralları</summary>
-     <p><b>Aufbau:</b> Elektronlar önce düşük enerjili orbitallere yerleşir.</p>
-     <p><b>Pauli:</b> Bir orbitalde en fazla iki elektron bulunur ve spinleri zıttır.</p>
-     <p><b>Hund:</b> Eş enerjili orbitallere önce paralel spinli birer elektron yerleşir.</p>
+     <p><b>Aufbau:</b> Önce düşük enerjili orbital dolar.</p>
+     <p><b>Pauli:</b> Bir kutuda en fazla iki, zıt spinli elektron bulunur.</p>
+     <p><b>Hund:</b> p orbitallerine önce paralel spinli birer elektron yerleşir, sonra eşleşirler.</p>
     </details>
    </div>
    <div>
     <div class="card">
      <h3>⚛️ Canlı Atom Modeli</h3>
-     <div class="atomArea"><div id="atom" class="atom"></div></div>
+     <div id="atom" class="atom"></div>
      <p id="atomCaption" class="center"></p>
-     <p class="center" style="font-size:12px">Bohr katmanlarının basitleştirilmiş gösterimi</p>
+     <p class="center" style="font-size:12px">Basitleştirilmiş Bohr modeli</p>
     </div>
     <div class="card">
      <h3>🤖 LAB-BOT</h3>
-     <div class="robotLine"><div class="robotFace">🤖</div><div id="electronRobot" class="robotBubble"></div></div>
-    </div>
-    <div class="card">
-     <h3>🏅 Başarılar</h3>
-     <div class="achievements">
-      <div id="badgeFirst" class="achievement"><span>🔬</span><small>İlk elektron</small></div>
-      <div id="badgeCombo" class="achievement"><span>🔥</span><small>3'lü kombo</small></div>
-      <div id="badgePerfect" class="achievement"><span>🏆</span><small>Hatasız seviye</small></div>
-     </div>
+     <div class="robot"><div class="face">🤖</div><div id="electronRobot" class="bubble"></div></div>
     </div>
    </div>
   </div>
@@ -356,140 +331,148 @@ summary{cursor:pointer;color:var(--cyan);font-weight:bold}
  </div>
 </section>
 
-<!-- LEWIS -->
 <section id="lewis" class="panel hidden">
  <h2>🔵 Lewis Nokta Yapısı</h2>
- <p>Element seç ve değerlik elektronlarını sembolün çevresine yerleştir. Önce dört yöne birer nokta, sonra eşleştirme yap.</p>
+ <p>Elementin değerlik elektronlarını sembolün çevresine yerleştir.</p>
  <div class="row">
-  <label for="lewisElement">Element:</label>
-  <select id="lewisElement"></select>
-  <button id="lewisReset" class="ghost">⟳ Sıfırla</button>
-  <button id="lewisHint" class="gold">💡 İpucu</button>
+  <select id="lewisSelect"></select>
+  <button id="lewisUndo" class="secondary">↶ Geri al</button>
+  <button id="lewisReset" class="warning">⟳ Sıfırla</button>
+  <button id="lewisHint" class="yellow">💡 İpucu</button>
  </div>
- <div class="grid2" style="margin-top:18px">
+ <div class="grid2">
   <div class="card">
-   <h3>Lewis Çizim Alanı</h3>
-   <p id="lewisCount"></p>
-   <div class="lewisArea">
-    <div class="lewisBoard">
-     <div id="lewisSymbol" class="lewisSymbol">C</div>
-     <button class="lewisSpot top" data-side="0"></button>
-     <button class="lewisSpot right" data-side="1"></button>
-     <button class="lewisSpot bottom" data-side="2"></button>
-     <button class="lewisSpot left" data-side="3"></button>
-    </div>
+   <h3 id="lewisCount"></h3>
+   <div class="lewisBoard">
+    <div id="lewisSymbol" class="lewisSymbol">C</div>
+    <button class="lewisSpot top" data-side="0"></button>
+    <button class="lewisSpot right" data-side="1"></button>
+    <button class="lewisSpot bottom" data-side="2"></button>
+    <button class="lewisSpot left" data-side="3"></button>
    </div>
-   <div id="lewisFeedback" class="feedback" role="status"></div>
+   <div id="lewisFeedback" class="feedback"></div>
   </div>
   <div class="card">
    <h3>🤖 LAB-BOT</h3>
-   <div class="robotLine"><div class="robotFace">🤖</div><div id="lewisRobot" class="robotBubble">Bir element seç ve noktaları yerleştir!</div></div>
-   <p style="margin-top:20px">Bu bölüm tek atomların Lewis sembollerini öğretir. Moleküllerin bağ yapıları daha sonra eklenebilir.</p>
+   <div class="robot"><div class="face">🤖</div><div class="bubble">Önce dört yöne birer nokta, sonra çiftleme yap. Bu oyun tek atomların Lewis sembollerini öğretir.</div></div>
   </div>
  </div>
 </section>
 
-<!-- DEĞERLİK -->
 <section id="valence" class="panel hidden">
- <h2>🧬 Değerlik Elektronları Oyunu</h2>
- <p>Elementin son katmanındaki elektron sayısını bul!</p>
+ <h2>🧬 Değerlik Elektronları</h2>
+ <p>Elementin en dış katmanındaki elektron sayısını bul.</p>
+ <div class="card center">
+  <span id="valenceLevel" class="pill"></span>
+  <div id="valenceSymbol" style="font-size:90px;color:var(--blue);font-weight:900"></div>
+  <h2 id="valenceName"></h2>
+  <div id="valenceChoices" class="quizChoices"></div>
+  <div id="valenceFeedback" class="feedback"></div>
+  <button id="valenceNext" class="hidden" style="margin-top:14px">Sonraki element →</button>
+ </div>
+</section>
+
+<section id="acid" class="panel hidden">
+ <h2>🧪 Asit–Baz Laboratuvarı</h2>
+ <p>Sıvıyı seç, kaba ekle, ölçüm cihazını indir ve pH göstergesini incele!</p>
+ <div class="notice">
+  ⚠️ Eğitim simülasyonu. Gerçek kimyasalları ve özellikle temizlik ürünlerini karıştırma.
+  Buradaki pH değerleri yaklaşık örnek değerlerdir. Seyreltme modeli de basitleştirilmiştir.
+ </div>
  <div class="grid2">
-  <div class="card center">
-   <span class="badge" id="valenceLevel"></span>
-   <div style="font-size:90px;color:var(--cyan);font-weight:900" id="valenceSymbol">Na</div>
-   <h2 id="valenceName"></h2>
-   <p id="valenceQuestion"></p>
-   <div id="valenceChoices" class="answerChoices" style="justify-content:center"></div>
-   <div id="valenceFeedback" class="feedback"></div>
-   <button id="valenceNext" class="hidden" style="margin-top:15px">Sonraki soru →</button>
+  <div>
+   <div class="card">
+    <h3>⚗️ Deney Düzeneği</h3>
+    <svg class="labSvg" viewBox="0 0 350 330" aria-label="Deney kabı ve ölçüm cihazı">
+     <defs>
+      <clipPath id="beakerClip">
+       <path d="M87 76 V255 Q87 275 108 275 H238 Q259 275 259 255 V76 Z"/>
+      </clipPath>
+     </defs>
+     <rect x="118" y="12" width="112" height="48" rx="10" fill="#2b5474" stroke="#8cdbff" stroke-width="2"/>
+     <text x="174" y="32" fill="white" font-size="12" text-anchor="middle">pH ÖLÇER</text>
+     <text id="meter" x="174" y="50" fill="#8ef0bc" font-size="16" font-weight="bold" text-anchor="middle">--</text>
+     <line id="probeWire" x1="174" y1="60" x2="174" y2="91" stroke="#b2d3e4" stroke-width="4"/>
+     <rect id="probe" x="166" y="91" width="16" height="57" rx="5" fill="#d7e6ee" stroke="#7fa9bf" stroke-width="2"/>
+     <g clip-path="url(#beakerClip)">
+      <rect id="liquidFill" x="87" y="275" width="172" height="0" fill="#75cfff" opacity=".78"/>
+     </g>
+     <path d="M87 76 V255 Q87 275 108 275 H238 Q259 275 259 255 V76" fill="none" stroke="#b6dff4" stroke-width="5" stroke-linecap="round"/>
+     <path d="M75 76 H271" stroke="#b6dff4" stroke-width="5" stroke-linecap="round"/>
+     <path d="M259 239 H302 V254" fill="none" stroke="#b6dff4" stroke-width="12"/>
+     <rect x="292" y="221" width="19" height="14" rx="3" fill="#a8d7ef"/>
+     <line x1="301" y1="212" x2="301" y2="242" stroke="#d7ecfa" stroke-width="5"/>
+     <line x1="289" y1="213" x2="313" y2="213" stroke="#d7ecfa" stroke-width="5"/>
+     <text id="beakerLabel" x="174" y="308" text-anchor="middle" fill="#b6d3e6" font-size="13">Kap boş</text>
+    </svg>
+    <div class="row">
+     <button id="probeButton">⬇️ Cihazı indir</button>
+     <button id="waterButton" class="secondary">💧 Su ekle</button>
+     <button id="drainButton" class="warning">🚰 Boşalt</button>
+    </div>
+    <p id="probeDepth"></p>
+   </div>
+   <div class="card">
+    <h3>📊 pH Göstergesi</h3>
+    <div class="phLabels"><span>ASİT</span><span>NÖTR</span><span>BAZ</span></div>
+    <div class="phTrack"></div>
+    <div class="phArrow"><span id="phPointer" style="left:50%">▼</span></div>
+    <h2 id="phResult" class="center">Ölçüm bekleniyor</h2>
+    <div id="acidFeedback" class="feedback"></div>
+   </div>
   </div>
-  <div class="card">
-   <h3>🤖 LAB-BOT</h3>
-   <div class="robotLine"><div class="robotFace">🤖</div><div id="valenceRobot" class="robotBubble">Son katmandaki elektronları say!</div></div>
-   <details>
-    <summary>Grup ve periyot nasıl bulunur?</summary>
-    <p>İlk 20 elementin ana grup düzeninde, periyot dolu katman sayısıyla ilişkilidir. Değerlik elektronları ise genellikle en dış katmandaki elektronlardır. Helyumun değerlik elektron sayısı 2'dir.</p>
+  <div>
+   <div class="card">
+    <h3>🧴 Sıvı Dolabı</h3>
+    <p>Bir maddeye bastığında kaba bir ölçü eklenir.</p>
+    <div id="liquids" class="liquids"></div>
+   </div>
+   <div class="card">
+    <h3>🤖 LAB-BOT</h3>
+    <div class="robot"><div class="face">🤖</div><div id="acidRobot" class="bubble">Bir sıvı seçerek başla!</div></div>
+   </div>
+   <details class="card">
+    <summary>⚠️ Kimyasal güvenlik bilgileri</summary>
+    <p>Çamaşır suyu, tuz ruhu, lavabo açıcı ve güçlü yağ çözücüler tehlikeli olabilir. Özellikle çamaşır suyu asitlerle veya amonyaklı ürünlerle karıştırılmamalıdır. Bu maddeleri gerçek deneylerde kullanma.</p>
    </details>
   </div>
  </div>
 </section>
 
-<!-- ASİT BAZ -->
-<section id="acid" class="panel hidden">
- <h2>🧪 Asit–Baz Laboratuvarı</h2>
- <p>Çizdiğin deney düzeneğinin dijital hâli! Sıvı ekle, ölçüm cihazını aşağı indir, göstergeyi oku, suyla seyrelt veya musluğu açıp boşalt.</p>
- <div class="notice">
-  ⚠️ Bu bir eğitim simülasyonudur. Gerçek kimyasalları özellikle temizlik ürünlerini birbirleriyle karıştırma. Oyundaki pH değerleri seçilen maddelerin örnek çözeltilerine aittir; karışım hesapları gerçek laboratuvar ölçümü değildir.
- </div>
- <div class="grid2" style="margin-top:18px">
-  <div>
-   <div class="card">
-    <h3>⚗️ Deney Düzeneği</h3>
-    <div class="labDrawing">
-     <svg id="labSvg" viewBox="0 0 350 330" aria-label="Sıvı kabı, ölçüm cihazı ve boşaltma musluğu">
-      <defs>
-       <clipPath id="beakerClip">
-        <path d="M88 78 L88 255 Q88 274 108 274 L238 274 Q258 274 258 255 L258 78 Z"/>
-       </clipPath>
-      </defs>
-      <rect x="118" y="15" width="112" height="47" rx="10" fill="#2b5474" stroke="#8cdbff" stroke-width="2"/>
-      <text x="174" y="34" text-anchor="middle" fill="white" font-size="12">pH ÖLÇER</text>
-      <text id="meterDisplay" x="174" y="52" text-anchor="middle" fill="#8ef0bc" font-size="16" font-weight="bold">--</text>
-      <line id="probeWire" x1="174" y1="62" x2="174" y2="92" stroke="#a9c5d8" stroke-width="4"/>
-      <rect id="probe" x="166" y="91" width="16" height="57" rx="5" fill="#d5e4ed" stroke="#7fa9bf" stroke-width="2"/>
-      <g clip-path="url(#beakerClip)">
-       <rect id="liquidFill" x="88" y="274" width="170" height="0" fill="#78d3f8" opacity=".78"/>
-      </g>
-      <path d="M88 76 V255 Q88 274 108 274 H238 Q258 274 258 255 V76" fill="none" stroke="#b6dff4" stroke-width="5" stroke-linecap="round"/>
-      <path d="M76 76 H270" stroke="#b6dff4" stroke-width="5" stroke-linecap="round"/>
-      <path d="M258 239 H302 V254" fill="none" stroke="#b6dff4" stroke-width="12" stroke-linejoin="round"/>
-      <rect x="292" y="221" width="19" height="14" rx="3" fill="#a8d7ef"/>
-      <line x1="301" y1="213" x2="301" y2="241" stroke="#d7ecfa" stroke-width="5"/>
-      <line x1="289" y1="213" x2="313" y2="213" stroke="#d7ecfa" stroke-width="5"/>
-      <path id="drainDrop" d="M301 261 Q288 281 301 290 Q314 281 301 261" fill="#72d0f5" opacity="0"/>
-      <text x="174" y="307" text-anchor="middle" fill="#b6d3e6" font-size="13" id="beakerLabel">Kap boş</text>
-     </svg>
-    </div>
-    <div class="controls">
-     <button id="probeButton">⬇️ Ölçüm cihazını indir</button>
-     <button id="waterButton" class="ghost">💧 Su ekle</button>
-     <button id="drainButton" class="danger">🚰 Musluğu aç</button>
-    </div>
-    <p id="probeDepth">Cihaz yukarıda</p>
+<section id="quiz" class="panel hidden">
+ <span id="quizUnit" class="pill"></span>
+ <h2 id="quizTitle" style="margin-top:12px"></h2>
+ <p id="quizDescription"></p>
+ <div class="grid2">
+  <div class="card">
+   <div class="row between">
+    <span id="quizProgress" class="pill"></span>
+    <span id="quizStars" style="color:var(--yellow);font-size:24px">☆☆☆</span>
    </div>
-   <div class="card">
-    <h3>📊 Asit – Nötr – Baz Göstergesi</h3>
-    <div class="phScale">
-     <div class="phLabels"><span>ASİT</span><span>NÖTR</span><span>BAZ</span></div>
-     <div class="phTrack"></div>
-     <div class="phPointer"><span id="phArrow" class="phArrow" style="left:50%">▼</span></div>
-     <div id="phValue" class="phValue">Ölçüm bekleniyor</div>
-    </div>
-    <div id="acidFeedback" class="feedback" role="status"></div>
+   <div class="progress"><div id="quizBar" class="bar"></div></div>
+   <h3 id="quizQuestion" style="color:white;margin-top:20px"></h3>
+   <div id="quizChoices" class="quizChoices"></div>
+   <div id="quizFeedback" class="feedback" role="status"></div>
+   <div class="row" style="margin-top:12px">
+    <button id="quizHint" class="yellow">💡 İpucu</button>
+    <button id="quizNext" class="hidden">Sonraki soru →</button>
    </div>
   </div>
-  <div>
-   <div class="card">
-    <h3>🧴 Sıvı Seçimi</h3>
-    <p>Bir maddeye basınca kaba bir ölçü eklenir.</p>
-    <div id="liquidChoices" class="labLiquids"></div>
-   </div>
-   <div class="card">
-    <h3>🤖 LAB-BOT</h3>
-    <div class="robotLine"><div class="robotFace">🤖</div><div id="acidRobot" class="robotBubble">Önce bir sıvı seç!</div></div>
-   </div>
+  <div class="card">
+   <h3>🤖 LAB-BOT</h3>
+   <div class="robot"><div class="face">🤖</div><div id="quizRobot" class="bubble">Soruyu dikkatlice oku!</div></div>
   </div>
  </div>
 </section>
 
-<footer>KimyaVerse • İnteraktif Kimya Laboratuvarı</footer>
+<footer>⚗️ KimyaVerse • Keşfet, Dene, Öğren!</footer>
 </main>
 
-<div id="celebration" class="celebration hidden">
- <div class="celebrationBox">
-  <div style="font-size:65px">🏆</div>
-  <h2 id="winTitle">TEBRİKLER!</h2>
-  <div id="winStars" class="stars">★★★</div>
+<div id="celebration" class="modal hidden">
+ <div class="modalBox">
+  <div style="font-size:67px">🏆</div>
+  <h2 id="winTitle"></h2>
+  <div id="winStars" style="color:var(--yellow);font-size:34px"></div>
   <p id="winText"></p>
   <button id="winClose">Devam et ✨</button>
  </div>
@@ -497,610 +480,882 @@ summary{cursor:pointer;color:var(--cyan);font-weight:bold}
 
 <script>
 "use strict";
+const $=id=>document.getElementById(id);
 
-const $ = id => document.getElementById(id);
-
+// VERİLER
 const elements=[
- {s:"H",n:"Hidrojen",z:1,r:1,c:1,t:"nonmetal",v:1},
- {s:"He",n:"Helyum",z:2,r:1,c:18,t:"noble",v:2},
- {s:"Li",n:"Lityum",z:3,r:2,c:1,t:"alkali",v:1},
- {s:"Be",n:"Berilyum",z:4,r:2,c:2,t:"earth",v:2},
- {s:"B",n:"Bor",z:5,r:2,c:13,t:"metalloid",v:3},
- {s:"C",n:"Karbon",z:6,r:2,c:14,t:"nonmetal",v:4},
- {s:"N",n:"Azot",z:7,r:2,c:15,t:"nonmetal",v:5},
- {s:"O",n:"Oksijen",z:8,r:2,c:16,t:"nonmetal",v:6},
- {s:"F",n:"Flor",z:9,r:2,c:17,t:"halogen",v:7},
- {s:"Ne",n:"Neon",z:10,r:2,c:18,t:"noble",v:8},
- {s:"Na",n:"Sodyum",z:11,r:3,c:1,t:"alkali",v:1},
- {s:"Mg",n:"Magnezyum",z:12,r:3,c:2,t:"earth",v:2},
- {s:"Al",n:"Alüminyum",z:13,r:3,c:13,t:"metal",v:3},
- {s:"Si",n:"Silisyum",z:14,r:3,c:14,t:"metalloid",v:4},
- {s:"P",n:"Fosfor",z:15,r:3,c:15,t:"nonmetal",v:5},
- {s:"S",n:"Kükürt",z:16,r:3,c:16,t:"nonmetal",v:6},
- {s:"Cl",n:"Klor",z:17,r:3,c:17,t:"halogen",v:7},
- {s:"Ar",n:"Argon",z:18,r:3,c:18,t:"noble",v:8},
- {s:"K",n:"Potasyum",z:19,r:4,c:1,t:"alkali",v:1},
- {s:"Ca",n:"Kalsiyum",z:20,r:4,c:2,t:"earth",v:2}
+ ["H","Hidrojen",1,1,1,"nonmetal",1],
+ ["He","Helyum",2,1,18,"noble",2],
+ ["Li","Lityum",3,2,1,"alkali",1],
+ ["Be","Berilyum",4,2,2,"earth",2],
+ ["B","Bor",5,2,13,"metalloid",3],
+ ["C","Karbon",6,2,14,"nonmetal",4],
+ ["N","Azot",7,2,15,"nonmetal",5],
+ ["O","Oksijen",8,2,16,"nonmetal",6],
+ ["F","Flor",9,2,17,"halogen",7],
+ ["Ne","Neon",10,2,18,"noble",8],
+ ["Na","Sodyum",11,3,1,"alkali",1],
+ ["Mg","Magnezyum",12,3,2,"earth",2],
+ ["Al","Alüminyum",13,3,13,"metal",3],
+ ["Si","Silisyum",14,3,14,"metalloid",4],
+ ["P","Fosfor",15,3,15,"nonmetal",5],
+ ["S","Kükürt",16,3,16,"nonmetal",6],
+ ["Cl","Klor",17,3,17,"halogen",7],
+ ["Ar","Argon",18,3,18,"noble",8],
+ ["K","Potasyum",19,4,1,"alkali",1],
+ ["Ca","Kalsiyum",20,4,2,"earth",2]
 ];
-
 const subshells=[
- {name:"1s",boxes:1,shell:1},
- {name:"2s",boxes:1,shell:2},
- {name:"2p",boxes:3,shell:2},
- {name:"3s",boxes:1,shell:3},
- {name:"3p",boxes:3,shell:3},
- {name:"4s",boxes:1,shell:4}
+ ["1s",1,1],["2s",1,2],["2p",3,2],
+ ["3s",1,3],["3p",3,3],["4s",1,4]
 ];
 
-let score=0,streak=0,errors=0;
-let soundEnabled=true,audioContext=null;
-let achievements={first:false,combo:false,perfect:false};
-let currentPage="home";
-
-function changeScore(value){
- score+=value;
- $("globalScore").textContent=score;
-}
-function correct(points=10){
- changeScore(points);
- streak++;
- $("globalStreak").textContent=streak;
- if(streak%3===0){
-  changeScore(5);
-  achievements.combo=true;
-  playSound("combo");
-  return 5;
+// ÜNİTELER VE OYUNLAR
+const units=[
+ {
+  title:"1. Ünite: Kimya Bilimi",
+  emoji:"🧑‍🔬",
+  desc:"Günlük hayat, kimyasal güvenlik, alt disiplinler ve meslekler.",
+  games:[
+   ["dedektif","🔎","Kimya Dedektifi","Kimya hayatımızın neresinde?"],
+   ["guvenlik","🥽","Güvenli Laboratuvar","Doğru güvenlik kararlarını ver."],
+   ["disiplin","🧫","Kimya Dalları","Alt disiplinleri ve kariyerleri keşfet."]
+  ]
+ },
+ {
+  title:"2. Ünite: Atom ve Periyodik Sistem",
+  emoji:"⚛️",
+  desc:"Atom modelleri, elektron dizilimi, periyodik tablo ve özellikler.",
+  games:[
+   ["electron","⚛️","Elektron Dizilimi","Orbitalleri doğru doldur."],
+   ["lewis","🔵","Lewis Nokta Yapısı","Değerlik noktalarını yerleştir."],
+   ["valence","🧬","Değerlik Elektronları","Son katmandaki elektronları bul."],
+   ["atom","🔬","Atom Modelleri","Dalton'dan modern modele."],
+   ["periyodik","📈","Periyodik Özellikler","Yarıçap, elektronegatiflik ve daha fazlası."]
+  ]
+ },
+ {
+  title:"3. Ünite: Kimyasal Türler Arası Etkileşimler",
+  emoji:"🔗",
+  desc:"Atomlar, iyonlar, moleküller, bağlar ve değişimler.",
+  games:[
+   ["turler","🧩","Kimyasal Tür Avcısı","Atom, iyon, molekül ve radikal."],
+   ["baglar","🔗","Bağ Dedektifi","İyonik, kovalent ve metalik bağlar."],
+   ["zayif","🧲","Etkileşim Avcısı","Zayıf etkileşimler ve hidrojen bağı."],
+   ["degisim","🔥","Değişim Dedektifi","Fiziksel mi kimyasal mı?"]
+  ]
+ },
+ {
+  title:"4. Ünite: Maddenin Halleri",
+  emoji:"🧊",
+  desc:"Katı, sıvı, gaz, plazma ve hâl değişimleri.",
+  games:[
+   ["haller","🧊","Madde Hali Avcısı","Katı, sıvı, gaz ve plazma."],
+   ["katilar","💎","Katı Dedektifi","Kristal ve amorf katılar."],
+   ["sivilar","💦","Sıvıların Sırları","Viskozite, yüzey gerilimi, adezyon."],
+   ["grafik","🌡️","Hâl Değişimi","Isınma, soğuma ve hâl değişimi."]
+  ]
+ },
+ {
+  title:"5. Ünite: Doğa ve Kimya",
+  emoji:"🌱",
+  desc:"Su, çevre, sürdürülebilirlik ve yeşil kimya.",
+  games:[
+   ["acid","🧪","Asit–Baz Laboratuvarı","Sıvıları incele, ölç ve seyrelt."],
+   ["su","💧","Su ve Hayat","Suyun özelliklerini öğren."],
+   ["cevre","🌍","Çevre Dedektifi","Ekosistemleri koru."],
+   ["yesil","♻️","Yeşil Kimya","Sürdürülebilir çözümler bul."]
+  ]
  }
- playSound("correct");
- return 0;
-}
-function wrong(){
- changeScore(-5);
- errors++;
- streak=0;
- $("globalStreak").textContent=0;
- $("globalErrors").textContent=errors;
- playSound("wrong");
-}
-function showPage(page){
- currentPage=page;
- ["home","electron","lewis","valence","acid"].forEach(id=>{
-  $(id).classList.toggle("hidden",id!==page);
- });
- $("navigation").classList.toggle("hidden",page==="home");
- document.querySelectorAll("#navigation button").forEach(btn=>{
-  btn.classList.toggle("selected",btn.dataset.page===page);
- });
- window.scrollTo({top:0,behavior:"smooth"});
-}
-document.querySelectorAll("[data-page]").forEach(btn=>{
- btn.addEventListener("click",()=>showPage(btn.dataset.page));
-});
+];
 
-function playSound(type){
- if(!soundEnabled)return;
+// SORU BANKASI
+// Her soru: [soru, seçenekler, doğru seçeneğin indeksi, açıklama, ipucu]
+const questionBank={
+ dedektif:[
+  ["Ekmeğin pişmesi hangi değişime örnektir?",["Kimyasal","Yalnızca şekil değişimi","Erime","Donma"],0,"Pişirme sırasında yeni maddeler oluşur.","Isıyla yeni maddeler oluşuyor mu?"],
+  ["Paslanma hangi olaydır?",["Fiziksel","Kimyasal","Buharlaşma","Yoğuşma"],1,"Demir oksijenle tepkimeye girer.","Yeni bir madde oluşur."],
+  ["Sabunun kirleri uzaklaştırmasında hangi alan önemlidir?",["Kimya","Astronomi","Jeoloji","Tarih"],0,"Sabun moleküllerinin yapısı ve etkileşimleri kimyayla ilgilidir.","Maddelerin özelliklerini düşün."],
+  ["Sütün ekşimesi genellikle hangi değişimdir?",["Fiziksel","Kimyasal","Donma","Süblimleşme"],1,"Ekşime sırasında kimyasal dönüşümler gerçekleşir.","Koku ve bileşim değişebilir."]
+ ],
+ guvenlik:[
+  ["Laboratuvarda gözlerimizi neyle koruruz?",["Güneş gözlüğü","Koruyucu gözlük","Hiçbir şey","Eldiven"],1,"Koruyucu gözlük sıçramalara karşı korur.","Gözü koruyan laboratuvar ekipmanı."],
+  ["Çamaşır suyu ve tuz ruhu karıştırılır mı?",["Evet","Az miktarda","Hayır, tehlikeli","Isıtılırsa"],2,"Zehirli klor gazı açığa çıkabilir.","Temizlik maddelerini rastgele karıştırma."],
+  ["Bilinmeyen kimyasalın kokusu nasıl kontrol edilir?",["Doğrudan koklanır","Tadına bakılır","Öğretmen talimatı olmadan koklanmaz","Yüze yaklaştırılır"],2,"Kimyasallar doğrudan koklanmamalıdır.","Önce güvenlik."],
+  ["Asit çözeltisi hazırlanırken genel kural hangisidir?",["Su aside eklenir","Asit suya yavaşça eklenir","İkisi hızla karıştırılır","Koruyucu gerekmez"],1,"Uygun koşullarda asit suya kontrollü eklenir.","Sıçramayı önlemeyi düşün."]
+ ],
+ disiplin:[
+  ["Canlılardaki kimyasal olayları inceleyen dal?",["Biyokimya","Petrokimya","Jeokimya","Astronomi"],0,"Biyokimya canlı sistemlerdeki kimyayı inceler.","Biyo = yaşam."],
+  ["Karbon bileşiklerini inceleyen dal?",["Anorganik","Organik","Analitik","Nükleer"],1,"Organik kimya başlıca karbon bileşiklerini inceler.","Karbon temelli bileşikler."],
+  ["Bir numunedeki madde miktarını belirleyen dal?",["Analitik kimya","Polimer kimyası","Astrofizik","Botanik"],0,"Analitik kimya maddelerin türünü ve miktarını belirler.","Analiz sözcüğünü düşün."],
+  ["İlaç geliştirme alanında kimya bilgisi kullanılır mı?",["Hayır","Evet","Yalnızca fizikte","Yalnızca tarihte"],1,"İlaç araştırmalarında kimya önemli rol oynar.","Molekül tasarımını düşün."]
+ ],
+ atom:[
+  ["Atomu içi dolu küre olarak tasvir eden model?",["Dalton","Bohr","Modern","Rutherford"],0,"Dalton atomu bölünemez küre gibi düşünmüştü.","En eski modellerden biri."],
+  ["Elektronun keşfiyle ilişkili bilim insanı?",["Thomson","Lavoisier","Mendeleyev","Newton"],0,"Thomson elektronla ilgili deneyleriyle tanınır.","Üzümlü kek modelini düşün."],
+  ["Altın levha deneyini kim yaptı?",["Bohr","Rutherford","Dalton","Demokritos"],1,"Rutherford atom çekirdeği fikrini geliştirdi.","Çekirdek modelini düşün."],
+  ["Elektronların belirli enerji düzeylerini vurgulayan model?",["Bohr","Dalton","Thomson","Demokritos"],0,"Bohr modelinde enerji düzeyleri bulunur.","Katmanlı atom modeli."],
+  ["Modern modelde elektronlar nasıl tanımlanır?",["Kesin dairesel yörüngeler","Bulunma olasılığıyla","Çekirdeğin içinde","Hareketsiz"],1,"Orbitaller elektronun bulunma olasılığıyla ilişkilidir.","Orbital kavramını hatırla."]
+ ],
+ periyodik:[
+  ["Periyot numarası genellikle neyi gösterir?",["Dolu katman sayısını","Nötron sayısını","Bağ sayısını","Kütleyi"],0,"Periyot numarası kullanılan en yüksek ana enerji düzeyiyle ilişkilidir.","Katmanları düşün."],
+  ["Aynı gruptaki ana grup elementlerinin ortak yönü?",["Benzer değerlik düzeni","Aynı proton sayısı","Aynı kütle","Aynı periyot"],0,"Benzer değerlik elektron düzenleri benzer özellikler sağlar.","Son katmana bak."],
+  ["Bir periyotta soldan sağa atom yarıçapı genel olarak?",["Artar","Azalır","Değişmez","Sıfır olur"],1,"Etkin çekirdek çekimi genel olarak artar.","Çekirdek elektronları daha güçlü çeker."],
+  ["Bir grupta aşağı indikçe atom yarıçapı genellikle?",["Artar","Azalır","Sıfırlanır","Değişmez"],0,"Yeni katmanlar eklenir.","Katman sayısı artıyor."],
+  ["Elektronegatifliği çok yüksek element?",["Flor","Sodyum","Potasyum","Kalsiyum"],0,"Flor elektronegatifliği en yüksek elementtir.","Periyodik tablonun sağ üst tarafı."]
+ ],
+ turler:[
+  ["Na⁺ hangi türdür?",["Nötr atom","Katyon","Anyon","Molekül"],1,"Elektron kaybetmiş pozitif yüklü iyondur.","Artı yüke bak."],
+  ["Cl⁻ hangi türdür?",["Katyon","Anyon","Nötr atom","Metal"],1,"Elektron kazanmış negatif yüklü iyondur.","Eksi yüke bak."],
+  ["O₂ hangi türdür?",["Molekül","Tek atom","Katyon","Elektron"],0,"İki oksijen atomundan oluşan moleküldür.","İki atom bağlı."],
+  ["Eşleşmemiş elektronu bulunan türlere ne denir?",["Radikal","İzotop","Kristal","Katı"],0,"Radikaller eşleşmemiş elektron içerir.","Eşleşmemiş elektron."],
+  ["Tek bir nötr He taneciği nedir?",["Atom","Molekül","Anyon","Katyon"],0,"He tek atomlu bir soy gazdır.","Tek tanecik."]
+ ],
+ baglar:[
+  ["NaCl'deki temel bağ türü?",["İyonik","Kovalent","Metalik","Hidrojen bağı"],0,"Na⁺ ve Cl⁻ iyonları arasındaki çekim iyoniktir.","Metal ve ametal."],
+  ["H₂ molekülündeki bağ?",["Kovalent","İyonik","Metalik","Dipol"],0,"İki hidrojen atomu elektronlarını ortaklaşa kullanır.","Elektron ortaklaşması."],
+  ["Bakır metalindeki bağ?",["İyonik","Metalik","Kovalent","Hidrojen"],1,"Metalik bağ, metal tanecikleri ve hareketli elektronlarla açıklanır.","Bir metal düşün."],
+  ["MgO'daki temel bağ?",["İyonik","Metalik","Apolar kovalent","Hidrojen"],0,"Mg ve O iyonları arasında iyonik çekim bulunur.","Metal + ametal."]
+ ],
+ zayif:[
+  ["Su molekülleri arasında güçlü biçimde görülen özel etkileşim?",["Hidrojen bağı","Metalik bağ","İyonik kristal bağı","Çekirdek bağı"],0,"Su molekülleri arasında hidrojen bağları oluşabilir.","H atomu ve O atomunu düşün."],
+  ["Van der Waals etkileşimleri hangi sınıftadır?",["Zayıf etkileşimler","Nükleer tepkimeler","Metalik bağlar","İyonik bağlar"],0,"Moleküller arası zayıf etkileşimlerdendir.","Moleküller arası çekim."],
+  ["Kaynama sırasında su moleküllerindeki O–H kovalent bağları genellikle?",["Kopar","Korunur","Metalik olur","İyonik olur"],1,"Kaynamada moleküller arası etkileşimler aşılır, molekül içi O–H bağları korunur.","Molekül aynı molekül kalır."],
+  ["Geçici dipollerin oluşturduğu çekim?",["London kuvvetleri","Metalik bağ","İyonik bağ","Kovalent bağ"],0,"London dağılım kuvvetleri geçici dipollerle ilişkilidir.","Anlık dipol."]
+ ],
+ degisim:[
+  ["Buzun erimesi?",["Fiziksel","Kimyasal","Yanma","Paslanma"],0,"H₂O'nun kimliği değişmez.","Yalnızca hâl değişiyor."],
+  ["Odunun yanması?",["Fiziksel","Kimyasal","Erime","Donma"],1,"Yeni maddeler oluşur.","Yanma tepkimesi."],
+  ["Camın kırılması?",["Fiziksel","Kimyasal","Çürüme","Yanma"],0,"Camın kimyasal bileşimi değişmez.","Şekil değişiyor."],
+  ["Yumurtanın pişmesi?",["Fiziksel","Kimyasal","Yoğuşma","Süblimleşme"],1,"Proteinlerde kimyasal yapısal değişimler gerçekleşir.","Pişirme süreci."]
+ ],
+ haller:[
+  ["Belirli şekli ve hacmi olan hâl?",["Katı","Sıvı","Gaz","Plazma"],0,"Katılar genellikle şekil ve hacimlerini korur.","Tanecikler daha düzenli ve yakın."],
+  ["Kabın şeklini alan ama yaklaşık sabit hacimli hâl?",["Gaz","Sıvı","Plazma","Kristal"],1,"Sıvılar akar ve kabın şeklini alır.","Akışkan ama hacmi belirli."],
+  ["Kabın tamamını dolduran hâl?",["Gaz","Katı","Kristal","Amorf"],0,"Gazlar bulundukları hacme yayılır.","Tanecikler çok hareketli."],
+  ["İyonlaşmış gaz benzeri hâl?",["Plazma","Kristal","Sıvı","Amorf"],0,"Plazmada iyonlar ve serbest elektronlar bulunur.","Yıldızları düşün."]
+ ],
+ katilar:[
+  ["Düzenli tanecik dizilişine sahip katı?",["Kristal","Amorf","Gaz","Plazma"],0,"Kristallerde uzun menzilli düzen bulunur.","Düzenli örgü."],
+  ["Cam genellikle hangi katı sınıfındadır?",["Amorf","İyonik kristal","Metalik kristal","Gaz"],0,"Cam amorf katıdır.","Düzenli kristal örgüsü yok."],
+  ["Sofra tuzu hangi katıya örnektir?",["İyonik kristal","Amorf","Moleküler gaz","Plazma"],0,"NaCl iyonik kristal örgü oluşturur.","İyonlar düzenli dizilir."],
+  ["Elmas hangi katı yapısına örnektir?",["Kovalent ağ kristali","Amorf plastik","İyonik gaz","Sıvı"],0,"Elmasta atomlar geniş kovalent ağ oluşturur.","Karbon atomları birbirine bağlı."]
+ ],
+ sivilar:[
+  ["Sıvının akmaya karşı gösterdiği direnç?",["Viskozite","Yoğunlaşma","Süblimleşme","İyonlaşma"],0,"Viskozite akmaya karşı dirençtir.","Balın yavaş akmasını düşün."],
+  ["Su damlasının küresel görünmesine katkı sağlayan özellik?",["Yüzey gerilimi","Metalik bağ","Radyoaktivite","İyonlaşma"],0,"Kohezyon ve yüzey gerilimi damla biçimini etkiler.","Sıvının yüzeyi."],
+  ["Farklı tür tanecikler arasındaki çekim?",["Adezyon","Kohezyon","İyonlaşma","Erime"],0,"Adezyon farklı maddelerin tanecikleri arasındaki çekimdir.","Su ve cam."],
+  ["Aynı tür tanecikler arasındaki çekim?",["Kohezyon","Adezyon","Yoğuşma","İyonlaşma"],0,"Kohezyon aynı maddenin tanecikleri arasındaki çekimdir.","Su ve su."],
+  ["Sıcaklık arttıkça sıvıların viskozitesi genellikle?",["Azalır","Artar","Sonsuz olur","Değişmez"],0,"Sıvıların çoğunda sıcaklık artınca viskozite azalır.","Bal ısınınca daha kolay akar."]
+ ],
+ grafik:[
+  ["Katının sıvıya geçişi?",["Erime","Donma","Yoğuşma","Kırağılaşma"],0,"Erime katıdan sıvıya geçiştir.","Buzun suya dönüşmesi."],
+  ["Gazın sıvıya dönüşmesi?",["Yoğuşma","Süblimleşme","Erime","Donma"],0,"Yoğuşma gazdan sıvıya geçiştir.","Buhardan damla."],
+  ["Katının doğrudan gaza geçmesi?",["Süblimleşme","Erime","Kaynama","Yoğuşma"],0,"Süblimleşme katıdan doğrudan gaza geçiştir.","Kuru buz örneği."],
+  ["Saf bir maddenin sabit basınçta hâl değişimi sırasında sıcaklığı?",["Genellikle sabit kalır","Sürekli artar","Sıfır olur","Rastgele değişir"],0,"Hâl değişiminde alınan veya verilen enerji tanecikler arası etkileşimleri değiştirir.","Isıtma grafiğindeki yatay bölge."]
+ ],
+ su:[
+  ["Su molekülünün formülü?",["H₂O","CO₂","NaCl","O₂"],0,"Su iki hidrojen ve bir oksijen atomundan oluşur.","Hidrojen ve oksijen."],
+  ["Buzun sıvı su üzerinde yüzmesinin nedeni?",["Buzun yoğunluğunun daha düşük olması","Daha ağır olması","Metal olması","Gaz olması"],0,"Buzun yapısı yoğunluğunun sıvı sudan düşük olmasını sağlar.","Yoğunluk karşılaştır."],
+  ["Suyun iyi bir çözücü olmasına katkı sağlayan özellik?",["Polar yapısı","Metalik olması","Apolar olması","Radyoaktif olması"],0,"Suyun polar yapısı birçok iyonik ve polar maddeyi çözmesine yardımcı olur.","Molekülün kutupluluğu."],
+  ["Canlıların sıcaklık değişimlerine dayanmasında suyun hangi özelliği önemlidir?",["Yüksek özgül ısısı","Metalik bağları","Yanıcılığı","Radyoaktivitesi"],0,"Su sıcaklığını değiştirmek için görece fazla enerji gerektirir.","Isıyı düşün."]
+ ],
+ cevre:[
+  ["Atık piller nereye atılmalı?",["Pil toplama kutusuna","Toprağa","Denize","Lavaboya"],0,"Atık piller uygun toplama sistemine verilmelidir.","Özel atık toplama."],
+  ["Asit yağmurlarına katkı sağlayan gazlardan biri?",["SO₂","He","Ne","Ar"],0,"Kükürt dioksit asit yağmurlarına katkı sağlayabilir.","Kükürt oksitleri."],
+  ["Plastik atıkları azaltmak için hangisi daha uygundur?",["Yeniden kullanılabilir ürünler","Tek kullanımlık ürünleri artırmak","Çöpleri yakmak","Denize atmak"],0,"Yeniden kullanım atık oluşumunu azaltır.","Daha az atık."],
+  ["Su kirliliği hangi canlıları etkiler?",["Ekosistemdeki birçok canlıyı","Hiçbirini","Yalnızca balıkları","Yalnızca insanları"],0,"Su kirliliği besin ağlarını ve yaşam alanlarını etkiler.","Ekosistem bir bütündür."]
+ ],
+ yesil:[
+  ["Yeşil kimyanın amaçlarından biri?",["Atığı kaynağında azaltmak","Daha çok tehlikeli atık üretmek","Enerjiyi boşa harcamak","Kirliliği artırmak"],0,"Yeşil kimya daha güvenli ve sürdürülebilir süreçleri hedefler.","Önlemek, temizlemekten iyidir."],
+  ["Yenilenebilir kaynaklara örnek?",["Güneş enerjisi","Kömür","Petrol","Doğal gaz"],0,"Güneş enerjisi yenilenebilir bir kaynaktır.","Güneşi düşün."],
+  ["Nanoparçacıkların boyutu genellikle hangi ölçektedir?",["Nanometre","Kilometre","Metre","Santimetre"],0,"Nanoparçacıklar nanometre ölçeğinde boyutlara sahiptir.","Çok çok küçük."],
+  ["Sürdürülebilir bir üretim süreci neyi hedefler?",["Kaynakları verimli kullanmayı","Sınırsız atık üretmeyi","Suyu kirletmeyi","Enerjiyi boşa harcamayı"],0,"Kaynak verimliliği ve çevresel etkilerin azaltılması önemlidir.","Gelecek nesilleri düşün."]
+ ]
+};
+
+// PUAN VE SES
+let score=0,streak=0,errors=0,stars=0;
+let audioCtx=null,soundOn=true;
+let badges={first:false,combo:false,perfect:false};
+function updateStats(){
+ $("score").textContent=score;
+ $("streak").textContent=streak;
+ $("errors").textContent=errors;
+ $("stars").textContent=stars;
+ ["first","combo","perfect"].forEach(k=>{
+  $("badge"+k[0].toUpperCase()+k.slice(1))
+   .classList.toggle("unlocked",badges[k]);
+ });
+}
+function addScore(n){score+=n;updateStats()}
+function sound(type){
+ if(!soundOn)return;
  try{
   const AC=window.AudioContext||window.webkitAudioContext;
   if(!AC)return;
-  if(!audioContext)audioContext=new AC();
-  if(audioContext.state==="suspended")audioContext.resume();
-  const now=audioContext.currentTime;
-  function tone(freq,offset,duration,wave="sine"){
-   const o=audioContext.createOscillator();
-   const g=audioContext.createGain();
-   o.type=wave;o.frequency.value=freq;
-   g.gain.setValueAtTime(.0001,now+offset);
-   g.gain.exponentialRampToValueAtTime(.1,now+offset+.01);
-   g.gain.exponentialRampToValueAtTime(.0001,now+offset+duration);
-   o.connect(g);g.connect(audioContext.destination);
-   o.start(now+offset);o.stop(now+offset+duration+.02);
+  if(!audioCtx)audioCtx=new AC();
+  if(audioCtx.state==="suspended")audioCtx.resume();
+  const now=audioCtx.currentTime;
+  function note(freq,delay,duration){
+   const osc=audioCtx.createOscillator();
+   const gain=audioCtx.createGain();
+   osc.type=type==="wrong"?"triangle":"sine";
+   osc.frequency.value=freq;
+   gain.gain.setValueAtTime(.0001,now+delay);
+   gain.gain.exponentialRampToValueAtTime(.09,now+delay+.01);
+   gain.gain.exponentialRampToValueAtTime(.0001,now+delay+duration);
+   osc.connect(gain);gain.connect(audioCtx.destination);
+   osc.start(now+delay);osc.stop(now+delay+duration+.02);
   }
-  if(type==="correct"){tone(520,0,.12);tone(780,.1,.16)}
-  if(type==="wrong"){tone(230,0,.15,"sawtooth");tone(160,.12,.2,"sawtooth")}
-  if(type==="combo"){tone(660,0,.12);tone(990,.1,.2)}
-  if(type==="win"){tone(440,0,.15);tone(550,.14,.15);tone(660,.28,.15);tone(880,.42,.3)}
+  if(type==="wrong"){note(220,0,.15);note(160,.12,.19)}
+  if(type==="correct"){note(520,0,.12);note(780,.11,.18)}
+  if(type==="combo"){note(600,0,.1);note(900,.1,.2)}
+  if(type==="win"){note(440,0,.13);note(550,.14,.13);note(660,.28,.13);note(880,.42,.3)}
  }catch(e){}
 }
-function celebrate(title,text,stars=3){
+function correct(){
+ score+=10;streak++;
+ badges.first=true;
+ let bonus=0;
+ if(streak%3===0){bonus=5;score+=5;badges.combo=true;sound("combo")}
+ else sound("correct");
+ updateStats();
+ return bonus;
+}
+function wrong(){
+ score-=5;errors++;streak=0;
+ updateStats();sound("wrong");
+}
+function finishGame(mistakes,title,description){
+ score+=50;
+ if(mistakes===0){score+=30;badges.perfect=true}
+ const earnedStars=mistakes===0?3:mistakes<=2?2:1;
+ stars+=earnedStars;
+ updateStats();
+ celebrate(title,description+" • +50 bitirme"+(mistakes===0?" • +30 hatasız bonus":""),earnedStars);
+}
+$("soundBtn").onclick=()=>{
+ soundOn=!soundOn;
+ $("soundBtn").textContent=soundOn?"🔊 Ses açık":"🔇 Ses kapalı";
+};
+function celebrate(title,description,count){
  $("winTitle").textContent=title;
- $("winText").textContent=text;
- $("winStars").textContent="★".repeat(stars)+"☆".repeat(3-stars);
+ $("winText").textContent=description;
+ $("winStars").textContent="★".repeat(count)+"☆".repeat(3-count);
  $("celebration").classList.remove("hidden");
- playSound("win");
- const colors=["#65d4ff","#ffd66b","#ff657d","#54e0ae","#bba1ff"];
- for(let i=0;i<50;i++){
-  const part=document.createElement("div");
-  part.className="confetti";
-  part.style.left=Math.random()*100+"vw";
-  part.style.background=colors[Math.floor(Math.random()*colors.length)];
-  part.style.animationDuration=2+Math.random()*2+"s";
-  part.style.animationDelay=Math.random()*.6+"s";
-  document.body.append(part);
-  part.addEventListener("animationend",()=>part.remove());
+ sound("win");
+ const colors=["#6bd8ff","#ffd778","#ff718b","#6ae6b5","#c2a6ff"];
+ for(let i=0;i<45;i++){
+  const c=document.createElement("div");
+  c.className="confetti";
+  c.style.left=Math.random()*100+"vw";
+  c.style.background=colors[i%colors.length];
+  c.style.animationDuration=2+Math.random()*2+"s";
+  c.style.animationDelay=Math.random()*.4+"s";
+  document.body.append(c);
+  c.addEventListener("animationend",()=>c.remove());
  }
 }
 $("winClose").onclick=()=>$("celebration").classList.add("hidden");
 
-// PERİYODİK TABLO
-function buildPeriodic(container,callback){
- $(container).replaceChildren();
- elements.forEach((el,i)=>{
-  const btn=document.createElement("button");
-  btn.className="element "+el.t;
-  btn.style.setProperty("--r",el.r);
-  btn.style.setProperty("--c",el.c);
-  const num=document.createElement("span");num.className="num";num.textContent=el.z;
-  const sym=document.createElement("strong");sym.className="sym";sym.textContent=el.s;
-  const name=document.createElement("span");name.className="ename";name.textContent=el.n;
-  btn.append(num,sym,name);
-  btn.title=el.n;
-  btn.onclick=()=>callback(i);
-  $(container).append(btn);
+// TARAYICI GERİ / İLERİ OKLARI
+let current={page:"home",unit:0,game:null};
+function navigate(page,unit=0,game=null,push=true){
+ const state={page,unit,game};
+ if(push){
+  const url=new URL(location.href);
+  url.searchParams.delete("utm_source");
+  url.hash=page==="home"?"":page==="unit"?"unit-"+unit:game||page;
+  history.pushState(state,"",url.pathname+url.search+url.hash);
+ }
+ current=state;
+ ["home","unit","electron","lewis","valence","acid","quiz"].forEach(id=>{
+  $(id).classList.toggle("hidden",id!==page);
+ });
+ $("backBtn").classList.toggle("hidden",page==="home");
+ if(page==="unit")renderUnit(unit);
+ if(page==="quiz")startQuiz(game,unit);
+ if(page==="electron"&&eSelected===null){
+  $("electronPicker").classList.remove("hidden");
+  $("electronPlay").classList.add("hidden");
+ }
+ window.scrollTo({top:0,behavior:"instant"});
+}
+function openGame(id,unit){
+ navigate(["electron","lewis","valence","acid"].includes(id)?id:"quiz",unit,id);
+}
+function goBack(){
+ if(current.page==="home")return;
+ history.back();
+}
+$("backBtn").onclick=goBack;
+window.addEventListener("popstate",event=>{
+ if(event.state&&event.state.page){
+  const s=event.state;
+  navigate(s.page,s.unit,s.game,false);
+ }else{
+  navigate("home",0,null,false);
+ }
+});
+function renderHome(){
+ $("homeUnits").replaceChildren();
+ units.forEach((unit,i)=>{
+  const b=document.createElement("button");
+  b.className="tile";
+  b.innerHTML='<span class="emoji">'+unit.emoji+'</span><strong>'+
+   unit.title+'</strong><small>'+unit.desc+'</small>';
+  b.onclick=()=>navigate("unit",i);
+  $("homeUnits").append(b);
  });
 }
+function renderUnit(i){
+ const unit=units[i];
+ $("unitTitle").textContent=unit.emoji+" "+unit.title;
+ $("unitDescription").textContent=unit.desc;
+ $("unitGames").replaceChildren();
+ unit.games.forEach(game=>{
+  const b=document.createElement("button");
+  b.className="tile";
+  b.innerHTML='<span class="emoji">'+game[1]+'</span><strong>'+
+   game[2]+'</strong><small>'+game[3]+'</small>';
+  b.onclick=()=>openGame(game[0],i);
+  $("unitGames").append(b);
+ });
+}
+renderHome();
 
 // ELEKTRON DİZİLİMİ
 let eSelected=null,eSlots=[],eHistory=[],eSpin="↑";
-let eMistake=null,eCompleted=false,eErrors=0,eStreak=0,eLast=null;
-let eEarned=0;
-
-function eCount(){
- return eSlots.flat().reduce((sum,box)=>sum+box.length,0);
-}
-function eMessage(text,type="info"){
+let eMistake=null,eLast=null,eCompleted=false,eErrors=0,eEarned=0;
+function eCount(){return eSlots.flat().reduce((sum,box)=>sum+box.length,0)}
+function eMessage(text,type=""){
  $("electronFeedback").textContent=text;
  $("electronFeedback").className="feedback "+type;
 }
-function eRobot(text){$("electronRobot").textContent=text}
 function eLoad(i){
  eSelected=i;
- eSlots=subshells.map(sub=>Array.from({length:sub.boxes},()=>[]));
- eHistory=[];eSpin="↑";eMistake=null;eCompleted=false;
- eErrors=0;eStreak=0;eLast=null;eEarned=0;
- $("electronSelection").classList.add("hidden");
- $("electronGame").classList.remove("hidden");
- $("electronLevel").textContent="SEVİYE "+(i+1)+" / 20";
- $("electronName").textContent=elements[i].n+" ("+elements[i].s+")";
- $("electronStars").textContent="☆☆☆";
+ eSlots=subshells.map(s=>Array.from({length:s[1]},()=>[]));
+ eHistory=[];eSpin="↑";eMistake=null;eLast=null;
+ eCompleted=false;eErrors=0;eEarned=0;
+ $("electronPicker").classList.add("hidden");
+ $("electronPlay").classList.remove("hidden");
+ $("electronName").textContent=elements[i][1]+" ("+elements[i][0]+")";
+ $("electronLevel").textContent="ELEMENT "+(i+1)+" / 20";
  $("electronNext").classList.add("hidden");
  eMessage("İlk elektronu 1s orbitaline yerleştir.");
- eRobot("Merhaba! Ben LAB-BOT. Önce 1s orbitalinden başla!");
+ $("electronRobot").textContent="Önce 1s ile başla. Her orbital en fazla iki elektron alır.";
  eRender();
 }
 function eValidate(s,b,arrow){
- const box=eSlots[s][b],group=eSlots[s];
- if(box.length>=2)return "Pauli: Bir orbitalde en fazla iki elektron olabilir.";
- if(box.includes(arrow))return "Pauli: Aynı orbitaldeki elektronların spinleri zıt olmalı.";
+ const group=eSlots[s],box=group[b];
+ if(box.length>=2)return "Bir orbitalde en fazla iki elektron bulunur.";
+ if(box.includes(arrow))return "Pauli: İki elektronun spinleri zıt olmalı.";
  for(let k=0;k<s;k++){
-  if(eSlots[k].some(item=>item.length<2))
-   return "Aufbau: Önce "+subshells[k].name+" orbitalini doldur.";
+  if(eSlots[k].some(x=>x.length<2))
+   return "Aufbau: Önce "+subshells[k][0]+" orbitalini doldur.";
  }
  if(group.length>1){
-  const empty=group.findIndex(item=>item.length===0);
+  const empty=group.findIndex(x=>x.length===0);
   if(empty!==-1){
-   if(box.length>0)return "Hund: Önce üç kutuya birer elektron koy.";
-   if(b!==empty)return "Hund: Bu oyunda boş kutuları soldan sağa doldur.";
-   if(b>0&&arrow!==group[0][0])return "Hund: Tek elektronların spinleri paralel olmalı.";
+   if(box.length)return "Hund: Önce boş p orbitallerine birer elektron koy.";
+   if(b!==empty)return "Bu oyunda p kutularını soldan sağa doldur.";
+   if(b>0&&arrow!==group[0][0])
+    return "Hund: Tek elektronların spinleri paralel olmalı.";
   }else{
-   const single=group.findIndex(item=>item.length===1);
-   if(b!==single)return "Hund: Eşleştirmeye soldan başla.";
-   if(arrow===box[0])return "Pauli: Eşleşen elektronun spini zıt olmalı.";
+   const single=group.findIndex(x=>x.length===1);
+   if(b!==single)return "Elektronları soldan sağa eşleştir.";
   }
  }
  return null;
 }
 function ePlace(s,b){
  if(eCompleted)return;
- if(eMistake){eMessage("Önce kırmızı elektronu geri al!","bad");return}
- if(eCount()>=elements[eSelected].z)return;
+ if(eMistake){eMessage("Önce kırmızı elektronu geri al.","bad");return}
+ if(eCount()>=elements[eSelected][2])return;
  const error=eValidate(s,b,eSpin);
  if(error){
-  wrong();eErrors++;eStreak=0;
+  wrong();eErrors++;
   const added=eSlots[s][b].length<2;
   if(added)eSlots[s][b].push(eSpin);
-  eMistake={s,b,added};
-  eLast=null;
-  eMessage("❌ "+error+" −5 puan. Geri al ve yeniden dene.","bad");
-  eRobot(error);
+  eMistake={s,b,added};eLast=null;
+  eMessage("❌ "+error+" −5 puan. Geri al ve tekrar dene.","bad");
+  $("electronRobot").textContent=error;
   eRender();return;
  }
  eSlots[s][b].push(eSpin);
- const combo=correct();
- eEarned+=10+combo;
- eStreak++;
- eHistory.push({s,b,gain:10+combo});
+ const bonus=correct();
+ eEarned+=10+bonus;
+ eHistory.push({s,b,gain:10+bonus});
  eLast={s,b};
- achievements.first=true;
- if(eCount()===elements[eSelected].z){
+ if(eCount()===elements[eSelected][2]){
   eCompleted=true;
-  changeScore(50);eEarned+=50;
-  if(eErrors===0){
-   changeScore(30);eEarned+=30;
-   achievements.perfect=true;
-  }
-  const stars=eErrors===0?3:eErrors<=2?2:1;
-  $("electronStars").textContent="★".repeat(stars)+"☆".repeat(3-stars);
-  eMessage("🏆 Element tamamlandı! +50"+(eErrors===0?" ve +30 hatasız bonus!":""),"good");
-  eRobot("Muhteşem! Bu elementi tamamladın!");
+  finishGame(eErrors,"ELEMENT TAMAMLANDI!",elements[eSelected][1]);
+  eEarned+=50+(eErrors===0?30:0);
+  eMessage("🏆 Tebrikler! Element tamamlandı.","good");
   if(eSelected<19)$("electronNext").classList.remove("hidden");
-  celebrate("ELEMENT TAMAMLANDI!",elements[eSelected].n+" • "+stars+" yıldız!",stars);
  }else{
-  eMessage("✅ Doğru elektron! +10"+(combo?" ve +5 kombo!":""),"good");
-  eRobot(combo?"🔥 Üçlü kombo! Harikasın!":"Doğru hamle! Devam et.");
+  eMessage("✅ Doğru! +10"+(bonus?" • +5 kombo":"")+".","good");
  }
+ $("electronRobot").textContent=eCompleted?
+  "Harikasın! Bu elementin elektron dizilimi tamam.":
+  "Güzel gidiyorsun! Sonraki elektronun yerini düşün.";
  eRender();
 }
 function eUndo(){
  if(eMistake){
   if(eMistake.added)eSlots[eMistake.s][eMistake.b].pop();
   eMistake=null;eLast=null;
-  eMessage("Yanlış elektron kaldırıldı. Yeniden dene.");
-  eRobot("Hatanı düzelttin. Tekrar deneyebilirsin!");
+  eMessage("Yanlış elektron kaldırıldı. Tekrar dene.");
   eRender();return;
  }
  if(!eHistory.length){eMessage("Geri alınacak hamle yok.");return}
  const last=eHistory.pop();
  eSlots[last.s][last.b].pop();
- changeScore(-last.gain);
- eEarned-=last.gain;
+ addScore(-last.gain);eEarned-=last.gain;
  if(eCompleted){
-  changeScore(-50);eEarned-=50;
-  if(eErrors===0){changeScore(-30);eEarned-=30}
+  const refund=50+(eErrors===0?30:0);
+  addScore(-refund);eEarned-=refund;
   eCompleted=false;
   $("electronNext").classList.add("hidden");
-  $("electronStars").textContent="☆☆☆";
  }
- eStreak=0;streak=0;$("globalStreak").textContent=0;
- eLast=null;eMessage("Son elektron geri alındı.");
+ streak=0;updateStats();eLast=null;
+ eMessage("Son elektron geri alındı.");
  eRender();
 }
 function eReset(){
- changeScore(-eEarned);
+ addScore(-eEarned);
  eLoad(eSelected);
- eMessage("Seviye sıfırlandı. Hata cezaları korunur.");
+ eMessage("Seviye sıfırlandı. Yanlış hamle cezaları korunur.");
 }
 function eHint(){
- if(eMistake){eMessage("💡 Önce yanlış elektronu geri al.");return}
+ if(eMistake){eMessage("💡 Önce kırmızı elektronu geri al.");return}
  if(eCompleted){eMessage("Bu elementi tamamladın!");return}
  for(let s=0;s<eSlots.length;s++){
   for(let b=0;b<eSlots[s].length;b++){
-   for(const arrow of ["↑","↓"]){
-    if(eValidate(s,b,arrow)===null){
-     const text="💡 "+subshells[s].name+" grubunun "+(b+1)+". kutusuna "+arrow+" koy.";
-     eMessage(text);eRobot(text);return;
+   for(const spin of ["↑","↓"]){
+    if(eValidate(s,b,spin)===null){
+     const t="💡 "+subshells[s][0]+" grubunun "+(b+1)+". kutusuna "+spin+" yerleştir.";
+     eMessage(t);$("electronRobot").textContent=t;return;
     }
    }
   }
  }
 }
 function eRender(){
- const total=eCount();
- $("electronCount").textContent=total+" / "+elements[eSelected].z+" elektron";
- $("electronBar").style.width=Math.min(100,total/elements[eSelected].z*100)+"%";
+ $("electronCount").textContent=eCount()+" / "+elements[eSelected][2]+" elektron";
+ $("electronBar").style.width=100*eCount()/elements[eSelected][2]+"%";
  $("spinUp").classList.toggle("active",eSpin==="↑");
  $("spinDown").classList.toggle("active",eSpin==="↓");
  $("orbitals").replaceChildren();
  subshells.forEach((sub,s)=>{
   const row=document.createElement("div");row.className="orbital";
-  const label=document.createElement("span");label.className="orbitalLabel";label.textContent=sub.name;
-  const boxes=document.createElement("div");boxes.className="boxes";
+  const label=document.createElement("span");
+  label.className="orbitalLabel";label.textContent=sub[0];
+  const boxes=document.createElement("div");boxes.className="orbitalBoxes";
   eSlots[s].forEach((electrons,b)=>{
-   const btn=document.createElement("button");btn.className="slot";
-   btn.textContent=electrons.join("");
+   const btn=document.createElement("button");
+   btn.className="slot";btn.textContent=electrons.join("");
    btn.disabled=eCompleted;
    if(eMistake&&eMistake.s===s&&eMistake.b===b)btn.classList.add("wrong");
-   else if(eLast&&eLast.s===s&&eLast.b===b)btn.classList.add("correct");
-   btn.setAttribute("aria-label",sub.name+" orbital "+(b+1));
+   else if(eLast&&eLast.s===s&&eLast.b===b)btn.classList.add("last");
+   btn.setAttribute("aria-label",sub[0]+" kutu "+(b+1));
    btn.onclick=()=>ePlace(s,b);
    boxes.append(btn);
   });
   row.append(label,boxes);$("orbitals").append(row);
  });
- eRenderAtom();
- $("badgeFirst").classList.toggle("unlocked",achievements.first);
- $("badgeCombo").classList.toggle("unlocked",achievements.combo);
- $("badgePerfect").classList.toggle("unlocked",achievements.perfect);
+ eAtom();
 }
-function eRenderAtom(){
+function eAtom(){
  const atom=$("atom");atom.replaceChildren();
- const shells=[0,0,0,0];
+ const counts=[0,0,0,0];
  eSlots.forEach((group,s)=>group.forEach((box,b)=>{
-  let length=box.length;
-  if(eMistake&&eMistake.added&&eMistake.s===s&&eMistake.b===b)length--;
-  shells[subshells[s].shell-1]+=length;
+  let n=box.length;
+  if(eMistake&&eMistake.added&&eMistake.s===s&&eMistake.b===b)n--;
+  counts[subshells[s][2]-1]+=n;
  }));
  const sizes=[95,145,195,255];
- const maxShell=elements[eSelected].z<=2?1:elements[eSelected].z<=10?2:elements[eSelected].z<=18?3:4;
- for(let s=0;s<maxShell;s++){
+ const max=elements[eSelected][3];
+ for(let s=0;s<max;s++){
   const ring=document.createElement("div");ring.className="shell";
   ring.style.width=sizes[s]+"px";ring.style.height=sizes[s]+"px";
   atom.append(ring);
-  for(let i=0;i<shells[s];i++){
-   const angle=2*Math.PI*i/shells[s]-Math.PI/2;
-   const dot=document.createElement("div");dot.className="electron";
+  for(let i=0;i<counts[s];i++){
+   const angle=2*Math.PI*i/counts[s]-Math.PI/2;
+   const dot=document.createElement("div");dot.className="electronDot";
    dot.style.left="calc(50% + "+Math.cos(angle)*sizes[s]/2+"px)";
    dot.style.top="calc(50% + "+Math.sin(angle)*sizes[s]/2+"px)";
    atom.append(dot);
   }
  }
- const nucleus=document.createElement("div");nucleus.className="nucleus";
- nucleus.textContent=elements[eSelected].s;atom.append(nucleus);
- $("atomCaption").textContent="Katmanlar: "+shells.slice(0,maxShell).join(" • ");
+ const nucleus=document.createElement("div");
+ nucleus.className="nucleus";nucleus.textContent=elements[eSelected][0];
+ atom.append(nucleus);
+ $("atomCaption").textContent="Katmanlar: "+counts.slice(0,max).join(" • ");
 }
-buildPeriodic("electronPeriodic",eLoad);
-$("electronChoose").onclick=()=>{
- $("electronSelection").classList.remove("hidden");
- $("electronGame").classList.add("hidden");
-};
+elements.forEach((el,i)=>{
+ const btn=document.createElement("button");
+ btn.className="element "+el[5];
+ btn.style.setProperty("--r",el[3]);
+ btn.style.setProperty("--c",el[4]);
+ const num=document.createElement("small");num.textContent=el[2];
+ const sym=document.createElement("strong");sym.textContent=el[0];
+ const name=document.createElement("span");name.textContent=el[1];
+ btn.append(num,sym,name);btn.title=el[1];
+ btn.onclick=()=>eLoad(i);
+ $("periodic").append(btn);
+});
 $("spinUp").onclick=()=>{eSpin="↑";eRender()};
 $("spinDown").onclick=()=>{eSpin="↓";eRender()};
 $("electronUndo").onclick=eUndo;
 $("electronReset").onclick=eReset;
 $("electronHint").onclick=eHint;
-$("electronNext").onclick=()=>{if(eCompleted&&eSelected<19)eLoad(eSelected+1)};
+$("electronNext").onclick=()=>eLoad(eSelected+1);
+$("changeElement").onclick=()=>{
+ $("electronPicker").classList.remove("hidden");
+ $("electronPlay").classList.add("hidden");
+};
 
-// LEWIS NOKTA YAPISI
-let lSelected=5,lDots=[0,0,0,0],lHistory=[],lMistake=null,lFinished=false,lErrors=0,lEarned=0;
-function lMessage(text,type="info"){
+// LEWIS
+let lSelected=5,lDots=[0,0,0,0],lHistory=[],lMistake=null;
+let lDone=false,lErrors=0,lEarned=0;
+function lCount(){return lDots.reduce((a,b)=>a+b,0)}
+function lMessage(text,type=""){
  $("lewisFeedback").textContent=text;
  $("lewisFeedback").className="feedback "+type;
 }
-function lCount(){return lDots.reduce((a,b)=>a+b,0)}
 function lLoad(i){
- lSelected=i;lDots=[0,0,0,0];lHistory=[];lMistake=null;lFinished=false;lErrors=0;lEarned=0;
- $("lewisSymbol").textContent=elements[i].s;
- lMessage("İlk noktayı bir yöne yerleştir.");
- $("lewisRobot").textContent="Önce dört yöne birer nokta, sonra çiftleme yap!";
- lRender();
+ lSelected=i;lDots=[0,0,0,0];lHistory=[];lMistake=null;
+ lDone=false;lErrors=0;lEarned=0;
+ $("lewisSymbol").textContent=elements[i][0];
+ lMessage("İlk noktayı yerleştir.");lRender();
 }
 function lPlace(side){
- if(lFinished)return;
- if(lMistake){lMessage("Önce kırmızı noktayı geri al!","bad");return}
- const target=elements[lSelected].v;
- if(lCount()>=target)return;
- const firstEmpty=lDots.findIndex(v=>v===0);
- const firstSingle=lDots.findIndex(v=>v===1);
+ if(lDone)return;
+ if(lMistake){lMessage("Önce yanlış noktayı geri al.","bad");return}
+ const empty=lDots.findIndex(n=>n===0);
+ const single=lDots.findIndex(n=>n===1);
  let error="";
  if(lDots[side]>=2)error="Bir yönde en fazla iki nokta olabilir.";
- else if(firstEmpty!==-1&&side!==firstEmpty)error="Önce boş yönlere birer nokta koy.";
- else if(firstEmpty===-1&&side!==firstSingle)error="Noktaları sırayla eşleştir.";
+ else if(empty!==-1&&side!==empty)error="Önce boş yönlere birer nokta yerleştir.";
+ else if(empty===-1&&side!==single)error="Noktaları sırayla eşleştir.";
  if(error){
   wrong();lErrors++;
   const added=lDots[side]<2;
   if(added)lDots[side]++;
   lMistake={side,added};
-  lMessage("❌ "+error+" −5 puan. Geri al.","bad");
-  $("lewisRobot").textContent=error;
+  lMessage("❌ "+error+" −5 puan.","bad");
   lRender();return;
  }
  lDots[side]++;
- const bonus=correct();lEarned+=10+bonus;
- lHistory.push({side,gain:10+bonus});
- if(lCount()===target){
-  lFinished=true;changeScore(50);lEarned+=50;
-  if(lErrors===0){changeScore(30);lEarned+=30}
-  lMessage("🏆 Lewis yapısı tamamlandı!","good");
-  $("lewisRobot").textContent="Harika! "+elements[lSelected].n+" için "+target+" değerlik noktası yerleştirdin.";
-  celebrate("LEWIS TAMAMLANDI!",elements[lSelected].n+" • "+target+" nokta",lErrors===0?3:lErrors<=2?2:1);
- }else{
-  lMessage("✅ Doğru nokta! +10"+(bonus?" ve +5 kombo!":""),"good");
- }
+ const bonus=correct();
+ lEarned+=10+bonus;lHistory.push({side,gain:10+bonus});
+ if(lCount()===elements[lSelected][6]){
+  lDone=true;
+  finishGame(lErrors,"LEWIS TAMAMLANDI!",elements[lSelected][1]);
+  lEarned+=50+(lErrors===0?30:0);
+  lMessage("🏆 Lewis sembolü tamamlandı!","good");
+ }else lMessage("✅ Doğru nokta! +10","good");
  lRender();
 }
 function lRender(){
- $("lewisCount").textContent=lCount()+" / "+elements[lSelected].v+" değerlik elektronu";
+ $("lewisCount").textContent=lCount()+" / "+elements[lSelected][6]+" nokta";
  document.querySelectorAll(".lewisSpot").forEach(btn=>{
   const side=Number(btn.dataset.side);
   btn.textContent="•".repeat(lDots[side]);
-  btn.disabled=lFinished;
+  btn.disabled=lDone;
   btn.classList.toggle("wrong",!!lMistake&&lMistake.side===side);
   btn.classList.toggle("correct",!lMistake&&lDots[side]>0);
  });
 }
-function lReset(){
- changeScore(-lEarned);
- lLoad(lSelected);
-}
-elements.forEach((el,i)=>{
- const option=document.createElement("option");
- option.value=i;option.textContent=el.n+" ("+el.s+")";
- $("lewisElement").append(option);
-});
-$("lewisElement").value="5";
-$("lewisElement").onchange=e=>lLoad(Number(e.target.value));
-document.querySelectorAll(".lewisSpot").forEach(btn=>{
- btn.onclick=()=>lPlace(Number(btn.dataset.side));
-});
-$("lewisReset").onclick=lReset;
-$("lewisHint").onclick=()=>{
- if(lMistake){lMessage("💡 Önce yanlış noktayı kaldır.");return}
- const empty=lDots.findIndex(v=>v===0);
- const side=empty!==-1?empty:lDots.findIndex(v=>v===1);
- const names=["üst","sağ","alt","sol"];
- if(side>=0)lMessage("💡 "+names[side]+" tarafa bir nokta koy.");
- else lMessage("Lewis yapısı tamamlandı.");
-};
-// Lewis'te yanlış hamleyi geri almak için kutuya tekrar basma
-// yerine geri alma butonu ekliyoruz.
-const lewisUndo=document.createElement("button");
-lewisUndo.textContent="↶ Geri al";
-lewisUndo.className="ghost";
-$("lewisReset").before(lewisUndo);
-lewisUndo.onclick=()=>{
+function lUndo(){
  if(lMistake){
   if(lMistake.added)lDots[lMistake.side]--;
   lMistake=null;lMessage("Yanlış nokta kaldırıldı.");lRender();return;
  }
  if(!lHistory.length){lMessage("Geri alınacak nokta yok.");return}
  const last=lHistory.pop();lDots[last.side]--;
- changeScore(-last.gain);lEarned-=last.gain;
- if(lFinished){
-  changeScore(-50);lEarned-=50;
-  if(lErrors===0){changeScore(-30);lEarned-=30}
-  lFinished=false;
+ addScore(-last.gain);lEarned-=last.gain;
+ if(lDone){
+  const refund=50+(lErrors===0?30:0);
+  addScore(-refund);lEarned-=refund;lDone=false;
  }
- streak=0;$("globalStreak").textContent=0;
- lMessage("Son nokta geri alındı.");lRender();
+ streak=0;updateStats();lMessage("Son nokta geri alındı.");lRender();
+}
+elements.forEach((el,i)=>{
+ const option=document.createElement("option");
+ option.value=i;option.textContent=el[1]+" ("+el[0]+")";
+ $("lewisSelect").append(option);
+});
+$("lewisSelect").value="5";
+$("lewisSelect").onchange=e=>lLoad(Number(e.target.value));
+document.querySelectorAll(".lewisSpot").forEach(btn=>{
+ btn.onclick=()=>lPlace(Number(btn.dataset.side));
+});
+$("lewisUndo").onclick=lUndo;
+$("lewisReset").onclick=()=>{addScore(-lEarned);lLoad(lSelected)};
+$("lewisHint").onclick=()=>{
+ if(lMistake){lMessage("💡 Önce yanlış noktayı geri al.");return}
+ const empty=lDots.findIndex(n=>n===0);
+ const side=empty!==-1?empty:lDots.findIndex(n=>n===1);
+ const names=["üst","sağ","alt","sol"];
+ lMessage(side<0?"Tamamlandı!":"💡 "+names[side]+" tarafa bir nokta koy.");
 };
 lLoad(5);
 
 // DEĞERLİK OYUNU
-let vIndex=0,vAnswered=false,vErrors=0;
+let vIndex=0,vErrors=0,vDone=false;
 function vLoad(){
  const el=elements[vIndex%elements.length];
- vAnswered=false;vErrors=0;
- $("valenceLevel").textContent="SORU "+(vIndex+1);
- $("valenceSymbol").textContent=el.s;
- $("valenceName").textContent=el.n;
- $("valenceQuestion").textContent="Bu elementin değerlik elektron sayısı kaçtır?";
- $("valenceFeedback").textContent="Cevabını seç.";
- $("valenceFeedback").className="feedback";
+ vErrors=0;vDone=false;
+ $("valenceLevel").textContent="ELEMENT "+(vIndex%20+1)+" / 20";
+ $("valenceSymbol").textContent=el[0];
+ $("valenceName").textContent=el[1];
  $("valenceNext").classList.add("hidden");
+ $("valenceFeedback").textContent="Bu elementin değerlik elektron sayısı kaçtır?";
+ $("valenceFeedback").className="feedback";
  $("valenceChoices").replaceChildren();
- const choices=new Set([el.v]);
- let candidate=1;
- while(choices.size<4){
-  choices.add(candidate);
-  candidate++;
- }
- const sorted=[...choices].sort(()=>Math.random()-.5);
- sorted.forEach(n=>{
-  const btn=document.createElement("button");
-  btn.textContent=n;
-  btn.onclick=()=>{
-   if(vAnswered)return;
-   if(n!==el.v){
+ const choices=new Set([el[6]]);
+ while(choices.size<4)choices.add(1+Math.floor(Math.random()*8));
+ [...choices].sort(()=>Math.random()-.5).forEach(n=>{
+  const b=document.createElement("button");b.textContent=n;
+  b.onclick=()=>{
+   if(vDone)return;
+   if(n!==el[6]){
     wrong();vErrors++;
     $("valenceFeedback").textContent="❌ Yanlış! −5 puan. Tekrar dene.";
     $("valenceFeedback").className="feedback bad";
-    $("valenceRobot").textContent="Son katmandaki elektronları düşün. Tekrar dene!";
     return;
    }
-   vAnswered=true;
-   const bonus=correct();
-   changeScore(50);
-   if(vErrors===0)changeScore(30);
-   $("valenceFeedback").textContent="✅ Doğru! "+el.n+" için "+el.v+" değerlik elektronu. +10, +50 bitirme"+(vErrors===0?", +30 hatasız":"")+(bonus?", +5 kombo":"");
+   vDone=true;correct();
+   finishGame(vErrors,"DOĞRU CEVAP!",el[1]+" • "+el[6]+" değerlik elektronu");
+   $("valenceFeedback").textContent="✅ Doğru! "+el[6]+" değerlik elektronu.";
    $("valenceFeedback").className="feedback good";
-   $("valenceRobot").textContent="Bravo! Şimdi başka bir element deneyelim.";
    $("valenceNext").classList.remove("hidden");
-   celebrate("DOĞRU CEVAP!",el.n+" • "+el.v+" değerlik elektronu",vErrors===0?3:2);
   };
-  $("valenceChoices").append(btn);
+  $("valenceChoices").append(b);
  });
 }
 $("valenceNext").onclick=()=>{vIndex++;vLoad()};
 vLoad();
 
-// ASİT-BAZ LABORATUVARI
-const liquids=[
- {name:"Limon suyu",emoji:"🍋",ph:2.2,color:"#f1d45e",type:"acid"},
- {name:"Sirke",emoji:"🍶",ph:3.0,color:"#e7b978",type:"acid"},
- {name:"Saf su",emoji:"💧",ph:7.0,color:"#75cfff",type:"neutral"},
- {name:"Karbonat çözeltisi",emoji:"🫧",ph:8.4,color:"#8bdcba",type:"base"},
- {name:"Sabunlu su",emoji:"🧼",ph:10.0,color:"#9b9df0",type:"base"}
+// ASİT-BAZ DENEYİ
+// pH değerleri örnek çözeltilere ait yaklaşık değerlerdir.
+const liquidData=[
+ ["🍋","Limon suyu",2.2,"#f3d45b"],
+ ["🍶","Sirke",3.0,"#e5ba7a"],
+ ["🥤","Kola",2.6,"#a36b50"],
+ ["🍊","Portakal suyu",3.5,"#ffae54"],
+ ["🍎","Elma suyu",3.7,"#d9a35d"],
+ ["🍅","Domates suyu",4.2,"#e77a6d"],
+ ["☕","Kahve",5.0,"#ab8769"],
+ ["🫖","Çay",5.5,"#bf936e"],
+ ["🥛","Süt",6.6,"#f4f0d9"],
+ ["💧","Saf su",7.0,"#79d3f7"],
+ ["🫧","Karbonat çözeltisi",8.4,"#99dccb"],
+ ["🧼","Sabunlu su",10.0,"#a4a6ee"],
+ ["🧴","Deterjanlı su",9.5,"#8ab5e7"],
+ ["🌊","Deniz suyu",8.1,"#68c7db"],
+ ["🥚","Yumurta akı",8.5,"#e3e8d2"],
+ ["🪥","Diş macunu çözeltisi",8.5,"#9fc6e8"],
+ ["🥬","Lahana suyu",6.0,"#ba8ad9"],
+ ["🍯","Bal çözeltisi",4.0,"#d6a35a"],
+ ["🍓","Çilek suyu",3.5,"#ee7e8b"],
+ ["🥔","Patates suyu",6.0,"#c5b68c"]
 ];
 let aLiquid=null,aVolume=0,aWater=0,aDepth=0,aMeasured=false;
-let aLastResult=null;
-function aMessage(text,type="info"){
+let aLastReward=null;
+function aMessage(text,type=""){
  $("acidFeedback").textContent=text;
  $("acidFeedback").className="feedback "+type;
 }
 function aPH(){
  if(!aLiquid)return 7;
- // Eğitimsel tek çözelti seyreltme modeli.
- // Nötre doğru yaklaşmayı gösterir.
- const original=aLiquid.ph;
- if(aWater===0)return original;
- const factor=aVolume/(aVolume+aWater);
+ const original=aLiquid[2];
+ if(!aWater)return original;
+ // Tek çözelti için basitleştirilmiş eğitim modeli.
+ const fraction=aVolume/(aVolume+aWater);
  const distance=Math.abs(original-7);
- const reduced=Math.log10(1+(Math.pow(10,distance)-1)*factor);
- return Math.max(0,Math.min(14,7+Math.sign(original-7)*reduced));
+ const reduced=Math.log10(1+(Math.pow(10,distance)-1)*fraction);
+ return 7+Math.sign(original-7)*reduced;
 }
 function aAdd(liquid){
- if(aVolume+aWater>=10){
-  aMessage("Kap dolu! Önce musluğu açıp boşalt.");return;
+ if(aVolume+aWater>=10){aMessage("Kap dolu! Önce boşalt.");return}
+ if(aLiquid&&aLiquid[1]!==liquid[1]){
+  aMessage("Farklı maddeleri karıştırmıyoruz. Önce kabı boşalt.","bad");
+  $("acidRobot").textContent="Kimyasal güvenlik önemli! Farklı sıvılar için kabı önce boşalt.";
+  sound("wrong");return;
  }
- if(aLiquid&&aLiquid.name!==liquid.name){
-  aMessage("Güvenlik için farklı maddeleri aynı kapta karıştırmıyoruz. Önce kabı boşalt.","bad");
-  $("acidRobot").textContent="Gerçek kimyasallar rastgele karıştırılmaz. Önce kabı boşalt!";
-  playSound("wrong");return;
- }
- aLiquid=liquid;aVolume++;aMeasured=false;aDepth=0;
- aMessage(liquid.name+" kaba eklendi. Ölçüm cihazını indir.");
- $("acidRobot").textContent="Şimdi ölçüm cihazına basarak aşağı indirebilirsin.";
- playSound("correct");aRender();
+ aLiquid=liquid;aVolume++;aDepth=0;aMeasured=false;
+ aMessage(liquid[1]+" kaba eklendi. Cihazı indir.");
+ $("acidRobot").textContent="Sıvı eklendi. Ölçüm cihazına dört kez bas.";
+ sound("correct");aRender();
 }
-function aWaterAdd(){
+function aAddWater(){
  if(!aLiquid){aMessage("Önce bir sıvı ekle.");return}
- if(aVolume+aWater>=10){aMessage("Kap dolu!");return}
- aWater++;aMeasured=false;
- aMessage("💧 Su eklendi. Seyreltme sonucunu görmek için yeniden ölç.");
+ if(aVolume+aWater>=10){aMessage("Kap dolu.");return}
+ aWater++;aDepth=0;aMeasured=false;
+ aMessage("💧 Su eklendi. Yeniden ölç.");
  $("acidRobot").textContent="Seyreltme, asit veya bazın pH değerini genellikle 7'ye yaklaştırır.";
- playSound("correct");aRender();
+ sound("correct");aRender();
 }
 function aProbe(){
- if(!aLiquid){aMessage("Önce kaba bir sıvı ekle.");return}
+ if(!aLiquid){aMessage("Önce sıvı ekle.");return}
  if(aDepth<4)aDepth++;
  if(aDepth===4){
   aMeasured=true;
   const ph=aPH();
   const type=ph<6.5?"ASİDİK":ph>7.5?"BAZİK":"NÖTR";
-  aMessage("📊 Ölçüm tamamlandı! "+type+" • pH ≈ "+ph.toFixed(1),"good");
-  $("acidRobot").textContent="Göstergeyi oku: "+type+". Su ekleyip tekrar ölçebilirsin.";
-  if(aLastResult!==aLiquid.name){
-   correct();
-   aLastResult=aLiquid.name;
-  }
- }else{
-  aMessage("Ölçüm cihazı aşağı iniyor... "+aDepth+"/4");
- }
+  aMessage("📊 "+type+" • Yaklaşık pH "+ph.toFixed(1),"good");
+  $("acidRobot").textContent="Ölçüm tamamlandı! Su ekleyip seyreltmeyi de deneyebilirsin.";
+  const rewardKey=aLiquid[1]+":"+aWater;
+  if(aLastReward!==rewardKey){correct();aLastReward=rewardKey}
+ }else aMessage("Cihaz aşağı iniyor: "+aDepth+"/4");
  aRender();
 }
 function aDrain(){
- if(aVolume+aWater===0){aMessage("Kap zaten boş.");return}
- aLiquid=null;aVolume=0;aWater=0;aDepth=0;aMeasured=false;aLastResult=null;
- aMessage("🚰 Musluk açıldı. Kap boşaltıldı.");
- $("acidRobot").textContent="Kap temiz! Yeni bir sıvı deneyebilirsin.";
- playSound("correct");aRender();
+ aLiquid=null;aVolume=0;aWater=0;aDepth=0;
+ aMeasured=false;aLastReward=null;
+ aMessage("🚰 Kap boşaltıldı. Yeni madde seçebilirsin.");
+ $("acidRobot").textContent="Kap hazır! Başka bir sıvı deneyebilirsin.";
+ sound("correct");aRender();
 }
 function aRender(){
  const total=aVolume+aWater;
- const height=total*18;
- $("liquidFill").setAttribute("y",274-height);
- $("liquidFill").setAttribute("height",height);
- $("liquidFill").setAttribute("fill",aLiquid?aLiquid.color:"#75cfff");
+ const h=total*18;
+ $("liquidFill").setAttribute("y",275-h);
+ $("liquidFill").setAttribute("height",h);
+ $("liquidFill").setAttribute("fill",aLiquid?aLiquid[3]:"#75cfff");
  $("beakerLabel").textContent=total?total+" ölçü sıvı":"Kap boş";
  $("probe").setAttribute("y",91+aDepth*22);
  $("probeWire").setAttribute("y2",91+aDepth*22);
- $("probeDepth").textContent=aDepth===0?"Cihaz yukarıda":aDepth===4?"Cihaz sıvıya indirildi":"Cihaz seviyesi: "+aDepth+"/4";
- $("meterDisplay").textContent=aMeasured?aPH().toFixed(1):"--";
- $("drainDrop").setAttribute("opacity",0);
+ $("probeDepth").textContent=aDepth===0?"Cihaz yukarıda":"Cihaz seviyesi: "+aDepth+"/4";
+ $("meter").textContent=aMeasured?aPH().toFixed(1):"--";
  if(aMeasured){
   const ph=aPH();
-  $("phArrow").style.left=(ph/14*100)+"%";
-  $("phValue").textContent=(ph<6.5?"ASİDİK":ph>7.5?"BAZİK":"NÖTR")+" • pH ≈ "+ph.toFixed(1);
+  $("phPointer").style.left=ph/14*100+"%";
+  $("phResult").textContent=(ph<6.5?"ASİDİK":ph>7.5?"BAZİK":"NÖTR")+" • pH "+ph.toFixed(1);
  }else{
-  $("phArrow").style.left="50%";
-  $("phValue").textContent="Ölçüm bekleniyor";
+  $("phPointer").style.left="50%";
+  $("phResult").textContent="Ölçüm bekleniyor";
  }
 }
-liquids.forEach(liquid=>{
- const btn=document.createElement("button");
- btn.className="liquidBtn";
- const emoji=document.createElement("span");emoji.className="drop";emoji.textContent=liquid.emoji;
- const name=document.createElement("span");name.textContent=liquid.name;
- btn.append(emoji,name);
- btn.onclick=()=>aAdd(liquid);
- $("liquidChoices").append(btn);
+liquidData.forEach(liquid=>{
+ const b=document.createElement("button");b.className="liquid";
+ const emoji=document.createElement("b");emoji.textContent=liquid[0];
+ const name=document.createElement("span");name.textContent=liquid[1];
+ b.append(emoji,name);
+ b.onclick=()=>aAdd(liquid);
+ $("liquids").append(b);
 });
 $("probeButton").onclick=aProbe;
-$("waterButton").onclick=aWaterAdd;
+$("waterButton").onclick=aAddWater;
 $("drainButton").onclick=aDrain;
-aMessage("Bir sıvı seçerek deneye başla.");
+aMessage("Bir sıvı seçerek başla.");
 aRender();
 
-showPage("home");
+// GENEL KONU OYUNLARI
+let qGame=null,qUnit=0,qIndex=0,qMistakes=0,qAnswered=false;
+let qUsed=new Set(),qFinished=false;
+function qMessage(text,type=""){
+ $("quizFeedback").textContent=text;
+ $("quizFeedback").className="feedback "+type;
+}
+function startQuiz(game,unit){
+ qGame=game;qUnit=unit;qIndex=0;qMistakes=0;
+ qUsed=new Set();qFinished=false;
+ const info=units[unit].games.find(g=>g[0]===game);
+ $("quizUnit").textContent=units[unit].title;
+ $("quizTitle").textContent=info[1]+" "+info[2];
+ $("quizDescription").textContent=info[3];
+ renderQuestion();
+}
+function renderQuestion(){
+ const questions=questionBank[qGame];
+ if(!questions)return;
+ if(qIndex>=questions.length){
+  if(!qFinished){
+   qFinished=true;
+   finishGame(qMistakes,"OYUN TAMAMLANDI!","Tüm soruları çözdün!");
+  }
+  $("quizProgress").textContent="TAMAMLANDI";
+  $("quizQuestion").textContent="🏆 Bütün soruları bitirdin!";
+  $("quizChoices").replaceChildren();
+  $("quizBar").style.width="100%";
+  $("quizStars").textContent="★".repeat(qMistakes===0?3:qMistakes<=2?2:1);
+  qMessage("Tebrikler! Başka bir oyun seçebilirsin.","good");
+  $("quizHint").classList.add("hidden");
+  $("quizNext").classList.add("hidden");
+  $("quizRobot").textContent="Mükemmel! Ünite menüsünden başka bir oyun deneyebilirsin.";
+  return;
+ }
+ qAnswered=false;
+ qUsed=new Set();
+ const q=questions[qIndex];
+ $("quizProgress").textContent="SORU "+(qIndex+1)+" / "+questions.length;
+ $("quizBar").style.width=100*qIndex/questions.length+"%";
+ $("quizQuestion").textContent=q[0];
+ $("quizChoices").replaceChildren();
+ $("quizHint").classList.remove("hidden");
+ $("quizNext").classList.add("hidden");
+ $("quizRobot").textContent="Soruyu oku, seçenekleri değerlendir. İstersen ipucu al.";
+ qMessage("Doğru cevabı seç.");
+ q[1].forEach((choice,i)=>{
+  const b=document.createElement("button");
+  b.className="secondary";b.textContent=choice;
+  b.onclick=()=>{
+   if(qAnswered||qUsed.has(i))return;
+   if(i!==q[2]){
+    wrong();qMistakes++;qUsed.add(i);
+    b.className="incorrect";b.disabled=true;
+    qMessage("❌ Yanlış cevap! −5 puan. Tekrar dene.","bad");
+    $("quizRobot").textContent="Bir daha düşün! İpucu butonunu da kullanabilirsin.";
+    return;
+   }
+   qAnswered=true;
+   const bonus=correct();
+   b.className="correct";
+   document.querySelectorAll("#quizChoices button").forEach(x=>x.disabled=true);
+   qMessage("✅ Doğru! +10"+(bonus?" • +5 kombo":"")+". "+q[3],"good");
+   $("quizRobot").textContent=q[3];
+   $("quizNext").classList.remove("hidden");
+  };
+  $("quizChoices").append(b);
+ });
+}
+$("quizHint").onclick=()=>{
+ if(!qGame||qAnswered)return;
+ const q=questionBank[qGame][qIndex];
+ qMessage("💡 "+q[4]);
+ $("quizRobot").textContent=q[4];
+};
+$("quizNext").onclick=()=>{qIndex++;renderQuestion()};
+
+// İLK AÇILIŞ VE YENİLEME
+function routeFromHash(){
+ const hash=location.hash.slice(1);
+ if(!hash)return {page:"home",unit:0,game:null};
+ if(hash.startsWith("unit-")){
+  const unit=Number(hash.slice(5));
+  if(Number.isInteger(unit)&&units[unit])
+   return {page:"unit",unit,game:null};
+ }
+ for(let u=0;u<units.length;u++){
+  for(const g of units[u].games){
+   if(g[0]===hash){
+    const page=["electron","lewis","valence","acid"].includes(hash)?hash:"quiz";
+    return {page,unit:u,game:hash};
+   }
+  }
+ }
+ return {page:"home",unit:0,game:null};
+}
+const initial=history.state&&history.state.page?
+ history.state:routeFromHash();
+history.replaceState(initial,"",location.href);
+navigate(initial.page,initial.unit,initial.game,false);
+updateStats();
 </script>
 </body>
 </html>

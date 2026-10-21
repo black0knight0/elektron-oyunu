@@ -33,6 +33,24 @@
         button:hover {
             background-color: #a4e0ff;
         }
+   
+.orbital {
+    background-color: #173550;
+    display: inline-block;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 12px;
+}
+
+.kutu {
+    display: inline-block;
+    width: 35px;
+    height: 45px;
+    background-color: #244663;
+    border-bottom: 3px solid #64c5ff;
+    margin: 4px;
+}
+
     </style>
 </head>
 
@@ -66,15 +84,48 @@
         </button>
     </div>
 
+<div id="orbitalEkrani" style="display: none;">
+
+    <h1 id="elementBasligi">Karbon (C)</h1>
+    <p>Elektronları orbitallere yerleştir!</p>
+
+    <div class="orbital">
+        <h2>1s</h2>
+        <div class="kutu"></div>
+    </div>
+
+    <div class="orbital">
+        <h2>2s</h2>
+        <div class="kutu"></div>
+    </div>
+
+    <div class="orbital">
+        <h2>2p</h2>
+        <div class="kutu"></div>
+        <div class="kutu"></div>
+        <div class="kutu"></div>
+    </div>
+
+</div>
+
     <script>
         function oyunuBaslat() {
             document.getElementById("anaEkran").style.display = "none";
             document.getElementById("elementEkrani").style.display = "block";
         }
 
-        function elementSec(isim, numara) {
-            alert(isim + " seçildi! Atom numarası: " + numara);
-        }
+
+function elementSec(isim, numara) {
+
+    document.getElementById("elementEkrani").style.display = "none";
+
+    document.getElementById("orbitalEkrani").style.display = "block";
+
+    document.getElementById("elementBasligi").innerText =
+        isim + " - Atom numarası: " + numara;
+
+}
+
     </script>
 
 </body>

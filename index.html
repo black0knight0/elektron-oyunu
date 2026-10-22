@@ -5,259 +5,550 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#081625">
-<title>KimyaVerse 8.1</title>
+<title>KimyaVerse 8.2</title>
+
 <style>
 :root{
- --bg:#081625;--panel:#102a40;--card:#1b405b;
- --border:#507f9e;--text:#f3faff;--muted:#c6dbe8;
- --cyan:#8ee9ff;--gold:#ffe4a2;--green:#8af0c1;
+ --bg:#081625;
+ --panel:#102a40;
+ --card:#1b405b;
+ --border:#507f9e;
+ --text:#f3faff;
+ --muted:#c6dbe8;
+ --cyan:#8ee9ff;
+ --gold:#ffe4a2;
+ --green:#8af0c1;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
- margin:0;color:var(--text);font:15px Arial,sans-serif;
+ margin:0;
+ color:var(--text);
+ font:15px Arial,sans-serif;
  background:
  radial-gradient(circle at 15% 0%,#275873,transparent 36%),
  radial-gradient(circle at 90% 12%,#342553,transparent 32%),
- var(--bg)
+ var(--bg);
 }
 button,input,select,textarea{font:inherit}
 button{
- background:#285a79;border:1px solid #6998b5;color:white;
- border-radius:12px;padding:12px 15px;cursor:pointer;
- touch-action:manipulation
+ background:#285a79;
+ border:1px solid #6998b5;
+ color:white;
+ border-radius:12px;
+ padding:12px 15px;
+ cursor:pointer;
+ touch-action:manipulation;
 }
 button:disabled{opacity:.45;cursor:default}
 button.active,.primary{background:#7552b1}
-button:focus-visible,input:focus-visible,select:focus-visible{
- outline:3px solid #a8eaff;outline-offset:2px
-}
 input,select,textarea{
- width:100%;padding:12px;border-radius:11px;
- border:1px solid #6b94ae;background:#153650;color:white
+ width:100%;
+ padding:12px;
+ border-radius:11px;
+ border:1px solid #6b94ae;
+ background:#153650;
+ color:white;
 }
-input[type=range]{accent-color:#9aeaff}
+button:focus-visible,input:focus-visible,
+select:focus-visible,textarea:focus-visible{
+ outline:3px solid #a8eaff;
+ outline-offset:2px;
+}
 main{max-width:1150px;margin:auto;padding:15px}
 header{text-align:center;padding:24px 0}
 .logo{
- font-size:clamp(36px,7vw,68px);font-weight:900;
+ font-size:clamp(36px,7vw,68px);
+ font-weight:900;
  background:linear-gradient(90deg,#81e9ff,#d6aaff,#8df0c1);
- color:transparent;background-clip:text
+ color:transparent;
+ background-clip:text;
 }
 h2{color:var(--cyan)}
 h3{color:#e0f4ff}
 p{line-height:1.6;color:var(--muted)}
 .panel{
- background:#102a40ee;border:1px solid var(--border);
- border-radius:20px;padding:20px;margin:17px 0
+ background:#102a40ee;
+ border:1px solid var(--border);
+ border-radius:20px;
+ padding:20px;
+ margin:17px 0;
 }
 .card{
- background:var(--card);border:1px solid #4e7b9b;
- border-radius:15px;padding:17px;margin:12px 0
+ background:var(--card);
+ border:1px solid #4e7b9b;
+ border-radius:15px;
+ padding:17px;
+ margin:12px 0;
 }
 .grid{
  display:grid;
  grid-template-columns:repeat(2,minmax(0,1fr));
- gap:12px
+ gap:12px;
 }
 .grid3{
  display:grid;
  grid-template-columns:repeat(3,minmax(0,1fr));
- gap:12px
+ gap:12px;
 }
 .row{
- display:flex;align-items:center;gap:9px;flex-wrap:wrap
+ display:flex;
+ align-items:center;
+ gap:9px;
+ flex-wrap:wrap;
 }
 .center{text-align:center}
 .hidden{display:none!important}
 .grade{
- min-height:165px;font-size:21px;font-weight:bold;
- background:linear-gradient(135deg,#1c5b78,#4b3477)
+ min-height:165px;
+ font-size:21px;
+ font-weight:bold;
+ background:linear-gradient(135deg,#1c5b78,#4b3477);
 }
-.grade strong{display:block;font-size:54px;margin:8px}
+.grade strong{
+ display:block;
+ font-size:54px;
+ margin:8px;
+}
 .tile{
- text-align:left;min-height:105px;background:#204761
+ text-align:left;
+ min-height:105px;
+ background:#204761;
 }
 .tile b{
- display:block;color:#9deaff;font-size:17px;margin-bottom:8px
+ display:block;
+ color:#9deaff;
+ font-size:17px;
+ margin-bottom:8px;
 }
-.tile span{color:#d8e9f3;line-height:1.5}
+.tile span{
+ color:#d8e9f3;
+ line-height:1.5;
+}
 nav{
- display:flex;justify-content:center;
- flex-wrap:wrap;gap:8px;margin:16px 0
+ display:flex;
+ justify-content:center;
+ flex-wrap:wrap;
+ gap:8px;
+ margin:16px 0;
 }
 .stats{
- display:flex;justify-content:center;
- gap:9px;flex-wrap:wrap
+ display:flex;
+ justify-content:center;
+ gap:9px;
+ flex-wrap:wrap;
 }
 .stat{
- background:#193e58;padding:12px 18px;
- border-radius:12px;text-align:center;min-width:95px
+ background:#193e58;
+ padding:12px 18px;
+ border-radius:12px;
+ text-align:center;
+ min-width:95px;
 }
 .stat strong{
- display:block;font-size:23px;color:var(--gold)
+ display:block;
+ font-size:23px;
+ color:var(--gold);
 }
 .pill{
- background:#31516c;border-radius:20px;padding:9px 13px
+ background:#31516c;
+ border-radius:20px;
+ padding:9px 13px;
 }
 .note,.message{
- padding:14px;border-radius:12px;margin:12px 0
+ padding:14px;
+ border-radius:12px;
+ margin:12px 0;
 }
 .note{
- background:#59482e;border-left:4px solid var(--gold)
+ background:#59482e;
+ border-left:4px solid var(--gold);
 }
 .message{background:#294d68}
 .ok{background:#24654f!important}
 .no{background:#803b52!important}
 .progress{
- height:12px;background:#2a4f68;
- border-radius:20px;overflow:hidden
+ height:12px;
+ background:#2a4f68;
+ border-radius:20px;
+ overflow:hidden;
 }
 .progress>div{
- height:100%;background:var(--green);
- width:0;transition:width .2s
+ height:100%;
+ background:var(--green);
+ width:0;
+ transition:width .2s;
 }
 .choices{
- display:grid;grid-template-columns:1fr 1fr;gap:10px
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:10px;
 }
 .choices button{min-height:58px}
 label{display:block;margin:12px 0 7px}
 .badge{
- background:#4a5362;opacity:.5;
- padding:11px;border-radius:11px
+ background:#4a5362;
+ opacity:.5;
+ padding:11px;
+ border-radius:11px;
 }
-.badge.earned{background:#81632d;opacity:1}
+.badge.earned{
+ background:#81632d;
+ opacity:1;
+}
 .scoreline{
- display:flex;justify-content:space-between;gap:12px;
- background:#254962;padding:14px;
- border-radius:12px;margin:8px 0
+ display:flex;
+ justify-content:space-between;
+ gap:12px;
+ background:#254962;
+ padding:14px;
+ border-radius:12px;
+ margin:8px 0;
 }
 .scoreline.turn{outline:2px solid var(--gold)}
 #quizClock,#arenaClock{
- font-size:28px;font-weight:bold;color:var(--gold)
+ font-size:28px;
+ font-weight:bold;
+ color:var(--gold);
 }
 .orbital{
- display:flex;align-items:center;gap:9px;
- margin:12px 0;flex-wrap:wrap
+ display:flex;
+ align-items:center;
+ gap:9px;
+ margin:12px 0;
+ flex-wrap:wrap;
 }
 .orbital button{
- min-width:55px;height:52px;font-size:22px
+ min-width:55px;
+ height:52px;
+ font-size:22px;
 }
 .lewis{
  display:grid;
  grid-template-columns:65px 85px 65px;
  grid-template-rows:60px 80px 60px;
- gap:6px;justify-content:center;
- align-items:center;margin:20px auto
+ gap:6px;
+ justify-content:center;
+ align-items:center;
+ margin:20px auto;
 }
 .lewis button{height:56px;font-size:25px}
 .symbol{
- text-align:center;font-size:55px;color:var(--cyan)
+ text-align:center;
+ font-size:55px;
+ color:var(--cyan);
+}
+.element-name{
+ color:var(--gold);
+ font-weight:bold;
 }
 #scene{
- width:100%;height:350px;display:block;
+ width:100%;
+ height:350px;
+ display:block;
  background:radial-gradient(circle,#1e4968,#071321);
- border:1px solid #6a9bbb;border-radius:16px;
- touch-action:none
+ border:1px solid #6a9bbb;
+ border-radius:16px;
+ touch-action:none;
 }
 footer{
- text-align:center;padding:35px;color:#c9deeb
+ text-align:center;
+ padding:35px;
+ color:#c9deeb;
 }
 
-/* MOBİL DENEY LABORATUVARI */
+/* GENEL DENEY TASARIMI */
+
 .lab{
- width:100%;height:310px;position:relative;
+ width:100%;
+ height:310px;
+ position:relative;
  overflow:hidden;
  background:radial-gradient(circle at center,#285978,#081b2d);
- border:1px solid #74a5c2;border-radius:17px;
- display:flex;align-items:center;justify-content:center;
- margin:15px 0;isolation:isolate
+ border:1px solid #74a5c2;
+ border-radius:17px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ margin:15px 0;
+ isolation:isolate;
 }
 .lab::after{
- content:"";position:absolute;bottom:0;left:0;right:0;
- height:20px;background:#30495a
+ content:"";
+ position:absolute;
+ bottom:0;
+ left:0;
+ right:0;
+ height:20px;
+ background:#30495a;
 }
 .beaker{
- position:relative;width:150px;height:190px;
- border:5px solid #b9ecff;border-top:0;
- border-radius:0 0 22px 22px;overflow:hidden;
- box-shadow:0 0 20px #6ed8ff33
+ position:relative;
+ width:150px;
+ height:190px;
+ border:5px solid #b9ecff;
+ border-top:0;
+ border-radius:0 0 22px 22px;
+ overflow:hidden;
 }
 .liquid{
- position:absolute;bottom:0;width:100%;height:55%;
+ position:absolute;
+ bottom:0;
+ width:100%;
+ height:55%;
  background:#6dd7ff;
- transition:height .4s,background .4s
-}
-.liquid::before{
- content:"";position:absolute;top:-7px;
- width:100%;height:14px;
- background:#ffffff55;border-radius:50%
+ transition:height .4s,background .4s;
 }
 .lab-caption{
- position:absolute;bottom:24px;left:10px;right:10px;
- text-align:center;font-weight:bold;
+ position:absolute;
+ bottom:24px;
+ left:10px;
+ right:10px;
+ text-align:center;
+ font-weight:bold;
  text-shadow:0 2px 5px #000;
- pointer-events:none
+ pointer-events:none;
 }
 .particle{
- position:absolute;width:11px;height:11px;
- border-radius:50%;background:#f7d48d;
- box-shadow:0 0 8px currentColor;
- animation:float 2s ease-in-out infinite alternate
+ position:absolute;
+ width:11px;
+ height:11px;
+ border-radius:50%;
+ background:#f7d48d;
+ animation:float 2s ease-in-out infinite alternate;
 }
 @keyframes float{
  from{transform:translate(-13px,-15px)}
  to{transform:translate(18px,18px)}
 }
 .gasbox{
- width:180px;height:200px;
+ width:180px;
+ height:200px;
  border:4px solid #c3eaff;
- position:relative;border-radius:10px;overflow:hidden
+ position:relative;
+ border-radius:10px;
+ overflow:hidden;
 }
 .piston{
- position:absolute;left:0;right:0;
- height:18px;top:30%;
- background:#a5b7c9;z-index:2;
- transition:top .4s
+ position:absolute;
+ left:0;
+ right:0;
+ height:18px;
+ top:30%;
+ background:#a5b7c9;
+ z-index:2;
+ transition:top .4s;
 }
 .gas-particle{
- position:absolute;width:11px;height:11px;
- border-radius:50%;background:#ffe09d;
- animation:float 1.4s ease-in-out infinite alternate
+ position:absolute;
+ width:11px;
+ height:11px;
+ border-radius:50%;
+ background:#ffe09d;
+ animation:float 1.4s ease-in-out infinite alternate;
 }
 .lab-control{
- background:#20465f;padding:14px;
- border-radius:12px;margin:12px 0
+ background:#20465f;
+ padding:14px;
+ border-radius:12px;
+ margin:12px 0;
 }
 .lab-output{
- background:#214d56;color:#b2ffe1;
- padding:16px;border-radius:12px;
- text-align:center;font-size:19px;font-weight:bold
+ background:#214d56;
+ color:#b2ffe1;
+ padding:16px;
+ border-radius:12px;
+ text-align:center;
+ font-size:19px;
+ font-weight:bold;
 }
-#experimentBox{scroll-margin-top:16px}
-#projectEditor{scroll-margin-top:16px}
-.element-name{
- color:var(--gold);font-weight:bold
+
+/* YENİ ASİT BAZ LABORATUVARI */
+
+#phGame{
+ color:#f1f8ff;
+ font-family:Arial,sans-serif;
 }
+#phGame .ph-layout{
+ display:grid;
+ grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);
+ gap:20px;
+ align-items:start;
+}
+#phGame .ph-stage{
+ background:linear-gradient(160deg,#153a58,#0b1e35);
+ border:1px solid #517f9c;
+ border-radius:18px;
+ padding:14px;
+ min-width:0;
+}
+#phGame .ph-title{
+ font-size:20px;
+ font-weight:800;
+ color:#a3eaff;
+ margin-bottom:12px;
+}
+#phGame .ph-scale-labels{
+ display:flex;
+ justify-content:space-between;
+ font-size:12px;
+ color:#d8e6f1;
+ margin-bottom:6px;
+}
+#phGame .ph-scale{
+ height:20px;
+ border-radius:30px;
+ position:relative;
+ background:linear-gradient(
+ 90deg,
+ #f36f79 0%,
+ #f5b675 23%,
+ #e7dd8e 40%,
+ #77dca8 50%,
+ #65cddd 68%,
+ #829af8 100%
+ );
+ margin-bottom:32px;
+}
+#phGame .ph-marker{
+ position:absolute;
+ top:25px;
+ left:50%;
+ transform:translateX(-50%);
+ font-size:27px;
+ color:#a4ffda;
+ transition:left .45s ease;
+ text-shadow:0 2px 5px #000;
+}
+#phGame .ph-reading{
+ text-align:center;
+ font-weight:bold;
+ font-size:16px;
+ margin:5px 0 14px;
+ min-height:25px;
+}
+#phGame .ph-flask-wrap{
+ position:relative;
+ max-width:290px;
+ margin:0 auto;
+}
+#phGame .ph-flask{
+ display:block;
+ width:100%;
+ height:auto;
+ overflow:visible;
+}
+#phGame #phLiquid{
+ transition:y .5s ease,height .5s ease,fill .5s ease;
+}
+#phGame #phProbe{
+ transition:transform .25s ease;
+}
+#phGame .ph-level{
+ text-align:center;
+ font-size:14px;
+ color:#c5deed;
+ margin:8px 0 0;
+}
+#phGame .ph-controls{
+ display:flex;
+ flex-direction:column;
+ gap:9px;
+}
+#phGame .ph-controls button,
+#phGame .ph-actions button{
+ border:1px solid #6c91b0;
+ background:#204966;
+ border-radius:13px;
+ padding:12px;
+ color:white;
+ font-weight:bold;
+ min-height:46px;
+ cursor:pointer;
+}
+#phGame .ph-controls button{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:8px;
+ text-align:left;
+}
+#phGame .ph-controls button span{
+ font-size:21px;
+ color:#9ceeff;
+}
+#phGame .ph-actions{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:10px;
+ margin-top:18px;
+}
+#phGame .ph-actions button{
+ background:#315f7c;
+}
+#phGame .ph-actions .ph-clear{
+ grid-column:1/-1;
+ background:#5b3952;
+}
+#phGame .ph-status{
+ background:#20435d;
+ border:1px solid #477894;
+ border-radius:12px;
+ padding:13px;
+ margin-top:15px;
+ line-height:1.6;
+ min-height:55px;
+}
+#phGame .ph-history{
+ margin-top:15px;
+ background:#122c42;
+ border-radius:13px;
+ padding:14px;
+}
+#phGame .ph-history ul{
+ margin:8px 0;
+ padding-left:20px;
+ line-height:1.8;
+ color:#d5e8f4;
+}
+#phGame .ph-help{
+ font-size:13px;
+ color:#b9d1e0;
+ margin-top:12px;
+ line-height:1.6;
+}
+#phGame .ph-pump{
+ text-align:center;
+ font-size:13px;
+ color:#b5e5fa;
+ margin:8px 0;
+}
+
 @media(max-width:700px){
- .grid,.grid3,.choices{grid-template-columns:1fr}
+ .grid,.grid3,.choices{
+  grid-template-columns:1fr;
+ }
  .panel{padding:14px}
  #scene{height:300px}
  .lab{height:275px}
  .beaker{width:130px;height:165px}
  .gasbox{width:160px;height:175px}
+ #phGame .ph-layout{grid-template-columns:1fr}
+ #phGame .ph-flask-wrap{max-width:260px}
+ #phGame .ph-title{font-size:18px}
 }
 @media(prefers-reduced-motion:reduce){
  .particle,.gas-particle{animation:none}
 }
 </style>
 </head>
+
 <body>
 <main>
 
 <header>
 <div class="logo">⚗️ KİMYAVERSE</div>
-<p>8.1 • KİMYA AKADEMİSİ • SANAL LABORATUVAR • ARENA</p>
+<p>8.2 • KİMYA AKADEMİSİ • SANAL LABORATUVAR • ARENA</p>
 </header>
 
 <section id="gradeScreen" class="panel">
@@ -307,6 +598,7 @@ Dersler, oyunlar ve testler seçtiğin sınıfa göre değişir.
 </nav>
 
 <!-- ANA SAYFA -->
+
 <section id="home" class="panel">
 <h2>✨ KimyaVerse'e Hoş Geldin!</h2>
 
@@ -325,7 +617,7 @@ Dersler, oyunlar ve testler seçtiğin sınıfa göre değişir.
 </button>
 <button class="tile" onclick="page('experiments')">
 <b>🧪 Sanal Laboratuvar</b>
-<span>Animasyonlu deneyler</span>
+<span>Asit–baz oyunu ve diğer deneyler</span>
 </button>
 <button class="tile" onclick="page('models')">
 <b>🌌 3D Modeller</b>
@@ -385,6 +677,7 @@ Dersler, oyunlar ve testler seçtiğin sınıfa göre değişir.
 </section>
 
 <!-- DERSLER -->
+
 <section id="academy" class="panel hidden">
 <h2>📚 Kimya Akademisi</h2>
 <div class="note">
@@ -404,6 +697,7 @@ resmî müfredatın eksiksiz bir kopyası değildir.
 </section>
 
 <!-- OYUNLAR -->
+
 <section id="games" class="panel hidden">
 <h2>🎮 Oyun Merkezi</h2>
 <div class="grid">
@@ -427,6 +721,7 @@ resmî müfredatın eksiksiz bir kopyası değildir.
 </section>
 
 <!-- TEST -->
+
 <section id="quiz" class="panel hidden">
 <button onclick="page('games')">← Oyunlar</button>
 <h2 id="quizTitle"></h2>
@@ -449,6 +744,7 @@ resmî müfredatın eksiksiz bir kopyası değildir.
 </section>
 
 <!-- ELEKTRON OYUNU -->
+
 <section id="electron" class="panel hidden">
 <h2>⚛️ Elektron Dizilimi</h2>
 <p>
@@ -477,6 +773,7 @@ başlayarak yerleştir.
 </section>
 
 <!-- LEWIS OYUNU -->
+
 <section id="lewis" class="panel hidden">
 <h2>🔵 Lewis Nokta Oyunu</h2>
 <p>
@@ -515,6 +812,7 @@ başlayarak yerleştir.
 </section>
 
 <!-- ARENA AYARLARI -->
+
 <section id="arenaSetup" class="panel hidden">
 <h2>⚔️ KimyaVerse Arena</h2>
 <p>Oyuncular aynı cihazda sırayla cevap verir.</p>
@@ -557,7 +855,8 @@ Yanlış veya süre aşımı 0 puan.
 </div>
 </section>
 
-<!-- ARENA OYUN -->
+<!-- ARENA OYUNU -->
+
 <section id="arenaGame" class="panel hidden">
 <h2>⚔️ ARENA</h2>
 <div id="arenaBoard"></div>
@@ -594,6 +893,7 @@ Devam Et →
 </section>
 
 <!-- DENEYLER -->
+
 <section id="experiments" class="panel hidden">
 <h2>🧪 Sanal Deney Merkezi</h2>
 
@@ -613,7 +913,8 @@ Gerçek kimyasalları rastgele karıştırma.
 </div>
 </section>
 
-<!-- 3D -->
+<!-- 3D MODELLER -->
+
 <section id="models" class="panel hidden">
 <h2>🌌 3D Model Galerisi</h2>
 <p>Parmağınla sürükleyerek döndür.</p>
@@ -634,6 +935,7 @@ Gerçek kimyasalları rastgele karıştırma.
 </section>
 
 <!-- PROJELER -->
+
 <section id="projects" class="panel hidden">
 <h2>📁 Proje Atölyesi</h2>
 <div id="projectMenu" class="grid"></div>
@@ -661,6 +963,7 @@ Gerçek kimyasalları rastgele karıştırma.
 </section>
 
 <!-- GERİ BİLDİRİM -->
+
 <section id="feedback" class="panel hidden">
 <h2>💌 Geri Bildirim</h2>
 
@@ -699,7 +1002,7 @@ Gerçek kimyasalları rastgele karıştırma.
 </div>
 
 <footer>
-<h3>⚗️ KimyaVerse 8.1</h3>
+<h3>⚗️ KimyaVerse 8.2</h3>
 <strong>Designed & Developed by Miray Aygün</strong>
 <p>© 2026 KimyaVerse</p>
 </footer>
@@ -1355,7 +1658,7 @@ const curriculum={
   T(
    "Entalpi",
    "Sabit basınçtaki ısı değişimi entalpi değişimiyle ilişkilidir.",
-   "Entalpi değişiminin sembolü hangisidir?",
+   "Entalpi değişiminin sembolü hangisi?",
    ["ΔH","pH","n","V"],0
   ),
   T(
@@ -1841,11 +2144,6 @@ function quizHint(){
 }
 
 /* ELEMENTLER — TÜRKÇE İSİMLER */
-
-/*
-Her element:
-[sembol, atom numarası, değerlik elektronu, Türkçe ad]
-*/
 
 const elements=[
  ["H",1,1,"Hidrojen"],
@@ -2451,10 +2749,10 @@ function finishArena(){
  playSound("win");
 }
 
-/* ANİMASYONLU DENEYLER */
+/* DENEY MENÜSÜ */
 
 const experimentNames=[
- ["🧪 pH Ölçümü","ph"],
+ ["🧪 Asit–Baz Laboratuvarı","ph"],
  ["💧 Çözünme","dissolve"],
  ["⚗️ Molarite","molarity"],
  ["💨 Gaz ve Piston","gas"],
@@ -2548,12 +2846,534 @@ function particles(parent,count,type="particle"){
  return arr;
 }
 
-function openExperiment(title,id){
+/* YENİ ASİT BAZ OYUNU */
+
+const PH_LIQUIDS={
+ lemon:{
+  name:"Limon suyu",
+  ph:2.3,
+  volume:40
+ },
+ vinegar:{
+  name:"Sirke",
+  ph:2.8,
+  volume:40
+ },
+ water:{
+  name:"Su",
+  ph:7,
+  volume:100
+ },
+ baking:{
+  name:"Karbonat çözeltisi",
+  ph:8.3,
+  volume:40
+ },
+ soap:{
+  name:"Sabunlu su",
+  ph:10.2,
+  volume:40
+ }
+};
+
+let phState=null;
+
+function resetPhState(){
+ phState={
+  additions:[],
+  volume:0,
+  ph:7,
+  probeStep:0,
+  measured:false,
+  history:[]
+ };
+}
+
+/*
+ Bu hesap yalnızca eğitsel bir yaklaşımdır.
+ Gerçek karışımlarda tamponlama ve tepkimeler
+ gibi başka etkenler de vardır.
+*/
+
+function calculatePH(){
+ if(phState.volume===0)return 7;
+
+ let excess=0;
+
+ phState.additions.forEach(item=>{
+  const h=Math.pow(10,-item.ph);
+  const oh=Math.pow(10,item.ph-14);
+
+  excess+=(h-oh)*item.volume;
+ });
+
+ excess/=phState.volume;
+
+ const kw=1e-14;
+
+ const h=
+  (excess+Math.sqrt(excess*excess+4*kw))/2;
+
+ return Math.max(
+  0,
+  Math.min(14,-Math.log10(h))
+ );
+}
+
+function getPhCategory(value){
+ if(value<6.5)return "ASİDİK";
+ if(value>7.5)return "BAZİK";
+ return "NÖTRE YAKIN";
+}
+
+function getPhColor(value){
+ if(value<4)return "#f17c7e";
+ if(value<6.5)return "#f2b96d";
+ if(value<=7.5)return "#78dca9";
+ if(value<10)return "#73cfe3";
+ return "#9898f7";
+}
+
+function getLiquidHeight(){
+ return Math.min(
+  172,
+  phState.volume/600*172
+ );
+}
+
+function probeTipY(){
+ return 80+phState.probeStep*23;
+}
+
+function liquidSurfaceY(){
+ return 253-getLiquidHeight();
+}
+
+function probeTouchesLiquid(){
+ return (
+  phState.volume>0 &&
+  probeTipY()>=liquidSurfaceY()
+ );
+}
+
+function addPHLiquid(id){
+ const liquid=PH_LIQUIDS[id];
+
+ if(!liquid)return;
+
+ if(phState.volume+liquid.volume>600){
+  setPhStatus(
+   "⚠️ Kap doldu! Önce kabı boşaltmalısın."
+  );
+  return;
+ }
+
+ phState.additions.push({...liquid});
+ phState.volume+=liquid.volume;
+ phState.ph=calculatePH();
+
+ phState.history.push(
+  liquid.name+" eklendi (+"+
+  liquid.volume+" mL)"
+ );
+
+ phState.measured=false;
+ phState.probeStep=0;
+
+ renderPH();
+
+ setPhStatus(
+  "🧪 "+liquid.name+
+  " eklendi. Ölçmek için probu indir!"
+ );
+
+ playSound("click");
+}
+
+function lowerPHProbe(){
+ if(phState.volume===0){
+  setPhStatus(
+   "💧 Önce kaba bir sıvı eklemelisin."
+  );
+  return;
+ }
+
+ if(phState.measured){
+  setPhStatus(
+   "✅ Ölçüm tamamlandı. Yeni sıvı ekleyebilir veya kabı boşaltabilirsin."
+  );
+  return;
+ }
+
+ phState.probeStep=Math.min(
+  9,
+  phState.probeStep+1
+ );
+
+ if(probeTouchesLiquid()){
+  phState.measured=true;
+
+  phState.history.push(
+   "pH ölçümü: "+phState.ph.toFixed(2)
+  );
+
+  setPhStatus(
+   "🔬 Ölçüm tamamlandı! Karışım "+
+   getPhCategory(phState.ph).toLowerCase()+
+   " özellik gösteriyor."
+  );
+
+  playSound("correct");
+ }else{
+  setPhStatus(
+   "⬇️ Prob biraz daha indi. Sıvıya ulaşması için tekrar bas."
+  );
+
+  playSound("electron");
+ }
+
+ renderPH();
+}
+
+function clearPH(){
+ resetPhState();
+ renderPH();
+
+ setPhStatus(
+  "🧼 Kap boşaltıldı. Yeni bir deney yapabilirsin."
+ );
+}
+
+function setPhStatus(message){
+ const el=$("phGameStatus");
+
+ if(el)el.textContent=message;
+}
+
+function renderPH(){
+ const root=$("phGame");
+ if(!root)return;
+
+ const volume=phState.volume;
+ const height=getLiquidHeight();
+
+ const liquid=$("phLiquid");
+ const probe=$("phProbe");
+ const marker=$("phMarker");
+ const reading=$("phReading");
+
+ liquid.setAttribute("y",253-height);
+ liquid.setAttribute("height",height);
+
+ liquid.setAttribute(
+  "fill",
+  getPhColor(phState.ph)
+ );
+
+ probe.setAttribute(
+  "transform",
+  "translate(0 "+(phState.probeStep*23)+")"
+ );
+
+ $("phVolume").textContent=
+  volume===0
+   ?"Kap boş"
+   :volume+" / 600 mL";
+
+ $("phStep").textContent=
+  "Prob seviyesi: "+
+  phState.probeStep+"/9";
+
+ if(phState.measured){
+  const ph=phState.ph;
+
+  marker.style.left=
+   ((14-ph)/14*100)+"%";
+
+  marker.textContent="▲";
+
+  reading.textContent=
+   "pH "+ph.toFixed(2)+
+   " • "+getPhCategory(ph);
+
+  reading.style.color=getPhColor(ph);
+ }else{
+  marker.style.left="50%";
+  marker.textContent="△";
+
+  reading.textContent="pH: Ölçüm bekleniyor";
+  reading.style.color="#d5e8f4";
+ }
+
+ const list=$("phHistory");
+
+ list.replaceChildren();
+
+ if(phState.history.length===0){
+  const li=document.createElement("li");
+  li.textContent="Henüz işlem yapılmadı.";
+  list.append(li);
+ }else{
+  phState.history.slice(-8).forEach(text=>{
+   const li=document.createElement("li");
+   li.textContent=text;
+   list.append(li);
+  });
+ }
+}
+
+function makePHGame(){
  const box=$("experimentBox");
  const controls=$("experimentControls");
  const output=$("experimentOutput");
 
  box.classList.remove("hidden");
+ output.classList.add("hidden");
+
+ $("experimentTitle").textContent=
+  "🧪 Asit–Baz Laboratuvarı";
+
+ controls.replaceChildren();
+
+ const root=document.createElement("div");
+ root.id="phGame";
+
+ root.innerHTML=`
+ <div class="ph-title">
+ ⚗️ ASİT–BAZ LABORATUVARI
+ </div>
+
+ <div class="ph-scale-labels">
+ <span>BAZ • 14</span>
+ <span>NÖTR • 7</span>
+ <span>ASİT • 0</span>
+ </div>
+
+ <div class="ph-scale">
+ <div id="phMarker" class="ph-marker">△</div>
+ </div>
+
+ <div id="phReading" class="ph-reading">
+ pH: Ölçüm bekleniyor
+ </div>
+
+ <div class="ph-layout">
+
+ <div class="ph-stage">
+
+ <div class="ph-flask-wrap">
+
+ <svg class="ph-flask"
+      viewBox="0 0 300 310"
+      aria-label="Sıvı kabı ve hareketli pH probu">
+
+ <defs>
+ <clipPath id="phFlaskClip">
+ <path d="
+ M106 73
+ L194 73
+ L194 132
+ L241 257
+ Q250 281 221 285
+ L79 285
+ Q50 281 59 257
+ L106 132 Z
+ "/>
+ </clipPath>
+ </defs>
+
+ <!-- Sıvı -->
+ <g clip-path="url(#phFlaskClip)">
+ <rect id="phLiquid"
+       x="45"
+       y="253"
+       width="210"
+       height="0"
+       fill="#78dca9"
+       opacity=".82"/>
+ </g>
+
+ <!-- Cam deney kabı -->
+ <path
+ d="
+ M106 73
+ L106 132
+ L59 257
+ Q50 281 79 285
+ L221 285
+ Q250 281 241 257
+ L194 132
+ L194 73
+ "
+ fill="none"
+ stroke="#c0ebff"
+ stroke-width="6"
+ stroke-linecap="round"
+ stroke-linejoin="round"/>
+
+ <!-- Kabın ağzı -->
+ <path d="M106 73 H194"
+ stroke="#c0ebff"
+ stroke-width="7"
+ stroke-linecap="round"/>
+
+ <!-- Hareketli prob -->
+ <g id="phProbe">
+ <rect x="146"
+       y="32"
+       width="12"
+       height="23"
+       rx="4"
+       fill="#c6d9e6"/>
+
+ <path d="M152 55 V80"
+       stroke="#e6f6ff"
+       stroke-width="5"
+       stroke-linecap="round"/>
+
+ <circle cx="152"
+         cy="80"
+         r="8"
+         fill="#9fe6ff"
+         stroke="#fff"
+         stroke-width="2"/>
+ </g>
+
+ <!-- Ölçü çizgileri -->
+ <g stroke="#c9e9f8"
+ stroke-width="2"
+ opacity=".65">
+ <path d="M91 180 H104"/>
+ <path d="M79 215 H94"/>
+ <path d="M69 250 H85"/>
+ </g>
+ </svg>
+
+ </div>
+
+ <div id="phVolume" class="ph-level">
+ Kap boş
+ </div>
+
+ <div id="phStep" class="ph-level">
+ Prob seviyesi: 0/9
+ </div>
+
+ </div>
+
+ <div class="ph-controls">
+
+ <strong>💧 Sıvı ekle</strong>
+
+ <button data-ph-add="lemon">
+ 🍋 Limon suyu <span>＋</span>
+ </button>
+
+ <button data-ph-add="vinegar">
+ 🧴 Sirke <span>＋</span>
+ </button>
+
+ <button data-ph-add="water">
+ 💧 Su <span>＋</span>
+ </button>
+
+ <button data-ph-add="baking">
+ ⚗️ Karbonat çözeltisi <span>＋</span>
+ </button>
+
+ <button data-ph-add="soap">
+ 🫧 Sabunlu su <span>＋</span>
+ </button>
+
+ <div class="ph-help">
+ Her dokunuşta kaba biraz sıvı eklenir.
+ Suyu seyreltme amacıyla kullanabilirsin.
+ </div>
+
+ </div>
+ </div>
+
+ <div class="ph-actions">
+
+ <button id="phAddWater">
+ 💧 Su ekle
+ </button>
+
+ <button id="phLowerProbe">
+ ⬇️ Probu indir
+ </button>
+
+ <button id="phEmpty" class="ph-clear">
+ 🔄 Kabı boşalt
+ </button>
+
+ </div>
+
+ <div id="phGameStatus"
+ class="ph-status"
+ aria-live="polite">
+ Önce bir sıvı ekle, sonra probu indir.
+ </div>
+
+ <div class="ph-history">
+ <strong>📋 Deney günlüğü</strong>
+ <ul id="phHistory"></ul>
+ </div>
+
+ <div class="ph-help">
+ ⚠️ Bu oyun eğitsel bir simülasyondur.
+ pH değerleri yaklaşık olarak modellenmiştir.
+ Gerçek sıvıları karıştırmak için kullanılmamalıdır.
+ </div>
+ `;
+
+ controls.append(root);
+
+ root.querySelectorAll("[data-ph-add]").forEach(button=>{
+  button.addEventListener("click",()=>{
+   addPHLiquid(button.dataset.phAdd);
+  });
+ });
+
+ $("phAddWater").addEventListener("click",()=>{
+  addPHLiquid("water");
+ });
+
+ $("phLowerProbe").addEventListener(
+  "click",lowerPHProbe
+ );
+
+ $("phEmpty").addEventListener(
+  "click",clearPH
+ );
+
+ resetPhState();
+ renderPH();
+
+ box.scrollIntoView({
+  behavior:"smooth",
+  block:"start"
+ });
+}
+
+/* DİĞER DENEYLER */
+
+function openExperiment(title,id){
+ if(id==="ph"){
+  makePHGame();
+
+  profile.badges.lab=true;
+  updateStats();
+
+  return;
+ }
+
+ const box=$("experimentBox");
+ const controls=$("experimentControls");
+ const output=$("experimentOutput");
+
+ box.classList.remove("hidden");
+ output.classList.remove("hidden");
 
  $("experimentTitle").textContent=title;
 
@@ -2563,47 +3383,7 @@ function openExperiment(title,id){
  const lab=makeLab(controls);
  const result=text=>output.textContent=text;
 
- if(id==="ph"){
-  const {liquid,caption}=makeBeaker(lab);
-
-  makeRange(
-   controls,"pH değerini değiştir",
-   0,14,7,v=>{
-    let color,kind;
-
-    if(v<=3){
-     color="#f85a70";
-     kind="Kuvvetli asidik";
-    }else if(v<7){
-     color="#ffc65f";
-     kind="Asidik";
-    }else if(v===7){
-     color="#75e0a3";
-     kind="Nötr";
-    }else if(v<=11){
-     color="#63c7ff";
-     kind="Bazik";
-    }else{
-     color="#a785ff";
-     kind="Kuvvetli bazik";
-    }
-
-    liquid.style.background=color;
-    caption.textContent="pH "+v;
-
-    result("pH "+v+" • "+kind);
-   }
-  );
-
-  const note=document.createElement("p");
-
-  note.textContent=
-   "Renkler yaklaşık ve temsili indikatör renkleridir.";
-
-  controls.append(note);
- }
-
- else if(id==="dissolve"){
+ if(id==="dissolve"){
   const {b,liquid,caption}=makeBeaker(lab);
 
   liquid.style.background="#67cfff";

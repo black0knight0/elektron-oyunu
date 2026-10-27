@@ -4605,19 +4605,43 @@ function closeBot(){
  $("botPanel").classList.add("hidden");
 }
 
-function askBot(question){
- if(!question.trim())return;
+async function askBot(question) {
+    if (!question.trim()) return;
 
- openBot();
+    openBot();
+    addBotMessage(question, "user");
+    $("botInput").value = "";
+    $("botPreview").textContent = "KimyaBot düşünüyor... 🤖";
 
- addBotMessage(question,"user");
+    try {
+        const response = await fetch(
+            "https://kimyaverse-backend.onrender.com/kimya-sor",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ soru: question })
+            }
+        );
 
- const reply=botReply(question);
+        if (!response.ok) {
+            throw new Error("Sunucu hatası: " + response.status);
+        }
 
- addBotMessage(reply,"assistant");
+        const data = await response.json();
+        const reply = data.cevap;
 
- $("botPreview").textContent=reply;
- $("botInput").value="";
+        addBotMessage(reply, "assistant");
+        $("botPreview").textContent = reply;
+
+    } catch (error) {
+        console.error(error);
+
+        const message = "Şu anda yapay zekâya bağlanılamıyor. Lütfen tekrar dene. 💗";
+        addBotMessage(message, "assistant");
+        $("botPreview").textContent = message;
+    }
 }
 
 $("botForm").addEventListener("submit",e=>{
